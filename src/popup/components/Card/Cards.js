@@ -3,6 +3,14 @@ import { connect } from 'react-redux';
 import { map,  } from 'ramda';
 import Card from './Card';
 
+/**
+ * A component to list store's packs
+ *
+ * @param  {Function} dispatch   The result from `store.dispatch()`
+ * @param  {Array} packs   Store's packs
+ * @param  {Number} idPackage   Is package's id that is using.
+ * @return {Component}
+ */
 const Cards = ({
     dispatch,
     packs,
