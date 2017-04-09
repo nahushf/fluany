@@ -10,7 +10,8 @@ import { ADD_PACKAGE,
          IS_CHANGING_COLOR,
 				 IS_EDIT_PACKAGE,
          NEW_PACKAGE,
-				 CHANGE_TIME_PACKAGE } from '../constants/ActionTypes';
+				 CHANGE_TIME_PACKAGE,
+         IS_EDITING_CARD } from '../constants/ActionTypes';
 
 export function addPackage(value){
 	  return {
@@ -98,4 +99,13 @@ export function changeTimePackage(value, id){
 		value,
 		id
 	};
+}
+
+export function isEditingCard(value, id, idCard){
+	  return {
+		    type: IS_EDITING_CARD,
+		    value,
+		    id,
+        idCard
+	  };
 }

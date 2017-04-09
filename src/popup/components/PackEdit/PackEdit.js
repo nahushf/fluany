@@ -46,12 +46,12 @@ let PackEdit = ({
 							</svg>
 					</button>
 					<button className="btn btn-save">Salvar pacote</button>
-					<button className="btn btn-delete">
-						<span>Excluir</span>
-						<svg className="trash-icon">
+					{/* <button className="btn btn-delete">
+						  <span>Excluir</span>
+						  <svg className="trash-icon">
 							<use xlinkHref="#icon-trash"></use>
-						</svg>
-					</button>
+						  </svg>
+					    </button> */}
 				</nav>
 				<div>
 					<TitlePack {...titleProps}/>

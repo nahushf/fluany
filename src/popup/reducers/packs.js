@@ -3,7 +3,8 @@ import { ADD_PACKAGE,
          CHANGE_PACKAGE_DESCRIPTION,
          CHANGE_PACKAGE_COLORID,
          IS_CHANGING_COLOR,
-				 CHANGE_TIME_PACKAGE } from '../constants/ActionTypes';
+				 CHANGE_TIME_PACKAGE,
+         IS_EDITING_CARD } from '../constants/ActionTypes';
 import { assoc, update } from 'ramda';
 
 let defaultState = [
@@ -16,24 +17,32 @@ let defaultState = [
 		timeMinutes: 3,
     cards: [
         {
+            id: 0,
             colorID: 1,
             front: "Hello",
-            back: "Olá"
+            back: "Olá",
+            isEditing: false
         },
         {
+            id: 1,
             colorID: 2,
             front: "Hi",
-            back: "Olá"
+            back: "Olá",
+            isEditing: false
         },
         {
+            id: 2,
             colorID: 3,
             front: "Hello",
-            back: "Olá"
+            back: "Olá",
+            isEditing: false
         },
         {
+            id: 3,
             colorID: 4,
             front: "Hello",
-            back: "Olá"
+            back: "Olá",
+            isEditing: false
         }
     ]
 },
@@ -93,7 +102,15 @@ const packs = (state = defaultState, action) => {
         case IS_CHANGING_COLOR:
             return update(action.id, assoc('isChangingColor', action.value, state[action.id]), state);
 				case CHANGE_TIME_PACKAGE:
-					return update(action.id, assoc('timeMinutes', action.value, state[action.id]), state);
+            return update(action.id, assoc('timeMinutes', action.value, state[action.id]), state);
+        case IS_EDITING_CARD:
+            return update(action.id, assoc('cards',
+                                           update(action.idCard,
+                                                  assoc('isEditing', action.value,
+                                                        state[action.id].cards[action.idCard]),
+                                                  state[action.id].cards),
+                                       state[action.id]),
+                      state);
         default:
             return state;
     }

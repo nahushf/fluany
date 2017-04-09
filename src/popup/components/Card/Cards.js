@@ -17,7 +17,7 @@ const Cards = ({
     idPackage
 }) => {
 
-    const cardMap = (card, index) => <Card key={index} index={index} {...card}/>;
+    const cardMap = (card, index) => <Card key={index} idPackage={idPackage} index={index} {...card}/>;
 
     return (
         <section>

@@ -1,6 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { inc } from 'ramda';
+import { isEditingCard } from '../../actions/actions';
+import CardEdit from './CardEdit';
 
 
 /**
@@ -15,12 +17,23 @@ const Card = ({
     dispatch,
     packs,
     index,
-    colorID
+    colorID,
+    id,
+    idPackage
 }) => {
 
+    const isEditing = packs[idPackage].cards[id].isEditing;
+
+    const handleClickCard = () => {
+        dispatch(isEditingCard(!isEditing, idPackage, id));
+    }
+
     return (
-        <li className={"card-item color-" + colorID}>
-            <p className="card-item--count">{ inc(index) }</p>
+        <li className={"card-item" + (isEditing ? " isEditing" : "")}>
+            <div className={"card-item-block color-" + colorID} onClick={handleClickCard}>
+                <p className="card-item--count">{ inc(index) }</p>
+            </div>
+            <CardEdit />
         </li>
     );
 }
