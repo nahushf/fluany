@@ -23,14 +23,24 @@ const Card = ({
 }) => {
 
     const isEditing = packs[idPackage].cards[id].isEditing;
+    let listItem = "";
+    let styled = {
+        backgroundColor: 'red'
+    }
 
     const handleClickCard = () => {
+        let positionX = listItem.getBoundingClientRect().right;
+        console.log(positionX);
+        console.log(listItem)
         dispatch(isEditingCard(!isEditing, idPackage, id));
     }
 
     return (
-        <li className={"card-item" + (isEditing ? " isEditing" : "")}>
+        <li className={"card-item" + (isEditing ? " isEditing" : "")} ref={(e) =>{listItem = e}}>
             <div className={"card-item-block color-" + colorID} onClick={handleClickCard}>
+                <svg className="arrow-back">
+                    <use xlinkHref="#icon-arrow"></use>
+                </svg>
                 <p className="card-item--count">{ inc(index) }</p>
             </div>
             <CardEdit />

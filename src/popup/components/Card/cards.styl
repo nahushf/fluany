@@ -5,11 +5,13 @@
   list-style none
   display flex
   justify-content space-between
+  flex-wrap wrap
   .card-item
     width 124px
     height 124px
     border-radius 4px
     transition all .3s ease-in
+    margin-top 20px
     .card-item--count
       color #FFF
       font-size 50px
@@ -19,6 +21,7 @@
       top 50%
       left 50%
       transform translate(-50%, -50%)
+      transition all .2s ease-out
     .card-item-block
       transition all .4s ease-in
       z-index 12
@@ -34,6 +37,16 @@
       height 124px
       position absolute
       cursor pointer
+      .arrow-back
+        fill #FFF
+        transform rotateZ(90deg)
+        position absolute
+        left 33px
+        top -13px
+        width 60px
+        opacity 0
+        visibility hidden
+        transition all .1s ease-in
     .card-edit-container
       opacity 0
       visibility hidden
@@ -42,6 +55,9 @@
     &.isEditing
       .card-item-block
         left 0
+        .arrow-back
+          opacity 1
+          visibility visible
       .card-edit-container
         opacity 1
         visibility visible
@@ -50,6 +66,9 @@
         width 80%
         height 124px
         background rgb(247, 247, 247)
+      .card-item--count
+        opacity 0
+        visibility hidden
 
 .card-edit-container
   .card-edit-content
