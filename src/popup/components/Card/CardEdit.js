@@ -6,12 +6,12 @@ const CardEdit = ({
 
     return (
         <div className="card-edit-container">
-            <div>
+            <div className="card-edit-content">
                 <p>Front</p>
                 <input placeholder="Digite o que vai aparecer no front"></input>
             </div>
 
-            <div>
+            <div className="card-edit-content">
                 <p>Back</p>
                 <input placeholder="Digite o que vai aparecer no Back"></input>
             </div>

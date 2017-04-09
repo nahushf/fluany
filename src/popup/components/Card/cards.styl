@@ -8,9 +8,8 @@
   .card-item
     width 124px
     height 124px
-    background color-4
     border-radius 4px
-    position relative
+    transition all .3s ease-in
     .card-item--count
       color #FFF
       font-size 50px
@@ -21,6 +20,8 @@
       left 50%
       transform translate(-50%, -50%)
     .card-item-block
+      transition all .4s ease-in
+      z-index 12
       &.color-1
         background color-1
       &.color-2
@@ -36,3 +37,44 @@
     .card-edit-container
       opacity 0
       visibility hidden
+      z-index 13
+      transition all .3 ease-in
+    &.isEditing
+      .card-item-block
+        left 0
+      .card-edit-container
+        opacity 1
+        visibility visible
+        position absolute
+        left 124px
+        width 80%
+        height 124px
+        background rgb(247, 247, 247)
+
+.card-edit-container
+  .card-edit-content
+    width calc(50% - 21px)
+    float left
+    height 100%
+    padding-left 19px
+    &:first-child
+      padding-left 20px
+      position relative
+      &:after
+        content ""
+        position absolute
+        width 2px
+        height 100%
+        background #efefef
+        right 0
+        top 0
+    p
+      font-size 22px
+      margin-bottom 10px
+      color rgba(184, 189, 199, 1)
+      font-weight bold
+    input
+      width 84%
+      height 32px
+      padding-left 10px
+      outline none
