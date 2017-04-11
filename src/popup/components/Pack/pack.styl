@@ -19,53 +19,55 @@
     .palette-color
       opacity 1
       visibility visible
+    .play-label
+      opacity 1
+      visibility visible
   h3
     color #FFF
     font-size 16px
     margin 0
+
+  &.color-1, &.color-2, &.color-3, &.color-4
+    .input-description-package, .input-title-package
+      width 95%
+      height 36px
+      transition all .3s
+      &:focus
+        color #FFF
+        padding-left 10px
+        background rgba(0, 0, 0, .1);
+    .input-title-package
+      height 30px
+    .input-title-package:focus + .title-edit-icon, .input-description-package:focus + .description-edit-icon
+      display none
+
   &.color-1
     background-color color-1
     .input-description-package
       background color-1
-      &:focus
-        color color-1
     .input-title-package
       background color-1
-      &:focus
-        color color-1
 
   &.color-2
     background-color color-2
     .input-description-package
       background color-2
-      &:focus
-        color color-2
     .input-title-package
       background color-2
-      &:focus
-        color color-2
 
   &.color-3
     background-color color-3
     .input-description-package
       background color-3
-      &:focus
-        color color-3
     .input-title-package
       background color-3
-      &:focus
-        color color-3
 
   &.color-4
     background-color color-4
     .input-description-package
       background color-4
-      &:focus
-        color color-4
     .input-title-package
       background color-4
-      &:focus
-        color color-4
 
 .pack-item--new
   text-align center
@@ -163,8 +165,8 @@
 
 .title-edit-icon
   float right
-  margin-top -23px
-  margin-right 36px
+  margin-top -30px
+  margin-right 19px
   opacity 0
   visibility hidden
 
