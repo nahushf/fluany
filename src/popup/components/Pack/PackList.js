@@ -12,13 +12,14 @@ import { filter, toLower, take, compose } from 'ramda';
  * @return {Component}
  */
 let PackList = ({
-    packs
+    packs,
+    filterPackage
     }) => {
 
     return (
         <section>
 				    <ul className="packs-content">
-                <Create/>
+                { filterPackage === "" ? <Create/> : null }
                 {packs.map(pack =>
                         <Pack
                          key={pack.id}
@@ -79,7 +80,8 @@ const mapStateToProps = (
       packs: getVisiblePackages(
                 getSearchPackages(state.packs, state.flags.filterPackage),
                 state.flags.paginationPackage, state.flags.filterPackage
-      )
+      ),
+    filterPackage: state.flags.filterPackage
     }
 );
 
