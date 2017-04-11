@@ -5,6 +5,7 @@ import { changePackageTitle,
 import Play  from '../Play/Play';
 import Palette from '../Palette/Palette';
 import TitlePack from './TitlePack';
+import Setting from '../Setting/Setting';
 import DescriptionPack from './DescriptionPack';
 
 /**
@@ -40,6 +41,7 @@ let Pack = ({
                 <DescriptionPack onChange={handlePackageDescription} description={description}/>
                 <Play />
                 <Palette isChanging={isChangingColor} colorID={colorID} packageid={id}/>
+                <Setting />
             </li>
     );
 }

@@ -9,7 +9,6 @@
   .card-item
     width 124px
     height 124px
-    border-radius 4px
     transition all .3s ease-in
     margin-top 20px
     .card-item--count
@@ -23,7 +22,7 @@
       transform translate(-50%, -50%)
       transition all .2s ease-out
     .card-item-block
-      transition all .4s ease-in
+      border-radius 8px
       z-index 12
       &.color-1
         background color-1
@@ -55,6 +54,7 @@
     &.isEditing
       .card-item-block
         left 0
+        border-radius 0
         .arrow-back
           opacity 1
           visibility visible
