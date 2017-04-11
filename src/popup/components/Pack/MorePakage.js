@@ -8,18 +8,22 @@ import { changePagination } from '../../actions/actions';
  * @param  {Function} dispatch   The result from `store.dispatch()`
  * @param  {Array}    packs   Store's packs
  * @param  {Number}   paginationPackage   A flag to know pagination number
+ * @param  {String}   filterPackage   A flag to know if is search anything
  * @return {Component}
  */
 let MorePackage = ({
     dispatch,
     packs,
+    filterPackage,
     paginationPackage }) => {
 
     const handleClickMorePack = () => {
         dispatch(changePagination());
     };
 
-    let isPagination = paginationPackage  > packs.length;
+    console.log(filterPackage);
+    let isPagination = paginationPackage  > packs.length || filterPackage !== "";
+    console.log(isPagination)
     return (
         <section className={"more-package--content " + (isPagination ? "more-package--hidden":"")}>
             <button className="more-package--button btn" onClick={handleClickMorePack}>+ Carregar mais</button>
@@ -31,7 +35,8 @@ const mapStateToProps = (
     state
 ) => ({
         packs: state.packs,
-        paginationPackage: state.flags.paginationPackage
+        paginationPackage: state.flags.paginationPackage,
+        filterPackage: state.flags.filterPackage
     }
 );
 

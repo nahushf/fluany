@@ -39,8 +39,14 @@ let PackList = ({
  */
 const getVisiblePackages = (
     packs,
-    pagination
-) => take(pagination, packs);
+    pagination,
+    filterPackage
+) => {
+    if(filterPackage === ""){
+        return take(pagination, packs);
+    }
+    return packs;
+}
 
 
 /**
@@ -52,21 +58,27 @@ const getVisiblePackages = (
 const getSearchPackages = (
     packs,
     filterPackage
-) => filter(pack => {
-        let title = toLower(pack.title);
-        let description = toLower(pack.description);
+) => {
+    if(filterPackage !== ""){
+        return filter(pack => {
+                    let title = toLower(pack.title);
+                    let description = toLower(pack.description);
 
-        return title.indexOf(filterPackage) != -1
-               || description.indexOf(filterPackage) != -1;
+                    return title.indexOf(filterPackage) != -1
+                        || description.indexOf(filterPackage) != -1;
 
-    }, packs);
+                }, packs);
+    }
+
+    return packs;
+}
 
 const mapStateToProps = (
   state
 ) => ({
       packs: getVisiblePackages(
                 getSearchPackages(state.packs, state.flags.filterPackage),
-                state.flags.paginationPackage
+                state.flags.paginationPackage, state.flags.filterPackage
       )
     }
 );
