@@ -2,7 +2,9 @@ import React from 'react';
 import { connect } from 'react-redux';
 import SettingContent from './SettingContent';
 
-const Setting = () => {
+const Setting = ({
+    idpackage
+}) => {
 
 	const handleClickSetting = () => {
 		console.log('clicked setting');

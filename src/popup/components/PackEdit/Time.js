@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import InputRange from 'react-input-range';
-import { changeTimePackage } from '../../actions/actions';
+import { changeTimePackage } from '../../actions/pack';
 
 let Time = ({
   dispatch,

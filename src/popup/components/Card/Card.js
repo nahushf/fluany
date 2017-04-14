@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { inc } from 'ramda';
-import { isEditingCard } from '../../actions/actions';
+import { isEditingCard } from '../../actions/pack';
 import CardEdit from './CardEdit';
 
 

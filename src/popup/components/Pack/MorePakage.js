@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { changePagination } from '../../actions/actions';
+import { changePagination } from '../../actions/flags';
 
 /**
  * A component to click and see more package

@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { isCreatingPackage,
-         isEditPackage,
-         newPackage } from '../../actions/actions';
+         isEditPackage } from '../../actions/pack';
+import { newPackage } from '../../actions/flags';
 
 /**
  * A component to Create pack

@@ -7,7 +7,8 @@ import Cards from '../Card/Cards';
 import Time from './Time';
 import { changePackageTitle,
          changePackageDescription,
-         isEditPackage, newPackage } from '../../actions/actions';
+         isEditPackage } from '../../actions/pack';
+import { newPackage } from '../../actions/flags';
 
 let PackEdit = ({
     dispatch,

@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { changePackageTitle,
-         changePackageDescription } from '../../actions/actions';
+         changePackageDescription } from '../../actions/pack';
 import Play  from '../Play/Play';
 import Palette from '../Palette/Palette';
 import TitlePack from './TitlePack';
@@ -41,7 +41,7 @@ let Pack = ({
                 <DescriptionPack onChange={handlePackageDescription} description={description}/>
                 <Play />
                 <Palette isChanging={isChangingColor} colorID={colorID} packageid={id}/>
-                <Setting />
+                <Setting packageid={id} />
             </li>
     );
 }

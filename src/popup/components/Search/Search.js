@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { changeFilterPackage, toggleActiveSearch } from '../../actions/actions';
+import { changeFilterPackage, toggleActiveSearch } from '../../actions/flags';
 let Search = ({
     dispatch,
     filterPackage,
