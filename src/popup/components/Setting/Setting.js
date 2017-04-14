@@ -1,20 +1,23 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import SettingContent from './SettingContent';
+import SettingPanel from './SettingPanel';
+import { isSetting } from '../../actions/pack';
 
 const Setting = ({
-    idpackage
+    packageid,
+    dispatch,
+    isShow
 }) => {
 
 	const handleClickSetting = () => {
-		console.log('clicked setting');
+    dispatch(isSetting(!isShow, packageid));
 	};
-
   return (
-      <section className="setting-content" onClick={handleClickSetting}>
+      <section className={"setting-content" + (isShow ? " show-setting": "")} onClick={handleClickSetting}>
 				<svg className="setting-icon">
 					<use xlinkHref="#icon-setting"></use>
 				</svg>
+        <SettingPanel />
       </section>
   );
 };

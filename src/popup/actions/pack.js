@@ -6,13 +6,30 @@ import { ADD_PACKAGE,
          IS_CHANGING_COLOR,
 				 IS_EDIT_PACKAGE,
 				 CHANGE_TIME_PACKAGE,
-         IS_EDITING_CARD } from '../constants/ActionTypes';
+         IS_EDITING_CARD,
+         IS_SETTING } from '../constants/ActionTypes';
 
 export function addPackage(value){
 	  return {
 		    type: ADD_PACKAGE,
         value
 	  };
+}
+
+export function changePackageTitle(id, value){
+    return {
+        type: CHANGE_PACKAGE_TITLE,
+        value,
+        id
+    };
+}
+
+export function changePackageDescription(id, value){
+    return {
+        type: CHANGE_PACKAGE_DESCRIPTION,
+        value,
+        id
+    };
 }
 
 export function isCreatingPackage(value){
@@ -64,17 +81,9 @@ export function isEditingCard(value, id, idCard){
 	  };
 }
 
-export function changePackageTitle(id, value){
+export function isSetting(value, id){
     return {
-        type: CHANGE_PACKAGE_TITLE,
-        value,
-        id
-    };
-}
-
-export function changePackageDescription(id, value){
-    return {
-        type: CHANGE_PACKAGE_DESCRIPTION,
+        type: IS_SETTING,
         value,
         id
     };

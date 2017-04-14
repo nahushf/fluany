@@ -3,6 +3,7 @@ import { ADD_PACKAGE,
          CHANGE_PACKAGE_DESCRIPTION,
          CHANGE_PACKAGE_COLORID,
          IS_CHANGING_COLOR,
+         IS_SETTING,
 				 CHANGE_TIME_PACKAGE,
          IS_EDITING_CARD } from '../constants/ActionTypes';
 import { assoc, update } from 'ramda';
@@ -14,6 +15,7 @@ let defaultState = [
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sithendrerit ultrices',
     colorID: 4,
 		isChangingColor: false,
+    isSetting: true,
 		timeMinutes: 3,
     cards: [
         {
@@ -52,6 +54,7 @@ let defaultState = [
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sithendrerit ultrices',
     colorID: 2,
 		isChangingColor: false,
+    isSetting: false,
 		timeMinutes: 0
 },
 
@@ -61,6 +64,7 @@ let defaultState = [
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sithendrerit ultrices',
     colorID: 3,
 		isChangingColor: false,
+    isSetting: false,
 		timeMinutes: 0
 },
 {
@@ -69,6 +73,7 @@ let defaultState = [
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sithendrerit ultrices',
     colorID: 3,
 		isChangingColor: false,
+    isSetting: false,
 		timeMinutes: 0
 },
 {
@@ -77,6 +82,7 @@ let defaultState = [
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sithendrerit ultrices',
     colorID: 1,
 		isChangingColor: false,
+    isSetting: false,
 		timeMinutes: 0
 },
 {
@@ -85,6 +91,7 @@ let defaultState = [
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sithendrerit ultrices',
     colorID: 4,
 		isChangingColor: false,
+    isSetting: false,
 		timeMinutes: 0
 }
 ];
@@ -101,6 +108,8 @@ const packs = (state = defaultState, action) => {
             return update(action.id, assoc('colorID', action.value, state[action.id]), state);
         case IS_CHANGING_COLOR:
             return update(action.id, assoc('isChangingColor', action.value, state[action.id]), state);
+        case IS_SETTING:
+            return update(action.id, assoc('isSetting', action.value, state[action.id]), state);
 				case CHANGE_TIME_PACKAGE:
             return update(action.id, assoc('timeMinutes', action.value, state[action.id]), state);
         case IS_EDITING_CARD:

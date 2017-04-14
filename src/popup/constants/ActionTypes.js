@@ -11,3 +11,4 @@ export const IS_EDIT_PACKAGE = 'IS_EDIT_PACKAGE';
 export const NEW_PACKAGE = 'IS_NEW_PACKAGE';
 export const CHANGE_TIME_PACKAGE = 'CHANGE_TIME_PACKAGE';
 export const IS_EDITING_CARD = 'IS_EDITING_CARD';
+export const IS_SETTING = 'IS_SETTING';

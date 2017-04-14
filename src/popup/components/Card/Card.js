@@ -29,9 +29,6 @@ const Card = ({
     }
 
     const handleClickCard = () => {
-        let positionX = listItem.getBoundingClientRect().right;
-        console.log(positionX);
-        console.log(listItem)
         dispatch(isEditingCard(!isEditing, idPackage, id));
     }
 

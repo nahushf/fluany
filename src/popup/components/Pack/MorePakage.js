@@ -21,9 +21,7 @@ let MorePackage = ({
         dispatch(changePagination());
     };
 
-    console.log(filterPackage);
     let isPagination = paginationPackage  > packs.length || filterPackage !== "";
-    console.log(isPagination)
     return (
         <section className={"more-package--content " + (isPagination ? "more-package--hidden":"")}>
             <button className="more-package--button btn" onClick={handleClickMorePack}>+ Carregar mais</button>

@@ -25,7 +25,8 @@ let Pack = ({
     description,
     id,
     colorID,
-    isChangingColor }) => {
+    isChangingColor,
+    isSetting }) => {
 
     const handlePackageTitle = e => {
         dispatch(changePackageTitle(id, e.target.value));
@@ -41,7 +42,7 @@ let Pack = ({
                 <DescriptionPack onChange={handlePackageDescription} description={description}/>
                 <Play />
                 <Palette isChanging={isChangingColor} colorID={colorID} packageid={id}/>
-                <Setting packageid={id} />
+                <Setting packageid={id} isShow={isSetting}/>
             </li>
     );
 }
