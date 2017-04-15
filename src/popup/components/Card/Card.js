@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { inc } from 'ramda';
 import { isEditingCard } from '../../actions/pack';
 import CardEdit from './CardEdit';
+import TooltipCard from './TooltipCard';
 
 
 /**
@@ -47,6 +48,7 @@ const Card = ({
                 </svg>
                 <p className="card-item--count">{ inc(index) }</p>
             </div>
+            <TooltipCard front={packs[packageid].cards[id].front} back={packs[packageid].cards[id].back}/>
             <CardEdit {...cardEditProps} />
         </li>
     );

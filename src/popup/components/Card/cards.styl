@@ -71,6 +71,24 @@
       .card-item--count
         opacity 0
         visibility hidden
+      .tooltip-card
+        display none
+    &:hover
+      .tooltip-card
+        transform translateY(-45px)
+        opacity 1
+
+.tooltip-card
+  transition all .3s ease
+  padding 10px
+  width 200%
+  opacity 0
+  p
+    margin 0
+    margin-bottom 2px
+    color color-4
+  span
+    font-weight bold
 
 .card-edit-container
   .card-edit-content
