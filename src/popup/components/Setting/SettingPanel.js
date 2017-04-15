@@ -3,12 +3,12 @@ import { connect } from 'react-redux';
 import { isEditPackage } from '../../actions/pack';
 
 const SettingContent = ({
-        dispatch
+    dispatch,
+    packageid
 }) => {
 
   const handleClickItem = () => {
-     console.log('clicked item!');
-      dispatch(isEditPackage(true))
+      dispatch(isEditPackage({newPackage: false, packageid}))
   }
 
 	return (

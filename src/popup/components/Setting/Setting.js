@@ -17,7 +17,7 @@ const Setting = ({
 				<svg className="setting-icon">
 					<use xlinkHref="#icon-setting"></use>
 				</svg>
-        <SettingPanel />
+        <SettingPanel packageid={packageid} />
       </section>
   );
 };

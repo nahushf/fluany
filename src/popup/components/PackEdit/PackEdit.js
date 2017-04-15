@@ -17,15 +17,17 @@ let PackEdit = ({
 }) => {
 
   const handlePackTitle = e => {
-      dispatch(newPackage(assoc('title', e.target.value, packflag)));
+      if(isEdit.newPackage)
+        dispatch(newPackage(assoc('title', e.target.value, packflag)));
   };
 
 	const handlePackDescription = e => {
-      dispatch(newPackage(assoc('description', e.target.value, packflag)));
+      if(isEdit.newPackage)
+        dispatch(newPackage(assoc('description', e.target.value, packflag)));
 	};
 
 	const handleComeBack = () => {
-		dispatch(isEditPackage({newPackage: false, idPackage: null}));
+		dispatch(isEditPackage({newPackage: false, packageid: null}));
 	};
 
 	const titleProps = {
@@ -52,7 +54,7 @@ let PackEdit = ({
 					<TitlePack {...titleProps}/>
 					<DescriptionPack {...descriptionProps}/>
           <Time idPackage={0}/>
-          <Cards idPackage={0}/>
+          <Cards idPackage={isEdit.packageid !== null ? isEdit.packageid : 0}/>
 				</div>
       </section>
   );

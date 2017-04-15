@@ -4,7 +4,7 @@ import Search from '../components/Search/Search';
 import PackList from '../components/Pack/PackList';
 
 const Home = ({ isEdit }) => {
-	if(isEdit.newPackage || isEdit.idPackage !== null){
+	if(isEdit.newPackage || isEdit.packageid !== null){
 		return null;
 	}else
 		return (

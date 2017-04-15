@@ -55,7 +55,23 @@ let defaultState = [
     colorID: 2,
 		isChangingColor: false,
     isSetting: false,
-		timeMinutes: 0
+		timeMinutes: 0,
+    cards: [
+        {
+            id: 0,
+            colorID: 1,
+            front: "Hello",
+            back: "Olá",
+            isEditing: false
+        },
+        {
+            id: 1,
+            colorID: 2,
+            front: "Hi",
+            back: "Olá",
+            isEditing: false
+        }
+    ]
 },
 
 {
@@ -65,7 +81,16 @@ let defaultState = [
     colorID: 3,
 		isChangingColor: false,
     isSetting: false,
-		timeMinutes: 0
+		timeMinutes: 0,
+    cards: [
+        {
+            id: 0,
+            colorID: 1,
+            front: "tete",
+            back: "Olá",
+            isEditing: false
+        }
+    ]
 },
 {
     id: 3,
@@ -74,7 +99,23 @@ let defaultState = [
     colorID: 3,
 		isChangingColor: false,
     isSetting: false,
-		timeMinutes: 0
+		timeMinutes: 0,
+    cards: [
+        {
+            id: 0,
+            colorID: 1,
+            front: "Hello",
+            back: "Olá",
+            isEditing: false
+        },
+        {
+            id: 1,
+            colorID: 2,
+            front: "isso é impressionante",
+            back: "it is awesome",
+            isEditing: false
+        }
+    ]
 },
 {
     id: 4,
@@ -83,7 +124,16 @@ let defaultState = [
     colorID: 1,
 		isChangingColor: false,
     isSetting: false,
-		timeMinutes: 0
+		timeMinutes: 0,
+    cards: [
+        {
+            id: 0,
+            colorID: 1,
+            front: "Hello",
+            back: "Olá",
+            isEditing: false
+        }
+    ]
 },
 {
     id: 5,
@@ -92,7 +142,23 @@ let defaultState = [
     colorID: 4,
 		isChangingColor: false,
     isSetting: false,
-		timeMinutes: 0
+		timeMinutes: 0,
+    cards: [
+        {
+            id: 0,
+            colorID: 1,
+            front: "Hello",
+            back: "Olá",
+            isEditing: false
+        },
+        {
+            id: 1,
+            colorID: 2,
+            front: "isso é impressionante",
+            back: "it is awesome",
+            isEditing: false
+        }
+    ]
 }
 ];
 
