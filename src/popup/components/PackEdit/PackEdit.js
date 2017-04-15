@@ -19,12 +19,16 @@ let PackEdit = ({
 
   const handlePackTitle = e => {
       if(isEdit.newPackage)
-        dispatch(newPackage(assoc('title', e.target.value, packflag)));
+          dispatch(newPackage(assoc('title', e.target.value, packflag)));
+      else
+          dispatch(changePackageTitle(isEdit.packageid, e.target.value));
   };
 
 	const handlePackDescription = e => {
       if(isEdit.newPackage)
-        dispatch(newPackage(assoc('description', e.target.value, packflag)));
+          dispatch(newPackage(assoc('description', e.target.value, packflag)));
+      else
+          dispatch(changePackageDescription(isEdit.packageid, e.target.value));
 	};
 
 	const handleComeBack = () => {
