@@ -3,8 +3,8 @@ import { connect } from 'react-redux';
 import Search from '../components/Search/Search';
 import PackList from '../components/Pack/PackList';
 
-const Home = ({isEdit}) => {
-	if(isEdit){
+const Home = ({ isEdit }) => {
+	if(isEdit.newPackage || isEdit.idPackage !== null){
 		return null;
 	}else
 		return (

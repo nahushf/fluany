@@ -1,10 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { isEditPackage } from '../../actions/pack';
 
-const SettingContent = () => {
+const SettingContent = ({
+        dispatch
+}) => {
 
   const handleClickItem = () => {
      console.log('clicked item!');
+      dispatch(isEditPackage(true))
   }
 
 	return (

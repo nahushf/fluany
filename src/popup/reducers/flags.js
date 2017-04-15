@@ -13,7 +13,7 @@ let defaultState = {
     filterPackage: "",
     isActiveSearch: false,
 		paginationPackage: 3,
-		isEditPackage: false,
+		isEditPackage: {newPackage: false, idPackage: null},
     newPackage: {title: "", description: ""}
 };
 

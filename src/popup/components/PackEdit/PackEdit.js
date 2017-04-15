@@ -25,7 +25,7 @@ let PackEdit = ({
 	};
 
 	const handleComeBack = () => {
-		dispatch(isEditPackage(false));
+		dispatch(isEditPackage({newPackage: false, idPackage: null}));
 	};
 
 	const titleProps = {
@@ -47,12 +47,6 @@ let PackEdit = ({
 							</svg>
 					</button>
 					<button className="btn btn-save">Salvar pacote</button>
-					{/* <button className="btn btn-delete">
-						  <span>Excluir</span>
-						  <svg className="trash-icon">
-							<use xlinkHref="#icon-trash"></use>
-						  </svg>
-					    </button> */}
 				</nav>
 				<div>
 					<TitlePack {...titleProps}/>

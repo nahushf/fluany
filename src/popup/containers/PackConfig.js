@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PackEdit from '../components/PackEdit/PackEdit';
 const PackConfig = ({isEdit}) => {
-	if(isEdit){
+	if(isEdit.newPackage || isEdit.idPackage != null){
 		return (
 				<div>
 					<PackEdit />

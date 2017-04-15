@@ -24,7 +24,7 @@ let Create = ({
     }
 
     const handleClickCreate = () => {
-        dispatch(isEditPackage(true));
+        dispatch(isEditPackage({newPackage: true, idPackage: null}));
     }
 
     const handleInputNewPackage = (e) => {
