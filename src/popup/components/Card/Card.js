@@ -19,17 +19,24 @@ const Card = ({
     index,
     colorID,
     id,
-    idPackage
+    packageid
 }) => {
 
-    const isEditing = packs[idPackage].cards[id].isEditing;
+    const isEditing = packs[packageid].cards[id].isEditing;
     let listItem = "";
     let styled = {
         backgroundColor: 'red'
     }
 
     const handleClickCard = () => {
-        dispatch(isEditingCard(!isEditing, idPackage, id));
+        dispatch(isEditingCard(!isEditing, 'isEditing', packageid, id));
+    }
+
+    const cardEditProps = {
+        dispatch,
+        packs,
+        packageid,
+        idCard: id
     }
 
     return (
@@ -40,7 +47,7 @@ const Card = ({
                 </svg>
                 <p className="card-item--count">{ inc(index) }</p>
             </div>
-            <CardEdit />
+            <CardEdit {...cardEditProps} />
         </li>
     );
 }

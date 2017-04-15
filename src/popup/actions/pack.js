@@ -33,7 +33,6 @@ export function changePackageDescription(id, value){
 }
 
 export function isCreatingPackage(value){
-    console.log('value: ', value);
 	  return {
 		    type: IS_CREATING_PACKAGE,
         value
@@ -72,10 +71,11 @@ export function changeTimePackage(value, id){
 	};
 }
 
-export function isEditingCard(value, id, idCard){
+export function isEditingCard(value, prop, id, idCard){
 	  return {
 		    type: IS_EDITING_CARD,
 		    value,
+        prop,
 		    id,
         idCard
 	  };

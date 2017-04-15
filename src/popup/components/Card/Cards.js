@@ -14,15 +14,15 @@ import Card from './Card';
 const Cards = ({
     dispatch,
     packs,
-    idPackage
+    packageid
 }) => {
 
-    const cardMap = (card, index) => <Card key={index} idPackage={idPackage} index={index} {...card}/>;
+    const cardMap = (card, index) => <Card key={index} packageid={packageid} index={index} {...card}/>;
 
     return (
         <section>
             <ul className="card-content">
-                { packs[idPackage].cards.map(cardMap) }
+                { packs[packageid].cards.map(cardMap) }
             </ul>
         </section>
     );
