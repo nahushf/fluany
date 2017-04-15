@@ -15,7 +15,7 @@ let defaultState = [
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sithendrerit ultrices',
     colorID: 4,
 		isChangingColor: false,
-    isSetting: true,
+    isSetting: false,
 		timeMinutes: 3,
     cards: [
         {
