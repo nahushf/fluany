@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { assoc } from 'ramda';
+import { assoc, isNil } from 'ramda';
 import TitlePack from '../Pack/TitlePack';
 import DescriptionPack from '../Pack/DescriptionPack';
 import Cards from '../Card/Cards';
@@ -13,7 +13,8 @@ import { newPackage } from '../../actions/flags';
 let PackEdit = ({
     dispatch,
     isEdit,
-    packflag
+    packflag,
+    packs
 }) => {
 
   const handlePackTitle = e => {
@@ -32,12 +33,12 @@ let PackEdit = ({
 
 	const titleProps = {
 		onChange: handlePackTitle,
-		title: packflag.title
+		title: (!isNil(isEdit.packageid) ? packs[isEdit.packageid].title : packflag.title)
 	};
 
 	const descriptionProps = {
 		onChange: handlePackDescription,
-		description: packflag.description
+		description: (!isNil(isEdit.packageid) ? packs[isEdit.packageid].description : packflag.description)
 	};
 
   const Container = () => (
@@ -67,7 +68,8 @@ const mapStateToProps = (
 ) => {
   return {
       isEdit: state.flags.isEditPackage,
-      packflag: state.flags.newPackage
+      packflag: state.flags.newPackage,
+      packs: state.packs
   };
 };
 
