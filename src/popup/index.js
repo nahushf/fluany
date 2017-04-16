@@ -6,7 +6,6 @@ import configureStore from './store/configureStore';
 import './styl/app.styl';
 
 const store = configureStore();
-window.store = store;
 
 store.subscribe(() => {
     console.log(store.getState());
