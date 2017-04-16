@@ -9,7 +9,7 @@ import { IS_CREATING_PACKAGE,
 const assign = Object.assign;
 
 let defaultState = {
-    isCreatingPackage: false,
+    isCreatingPackage: true,
     filterPackage: "",
     isActiveSearch: false,
 		paginationPackage: 3,

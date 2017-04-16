@@ -7,10 +7,6 @@ import './styl/app.styl';
 
 const store = configureStore();
 
-store.subscribe(() => {
-    console.log(store.getState());
-})
-
 render(
   <Provider store={store}>
     <App />
