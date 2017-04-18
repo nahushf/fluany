@@ -23,4 +23,5 @@ You should do this before editing any code to see how it works.
   1. Click with left mouse button to show html content
   2. Click with right mouse button and select `Inspect Popup`. Then in console you can see some messages
 9. You can edit your codebase with almost 100% hot/full reload support.
+10. You can to use [remote-redux-devtools](https://github.com/zalmoxisus/remote-redux-devtools).
 
