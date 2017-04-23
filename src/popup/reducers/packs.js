@@ -13,8 +13,8 @@ import { assoc, update } from 'ramda';
 let defaultState = [
 {
     id: 0,
-    title: 'Pack teste numero 0',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sithendrerit ultrices',
+    title: 'Falsos cognatos | Português-Inglês',
+    description: 'Flashcards diversos com pares de palavras contendo falsos cognatos existentes entre o português e o inglês.',
     colorID: 4,
 		isChangingColor: false,
     isSetting: false,
@@ -52,8 +52,8 @@ let defaultState = [
 },
 {
     id: 1,
-    title: 'Pack teste numero 1',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sithendrerit ultrices',
+    title: 'English Irregular Verbs',
+    description: 'This is a deck of the 157 most common irregular English verbs.',
     colorID: 2,
 		isChangingColor: false,
     isSetting: false,
@@ -78,8 +78,8 @@ let defaultState = [
 
 {
     id: 2,
-    title: 'Pack teste numero 2',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sithendrerit ultrices',
+    title: 'English Vocabulary Profile British',
+    description: 'This is a deck of the 100 most common english vocabulary profile British.',
     colorID: 3,
 		isChangingColor: false,
     isSetting: false,
@@ -96,8 +96,8 @@ let defaultState = [
 },
 {
     id: 3,
-    title: 'Pack teste numero 3',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sithendrerit ultrices',
+    title: 'Pack 3',
+    description: 'Donec pretium posuere tellus.',
     colorID: 3,
 		isChangingColor: false,
     isSetting: false,
