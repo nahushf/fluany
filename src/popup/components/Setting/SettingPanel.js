@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { isEditPackage } from '../../actions/pack';
+import { removePackage } from '../../actions/pack';
 
 const SettingContent = ({
     dispatch,
@@ -9,6 +10,10 @@ const SettingContent = ({
 
   const handleClickItem = () => {
       dispatch(isEditPackage({newPackage: false, packageid}))
+  }
+
+  const handleRemovePack = () => {
+      dispatch(removePackage(packageid));
   }
 
 	return (
@@ -30,7 +35,7 @@ const SettingContent = ({
             <label>Editar</label>
 				</li>
 
-				<li className="setting-trash">
+				<li className="setting-trash" onClick={handleRemovePack}>
             <svg className="trash-icon">
                 <use xlinkHref="#icon-trash"></use>
             </svg>

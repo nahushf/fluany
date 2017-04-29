@@ -7,186 +7,40 @@ import { ADD_PACKAGE,
          IS_CHANGING_COLOR,
          IS_SETTING,
 				 CHANGE_TIME_PACKAGE,
+				 REMOVE_PACKAGE,
          IS_EDITING_CARD } from '../constants/ActionTypes';
-import { assoc, update } from 'ramda';
-
-let defaultState = [
-{
-    id: 0,
-    title: 'Falsos cognatos | Português-Inglês',
-    description: 'Flashcards diversos com pares de palavras contendo falsos cognatos existentes entre o português e o inglês.',
-    colorID: 4,
-		isChangingColor: false,
-    isSetting: false,
-		timeMinutes: 3,
-    cards: [
-        {
-            id: 0,
-            colorID: 1,
-            front: "Hello",
-            back: "Olá",
-            isEditing: false
-        },
-        {
-            id: 1,
-            colorID: 2,
-            front: "Hi",
-            back: "Olá",
-            isEditing: false
-        },
-        {
-            id: 2,
-            colorID: 3,
-            front: "Hello",
-            back: "Olá",
-            isEditing: false
-        },
-        {
-            id: 3,
-            colorID: 4,
-            front: "Hello",
-            back: "Olá",
-            isEditing: false
-        }
-    ]
-},
-{
-    id: 1,
-    title: 'English Irregular Verbs',
-    description: 'This is a deck of the 157 most common irregular English verbs.',
-    colorID: 2,
-		isChangingColor: false,
-    isSetting: false,
-		timeMinutes: 0,
-    cards: [
-        {
-            id: 0,
-            colorID: 1,
-            front: "Hello",
-            back: "Olá",
-            isEditing: false
-        },
-        {
-            id: 1,
-            colorID: 2,
-            front: "Hi",
-            back: "Olá",
-            isEditing: false
-        }
-    ]
-},
-
-{
-    id: 2,
-    title: 'English Vocabulary Profile British',
-    description: 'This is a deck of the 100 most common english vocabulary profile British.',
-    colorID: 3,
-		isChangingColor: false,
-    isSetting: false,
-		timeMinutes: 0,
-    cards: [
-        {
-            id: 0,
-            colorID: 1,
-            front: "tete",
-            back: "Olá",
-            isEditing: false
-        }
-    ]
-},
-{
-    id: 3,
-    title: 'Pack 3',
-    description: 'Donec pretium posuere tellus.',
-    colorID: 3,
-		isChangingColor: false,
-    isSetting: false,
-		timeMinutes: 0,
-    cards: [
-        {
-            id: 0,
-            colorID: 1,
-            front: "Hello",
-            back: "Olá",
-            isEditing: false
-        },
-        {
-            id: 1,
-            colorID: 2,
-            front: "isso é impressionante",
-            back: "it is awesome",
-            isEditing: false
-        }
-    ]
-},
-{
-    id: 4,
-    title: 'Pack teste numero 4',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sithendrerit ultrices',
-    colorID: 1,
-		isChangingColor: false,
-    isSetting: false,
-		timeMinutes: 0,
-    cards: [
-        {
-            id: 0,
-            colorID: 1,
-            front: "Hello",
-            back: "Olá",
-            isEditing: false
-        }
-    ]
-},
-{
-    id: 5,
-    title: 'Pack teste numero 5',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sithendrerit ultrices',
-    colorID: 4,
-		isChangingColor: false,
-    isSetting: false,
-		timeMinutes: 0,
-    cards: [
-        {
-            id: 0,
-            colorID: 1,
-            front: "Hello",
-            back: "Olá",
-            isEditing: false
-        },
-        {
-            id: 1,
-            colorID: 2,
-            front: "isso é impressionante",
-            back: "it is awesome",
-            isEditing: false
-        }
-    ]
-}
-];
+import { assoc, update, reject, propEq, findIndex } from 'ramda';
+import defaultState from '../store/storeDefault';
 
 const packs = (state = defaultState, action) => {
+		const getIndexPack = id => findIndex(propEq('id', id));
+		const indexOfThePack = getIndexPack(action.id)(state);
+		const packOfTheId = state[indexOfThePack];
+
     switch(action.type){
         case ADD_PACKAGE:
-            return [...state, action.value];
+					return [...state, action.value];
+				case REMOVE_PACKAGE:
+					return  reject(propEq('id', action.id))(state);
         case CHANGE_PACKAGE_TITLE:
-            return update(action.id, assoc('title', action.value, state[action.id]), state);
+					return update(indexOfThePack, assoc('title', action.value, packOfTheId), state);
         case CHANGE_PACKAGE_DESCRIPTION:
-            return update(action.id, assoc('description', action.value, state[action.id]), state);
+					return update(indexOfThePack, assoc('description', action.value, packOfTheId), state);
         case CHANGE_PACKAGE_COLORID:
-            return update(action.id, assoc('colorID', action.value, state[action.id]), state);
+					return update(indexOfThePack, assoc('colorID', action.value, packOfTheId), state);
         case IS_CHANGING_COLOR:
-            return update(action.id, assoc('isChangingColor', action.value, state[action.id]), state);
+					return update(indexOfThePack, assoc('isChangingColor', action.value, packOfTheId), state);
         case IS_SETTING:
-            return update(action.id, assoc('isSetting', action.value, state[action.id]), state);
+					return update(indexOfThePack, assoc('isSetting', action.value, packOfTheId), state);
 				case CHANGE_TIME_PACKAGE:
-            return update(action.id, assoc('timeMinutes', action.value, state[action.id]), state);
+					return update(indexOfThePack, assoc('timeMinutes', action.value, packOfTheId), state);
         case IS_EDITING_CARD:
-            return update(action.id, assoc('cards',
+					return update(indexOfThePack, assoc('cards',
                                            update(action.idCard,
                                                   assoc(action.prop, action.value,
                                                         state[action.id].cards[action.idCard]),
                                                   state[action.id].cards),
-                                       state[action.id]),
+																					packOfTheId),
                       state);
         default:
             return state;

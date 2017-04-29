@@ -1,4 +1,5 @@
 import { ADD_PACKAGE,
+				 REMOVE_PACKAGE,
          IS_CREATING_PACKAGE,
          CHANGE_PACKAGE_COLORID,
          CHANGE_PACKAGE_TITLE,
@@ -14,6 +15,13 @@ export function addPackage(value){
 		    type: ADD_PACKAGE,
         value
 	  };
+}
+
+export function removePackage(id){
+	return {
+		type: REMOVE_PACKAGE,
+		id
+	};
 }
 
 export function changePackageTitle(id, value){
