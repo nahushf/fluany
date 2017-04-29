@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import InputRange from 'react-input-range';
 import { changeTimePackage } from '../../actions/pack';
+import { getIndexThingById } from '../../reducers/stateManipulate';
 
 let Time = ({
   dispatch,
@@ -18,7 +19,7 @@ let Time = ({
 			<InputRange
 				maxValue={20}
 				minValue={1}
-				value={packs[idPackage].timeMinutes}
+				value={packs[getIndexThingById(packs, idPackage)].timeMinutes}
 				onChange={handleTimeChange}
 				defaultValue={4}
 				labelSuffix="min"

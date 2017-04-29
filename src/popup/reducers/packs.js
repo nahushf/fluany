@@ -9,13 +9,13 @@ import { ADD_PACKAGE,
 				 CHANGE_TIME_PACKAGE,
 				 REMOVE_PACKAGE,
          IS_EDITING_CARD } from '../constants/ActionTypes';
-import { assoc, update, reject, propEq, findIndex } from 'ramda';
-import defaultState from '../store/storeDefault';
+import { assoc, update, reject, propEq } from 'ramda';
+import { getIndexThingById } from './stateManipulate';
+import defaultState from '../store/packsDefaultStore';
 
 const packs = (state = defaultState, action) => {
-		const getIndexPack = id => findIndex(propEq('id', id));
-		const indexOfThePack = getIndexPack(action.id)(state);
-		const packOfTheId = state[indexOfThePack];
+		const indexOfThePack = getIndexThingById(state, action.id);
+	  const packOfTheId = state[indexOfThePack];
 
     switch(action.type){
         case ADD_PACKAGE:

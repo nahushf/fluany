@@ -9,6 +9,7 @@ import { changePackageTitle,
          changePackageDescription,
          isEditPackage } from '../../actions/pack';
 import { newPackage } from '../../actions/flags';
+import { getIndexThingById } from '../../reducers/stateManipulate';
 
 let PackEdit = ({
     dispatch,
@@ -37,12 +38,16 @@ let PackEdit = ({
 
 	const titleProps = {
 		onChange: handlePackTitle,
-		title: (!isNil(isEdit.packageid) ? packs[isEdit.packageid].title : packflag.title)
+		  title: (!isNil(isEdit.packageid)
+            ? packs[getIndexThingById(packs, isEdit.packageid)].title
+            : packflag.title)
 	};
 
 	const descriptionProps = {
 		onChange: handlePackDescription,
-		description: (!isNil(isEdit.packageid) ? packs[isEdit.packageid].description : packflag.description)
+		  description: (!isNil(isEdit.packageid)
+                  ? packs[getIndexThingById(packs, isEdit.packageid)].description
+                  : packflag.description)
 	};
 
   const Container = () => (
@@ -58,7 +63,7 @@ let PackEdit = ({
 				<div>
 					<TitlePack {...titleProps}/>
 					<DescriptionPack {...descriptionProps}/>
-          <Time idPackage={0}/>
+          <Time idPackage={isEdit.packageid}/>
           <Cards packageid={isEdit.packageid !== null ? isEdit.packageid : 0}/>
 				</div>
       </section>
