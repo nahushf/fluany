@@ -15,7 +15,6 @@ let PackList = ({
     packs,
     filterPackage
     }) => {
-
     return (
         <section>
 				    <ul className="packs-content">
