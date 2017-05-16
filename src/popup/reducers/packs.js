@@ -18,7 +18,8 @@ const packs = (state = defaultState, action) => {
 	  const packOfTheId = state[indexOfThePack];
     switch(action.type){
         case ADD_PACKAGE:
-					return [...state,  { ...action.value, cards: [], colorID:  4}];
+					const newPackage = { ...action.value, cards: [], colorID:  4};
+					return [newPackage, ...state];
 				case REMOVE_PACKAGE:
 					return remove (indexOfThePack, 1, state);
         case CHANGE_PACKAGE_TITLE:
