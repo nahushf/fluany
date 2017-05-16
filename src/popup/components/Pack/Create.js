@@ -15,14 +15,6 @@ let Create = ({
     isCreating,
     dispatch}) => {
 
-    const handleClickNewItem = () => {
-        dispatch(isCreatingPackage(true));
-    };
-
-    const handleClickCancel = () => {
-        dispatch(isCreatingPackage(false));
-    }
-
     const handleClickCreate = () => {
         dispatch(isEditPackage({newPackage: true, packageid: null}));
     }
@@ -41,8 +33,6 @@ let Create = ({
                    placeholder="Qual o nome do novo pacote?"/>
 
             <div className="new-pack--buttons">
-                <button className="btn btn-cancel"
-                        onClick={handleClickCancel}>Cancelar</button>
                 <button className="btn btn-create"
                         onClick={handleClickCreate}>Criar pacote</button>
             </div>

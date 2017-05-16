@@ -1,6 +1,5 @@
 import { ADD_PACKAGE,
 				 REMOVE_PACKAGE,
-         IS_CREATING_PACKAGE,
          CHANGE_PACKAGE_COLORID,
          CHANGE_PACKAGE_TITLE,
          CHANGE_PACKAGE_DESCRIPTION,
@@ -38,13 +37,6 @@ export function changePackageDescription(id, value){
         value,
         id
     };
-}
-
-export function isCreatingPackage(value){
-	  return {
-		    type: IS_CREATING_PACKAGE,
-        value
-	  };
 }
 
 export function changeColorID(value, id){
