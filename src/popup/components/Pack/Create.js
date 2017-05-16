@@ -1,8 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { isCreatingPackage,
-         isEditPackage } from '../../actions/pack';
-import { newPackage } from '../../actions/flags';
+import { isCreatingPackage, addPackage } from '../../actions/pack';
+import { newPackage, isEditPackage } from '../../actions/flags';
 
 /**
  * A component to Create pack
@@ -13,10 +12,13 @@ import { newPackage } from '../../actions/flags';
  */
 let Create = ({
     isCreating,
-    dispatch}) => {
+    packLength,
+    titleEdited,
+    dispatch }) => {
 
     const handleClickCreate = () => {
-        dispatch(isEditPackage({newPackage: true, packageid: null}));
+        dispatch(isEditPackage({newPackage: true, packageid: packLength}));
+        dispatch(addPackage({id: packLength, title: titleEdited}));
     }
 
     const handleInputNewPackage = (e) => {
@@ -57,7 +59,9 @@ let Create = ({
 const mapStateToProps = (
   state
 ) => ({
-      isCreating: state.flags.isCreatingPackage
+    isCreating: state.flags.isCreatingPackage,
+    packLength: state.packs.length,
+    titleEdited: state.flags.newPackage.title
     }
 )
 
