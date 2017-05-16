@@ -57,7 +57,7 @@ let PackEdit = ({
 					<TitlePack {...titleProps}/>
 					<DescriptionPack {...descriptionProps}/>
           <Time idPackage={isEdit.packageid}/>
-          <Cards packageid={isEdit.packageid !== null ? isEdit.packageid : 0}/>
+          <Cards packageid={isEdit.packageid}/>
 				</div>
       </section>
   );

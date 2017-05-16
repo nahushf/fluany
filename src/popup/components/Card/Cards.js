@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { map,  } from 'ramda';
 import Card from './Card';
+import { getIndexThingById } from '../../reducers/stateManipulate.js';
 
 /**
  * A component to list store's packs
@@ -22,7 +23,7 @@ const Cards = ({
     return (
         <section>
             <ul className="card-content">
-                { packs[packageid].cards.map(cardMap) }
+                { packs[getIndexThingById(packs, packageid)].cards.map(cardMap) }
             </ul>
         </section>
     );
