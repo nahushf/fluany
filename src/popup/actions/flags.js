@@ -1,6 +1,7 @@
 import { CHANGE_FILTER_PACKAGE,
          CHANGE_PAGINATION_PACKAGE,
          TOGGLE_ACTIVE_SEARCH,
+				 IS_EDIT_PACKAGE,
          NEW_PACKAGE } from '../constants/ActionTypes.js';
 
 
@@ -30,3 +31,12 @@ export function changePagination(){
         type: CHANGE_PAGINATION_PACKAGE
     };
 };
+
+
+export function isEditPackage(value){
+	return {
+		type: IS_EDIT_PACKAGE,
+		value
+	};
+}
+

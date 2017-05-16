@@ -55,14 +55,6 @@ export function isChangingColor(value, id){
     };
 }
 
-export function isEditPackage(value){
-	return {
-		type: IS_EDIT_PACKAGE,
-		value
-	};
-}
-
-
 export function changeTimePackage(value, id){
 	return {
 		type: CHANGE_TIME_PACKAGE,

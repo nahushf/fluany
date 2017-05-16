@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { isEditPackage } from '../../actions/pack';
-import { removePackage } from '../../actions/pack';
+import { removePackage, isSetting } from '../../actions/pack';
+import { isEditPackage } from '../../actions/flags.js';
 
 const SettingContent = ({
     dispatch,
@@ -13,6 +13,7 @@ const SettingContent = ({
   }
 
   const handleRemovePack = () => {
+      /* dispatch(isSetting(false, packageid));*/
       dispatch(removePackage(packageid));
   }
 

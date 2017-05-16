@@ -10,19 +10,18 @@ import { ADD_PACKAGE,
 				 REMOVE_PACKAGE,
 				 NEW_PACKAGE,
          IS_EDITING_CARD } from '../constants/ActionTypes';
-import { assoc, update, reject, propEq, insert } from 'ramda';
+import { assoc, update, propEq, insert, remove } from 'ramda';
 import { getIndexThingById } from './stateManipulate';
 import defaultState from '../store/packsDefaultStore';
 
 const packs = (state = defaultState, action) => {
 		const indexOfThePack = getIndexThingById(state, action.id);
 	  const packOfTheId = state[indexOfThePack];
-
     switch(action.type){
         case ADD_PACKAGE:
 					return [...state, action.value];
 				case REMOVE_PACKAGE:
-					return  reject(propEq('id', action.id))(state);
+					return remove (indexOfThePack, 1, state);
         case CHANGE_PACKAGE_TITLE:
 					return update(indexOfThePack, assoc('title', action.value, packOfTheId), state);
         case CHANGE_PACKAGE_DESCRIPTION:

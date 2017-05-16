@@ -6,9 +6,8 @@ import DescriptionPack from '../Pack/DescriptionPack';
 import Cards from '../Card/Cards';
 import Time from './Time';
 import { changePackageTitle,
-         changePackageDescription,
-         isEditPackage } from '../../actions/pack';
-import { newPackage } from '../../actions/flags';
+         changePackageDescription } from '../../actions/pack';
+import { newPackage, isEditPackage } from '../../actions/flags';
 import { getIndexThingById } from '../../reducers/stateManipulate';
 
 let PackEdit = ({

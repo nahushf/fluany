@@ -13,9 +13,10 @@ const Setting = ({
 	const handleClickSetting = () => {
     dispatch(isSetting(!isShow, packageid));
 	};
+
   return (
-      <section className={"setting-content" + (isShow ? " show-setting": "")} onClick={handleClickSetting}>
-				<svg className="setting-icon">
+      <section className={"setting-content" + (isShow ? " show-setting": "")}>
+				<svg className="setting-icon" onClick={handleClickSetting}>
 					<use xlinkHref="#icon-setting"></use>
 				</svg>
         <SettingPanel packageid={packageid} />
