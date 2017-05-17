@@ -30,7 +30,6 @@ const Card = ({
     let listItem = "";
 
     const handleClickCard = () => {
-        console.log(listItem.getBoundingClientRect())
         listItem.style.transform = 'translateX(-' + listItem.getBoundingClientRect().left + 'px)';
         dispatch(isEditingCard(!isEditing, 'isEditing', indexOfPack, indexOfCard));
     }
