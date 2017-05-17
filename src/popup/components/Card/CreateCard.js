@@ -14,7 +14,8 @@ let CreateCard = ({
     return (
         <li key="0" className="card-item card-item--new">
             <div className="card-item-block">
-                <p className="card-item--count">+</p>
+                <p className="card-item--more">+</p>
+                <p className="item-more-message">Adicionar mais</p>
             </div>
         </li>
     );

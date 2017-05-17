@@ -8,7 +8,7 @@
   .card-item
     width 123px
     height 123px
-    transition all .3s ease-in
+    transition all .2s ease-in
     margin-top 20px
     margin-right 21px
     z-index 1
@@ -23,9 +23,22 @@
       .card-item-block
         width 118px
         height 118px
-        .card-item--count
+        .card-item--more, .item-more-message
           color #bfbfbf
           font-size 40px
+          position absolute
+          font-weight bolder
+          top 50%
+          left 50%
+          margin 0
+          margin-top -4px
+          transform translate(-50%, -50%)
+        .item-more-message
+          margin-top 30px
+          font-size 14px
+          text-transform uppercase
+          width 100%
+          
 
     &:nth-child(4n+4)
       margin-right 0
@@ -83,6 +96,8 @@
         .arrow-back
           opacity 1
           visibility visible
+       &:hover
+        transform initial
       .card-edit-container
         opacity 1
         visibility visible
@@ -97,6 +112,8 @@
       .tooltip-card
         display none
     &:hover
+      transform translate(0, -5px)
+      box-shadow 0px 12px 5px -8px rgba(0,0,0,0.2)
       .card-item--count
         opacity 0
       .tooltip-card
