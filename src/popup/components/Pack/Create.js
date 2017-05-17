@@ -40,7 +40,7 @@ let Create = ({
             </div>
         </div>
 
-    )
+    );
 
     const Content = () => (
         <div className="pack-item-content" onClick={handleClickNewItem}>

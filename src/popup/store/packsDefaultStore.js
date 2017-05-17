@@ -35,6 +35,34 @@ export default [
             front: "Hello",
             back: "Olá",
             isEditing: false
+        },
+        {
+            id: 4,
+            colorID: 1,
+            front: "Hello",
+            back: "Olá",
+            isEditing: false
+        },
+        {
+            id: 5,
+            colorID: 2,
+            front: "Hi",
+            back: "Olá",
+            isEditing: false
+        },
+        {
+            id: 6,
+            colorID: 3,
+            front: "Hello",
+            back: "Olá",
+            isEditing: false
+        },
+        {
+            id: 7,
+            colorID: 4,
+            front: "Hello",
+            back: "Olá",
+            isEditing: false
         }
     ]
 },

@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { map,  } from 'ramda';
 import Card from './Card';
+import CreateCard from './CreateCard';
 import { getIndexThingById } from '../../reducers/stateManipulate.js';
 
 /**
@@ -23,6 +24,7 @@ const Cards = ({
     return (
         <section>
             <ul className="card-content">
+                <CreateCard/>
                 { packs[getIndexThingById(packs, packageid)].cards.map(cardMap) }
             </ul>
         </section>

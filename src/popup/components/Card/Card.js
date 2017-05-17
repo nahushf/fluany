@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { inc } from 'ramda';
 import { isEditingCard } from '../../actions/pack';
+import { getIndexThingById } from '../../reducers/stateManipulate';
 import CardEdit from './CardEdit';
 import TooltipCard from './TooltipCard';
 
@@ -23,21 +24,23 @@ const Card = ({
     packageid
 }) => {
 
-    const isEditing = packs[packageid].cards[id].isEditing;
+    const indexOfPack = getIndexThingById(packs, packageid);
+    const indexOfCard = getIndexThingById(packs[indexOfPack].cards, id);
+    const isEditing = packs[indexOfPack].cards[indexOfCard].isEditing;
     let listItem = "";
     let styled = {
         backgroundColor: 'red'
     }
 
     const handleClickCard = () => {
-        dispatch(isEditingCard(!isEditing, 'isEditing', packageid, id));
+        dispatch(isEditingCard(!isEditing, 'isEditing', indexOfPack, indexOfCard));
     }
 
     const cardEditProps = {
         dispatch,
         packs,
-        packageid,
-        idCard: id
+        indexOfPack,
+        indexOfCard
     }
 
     return (
@@ -48,7 +51,7 @@ const Card = ({
                 </svg>
                 <p className="card-item--count">{ inc(index) }</p>
             </div>
-            <TooltipCard front={packs[packageid].cards[id].front} back={packs[packageid].cards[id].back}/>
+            <TooltipCard front={packs[indexOfPack].cards[indexOfCard].front} back={packs[indexOfPack].cards[indexOfCard].back}/>
             <CardEdit {...cardEditProps} />
         </li>
     );
