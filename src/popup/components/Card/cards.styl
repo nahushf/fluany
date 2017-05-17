@@ -89,7 +89,7 @@
       z-index 13
       transition all .3 ease-in
     &.isEditing
-      z-index initial
+      z-index 9999
       .card-item-block
         left 0
         border-radius 0
@@ -98,12 +98,13 @@
           visibility visible
        &:hover
         transform initial
+        box-shadow initial
       .card-edit-container
         opacity 1
         visibility visible
         position absolute
         left 124px
-        width 80%
+        width 452px
         height 124px
         background rgb(247, 247, 247)
       .card-item--count

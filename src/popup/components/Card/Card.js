@@ -28,11 +28,10 @@ const Card = ({
     const indexOfCard = getIndexThingById(packs[indexOfPack].cards, id);
     const isEditing = packs[indexOfPack].cards[indexOfCard].isEditing;
     let listItem = "";
-    let styled = {
-        backgroundColor: 'red'
-    }
 
     const handleClickCard = () => {
+        console.log(listItem.getBoundingClientRect())
+        listItem.style.transform = 'translateX(-' + listItem.getBoundingClientRect().left + 'px)';
         dispatch(isEditingCard(!isEditing, 'isEditing', indexOfPack, indexOfCard));
     }
 
