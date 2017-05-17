@@ -17,8 +17,11 @@ let Create = ({
     dispatch }) => {
 
     const handleClickCreate = () => {
-        dispatch(isEditPackage({newPackage: true, packageid: packLength}));
-        dispatch(addPackage({id: packLength, title: titleEdited}));
+        if(titleEdited !== ""){
+            dispatch(isEditPackage({newPackage: true, packageid: packLength}));
+            dispatch(addPackage({id: packLength, title: titleEdited}));
+            dispatch(newPackage({title: "", description: ""})); //initial
+        }
     }
 
     const handleInputNewPackage = (e) => {
