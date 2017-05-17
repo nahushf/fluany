@@ -49,9 +49,9 @@ const Card = ({
                 <svg className="arrow-back">
                     <use xlinkHref="#icon-arrow"></use>
                 </svg>
-                <p className="card-item--count">{ inc(index) }</p>
+                <TooltipCard color={colorID} back={packs[indexOfPack].cards[indexOfCard].back}/>
+                <p className="card-item--count">{ packs[indexOfPack].cards[indexOfCard].front}</p>
             </div>
-            <TooltipCard front={packs[indexOfPack].cards[indexOfCard].front} back={packs[indexOfPack].cards[indexOfCard].back}/>
             <CardEdit {...cardEditProps} />
         </li>
     );

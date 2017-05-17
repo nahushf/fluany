@@ -25,12 +25,13 @@
         height 118px
         .card-item--count
           color #bfbfbf
+          font-size 40px
 
     &:nth-child(4n+4)
       margin-right 0
     .card-item--count
       color #FFF
-      font-size 50px
+      font-size 20px
       margin 0
       font-weight bold
       position absolute
@@ -38,8 +39,14 @@
       left 50%
       transform translate(-50%, -50%)
       transition all .2s ease-out
+      width 115px
+      text-overflow ellipsis
+      white-space nowrap
+      overflow hidden
     .card-item-block
       border-radius 4px
+      overflow hidden
+      text-align center
       z-index 12
       &.color-1
         background color-1
@@ -90,22 +97,45 @@
       .tooltip-card
         display none
     &:hover
+      .card-item--count
+        opacity 0
       .tooltip-card
-        transform translateY(-45px)
+        transform translateY(0)
         opacity 1
 
 .tooltip-card
   transition all .3s ease
-  padding 10px 10px 10px 0
-  width 200%
+  padding 10px 0
+  width 124px
+  border-radius 4px
+  height 85%
   opacity 0
   z-index 15
+  transform translateY(100%)
   p
     margin 0
     margin-bottom 2px
-    color color-4
+    color #FFF
+    font-size 20px
+    position absolute
+    top 50%
+    left 50%
+    transform translate(-50%, -50%)
+    font-weight bold
+    width 115px
+    text-overflow ellipsis
+    white-space nowrap
+    overflow hidden
   span
     font-weight bold
+  &.color-1
+    background darken(color-1, 10%)
+  &.color-2
+    background darken(color-2, 10%)
+  &.color-3
+    background darken(color-3, 10%)
+  &.color-4
+    background darken(color-4, 10%)
 
 .card-edit-container
   .card-edit-content
