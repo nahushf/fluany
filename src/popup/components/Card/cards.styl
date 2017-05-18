@@ -10,7 +10,7 @@
     height 123px
     transition all .2s ease-in
     margin-top 20px
-    margin-right 21px
+    margin-right 36px
     z-index 1
     &:last-child
       margin-right 0
@@ -57,8 +57,10 @@
       white-space nowrap
       overflow hidden
       &.card-item--edit
-        font-size 10px
-        margin-top 40px
+        font-size 12px
+        margin-top 48px
+        margin-left 4px
+        text-align left
 
     .card-item-block
       border-radius 4px
@@ -96,7 +98,7 @@
       z-index 9999
       .card-item-block
         left 0
-        border-radius 0
+        border-radius 4px 0 0 4px
         .arrow-back
           opacity 1
           visibility visible
@@ -108,7 +110,7 @@
         visibility visible
         position absolute
         left 124px
-        width 480px
+        width 490px
         height 124px
         background rgb(247, 247, 247)
       .card-item--count
@@ -117,8 +119,6 @@
       .tooltip-card
         display none
     &:hover
-      transform translate(0, -5px)
-      box-shadow 0px 12px 5px -8px rgba(0,0,0,0.2)
       .card-item--count
         opacity 0
         &.card-item--edit
@@ -140,7 +140,7 @@
     margin 0
     margin-bottom 2px
     color #FFF
-    font-size 20px
+    font-size 16px
     position absolute
     top 50%
     left 50%
@@ -153,11 +153,11 @@
   span
     font-weight bold
   .edit-icon
-    width 15px
-    height 15px
+    width 20px
+    height 20px
     position absolute
-    bottom 16px
-    right 30px
+    bottom 7px
+    right 7px
   &.color-1
     background darken(color-1, 10%)
   &.color-2
