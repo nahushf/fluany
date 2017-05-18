@@ -35,7 +35,7 @@
           transform translate(-50%, -50%)
         .item-more-message
           margin-top 30px
-          font-size 14px
+          font-size 11px
           text-transform uppercase
           width 100%
           
@@ -44,7 +44,7 @@
       margin-right 0
     .card-item--count
       color #FFF
-      font-size 20px
+      font-size 16px
       margin 0
       font-weight bold
       position absolute
@@ -56,6 +56,10 @@
       text-overflow ellipsis
       white-space nowrap
       overflow hidden
+      &.card-item--edit
+        font-size 10px
+        margin-top 40px
+
     .card-item-block
       border-radius 4px
       overflow hidden
@@ -104,7 +108,7 @@
         visibility visible
         position absolute
         left 124px
-        width 452px
+        width 480px
         height 124px
         background rgb(247, 247, 247)
       .card-item--count
@@ -117,6 +121,8 @@
       box-shadow 0px 12px 5px -8px rgba(0,0,0,0.2)
       .card-item--count
         opacity 0
+        &.card-item--edit
+          opacity 1
       .tooltip-card
         transform translateY(0)
         opacity 1
@@ -146,6 +152,12 @@
     overflow hidden
   span
     font-weight bold
+  .edit-icon
+    width 15px
+    height 15px
+    position absolute
+    bottom 16px
+    right 30px
   &.color-1
     background darken(color-1, 10%)
   &.color-2

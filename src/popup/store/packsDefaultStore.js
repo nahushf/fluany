@@ -11,29 +11,29 @@ export default [
         {
             id: 0,
             colorID: 1,
-            front: "Hello",
-            back: "Olá",
+            front: "How are u?",
+            back: "Como vai vc?",
             isEditing: false
         },
         {
             id: 1,
             colorID: 2,
-            front: "Hi",
-            back: "Olá",
+            front: "Where are you from?",
+            back: "De onde voce é?",
             isEditing: false
         },
         {
             id: 2,
             colorID: 3,
-            front: "Hello",
-            back: "Olá",
+            front: "Thanks a lot",
+            back: "Muito obrigado",
             isEditing: false
         },
         {
             id: 3,
             colorID: 4,
-            front: "Hello",
-            back: "Olá",
+            front: "I am studying english",
+            back: "Eu estou estudando ingles",
             isEditing: false
         },
         {
