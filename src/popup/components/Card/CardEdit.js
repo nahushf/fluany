@@ -32,6 +32,12 @@ const CardEdit = ({
                        onChange={handleCardBack}
                        placeholder="Digite o que vai aparecer no Back"></input>
             </div>
+            <div className="card-delete">
+                <svg className="trash-card">
+                    <use xlinkHref="#icon-trash"></use>
+                </svg>
+                <label for="">Apagar</label>
+            </div>
         </div>
     );
 }
