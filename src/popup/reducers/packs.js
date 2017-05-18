@@ -8,6 +8,7 @@ import { ADD_PACKAGE,
          IS_SETTING,
 				 CHANGE_TIME_PACKAGE,
 				 REMOVE_PACKAGE,
+				 REMOVE_CARD,
          IS_EDITING_CARD } from '../constants/ActionTypes';
 import { assoc, update, propEq, insert, remove } from 'ramda';
 import { getIndexThingById } from './stateManipulate';
@@ -36,11 +37,16 @@ const packs = (state = defaultState, action) => {
 				case CHANGE_TIME_PACKAGE:
 					return update(indexOfThePack, assoc('timeMinutes', action.value, packOfTheId), state);
         case IS_EDITING_CARD:
+					const indexCard = getIndexThingById(state[indexOfThePack].cards, action.idCard);
 					const cards = update(action.idCard,
-													 assoc(action.prop, action.value, state[action.id].cards[action.idCard]),
-															 state[action.id].cards);
+													 assoc(action.prop, action.value, state[indexOfThePack].cards[indexCard]),
+															 state[indexOfThePack].cards);
 				return update(indexOfThePack, assoc('cards', cards, packOfTheId),
                       state);
+				case REMOVE_CARD:
+					const indexOfTheCard = getIndexThingById(state[indexOfThePack].cards, action.idCard);
+					const cardsWithRemoved = remove(indexOfTheCard, 1, state[indexOfThePack].cards);
+					return update(indexOfThePack, assoc('cards', cardsWithRemoved, packOfTheId), state);
         default:
             return state;
     }

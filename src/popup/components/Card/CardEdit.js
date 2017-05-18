@@ -1,5 +1,5 @@
 import React from 'react';
-import { isEditingCard } from '../../actions/pack';
+import { isEditingCard, removeCard } from '../../actions/pack';
 import { getIndexThingById } from '../../reducers/stateManipulate';
 
 const CardEdit = ({
@@ -17,6 +17,10 @@ const CardEdit = ({
         dispatch(isEditingCard(e.target.value, 'back', indexOfPack, indexOfCard));
     }
 
+    const handleRemoveCard = () => {
+        dispatch(removeCard(indexOfPack, indexOfCard));
+    }
+
     return (
         <div className="card-edit-container">
             <div className="card-edit-content">
@@ -32,11 +36,11 @@ const CardEdit = ({
                        onChange={handleCardBack}
                        placeholder="Digite o que vai aparecer no Back"></input>
             </div>
-            <div className="card-delete">
+            <div className="card-delete" onClick={handleRemoveCard}>
                 <svg className="trash-card">
                     <use xlinkHref="#icon-trash"></use>
                 </svg>
-                <label for="">Apagar</label>
+                <label>Apagar</label>
             </div>
         </div>
     );
