@@ -48,6 +48,7 @@ const Card = ({
                     <use xlinkHref="#icon-arrow"></use>
                 </svg>
                 <TooltipCard color={colorID} back={packs[indexOfPack].cards[indexOfCard].back}/>
+                <p className="card-item--flash card-item--count">Front</p>
                 <p className="card-item--count">{ packs[indexOfPack].cards[indexOfCard].front}</p>
             </div>
             <CardEdit {...cardEditProps} />
