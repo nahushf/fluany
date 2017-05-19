@@ -38,7 +38,8 @@ const Card = ({
         dispatch,
         packs,
         indexOfPack,
-        indexOfCard
+        indexOfCard,
+        handleClickCard
     }
 
     return (

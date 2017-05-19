@@ -6,7 +6,8 @@ const CardEdit = ({
     dispatch,
     packs,
     indexOfPack,
-    indexOfCard
+    indexOfCard,
+    handleClickCard
 }) => {
 
     const handleCardFront = e => {
@@ -18,6 +19,7 @@ const CardEdit = ({
     }
 
     const handleRemoveCard = () => {
+        handleClickCard();
         dispatch(removeCard(indexOfPack, indexOfCard));
     }
 

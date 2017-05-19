@@ -39,13 +39,14 @@ const packs = (state = defaultState, action) => {
         case IS_EDITING_CARD:
 					const indexCard = getIndexThingById(state[indexOfThePack].cards, action.idCard);
 					const cards = update(action.idCard,
-													 assoc(action.prop, action.value, state[indexOfThePack].cards[indexCard]),
-															 state[indexOfThePack].cards);
+													 assoc(action.prop, action.value, packOfTheId.cards[indexCard]),
+															 packOfTheId.cards);
 				return update(indexOfThePack, assoc('cards', cards, packOfTheId),
                       state);
 				case REMOVE_CARD:
-					const indexOfTheCard = getIndexThingById(state[indexOfThePack].cards, action.idCard);
-					const cardsWithRemoved = remove(indexOfTheCard, 1, state[indexOfThePack].cards);
+					const indexOfTheCard = getIndexThingById(packOfTheId.cards, action.idCard);
+					const cardsWithRemoved = remove(indexOfTheCard, 1, packOfTheId.cards);
+          console.log('cardswith removed: ', cardsWithRemoved);
 					return update(indexOfThePack, assoc('cards', cardsWithRemoved, packOfTheId), state);
         default:
             return state;
