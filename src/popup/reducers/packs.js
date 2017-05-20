@@ -46,7 +46,6 @@ const packs = (state = defaultState, action) => {
 				case REMOVE_CARD:
 					const indexOfTheCard = getIndexThingById(packOfTheId.cards, action.idCard);
 					const cardsWithRemoved = remove(indexOfTheCard, 1, packOfTheId.cards);
-          console.log('cardswith removed: ', cardsWithRemoved);
 					return update(indexOfThePack, assoc('cards', cardsWithRemoved, packOfTheId), state);
         default:
             return state;
