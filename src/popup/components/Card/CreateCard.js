@@ -1,5 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { createCard } from '../../actions/pack';
+import { getIndexThingById } from '../../reducers/stateManipulate';
 
 /**
  * A component to Create card
@@ -9,10 +11,19 @@ import { connect } from 'react-redux';
  * @return {Component}
  */
 let CreateCard = ({
-    dispatch }) => {
+    dispatch,
+    packageid,
+    packs }) => {
+
+    const indexOfPack = getIndexThingById(packs, packageid);
+    const handleCreateCard = () => {
+        const idNewCard = packs[indexOfPack].cards.length;
+        const newCard = {id: idNewCard, isEditing: false, front: "Novo front", back: "Novo back"};
+        dispatch(createCard(packageid, idNewCard , newCard));
+    }
 
     return (
-        <li key="0" className="card-item card-item--new">
+        <li key="0" className="card-item card-item--new" onClick={handleCreateCard}>
             <div className="card-item-block">
                 <p className="card-item--more">+</p>
                 <p className="item-more-message">Adicionar mais</p>
@@ -20,13 +31,6 @@ let CreateCard = ({
         </li>
     );
 }
-
-const mapStateToProps = (
-  state
-) => ({
-    isCreatingCard: state.flags.isCreatingCard
-    }
-)
 
 const {
     func, bool
@@ -36,5 +40,4 @@ CreateCard.propTypes = {
     dispatch: func.isRequired
 };
 
-export default connect(
-    mapStateToProps)(CreateCard);
+export default CreateCard;

@@ -8,6 +8,7 @@ import { ADD_PACKAGE,
 				 CHANGE_TIME_PACKAGE,
          IS_EDITING_CARD,
 				 REMOVE_CARD,
+         CREATE_CARD,
          IS_SETTING } from '../constants/ActionTypes';
 
 export function addPackage(value){
@@ -80,6 +81,15 @@ export function removeCard(id, idCard){
 		id,
     idCard
 	};
+}
+
+export function createCard(id, idCard, value){
+	  return {
+		    type: CREATE_CARD,
+		    id,
+        idCard,
+        value
+	  };
 }
 
 export function isSetting(value, id){
