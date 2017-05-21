@@ -38,9 +38,8 @@ const packs = (state = defaultState, action) => {
 				case CHANGE_TIME_PACKAGE:
 					return update(indexOfThePack, assoc('timeMinutes', action.value, packOfTheId), state);
         case IS_EDITING_CARD:
-					const indexCard = getIndexThingById(state[indexOfThePack].cards, action.idCard);
-        console.log('indexCArd', indexCard);
-					const cards = update(action.idCard,
+					const indexCard = getIndexThingById(packOfTheId.cards, action.idCard);
+					const cards = update(indexCard,
 													 assoc(action.prop, action.value, packOfTheId.cards[indexCard]),
 															 packOfTheId.cards);
 				return update(indexOfThePack, assoc('cards', cards, packOfTheId),

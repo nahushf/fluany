@@ -20,7 +20,7 @@ const Cards = ({
 }) => {
 
     const cardMap = (card, index) => <Card key={index} packageid={packageid} index={index} {...card}/>;
-
+console.log('new list: ', packs[getIndexThingById(packs, packageid)].cards)
     return (
         <section>
             <ul className="card-content">
