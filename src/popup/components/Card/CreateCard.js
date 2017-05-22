@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { createCard } from '../../actions/pack';
+import { createCard, isEditingCard } from '../../actions/pack';
 import { getIndexThingById } from '../../reducers/stateManipulate';
 
 /**
@@ -13,9 +13,9 @@ import { getIndexThingById } from '../../reducers/stateManipulate';
 let CreateCard = ({
     dispatch,
     packageid,
+    indexOfPack,
     packs }) => {
 
-    const indexOfPack = getIndexThingById(packs, packageid);
     const handleCreateCard = () => {
         const idNewCard = packs[indexOfPack].cards.length;
         const newCard = {id: idNewCard, isEditing: false, front: "Novo front", back: "Novo back"};

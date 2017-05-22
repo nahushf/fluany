@@ -51,7 +51,7 @@ const packs = (state = defaultState, action) => {
 					const cardsWithRemoved = remove(action.indexCard, 1, packOfTheId.cards);
 					return update(indexOfThePack, assoc('cards', cardsWithRemoved, packOfTheId), state);
         case CREATE_CARD:
-            const newCard = { ...action.value, colorID: 2 };
+					const newCard = { ...action.value, colorID: 2 };
         return update(indexOfThePack, assoc('cards', [newCard, ...packOfTheId.cards], packOfTheId), state);
         default:
             return state;

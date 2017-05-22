@@ -25,7 +25,7 @@ const Cards = ({
     return (
         <section>
             <ul className="card-content">
-                <CreateCard packageid={packageid} packs={packs} dispatch={dispatch}/>
+                <CreateCard {...packProps} packs={packs} dispatch={dispatch}/>
                 { packs[getIndexThingById(packs, packageid)].cards.map(cardMap) }
             </ul>
         </section>
