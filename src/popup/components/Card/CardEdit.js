@@ -7,15 +7,16 @@ const CardEdit = ({
     packs,
     indexOfPack,
     indexOfCard,
-    handleClickCard
+    handleClickCard,
+    packageid
 }) => {
 
     const handleCardFront = e => {
-        dispatch(isEditingCard(e.target.value, 'front', indexOfPack, indexOfCard));
+        dispatch(isEditingCard(e.target.value, 'front', packageid, indexOfCard));
     }
 
     const handleCardBack = e => {
-        dispatch(isEditingCard(e.target.value, 'back', indexOfPack, indexOfCard));
+        dispatch(isEditingCard(e.target.value, 'back', packageid, indexOfCard));
     }
 
     const handleRemoveCard = () => {

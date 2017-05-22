@@ -39,7 +39,8 @@ const Card = ({
         packs,
         indexOfPack,
         indexOfCard,
-        handleClickCard
+        handleClickCard,
+        packageid
     }
 
     return (
