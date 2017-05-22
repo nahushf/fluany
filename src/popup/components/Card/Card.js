@@ -31,14 +31,14 @@ const Card = ({
 
     const handleClickCard = () => {
         listItem.style.transform = 'translateX(-' + (listItem.getBoundingClientRect().left - 25) + 'px)';
-        dispatch(isEditingCard(!isEditing, 'isEditing', indexOfPack, indexOfCard));
+        dispatch(isEditingCard(!isEditing, 'isEditing', packageid, id));
     }
 
     const cardEditProps = {
         dispatch,
         packs,
-        indexOfPack,
-        indexOfCard,
+        packageid,
+        id,
         handleClickCard
     }
 
