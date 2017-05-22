@@ -20,25 +20,25 @@ const Card = ({
     packs,
     index,
     colorID,
+    indexOfPack,
     id,
     packageid
 }) => {
 
-    const indexOfPack = getIndexThingById(packs, packageid);
     const indexOfCard = getIndexThingById(packs[indexOfPack].cards, id);
     const isEditing = packs[indexOfPack].cards[indexOfCard].isEditing;
     let listItem = "";
 
     const handleClickCard = () => {
         listItem.style.transform = 'translateX(-' + (listItem.getBoundingClientRect().left - 25) + 'px)';
-        dispatch(isEditingCard(!isEditing, 'isEditing', packageid, id));
+        dispatch(isEditingCard(!isEditing, 'isEditing', packageid, indexOfCard));
     }
 
     const cardEditProps = {
         dispatch,
         packs,
-        packageid,
-        id,
+        indexOfPack,
+        indexOfCard,
         handleClickCard
     }
 

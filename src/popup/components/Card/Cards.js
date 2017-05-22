@@ -16,11 +16,12 @@ import { getIndexThingById } from '../../reducers/stateManipulate.js';
 const Cards = ({
     dispatch,
     packs,
-    packageid
+    packageid,
+    indexOfPack
 }) => {
 
-    const cardMap = (card, index) => <Card key={index} packageid={packageid} index={index} {...card}/>;
-console.log('new list: ', packs[getIndexThingById(packs, packageid)].cards)
+    const packProps = {packageid, indexOfPack};
+    const cardMap = (card, index) => <Card key={index} {...card} { ...packProps }/>;
     return (
         <section>
             <ul className="card-content">

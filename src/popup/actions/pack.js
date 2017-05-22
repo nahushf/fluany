@@ -65,21 +65,34 @@ export function changeTimePackage(value, id){
 	};
 }
 
-export function isEditingCard(value, prop, id, idCard){
+
+export function isSetting(value, id){
+  return {
+    type: IS_SETTING,
+    value,
+    id
+  };
+}
+
+/*
+** CARDS ACTIONS
+*/
+
+export function isEditingCard(value, prop, id, indexCard){
 	  return {
 		    type: IS_EDITING_CARD,
 		    value,
         prop,
 		    id,
-        idCard
+        indexCard
 	  };
 }
 
-export function removeCard(id, idCard){
+export function removeCard(id, indexCard){
 	return {
 		type: REMOVE_CARD,
 		id,
-    idCard
+    indexCard
 	};
 }
 
@@ -90,12 +103,4 @@ export function createCard(id, idCard, value){
         idCard,
         value
 	  };
-}
-
-export function isSetting(value, id){
-    return {
-        type: IS_SETTING,
-        value,
-        id
-    };
 }

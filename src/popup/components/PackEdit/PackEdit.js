@@ -29,17 +29,19 @@ let PackEdit = ({
 		dispatch(isEditPackage({newPackage: false, packageid: null}));
 	};
 
+  const indexOfPack = getIndexThingById(packs, isEdit.packageid);
+
 	const titleProps = {
 		onChange: handlePackTitle,
 		title: (!isNil(isEdit.packageid)
-            ? packs[getIndexThingById(packs, isEdit.packageid)].title
+            ? packs[indexOfPack].title
             : packflag.title)
 	};
 
 	const descriptionProps = {
 		onChange: handlePackDescription,
 		  description: (!isNil(isEdit.packageid)
-                  ? packs[getIndexThingById(packs, isEdit.packageid)].description
+                  ? packs[indexOfPack].description
                   : packflag.description)
 	};
 
@@ -51,13 +53,12 @@ let PackEdit = ({
 								<use xlinkHref="#icon-arrow"></use>
 							</svg>
 					</button>
-					{/* <button className="btn btn-save">Salvar pacote</button> */}
 				</nav>
 				<div>
 					<TitlePack {...titleProps}/>
 					<DescriptionPack {...descriptionProps}/>
-          <Time idPackage={isEdit.packageid}/>
-          <Cards packageid={isEdit.packageid}/>
+          <Time packageid={isEdit.packageid}/>
+          <Cards indexOfPack={indexOfPack} packageid={isEdit.packageid}/>
 				</div>
       </section>
   );

@@ -7,11 +7,11 @@ import { getIndexThingById } from '../../reducers/stateManipulate';
 let Time = ({
   dispatch,
 	packs,
-	idPackage
+	packageid
 }) => {
 
 	const handleTimeChange = (component, value) => {
-		  dispatch(changeTimePackage(value, idPackage));
+		  dispatch(changeTimePackage(value, packageid));
 	};
 
 	return (
@@ -19,7 +19,7 @@ let Time = ({
 			<InputRange
 				maxValue={20}
 				minValue={1}
-				value={packs[getIndexThingById(packs, idPackage)].timeMinutes}
+				value={packs[getIndexThingById(packs, packageid)].timeMinutes}
 				onChange={handleTimeChange}
 				defaultValue={4}
 				labelSuffix="min"

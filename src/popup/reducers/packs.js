@@ -37,16 +37,18 @@ const packs = (state = defaultState, action) => {
 					return update(indexOfThePack, assoc('isSetting', action.value, packOfTheId), state);
 				case CHANGE_TIME_PACKAGE:
 					return update(indexOfThePack, assoc('timeMinutes', action.value, packOfTheId), state);
+				/*
+			  ** CARDS ACTIONS
+			  ** Action [ idCard ] Is the position of the card in packages.
+				*/
         case IS_EDITING_CARD:
-					const indexCard = getIndexThingById(packOfTheId.cards, action.idCard);
-					const cards = update(indexCard,
-													 assoc(action.prop, action.value, packOfTheId.cards[indexCard]),
+					const cards = update(action.indexCard,
+													 assoc(action.prop, action.value, packOfTheId.cards[action.indexCard]),
 															 packOfTheId.cards);
 				return update(indexOfThePack, assoc('cards', cards, packOfTheId),
                       state);
 				case REMOVE_CARD:
-					const indexOfTheCard = getIndexThingById(packOfTheId.cards, action.idCard);
-					const cardsWithRemoved = remove(indexOfTheCard, 1, packOfTheId.cards);
+					const cardsWithRemoved = remove(action.indexCard, 1, packOfTheId.cards);
 					return update(indexOfThePack, assoc('cards', cardsWithRemoved, packOfTheId), state);
         case CREATE_CARD:
             const newCard = { ...action.value, colorID: 2 };

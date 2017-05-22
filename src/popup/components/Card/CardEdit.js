@@ -5,8 +5,8 @@ import { getIndexThingById } from '../../reducers/stateManipulate';
 const CardEdit = ({
     dispatch,
     packs,
-    packageid,
-    id,
+    indexOfPack,
+    indexOfCard,
     handleClickCard
 }) => {
 
@@ -20,11 +20,8 @@ const CardEdit = ({
 
     const handleRemoveCard = () => {
         handleClickCard();
-        dispatch(removeCard(packageid, id));
+        dispatch(removeCard(indexOfPack, indexOfCard));
     }
-
-    const indexOfPack = getIndexThingById(packs, packageid);
-    const indexOfCard = getIndexThingById(packs[indexOfPack].cards, id);
 
     return (
         <div className="card-edit-container">
