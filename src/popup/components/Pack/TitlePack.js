@@ -16,7 +16,7 @@ const TitlePack = ({onChange, title}) => (
 				onChange={onChange}
 				spellCheck="false"
 				autoCorrect="false"
-				maxLength="21"
+				maxLength="30"
         placeholder="Clique aqui para mudar o título"
 				value={title}>
 			</textarea>

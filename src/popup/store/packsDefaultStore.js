@@ -96,7 +96,7 @@ export default [
     id: 2,
     title: 'English Vocabulary Profile British',
     description: 'This is a deck of the 100 most common english vocabulary profile British.',
-    colorID: 3,
+    colorID: 1,
 		isChangingColor: false,
     isSetting: false,
 		timeMinutes: 0,

@@ -1,6 +1,6 @@
 .card-content
   padding 0
-  margin-top 50px
+  margin-top 27px
   margin-bottom 70px
   list-style none
   display flex
@@ -15,7 +15,7 @@
     &:last-child
       margin-right 0
     &.card-item--new
-      border 2px dotted #bfbfbf
+      border 2px dotted lighten(color-3, 50%)
       border-radius 4px
       margin-top 21px
       width 118px
@@ -24,8 +24,8 @@
         width 118px
         height 118px
         .card-item--more, .item-more-message
-          color #bfbfbf
-          font-size 40px
+          color color-3
+          font-size 66px
           position absolute
           font-weight bolder
           top 50%
@@ -86,14 +86,16 @@
       cursor pointer
       .arrow-back
         fill #FFF
-        transform rotateZ(90deg)
         position absolute
         left 33px
-        top -13px
+        top 34px
         width 60px
+        height 60px
         opacity 0
         visibility hidden
-        transition all .1s ease-in
+        transition all .2s
+        &:hover
+          transform translateX(-7px)
     .card-edit-container
       opacity 0
       visibility hidden

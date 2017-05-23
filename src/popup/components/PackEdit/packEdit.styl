@@ -1,21 +1,24 @@
 .config-package
   position relativa
   .btn
-    font-weight bold
+    font-weight bolder
     text-transform none
     position relative
   .btn-back
     background transparent
-    color gray-border
+    color color-1
+    font-weight bold
     .arrow-back
-      width 40px
-      height 40px
-      transform rotateZ(90deg)
-      fill gray-light
+      width 34px
+      height 34px
+      fill color-1
       position absolute
       right 50px
       top -2px
-      transition transform
+      transition all .2s
+    &:hover
+      .arrow-back
+        transform translateX(-4px)
 
   .btn-save
     background green-light
@@ -43,7 +46,7 @@
     &:hover
       color darken(red-light, 20%)
   .title-package--container
-    margin-top 20px
+    margin-top 11px
     .input-title-package
       font-size 30px
       height 43px
@@ -51,6 +54,8 @@
   .description-package--container
     .input-description-package
       color gray-light
+      font-size 16px
+    margin-bottom 19px
   .card-delete
     position absolute
     right -6px

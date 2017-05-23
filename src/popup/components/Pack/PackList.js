@@ -16,7 +16,7 @@ let PackList = ({
     filterPackage
     }) => {
     return (
-        <section>
+        <section className="pack-container">
 				    <ul className="packs-content">
                 { filterPackage === "" ? <Create/> : null }
                 {packs.map(pack =>
@@ -26,6 +26,9 @@ let PackList = ({
                  )}
 				    </ul>
             <MorePackage/>
+            <svg className="planet-icon">
+                <use xlinkHref="#icon-planet"></use>
+            </svg>
         </section>
     );
 }
