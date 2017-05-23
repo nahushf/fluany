@@ -20,6 +20,11 @@ let CreateCard = ({
         const idNewCard = packs[indexOfPack].cards.length;
         const newCard = {id: idNewCard, isEditing: false, front: "Novo front", back: "Novo back"};
         dispatch(createCard(packageid, idNewCard , newCard));
+
+        //Effect to open card created
+        setTimeout(()=>{
+            document.querySelector('ul.card-content li:nth-child(2) .card-item-block').click();
+        }, 300);
     }
 
     return (
