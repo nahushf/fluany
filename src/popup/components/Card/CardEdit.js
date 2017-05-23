@@ -30,14 +30,14 @@ const CardEdit = ({
                 <p>Front</p>
                 <input value={packs[indexOfPack].cards[indexOfCard].front}
                        onChange={handleCardFront}
-                       placeholder="Digite o que vai aparecer no front"></input>
+                       placeholder="Digite o front"></input>
             </div>
 
             <div className="card-edit-content">
                 <p>Back</p>
                 <input value={packs[indexOfPack].cards[indexOfCard].back}
                        onChange={handleCardBack}
-                       placeholder="Digite o que vai aparecer no Back"></input>
+                       placeholder="Digite o Back"></input>
             </div>
             <div className="card-delete" onClick={handleRemoveCard}>
                 <svg className="trash-card">
