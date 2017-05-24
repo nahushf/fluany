@@ -18,13 +18,13 @@ let CreateCard = ({
 
     const handleCreateCard = () => {
         const idNewCard = packs[indexOfPack].cards.length;
-        const newCard = {id: idNewCard, isEditing: false, front: "Novo front", back: "Novo back"};
+        const newCard = {id: idNewCard, isEditing: false, front: "", back: ""};
         dispatch(createCard(packageid, idNewCard , newCard));
 
         //Effect to open card created
         setTimeout(()=>{
             document.querySelector('ul.card-content li:nth-child(2) .card-item-block').click();
-        }, 300);
+        }, 100);
     }
 
     return (

@@ -16,14 +16,20 @@ let Time = ({
 
 	return (
 		  <section className="time-container">
-			<InputRange
-				maxValue={20}
-				minValue={1}
-				value={packs[getIndexThingById(packs, packageid)].timeMinutes}
-				onChange={handleTimeChange}
-				defaultValue={4}
-				labelSuffix="min"
-			/>
+          <h2 className="time-title">Escolha o seu tempo de estudo:
+							<svg className="info-icon">
+								<use xlinkHref="#icon-info"></use>
+							</svg>
+          </h2>
+
+        <InputRange
+            maxValue={20}
+            minValue={1}
+            value={packs[getIndexThingById(packs, packageid)].timeMinutes}
+            onChange={handleTimeChange}
+            defaultValue={4}
+            labelSuffix="min"
+        />
 		</section>
 	);
 }

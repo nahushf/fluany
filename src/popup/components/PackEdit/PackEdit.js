@@ -5,6 +5,7 @@ import TitlePack from '../Pack/TitlePack';
 import DescriptionPack from '../Pack/DescriptionPack';
 import Cards from '../Card/Cards';
 import Time from './Time';
+import Play from '../Play/Play';
 import { changePackageTitle,
          changePackageDescription } from '../../actions/pack';
 import { newPackage, isEditPackage } from '../../actions/flags';
@@ -56,6 +57,7 @@ let PackEdit = ({
 				</nav>
 				<div>
 					<TitlePack {...titleProps}/>
+          <Play />
 					<DescriptionPack {...descriptionProps}/>
           <Time packageid={isEdit.packageid}/>
           <Cards indexOfPack={indexOfPack} packageid={isEdit.packageid}/>
