@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { inc } from 'ramda';
-import { isEditingCard } from '../../actions/pack';
+import { inc, head, isEmpty, prop } from 'ramda';
+import { isEditingCard, removeCard } from '../../actions/pack';
 import { getIndexThingById } from '../../reducers/stateManipulate';
 import CardEdit from './CardEdit';
 import TooltipCard from './TooltipCard';
@@ -30,6 +30,10 @@ const Card = ({
     let listItem = "";
 
     const handleClickCard = () => {
+
+        /* if(isEmpty(prop('front', head(packs))) && isEmpty(prop('back', head(packs))))
+         *     dispatch(removeCard(packageid, indexOfCard));
+         */
         listItem.style.transform = 'translateX(-' + (listItem.getBoundingClientRect().left - 25) + 'px)';
         dispatch(isEditingCard(!isEditing, 'isEditing', packageid, indexOfCard));
     }
