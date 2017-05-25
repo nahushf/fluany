@@ -27,17 +27,17 @@ const CardEdit = ({
     return (
         <div className="card-edit-container">
             <div className="card-edit-content">
-                <p>Front</p>
+                <p>Termo</p>
                 <input value={packs[indexOfPack].cards[indexOfCard].front}
                        onChange={handleCardFront}
-                       placeholder="Digite o front"></input>
+                       placeholder="Digite o termo"></input>
             </div>
 
             <div className="card-edit-content">
-                <p>Back</p>
+                <p>Definição</p>
                 <input value={packs[indexOfPack].cards[indexOfCard].back}
                        onChange={handleCardBack}
-                       placeholder="Digite o Back"></input>
+                       placeholder="Digite a definição"></input>
             </div>
             <div className="card-delete" onClick={handleRemoveCard}>
                 <svg className="trash-card">

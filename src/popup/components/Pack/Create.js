@@ -30,16 +30,16 @@ let Create = ({
 
     const Creating = () => (
         <div className="pack-item--creating">
-            <p className="pack-item--title">Adicionar novo pacote</p>
+            <p className="pack-item--title">Criar nova lista de estudos</p>
             <input className="pack-item--input"
                    name="newpack"
                    type="text"
                    onChange={handleInputNewPackage}
-                   placeholder="Qual o nome do novo pacote?"/>
+                   placeholder="Qual o nome da lista ?"/>
 
             <div className="new-pack--buttons">
                 <button className="btn btn-create"
-                        onClick={handleClickCreate}>Criar pacote</button>
+                        onClick={handleClickCreate}>Criar lista</button>
             </div>
         </div>
 
