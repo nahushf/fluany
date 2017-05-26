@@ -31,7 +31,7 @@ let CreateCard = ({
         <li key="0" className="card-item card-item--new" onClick={handleCreateCard}>
             <div className="card-item-block">
                 <p className="card-item--more">+</p>
-                <p className="item-more-message">Adicionar mais</p>
+                <p className="item-more-message">Adicionar termo</p>
             </div>
         </li>
     );

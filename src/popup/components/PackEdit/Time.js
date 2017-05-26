@@ -16,7 +16,7 @@ let Time = ({
 
 	return (
 		  <section className="time-container">
-          <h2 className="time-title">Escolha o seu tempo de estudo:
+          <h2 className="time-title">Escolha o seu intervalo de estudo:
 							<svg className="info-icon">
 								<use xlinkHref="#icon-info"></use>
 							</svg>

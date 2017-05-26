@@ -38,26 +38,39 @@ const Card = ({
         dispatch(isEditingCard(!isEditing, 'isEditing', packageid, indexOfCard));
     }
 
+    const handleRemoveCard = () => {
+        handleClickCard();
+        dispatch(removeCard(indexOfPack, indexOfCard));
+    }
+
     const cardEditProps = {
         dispatch,
         packs,
         indexOfPack,
         indexOfCard,
-        handleClickCard,
         packageid
     }
 
     return (
         <li className={"card-item" + (isEditing ? " isEditing" : "")} ref={(e) =>{listItem = e}}>
+            <CardEdit {...cardEditProps} />
             <div className={"card-item-block color-" + colorID} onClick={handleClickCard}>
-                <svg className="arrow-back">
-                    <use xlinkHref="#icon-arrow"></use>
-                </svg>
+                <button className="btn-delete" onClick={handleRemoveCard}>
+                    <svg className="trash-icon">
+                        <use xlinkHref="#icon-trash"></use>
+                    </svg>
+                    <span>Excluir</span>
+                </button>
+                <button className="btn-save">
+                    <svg className="save-icon">
+                        <use xlinkHref="#icon-correct"></use>
+                    </svg>
+                    <span>Salvar</span>
+                </button>
                 <TooltipCard color={colorID} back={packs[indexOfPack].cards[indexOfCard].back}/>
                 <p className="card-item--flash card-item--count">Front</p>
                 <p className="card-item--count">{ packs[indexOfPack].cards[indexOfCard].front}</p>
             </div>
-            <CardEdit {...cardEditProps} />
         </li>
     );
 }
