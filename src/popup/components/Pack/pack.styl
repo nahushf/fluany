@@ -1,3 +1,5 @@
+.pack-container
+  clear both
 .packs-content
   padding 0
   list-style none
@@ -8,22 +10,34 @@
   justify-content space-between
 
 .pack-item
-  width 270px
-  padding 20px 10px 10px 10px
-  height 130px
+  width 262px
+  padding 20px 14px 14px 10px
+  height 100px
   margin-top 15px
   position relative
-  border-radius 10px
+  border-radius 4px
   transition background .4s ease-in
   z-index 1
   &:hover
-    .palette-color, .play-label, .setting-content
+    .palette-color, .play-content, .play-label, .show-pack
       opacity 1
       visibility visible
+    .play-content
+      width 71px
   h3
     color #FFF
     font-size 16px
     margin 0
+  .show-pack
+    color #FFF
+    cursor pointer
+    border none
+    position absolute
+    bottom 10px
+    font-weight bold
+    transition .1s ease-in
+    opacity 0
+
 
   &.color-1, &.color-2, &.color-3, &.color-4
     .input-description-package, .input-title-package
@@ -35,43 +49,48 @@
         padding-left 10px
         background rgba(0, 0, 0, .1);
     .input-title-package
-      height 44px
+      height 55px
     .input-title-package:focus + .title-edit-icon, .input-description-package:focus + .description-edit-icon
       display none
 
   &.color-1
     background-color color-1
-    .input-description-package
-      background color-1
-    .input-title-package
-      background color-1
+    .play-content
+      background-color lighten(color-1, 7%)
+      box-shadow 1px 8px 22px darken(color-1, 20%)
 
   &.color-2
     background-color color-2
-    .input-description-package
-      background color-2
-    .input-title-package
-      background color-2
+    .play-content
+      background-color lighten(color-2, 7%)
+      box-shadow 1px 8px 22px darken(color-2,  2%)
 
   &.color-3
     background-color color-3
-    .input-description-package
-      background color-3
-    .input-title-package
-      background color-3
+    .play-content
+      background-color lighten(color-3, 7%)
+      box-shadow 1px 8px 22px darken(color-3,  20%)
 
   &.color-4
     background-color color-4
-    .input-description-package
-      background color-4
-    .input-title-package
-      background color-4
+    .play-content
+      background-color lighten(color-4, 7%)
+      box-shadow 1px 8px 22px darken(color-4,  20%)
+  .setting-trash
+    position absolute
+    bottom 9px
+    right 16px
+    cursor pointer
+    .trash-icon
+      width 19px
+      height 19px
+      fill #FFF
 
 .pack-item--new
   text-align center
   border 2px dotted color-3
   color gray-light
-  padding 4px 9px 22px 9px
+  padding 0px 12px 30px 11px
   .pack-item-content
     cursor pointer
 
@@ -92,12 +111,13 @@
     font-size 18px
     text-align left
     margin-bottom 6px
+    margin-top 7px
     color color-3
     font-weight bold
   .pack-item--input
     width 95%
     display block
-    height 34px
+    height 30px
     padding-left 10px
     border-radius 3px
     border 1px solid #ced4d8
@@ -110,11 +130,7 @@
       padding 10px
       font-size 10px
       width 97px
-      height 40px
-    .btn-cancel
-      background #e2e2e2
-      color rgba(184, 189, 199, 1)
-    .btn-create
+      height 37px
       width 100%
       background color-3
       transition .3s
@@ -129,6 +145,7 @@
     color #FFF
     font-size 20px
     font-weight bold
+    background transparent
     &:focus
       color darken(color-1, 10%)
       background #FFF
@@ -184,6 +201,6 @@
   visibility hidden
 
 .pack-container .planet-icon
-  position absolute
+  position fixed
   bottom -97px
   left 5px

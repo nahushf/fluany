@@ -2,6 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Search from '../components/Search/Search';
 import PackList from '../components/Pack/PackList';
+import Logo from '../components/Logo/Logo';
+import Rocket from '../components/Rocket/Rocket';
 
 const Home = ({ isEdit }) => {
 	if(isEdit.newPackage || isEdit.packageid !== null){
@@ -9,6 +11,8 @@ const Home = ({ isEdit }) => {
 	}else
 		return (
 				<div>
+          <Logo/>
+          <Rocket/>
 					<Search/>
 					<PackList/>
 				</div>

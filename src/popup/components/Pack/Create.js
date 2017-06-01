@@ -30,7 +30,7 @@ let Create = ({
 
     const Creating = () => (
         <div className="pack-item--creating">
-            <p className="pack-item--title">Criar nova lista de estudos</p>
+            <p className="pack-item--title">Criar uma nova lista de estudos</p>
             <input className="pack-item--input"
                    name="newpack"
                    type="text"

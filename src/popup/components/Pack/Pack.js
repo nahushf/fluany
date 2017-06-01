@@ -7,6 +7,8 @@ import Palette from '../Palette/Palette';
 import TitlePack from './TitlePack';
 import Setting from '../Setting/Setting';
 import DescriptionPack from './DescriptionPack';
+import { isEditPackage } from '../../actions/flags';
+import Delete from './Delete';
 
 /**
  * A component to see Pack information
@@ -22,7 +24,6 @@ import DescriptionPack from './DescriptionPack';
 let Pack = ({
     dispatch,
     title,
-    description,
     id,
     colorID,
     isChangingColor,
@@ -32,17 +33,16 @@ let Pack = ({
         dispatch(changePackageTitle(id, e.target.value));
     }
 
-    const handlePackageDescription = e => {
-        dispatch(changePackageDescription(id, e.target.value));
+    const handleClickItem = () => {
+        dispatch(isEditPackage({newPackage: false, packageid: id}))
     }
 
     return (
             <li className={"pack-item color-" + colorID}>
                 <TitlePack onChange={handlePackageTitle} title={title}/>
-                <DescriptionPack onChange={handlePackageDescription} description={description}/>
                 <Play />
-                <Palette isChanging={isChangingColor} colorID={colorID} packageid={id}/>
-                <Setting packageid={id} isShow={isSetting}/>
+                <a className="show-pack" onClick={handleClickItem}>Ver Lista</a>
+                <Delete dispatch={dispatch} packageid={id}/>
             </li>
     );
 }
