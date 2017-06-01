@@ -22,10 +22,6 @@ let PackEdit = ({
     dispatch(changePackageTitle(isEdit.packageid, e.target.value));
   };
 
-	const handlePackDescription = e => {
-    dispatch(changePackageDescription(isEdit.packageid, e.target.value));
-	};
-
 	const handleComeBack = () => {
 		dispatch(isEditPackage({newPackage: false, packageid: null}));
 	};
@@ -37,13 +33,6 @@ let PackEdit = ({
 		title: (!isNil(isEdit.packageid)
             ? packs[indexOfPack].title
             : packflag.title)
-	};
-
-	const descriptionProps = {
-		onChange: handlePackDescription,
-		  description: (!isNil(isEdit.packageid)
-                  ? packs[indexOfPack].description
-                  : packflag.description)
 	};
 
   const Container = () => (
@@ -58,7 +47,6 @@ let PackEdit = ({
 				<div>
 					<TitlePack {...titleProps}/>
           <Play />
-					<DescriptionPack {...descriptionProps}/>
           <Time packageid={isEdit.packageid}/>
           <Cards indexOfPack={indexOfPack} packageid={isEdit.packageid}/>
 				</div>

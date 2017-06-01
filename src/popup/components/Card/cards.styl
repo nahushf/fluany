@@ -6,15 +6,15 @@
   display flex
   flex-wrap wrap
   .card-item
-    width 123px
-    height 123px
+    width 200px
+    height 114px
     transition all .2s ease-in
     margin-top 20px
-    margin-right 36px
+    margin-right 18px
     z-index 1
     &:last-child
       margin-right 0
-    &.card-item--new
+    &.card-item--empty
       border 2px dotted lighten(color-3, 50%)
       margin-right 0
       border-radius 4px
@@ -38,9 +38,32 @@
         .item-more-message
           font-size 14px
           text-transform uppercase
+    &.card-item--new
+      border 2px dotted lighten(color-3, 50%)
+      border-radius 4px
+      margin-top 21px
+      width 198px
+      height 109px
+      .card-item-block
+        height 70px
+        text-align center
+        margin-top 12px
+        .card-item--more, .item-more-message
+          color color-3
+          font-weight bolder
+          margin 0
+          display block
+          vertical-align middle
+        .card-item--more
+          font-size 50px
+          margin-top 5px
+          margin-bottom 0
+        .item-more-message
+          font-size 12px
+          margin-top -12px
           
 
-    &:nth-child(5n+5)
+    &:nth-child(3n+3)
       margin-right 0
     .card-item--count
       color #FFF
@@ -49,8 +72,8 @@
       font-weight bold
       position absolute
       top 50%
-      left 50%
-      transform translate(-50%, -50%)
+      transform translateY(-50%)
+      left 15px
       transition all .2s ease-out
       width 115px
       text-overflow ellipsis
@@ -59,7 +82,7 @@
       margin-top 8px
       &.card-item--edit
         font-size 12px
-        margin-top 48px
+        margin-top 41px
         margin-left 4px
       &.card-item--flash
         font-size 14px
@@ -79,8 +102,8 @@
         background color-3
       &.color-4
         background color-4
-      width 124px
-      height 124px
+      width 200px
+      height 114px
       position absolute
       cursor pointer
       button
@@ -127,8 +150,9 @@
     &.isEditing
       z-index 9999
       .card-item-block
-        left 477px
+        left 520px
         border-radius 0 4px 4px 0
+        width 123px
         button
           opacity 1
           visibility visible
@@ -140,8 +164,8 @@
         visibility visible
         position absolute
         left 0
-        width 490px
-        height 124px
+        width 522px
+        height 114px
         background rgb(247, 247, 247)
       .card-item--count
         opacity 0
@@ -160,7 +184,7 @@
 .tooltip-card
   transition all .3s ease
   padding 10px 0
-  width 124px
+  width 200px
   border-radius 4px
   height 85%
   opacity 0
@@ -174,8 +198,8 @@
     font-size 16px
     position absolute
     top 50%
-    left 50%
-    transform translate(-50%, -50%)
+    left 15px
+    transform translateY(-50%)
     font-weight bold
     width 115px
     text-overflow ellipsis
@@ -191,7 +215,7 @@
     width 20px
     height 20px
     position absolute
-    bottom 7px
+    bottom 13px
     right 7px
   &.color-1
     background darken(color-1, 10%)

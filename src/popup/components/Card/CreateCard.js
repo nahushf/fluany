@@ -28,10 +28,10 @@ let CreateCard = ({
     }
 
     return (
-        <li key="0" className="card-item card-item--new" onClick={handleCreateCard}>
+        <li key="0" className={"card-item " + (packs.length > 0 ? "card-item--new" : "card-item--empty")} onClick={handleCreateCard}>
             <div className="card-item-block">
                 <p className="card-item--more">+</p>
-                <p className="item-more-message">Adicionar termo</p>
+                <p className="item-more-message">Adicionar pergunta</p>
             </div>
         </li>
     );

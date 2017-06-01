@@ -68,7 +68,7 @@ const Card = ({
                     <span>Salvar</span>
                 </button>
                 <TooltipCard color={colorID} back={packs[indexOfPack].cards[indexOfCard].back}/>
-                <p className="card-item--flash card-item--count">Front</p>
+                <p className="card-item--flash card-item--count">Pergunta</p>
                 <p className="card-item--count">{ packs[indexOfPack].cards[indexOfCard].front}</p>
             </div>
         </li>
