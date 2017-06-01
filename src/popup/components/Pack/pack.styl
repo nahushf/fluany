@@ -19,7 +19,7 @@
   transition background .4s ease-in
   z-index 1
   &:hover
-    .palette-color, .play-content, .play-label, .show-pack
+    .palette-color, .play-content, .play-label, .show-pack, .setting-trash
       opacity 1
       visibility visible
     .play-content
@@ -80,6 +80,7 @@
     position absolute
     bottom 9px
     right 16px
+    opacity 0
     cursor pointer
     .trash-icon
       width 19px
@@ -142,6 +143,7 @@
   .input-title-package
     display block
     height 22px
+    cursor pointer
     color #FFF
     font-size 20px
     font-weight bold
@@ -182,14 +184,15 @@
 
 //icons
 .edit-icon
-  width 19px
-  height 19px
+  width 21px
+  height 21px
   fill rgba(255, 255, 255, 0.68)
 
 .title-edit-icon
   float right
-  margin-top -30px
-  margin-right 0px
+  margin-top -59px
+  margin-right -6px
+  cursor pointer
   opacity 0
   visibility hidden
 

@@ -6,7 +6,10 @@ const Delete = ({
 	packageid
 }) => {
 
-	const handleRemovePack = () => {
+	const handleRemovePack = (e) => {
+    // Prevents the event from bubbling up the DOM tree, preventing any parent handlers from being notified of
+    // the event.
+    e.stopPropagation();
 		dispatch(removePackage(packageid));
 	};
 

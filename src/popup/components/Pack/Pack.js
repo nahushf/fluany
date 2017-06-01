@@ -28,20 +28,38 @@ let Pack = ({
     colorID,
     isChangingColor,
     isSetting }) => {
-
+    let inRefToTitle = '';
     const handlePackageTitle = e => {
         dispatch(changePackageTitle(id, e.target.value));
     }
 
     const handleClickItem = () => {
-        dispatch(isEditPackage({newPackage: false, packageid: id}))
+        const anyThingFocused = document.activeElement;
+        if(!anyThingFocused || anyThingFocused == document.body) //check if anything is focused
+            dispatch(isEditPackage({newPackage: false, packageid: id}))
+    }
+
+    const handleEditTitle = (e) => {
+        e.stopPropagation();
+        inRefToTitle.removeAttribute('disabled')
+        inRefToTitle.style.cursor = "auto";
+        inRefToTitle.focus();
+    }
+
+    const refToComponentTitle = (input) =>{
+        inRefToTitle = input;
     }
 
     return (
-            <li className={"pack-item color-" + colorID}>
-                <TitlePack onChange={handlePackageTitle} title={title}/>
+            <li className={"pack-item color-" + colorID} onClick={handleClickItem}>
+                <TitlePack onChange={handlePackageTitle}
+                           refToComponent={refToComponentTitle}
+                           onFocus="true"
+                           disabled="true"
+                           handleEditTitle={handleEditTitle}
+                           title={title}/>
                 <Play />
-                <a className="show-pack" onClick={handleClickItem}>Ver Lista</a>
+                <a className="show-pack">Ver Lista</a>
                 <Delete dispatch={dispatch} packageid={id}/>
             </li>
     );
