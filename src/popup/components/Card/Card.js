@@ -39,8 +39,8 @@ const Card = ({
     }
 
     const handleRemoveCard = () => {
-        handleClickCard();
         dispatch(removeCard(indexOfPack, indexOfCard));
+        handleClickCard();
     }
 
     const cardEditProps = {

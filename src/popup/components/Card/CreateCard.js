@@ -37,6 +37,14 @@ let CreateCard = ({
     );
 }
 
+const mapStateToProps = (
+    state
+) => {
+    return {
+		    packs: state.packs
+    };
+};
+
 const {
     func, bool
 } = React.PropTypes;
@@ -45,4 +53,4 @@ CreateCard.propTypes = {
     dispatch: func.isRequired
 };
 
-export default CreateCard;
+export default connect(mapStateToProps)(CreateCard);
