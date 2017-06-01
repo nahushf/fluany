@@ -8,7 +8,12 @@ import { connect } from 'react-redux';
  * @param  {String}   title   The package title
  * @return {Component}
  */
-const TitlePack = ({onChange, title, disabled, onClick, refToComponent, handleEditTitle}) => (
+const TitlePack = ({ onChange,
+                     title,
+                     disabled,
+                     onClick,
+                     refToComponent,
+                     handleEditTitle }) => (
     <div className="title-package--container">
 			<textarea
 				className="input-title-package"
@@ -22,7 +27,7 @@ const TitlePack = ({onChange, title, disabled, onClick, refToComponent, handleEd
         placeholder="Clique aqui para mudar o título"
 				value={title}>
 			</textarea>
-      <div className="title-edit-icon" onClick={handleEditTitle}>
+      <div className="title-edit-icon" onClick={handleEditTitle} title="Editar título">
         <svg className="edit-icon">
             <use xlinkHref="#icon-edit"></use>
         </svg>

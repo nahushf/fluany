@@ -35,14 +35,13 @@ let Pack = ({
 
     const handleClickItem = () => {
         const anyThingFocused = document.activeElement;
-        if(!anyThingFocused || anyThingFocused == document.body) //check if anything is focused
+        if(!anyThingFocused || anyThingFocused === document.body) //check if any element is focused
             dispatch(isEditPackage({newPackage: false, packageid: id}))
     }
 
     const handleEditTitle = (e) => {
         e.stopPropagation();
         inRefToTitle.removeAttribute('disabled')
-        inRefToTitle.style.cursor = "auto";
         inRefToTitle.focus();
     }
 

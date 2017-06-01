@@ -18,6 +18,7 @@ let PackEdit = ({
     packs
 }) => {
 
+  let inRefToTitle = '';
   const handlePackTitle = e => {
     dispatch(changePackageTitle(isEdit.packageid, e.target.value));
   };
@@ -27,6 +28,12 @@ let PackEdit = ({
 	};
 
   const indexOfPack = getIndexThingById(packs, isEdit.packageid);
+
+  const refToComponentTitle = (input) => { inRefToTitle = input; }
+
+  const handleFocusTitle = () => {
+    inRefToTitle.style.cursor = "auto";
+  }
 
 	const titleProps = {
 		onChange: handlePackTitle,
