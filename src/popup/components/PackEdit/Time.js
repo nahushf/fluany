@@ -23,7 +23,7 @@ let Time = ({
           </h2>
 
         <InputRange
-            maxValue={20}
+            maxValue={50}
             minValue={1}
             value={packs[getIndexThingById(packs, packageid)].timeMinutes}
             onChange={handleTimeChange}

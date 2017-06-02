@@ -24,7 +24,7 @@ const packs = (state = defaultState, action) => {
     switch(action.type){
         case ADD_PACKAGE:
 					const randomColor = Math.floor(Math.random() * (4 - 1 + 1)) + 1;
-					const newPackage = { ...action.value, cards: [], colorID:  randomColor };
+          const newPackage = { ...action.value, cards: [], colorID:  randomColor, timeMinutes: 4 };
 					return [newPackage, ...state];
 				case REMOVE_PACKAGE:
 					return remove (indexOfThePack, 1, state);

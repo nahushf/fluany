@@ -17,7 +17,6 @@ import Delete from './Delete';
  * @param  {String} title   The package's title
  * @param  {Number} id   The package's id to change on Store
  * @param  {Number} colorID   The package's colorid to change package to color
- * @param  {Boolean} isChangingColor   A flag to know if package is wanting changing color
  * @return {Component}
  */
 
@@ -26,7 +25,6 @@ let Pack = ({
     title,
     id,
     colorID,
-    isChangingColor,
     isSetting }) => {
     let inRefToTitle = '';
     const handlePackageTitle = e => {
@@ -71,10 +69,8 @@ const {
 Pack.propTypes = {
     dispatch: func.isRequired,
     title: string.isRequired,
-    description: string.isRequired,
     id: number.isRequired,
-    colorID: number.isRequired,
-    isChangingColor: bool.isRequired
+    colorID: number.isRequired
 }
 
 export default connect()(Pack);

@@ -73,7 +73,7 @@ export default [
     colorID: 2,
 		isChangingColor: false,
     isSetting: false,
-		timeMinutes: 0,
+		timeMinutes: 3,
     cards: [
         {
             id: 1,
@@ -99,7 +99,7 @@ export default [
     colorID: 1,
 		isChangingColor: false,
     isSetting: false,
-		timeMinutes: 0,
+		timeMinutes: 3,
     cards: [
         {
             id: 0,
@@ -117,7 +117,7 @@ export default [
     colorID: 3,
 		isChangingColor: false,
     isSetting: false,
-		timeMinutes: 0,
+		timeMinutes: 3,
     cards: [
         {
             id: 1,
@@ -142,7 +142,7 @@ export default [
     colorID: 1,
 		isChangingColor: false,
     isSetting: false,
-		timeMinutes: 0,
+		timeMinutes: 3,
     cards: [
         {
             id: 0,
@@ -160,7 +160,7 @@ export default [
     colorID: 4,
 		isChangingColor: false,
     isSetting: false,
-		timeMinutes: 0,
+		timeMinutes: 3,
     cards: [
         {
             id: 1,
