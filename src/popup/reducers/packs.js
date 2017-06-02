@@ -13,7 +13,10 @@ import { ADD_PACKAGE,
          IS_EDITING_CARD } from '../constants/ActionTypes';
 import { assoc, update, propEq, insert, remove } from 'ramda';
 import { getIndexThingById } from './stateManipulate';
-import defaultState from '../store/packsDefaultStore';
+import { hasInLocal, getInLocal } from '../store/LocalStore.js';
+import packsDefaultState from '../store/packsDefaultStore';
+
+const defaultState = hasInLocal('packState') ? getInLocal('packState') : packsDefaultState;
 
 const packs = (state = defaultState, action) => {
 		const indexOfThePack = getIndexThingById(state, action.id);
