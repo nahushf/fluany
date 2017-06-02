@@ -29,7 +29,7 @@ let CreateCard = ({
 
     return (
         <li key="0"
-            className={"card-item " + (packs[indexOfPack].cards.length > 0 ? "card-item--new" : "card-item--empty")}
+            className={"card-item " + (packs[indexOfPack].cards.length > 0 ? "card-item--new" : "card-item--new")}
             onClick={handleCreateCard}>
             <div className="card-item-block">
                 <p className="card-item--more">+</p>
