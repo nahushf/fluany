@@ -6,20 +6,26 @@ let Search = ({
     filterPackage,
     isActiveSearch }) => {
 
+    let refToSearch = '';
     const handleChangeFilter = e => {
         dispatch(changeFilterPackage(e.target.value));
     };
 
+    const handleClickSearch = () => {
+        refToSearch.focus();
+        dispatch(toggleActiveSearch());
+    }
+
     return (
         <section className={"search-content " + (isActiveSearch ? "search-active":"")}>
-            <svg className="search-icon" onClick={() => dispatch(toggleActiveSearch())}>
+            <svg className="search-icon" onClick={handleClickSearch}>
                 <use xlinkHref="#icon-search"></use>
             </svg>
-            {isActiveSearch}
             <input type="search"
                 className="search-input"
                 placeholder="Pesquisar"
                 onChange={handleChangeFilter}
+                ref={(input) => { refToSearch = input; }}
                 value={filterPackage}></input>
         </section>
     );
