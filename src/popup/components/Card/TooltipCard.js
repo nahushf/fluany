@@ -6,7 +6,7 @@ const TooltipCard = ({
 }) => (
         <div className={"tooltip-card color-" + color}>
             <p className="card-item--flash">Resposta</p>
-            <p>{ back }</p>
+            <p className="card-back">{ back }</p>
             <p className="card-item--count card-item--edit">Editar</p>
             <svg className="edit-icon">
                 <use xlinkHref="#icon-edit"></use>

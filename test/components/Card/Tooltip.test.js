@@ -1,10 +1,10 @@
 import React from 'react';
-import Cards from '../../../src/popup/components/Card/Cards';
+import TooltipCard from '../../../src/popup/components/Card/TooltipCard';
 import { Provider } from 'react-redux';
 import configureMockStore from 'redux-mock-store';
 import packsDefaultStore from '../../../src/popup/store/packsDefaultStore';
 
-describe('Card/ <Cards />', () => {
+describe('Card/ <TooltipCard />', () => {
   const mockStore = configureMockStore([]);
   let store;
   let wrapper;
@@ -21,24 +21,21 @@ describe('Card/ <Cards />', () => {
       }
     });
 
-    const CardProps = {
-      packs: packsDefaultStore,
-      indexOfPack: 0, /* 3 cards in pack */
-      packageid: 0
+    const tooltipProps = {
+      back: 'it is a back phrase'
     };
 
     wrapper = mount(
         <Provider store={store}>
-          <Cards {...CardProps} />
+          <TooltipCard {...tooltipProps} />
         </Provider>
     );
 
   });
 
-  it('should render the Cards component', () => {
-    expect(wrapper.find('ul')).to.have.length(1);
-    expect(wrapper.find('li')).to.have.length(3);
-    expect(wrapper.find('CreateCard')).to.have.length(1);
+  it('should render the TooltipCard component', () => {
+    expect(wrapper.find('.tooltip-card')).to.have.length(1);
+    expect(wrapper.find('.card-back').text()).to.equal('it is a back phrase');
   });
 
 });
