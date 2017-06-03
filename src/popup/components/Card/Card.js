@@ -55,11 +55,8 @@ const Card = ({
         <li className={"card-item" + (isEditing ? " isEditing" : "")} ref={(e) =>{listItem = e}}>
             <CardEdit {...cardEditProps} />
             <div className={"card-item-block color-" + colorID} onClick={handleClickCard}>
-                <button className="btn-delete" onClick={handleRemoveCard}>
-                    <svg className="trash-icon">
-                        <use xlinkHref="#icon-trash"></use>
-                    </svg>
-                    <span>Excluir</span>
+                <button className="btn-delete" onClick={handleClickCard}>
+                    <span>Cancelar</span>
                 </button>
                 <button className="btn-save">
                     <svg className="save-icon">
