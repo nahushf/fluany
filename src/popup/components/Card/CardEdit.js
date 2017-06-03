@@ -7,7 +7,6 @@ const CardEdit = ({
     packs,
     indexOfPack,
     indexOfCard,
-    handleClickCard,
     packageid
 }) => {
 

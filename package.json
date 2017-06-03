@@ -3,8 +3,8 @@
   "version": "0.0.1",
   "scripts": {
     "start": "gulp",
-    "test": "nyc mocha --compilers js:babel-core/register --require ./test/helpers.js --require ./test/dom.js --recursive",
-    "test:auto": "mocha --compilers js:babel-core/register --require ./test/helpers.js --require ./test/dom.js --recursive -w"
+    "test": "nyc mocha --compilers js:babel-core/register --require ./test/helpers.js --require ./test/dom.js --recursive --reporter nyan",
+    "test:auto": "mocha --compilers js:babel-core/register --require ./test/helpers.js --require ./test/dom.js --recursive -w --reporter nyan"
   },
   "engines": {
     "iojs": ">= 2.2.x",
