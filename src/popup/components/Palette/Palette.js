@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { changeColorID, isChangingColor } from '../../actions/pack';
+import { changeColorID, changePackageColor } from '../../actions/pack';
 
 let Palette = ({
     dispatch,
@@ -8,31 +8,33 @@ let Palette = ({
     isChanging,
     colorID}) => {
 
-    const handleChangeColor = (colorid) => {
+    const handleChangeColor = (e, colorid) => {
+        e.stopPropagation();
         dispatch(changeColorID(colorid, packageid));
-        dispatch(isChangingColor(false, packageid));
+        dispatch(changePackageColor(false, packageid));
     };
 
-    const handleClickOnPalette = () => {
-        dispatch(isChangingColor(true, packageid));
+    const handleClickOnPalette = (e) => {
+        e.stopPropagation();
+        dispatch(changePackageColor(true, packageid));
     };
 
     const paletteColors = () => (
             <ul>
                 <li>
-                    <label onClick={() => handleChangeColor(4)}
+                    <label onClick={(e) => handleChangeColor(e, 4)}
                         className={"color-4" + (colorID === 4 ?  " active": "")}></label>
                 </li>
                 <li>
-                    <label onClick={() => handleChangeColor(2)}
+                    <label onClick={(e) => handleChangeColor(e, 2)}
                         className={"color-2" + (colorID === 2 ?  " active": "")}></label>
                 </li>
                 <li>
-                    <label onClick={() => handleChangeColor(1)}
+                    <label onClick={(e) => handleChangeColor(e, 1)}
                         className={"color-1" + (colorID === 1 ?  " active": "")}></label>
                 </li>
                 <li>
-                    <label onClick={() => handleChangeColor(3)}
+                    <label onClick={(e) => handleChangeColor(e, 3)}
                         className={"color-3" + (colorID === 3 ?  " active": "")}></label>
                 </li>
             </ul>

@@ -4,7 +4,7 @@ import { ADD_PACKAGE,
          CHANGE_PACKAGE_COLORID,
          CHANGE_CARD_BACK,
          CHANGE_CARD_FRONT,
-         IS_CHANGING_COLOR,
+         CHANGE_PACKAGE_COLOR,
          IS_SETTING,
 				 CHANGE_TIME_PACKAGE,
 				 REMOVE_PACKAGE,
@@ -34,7 +34,7 @@ const packs = (state = defaultState, action) => {
 					return update(indexOfThePack, assoc('description', action.value, packOfTheId), state);
         case CHANGE_PACKAGE_COLORID:
 					return update(indexOfThePack, assoc('colorID', action.value, packOfTheId), state);
-        case IS_CHANGING_COLOR:
+        case CHANGE_PACKAGE_COLOR:
 					return update(indexOfThePack, assoc('isChangingColor', action.value, packOfTheId), state);
         case IS_SETTING:
 					return update(indexOfThePack, assoc('isSetting', action.value, packOfTheId), state);

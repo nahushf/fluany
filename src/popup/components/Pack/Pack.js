@@ -1,7 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { changePackageTitle,
-         changePackageDescription } from '../../actions/pack';
+         changePackageDescription,
+         changePackageColor } from '../../actions/pack';
 import Play  from '../Play/Play';
 import Palette from '../Palette/Palette';
 import TitlePack from './TitlePack';
@@ -25,6 +26,7 @@ let Pack = ({
     title,
     id,
     colorID,
+    isChangingColor,
     isSetting }) => {
     let inRefToTitle = '';
     const handlePackageTitle = e => {
@@ -35,6 +37,10 @@ let Pack = ({
         const anyThingFocused = document.activeElement;
         if(!anyThingFocused || anyThingFocused === document.body) //check if any element is focused
             dispatch(isEditPackage({newPackage: false, packageid: id}))
+    }
+
+    const handleOnMouseLeave = () => {
+        dispatch(changePackageColor(false, id));
     }
 
     const handleEditTitle = (e) => {
@@ -48,7 +54,7 @@ let Pack = ({
     }
 
     return (
-            <li className={"pack-item color-" + colorID} onClick={handleClickItem}>
+            <li className={"pack-item color-" + colorID} onClick={handleClickItem} onMouseLeave={handleOnMouseLeave} >
                 <TitlePack onChange={handlePackageTitle}
                            refToComponent={refToComponentTitle}
                            onFocus="true"
@@ -57,6 +63,7 @@ let Pack = ({
                            title={title}/>
                 <Play />
                 <a className="show-pack">Ver Lista</a>
+                <Palette dispatch={dispatch} isChanging={isChangingColor} packageid={id} />
                 <Delete dispatch={dispatch} packageid={id}/>
             </li>
     );

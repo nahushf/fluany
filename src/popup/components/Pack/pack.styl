@@ -18,15 +18,17 @@
   margin-top 15px
   position relative
   border-radius 4px
-  transition background .4s ease-in
+  transition background .3s ease-in
   cursor pointer
   z-index 1
   &:hover
-    .palette-color, .play-content, .play-label, .show-pack, .setting-trash
+    .palette-color, .play-content, .play-label, .show-pack 
       opacity 1
       visibility visible
     .play-content
       width 71px
+    .setting-trash
+      opacity .4
   h3
     color #FFF
     font-size 16px
@@ -101,6 +103,8 @@
       width 19px
       height 19px
       fill #FFF
+    &:hover
+      opacity 1
 
 .pack-item--new
   text-align center
@@ -122,6 +126,8 @@
   font-weight bold
 
 .pack-item--creating
+  ::-webkit-input-placeholder
+    color gray-silver
   padding 0 10px
   .pack-item--title
     font-size 17px

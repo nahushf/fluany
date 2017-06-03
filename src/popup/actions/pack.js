@@ -3,10 +3,10 @@ import { ADD_PACKAGE,
          CHANGE_PACKAGE_COLORID,
          CHANGE_PACKAGE_TITLE,
          CHANGE_PACKAGE_DESCRIPTION,
-         IS_CHANGING_COLOR,
 				 IS_EDIT_PACKAGE,
 				 CHANGE_TIME_PACKAGE,
          IS_EDITING_CARD,
+         CHANGE_PACKAGE_COLOR,
 				 REMOVE_CARD,
          CREATE_CARD,
          IS_SETTING } from '../constants/ActionTypes';
@@ -49,9 +49,9 @@ export function changeColorID(value, id){
     };
 }
 
-export function isChangingColor(value, id){
+export function changePackageColor(value, id){
     return {
-        type: IS_CHANGING_COLOR,
+      type: CHANGE_PACKAGE_COLOR,
         value,
         id
     };
