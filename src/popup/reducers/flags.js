@@ -1,6 +1,5 @@
 import { toLower } from 'ramda';
-import { IS_CREATING_PACKAGE,
-         CHANGE_FILTER_PACKAGE,
+import { CHANGE_FILTER_PACKAGE,
          TOGGLE_ACTIVE_SEARCH,
 				 IS_EDIT_PACKAGE,
          CHANGE_PAGINATION_PACKAGE,
@@ -19,8 +18,6 @@ let defaultState = {
 
 const flags = (state = defaultState, action) => {
     switch(action.type){
-        case IS_CREATING_PACKAGE:
-            return assign({}, state, {isCreatingPackage: action.value});
         case CHANGE_FILTER_PACKAGE:
             return assign({}, state, {filterPackage: toLower(action.value)});
         case TOGGLE_ACTIVE_SEARCH:

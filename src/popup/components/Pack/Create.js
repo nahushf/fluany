@@ -1,17 +1,15 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { isCreatingPackage, addPackage } from '../../actions/pack';
+import { addPackage } from '../../actions/pack';
 import { newPackage, isEditPackage } from '../../actions/flags';
 
 /**
  * A component to Create pack
  *
  * @param  {Function} dispatch   The result from `store.dispatch()`
- * @param  {Boolean} isCreating   A flag to know if it's creating package
  * @return {Component}
  */
 let Create = ({
-    isCreating,
     packLength,
     titleEdited,
     dispatch }) => {
@@ -45,16 +43,9 @@ let Create = ({
 
     );
 
-    const Content = () => (
-        <div className="pack-item-content" onClick={handleClickNewItem}>
-            <p className="create-package--icon">+</p>
-            <p className="create-package--description">Adicionar novo pacote</p>
-        </div>
-    );
-
     return (
         <li key="0" className="pack-item pack-item--new">
-            {isCreating ? Creating(): Content() }
+            {Creating()}
         </li>
     );
 }
@@ -62,19 +53,16 @@ let Create = ({
 const mapStateToProps = (
   state
 ) => ({
-    isCreating: state.flags.isCreatingPackage,
     packLength: state.packs.length,
     titleEdited: state.flags.newPackage.title
-    }
-)
+});
 
 const {
-    func, bool
+    func
 } = React.PropTypes;
 
 Create.propTypes = {
-    dispatch: func.isRequired,
-    isCreating: bool.isRequired
+    dispatch: func.isRequired
 };
 
 export default connect(

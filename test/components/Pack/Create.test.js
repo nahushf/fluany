@@ -1,24 +1,33 @@
 import React from 'react';
-import Create from '../../../src/popup/components/Pack/Create.js';
+import Create from '../../../src/popup/components/Pack/Create';
 import { Provider } from 'react-redux';
-import configureStore from '../../../src/popup/store/configureStore.prod.js';
+import configureMockStore from 'redux-mock-store';
+import thunk from 'redux-thunk';
 
 describe('Pack/ <Create />', () => {
-	const store = configureStore();
-	let createComponent;
-	beforeEach(() => {
-		createComponent = render(
-		  <Provider store={store}>
-				<Create />
-			</Provider>
-		);
-	});
+    const mockStore = configureMockStore([thunk]);
+    let store;
+    beforeEach(() => {
+        store = mockStore({
+            packs: [],
+            flags: {
+                isCreatingPackage: true,
+                filterPackage: "",
+                isActiveSearch: false,
+                paginationPackage: 3,
+                isEditPackage: {newPackage: false, packageid: null},
+                newPackage: {title: "", description: ""}
+            }
+        });
+    });
 
-	it('should render Button to create pack', () => {
-		expect(createComponent.find('button')).to.have.length(1);
-	});
-
-	it('should render Input to create pack', () => {
-		expect(createComponent.find('input')).to.have.length(1);
-	});
+    it('should render the Create component', () => {
+        const wrapper = mount(
+            <Provider store={store}>
+                <Create />
+            </Provider>
+        );
+        expect(wrapper.find('button')).to.have.length(1);
+        expect(wrapper.find('input')).to.have.length(1);
+    });
 });
