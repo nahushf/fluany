@@ -24,7 +24,7 @@ const TitlePack = ({ onChange,
 				autoCorrect="false"
         maxLength="30"
         ref={refToComponent}
-        placeholder="Clique aqui para mudar o título"
+        placeholder="Digite aqui o título"
 				value={title}>
 			</textarea>
       <div className="title-edit-icon" onClick={handleEditTitle} title="Editar título">
