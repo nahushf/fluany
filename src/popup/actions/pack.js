@@ -8,6 +8,7 @@ import { ADD_PACKAGE,
          IS_EDITING_CARD,
          CHANGE_PACKAGE_COLOR,
 				 REMOVE_CARD,
+         LOAD_PACKS_LOCAL,
          CREATE_CARD,
          IS_SETTING } from '../constants/ActionTypes';
 
@@ -16,6 +17,13 @@ export function addPackage(value){
 		    type: ADD_PACKAGE,
         value
 	  };
+}
+
+export function loadPackLocal(value){
+	return {
+		type: LOAD_PACKS_LOCAL,
+    value
+	};
 }
 
 export function removePackage(id){

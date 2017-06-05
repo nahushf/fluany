@@ -4,13 +4,17 @@ import Search from '../components/Search/Search';
 import PackList from '../components/Pack/PackList';
 import Logo from '../components/Logo/Logo';
 import Rocket from '../components/Rocket/Rocket';
+import LoadPack from '../components/LoadPacks/LoadPacks.js';
 
-const Home = ({ isEdit }) => {
+const Home = ({
+    isEdit,
+    dispatch }) => {
 	if(isEdit.newPackage || isEdit.packageid !== null){
 		return null;
 	}else
 		return (
 				<div>
+          <LoadPack dispatch={dispatch} />
           <Logo/>
           <Rocket/>
 					<Search/>

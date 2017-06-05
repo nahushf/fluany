@@ -14,3 +14,4 @@ export const IS_EDITING_CARD = 'IS_EDITING_CARD';
 export const IS_SETTING = 'IS_SETTING';
 export const REMOVE_CARD = 'REMOVE_CARD';
 export const CREATE_CARD = 'CREATE_CARD';
+export const LOAD_PACKS_LOCAL = 'LOAD_PACKS_LOCAL';

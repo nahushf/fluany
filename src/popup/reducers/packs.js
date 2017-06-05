@@ -9,19 +9,19 @@ import { ADD_PACKAGE,
 				 CHANGE_TIME_PACKAGE,
 				 REMOVE_PACKAGE,
 				 REMOVE_CARD,
+         LOAD_PACKS_LOCAL,
          CREATE_CARD,
          IS_EDITING_CARD } from '../constants/ActionTypes';
 import { assoc, update, propEq, insert, remove } from 'ramda';
 import { getIndexThingById } from './stateManipulate';
-import { hasInLocal, getInLocal } from '../store/LocalStore.js';
 import packsDefaultState from '../store/packsDefaultStore';
 
-const defaultState = hasInLocal('packState') ? getInLocal('packState') : packsDefaultState;
-
-const packs = (state = defaultState, action) => {
+const packs = (state = packsDefaultState, action) => {
 		const indexOfThePack = getIndexThingById(state, action.id);
 	  const packOfTheId = state[indexOfThePack];
     switch(action.type){
+        case LOAD_PACKS_LOCAL:
+          return action.value;
         case ADD_PACKAGE:
 					const randomColor = Math.floor(Math.random() * (4 - 1 + 1)) + 1;
           const newPackage = { ...action.value, cards: [], colorID:  randomColor, timeMinutes: 4 };
