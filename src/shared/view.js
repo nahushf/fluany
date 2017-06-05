@@ -1,8 +1,3 @@
-/*
-* [INVALID]
-           NEED to be REACTJS
-*/
-
 export let view = (function(){
 
 	let options = {

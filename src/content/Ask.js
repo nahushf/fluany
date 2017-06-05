@@ -1,7 +1,9 @@
 import { getInLocal, saveInLocal } from '../popup/store/LocalStore';
 import { getIndexThingById } from '../popup/reducers/stateManipulate';
 import { getRandomInt } from '../shared/helpers';
-import { dec } from 'ramda';
+import { dec, assocPath, remove} from 'ramda';
+import 'shared/view_css';
+import { view } from 'shared/view';
 
 export const loadPacks = async () => {
   const allPacks = await getInLocal('packState');
@@ -11,13 +13,27 @@ export const loadPacks = async () => {
   // saveInLocal('cardsInTraining', packInTraining.cards);
 };
 
-const getRandomCard = (cards) => {
+export const getRandomCard = (cards) => {
 	const indexCardBeingUsed = getRandomInt(0, dec(cards.length));
-  console.log('indexBeingUsed: ', indexCardBeingUsed);
 	return cards[indexCardBeingUsed];
 };
 
 export const ask = async () => {
   const cardsInTraining = await getInLocal('cardsInTraining');
   const card = getRandomCard(cardsInTraining);
+	showCard(card.front, card.back);
+};
+
+const showCard = (front, back) => {
+	view.input({type: 'text',
+							placeholder: `Qual a resposta ?`,
+							prefilledValue: '' },
+							front ,
+						  `Enviar`, //submit
+						  `Não sei =(`, //I don't know
+							valueEntered => {
+							},
+						  valueEntered => {
+							}
+			);
 };
