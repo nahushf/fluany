@@ -38,9 +38,9 @@ const Card = ({
         dispatch(isEditingCard(!isEditing, 'isEditing', packageid, indexOfCard));
     }
 
-    const handleRemoveCard = () => {
+    const handleRemoveCard = (e) => {
+        e.stopPropagation();
         dispatch(removeCard(packageid, indexOfCard));
-        handleClickCard();
     }
 
     const cardEditProps = {
