@@ -7,6 +7,7 @@ export default [
 		isChangingColor: false,
     isSetting: false,
 		timeMinutes: 3,
+		playing: true,
     cards: [
         {
             id: 7,
@@ -74,6 +75,7 @@ export default [
 		isChangingColor: false,
     isSetting: false,
 		timeMinutes: 3,
+		playing: false,
     cards: [
         {
             id: 1,
@@ -100,6 +102,7 @@ export default [
 		isChangingColor: false,
     isSetting: false,
 		timeMinutes: 3,
+		playing: false,
     cards: [
         {
             id: 0,
@@ -118,6 +121,7 @@ export default [
 		isChangingColor: false,
     isSetting: false,
 		timeMinutes: 3,
+		playing: false,
     cards: [
         {
             id: 1,
@@ -143,6 +147,7 @@ export default [
 		isChangingColor: false,
     isSetting: false,
 		timeMinutes: 3,
+		playing: false,
     cards: [
         {
             id: 0,
@@ -161,6 +166,7 @@ export default [
 		isChangingColor: false,
     isSetting: false,
 		timeMinutes: 3,
+		playing: false,
     cards: [
         {
             id: 1,

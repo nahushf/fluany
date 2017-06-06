@@ -15,4 +15,13 @@ export const getInLocal = (name) => {
   });
 };
 
+export const cleanLocalStorage = () => {
+	chrome.storage.local.clear(function() {
+    var error = chrome.runtime.lastError;
+    if (error) {
+      console.error(error);
+    }
+	});
+};
+
 export const hasInLocal = (name) => localStorage.getItem(name) ? true : false;

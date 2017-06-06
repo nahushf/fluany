@@ -10,6 +10,7 @@ import { ADD_PACKAGE,
 				 REMOVE_CARD,
          LOAD_PACKS_LOCAL,
          CREATE_CARD,
+				 CHANGE_PLAY_PACK,
          IS_SETTING } from '../constants/ActionTypes';
 
 export function addPackage(value){
@@ -77,6 +78,14 @@ export function changeTimePackage(value, id){
 export function isSetting(value, id){
   return {
     type: IS_SETTING,
+    value,
+    id
+  };
+}
+
+export function changePlayPack(value, id){
+  return {
+    type: CHANGE_PLAY_PACK,
     value,
     id
   };

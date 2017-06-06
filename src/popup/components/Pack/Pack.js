@@ -25,6 +25,7 @@ let Pack = ({
     dispatch,
     title,
     id,
+    playing,
     colorID,
     isChangingColor,
     isSetting }) => {
@@ -61,7 +62,7 @@ let Pack = ({
                            disabled="true"
                            handleEditTitle={handleEditTitle}
                            title={title}/>
-                <Play packageid={id} />
+                <Play packageid={id} playing={playing} dispatch={dispatch}/>
                 <a className="show-pack">Ver Lista</a>
                 <Palette dispatch={dispatch} isChanging={isChangingColor} packageid={id} />
                 <Delete dispatch={dispatch} packageid={id}/>
