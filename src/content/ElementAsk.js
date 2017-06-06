@@ -6,8 +6,8 @@ const initElements = () => {
 					<div class="fluany-content">
 						<h2 class="fluany-front-title"></h2>
 						<input id="back-input" type="text" class="fluany-back-input">
-						<div>
-							<a href="" id="idonknow" class="fluany-donknow-btn">Eu não sei</a>
+						<div class="fluany-buttons">
+							<a href="" id="idonknow" class="fluany-dontknow-btn">Eu não sei</a>
 							<a href="" id="answer-btn" class="fluany-answer-btn">Responder</a>
 						</div>
 					</div>
@@ -23,7 +23,7 @@ const initElements = () => {
     width: 100%;
     z-index: 2147483647;
     box-sizing: border-box;
-		background: #8c57a7;
+		background: #873e92;
 	}
 	.fluany-content{
 		color: #FFF;
@@ -50,6 +50,28 @@ const initElements = () => {
 		border-bottom: 1px solid #FFF;
 		outline: none;
 		color: rgba(255, 255, 206, 1);
+	}
+	.fluany-buttons{
+		text-align: right;
+		font-weight: bolder;
+		font-size: 16px;
+		margin-top: 20px;
+	}
+	.fluany-buttons .fluany-answer-btn{
+		margin-left: 20px;
+		background: #3ca87c;
+		padding: 10px 20px;
+		border-radius: 25px;
+		color: #FFF;
+		text-decoration: none;
+		transition: .2s all;
+	}
+	.fluany-buttons .fluany-answer-btn:hover {
+		background: #3b9772;
+	}
+	.fluany-buttons .fluany-dontknow-btn {
+		color: #FFF;
+		text-decoration: none;
 	}
  `,
 
