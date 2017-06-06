@@ -2,9 +2,9 @@ import { getInLocal, saveInLocal } from '../popup/store/LocalStore';
 import { getIndexThingById } from '../popup/reducers/stateManipulate';
 import { getRandomInt } from '../shared/helpers';
 import { dec, assocPath, remove} from 'ramda';
-import 'shared/view_css';
-import { view } from 'shared/view';
+import { initElements, askDraw } from './ElementAsk.js';
 
+initElements();
 export const loadPacks = async () => {
   const allPacks = await getInLocal('packState');
   const idPackToTrain = await getInLocal('idPackToTrain');
@@ -21,19 +21,5 @@ export const getRandomCard = (cards) => {
 export const ask = async () => {
   const cardsInTraining = await getInLocal('cardsInTraining');
   const card = getRandomCard(cardsInTraining);
-	showCard(card.front, card.back);
-};
-
-const showCard = (front, back) => {
-	view.input({type: 'text',
-							placeholder: `Qual a resposta ?`,
-							prefilledValue: '' },
-							front ,
-						  `Enviar`, //submit
-						  `Não sei =(`, //I don't know
-							valueEntered => {
-							},
-						  valueEntered => {
-							}
-			);
+	askDraw(card.front);
 };
