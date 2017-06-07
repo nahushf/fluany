@@ -6,6 +6,7 @@ const initElements = () => {
           <h1 class="logo-title">
             <span class="flu">Flu</span><span class="any">any</span>
           </h1>
+          <a href="" class="fluany-close" title="Fechar"></a>
         </div>
         <div class="fluany-content">
           <h2 class="fluany-front-title"></h2>
@@ -60,6 +61,36 @@ const initElements = () => {
   .fluany-header .logo-title .any{
       color: #3b9772;
   }
+  .fluany-header .fluany-close{
+      width: 40px;
+      height: 40px;
+      background: #FFF;
+      border-radius: 100%;
+      float: right;
+      margin: 23px 20px;
+      position: relative;
+      cursor: pointer;
+  }
+  .fluany-header .fluany-close:before{
+      content: "";
+      width: 50%;
+      height: 4px;
+      background: #873e92;
+      position: absolute;
+      left: 10px;
+      transform: rotate(45deg);
+      top: 18px;
+  }
+  .fluany-header .fluany-close:after{
+      content: "";
+      width: 50%;
+      height: 4px;
+      background: #873e92;
+      position: absolute;
+      right: 10px;
+      transform: rotate(-45deg);
+      top: 18px;
+}
 	.fluany-content{
 		color: #FFF;
 		width: 100%;
@@ -130,6 +161,11 @@ const askDraw = (front) => {
 	wrapper.style.top = '0';
 	const title = document.querySelector('.fluany-front-title');
 	title.innerHTML = front;
+  const close = document.querySelector('.fluany-close');
+  close.addEventListener('click', function(e){
+    e.preventDefault();
+    wrapper.style.display = 'none';
+  });
 };
 
 export default {
