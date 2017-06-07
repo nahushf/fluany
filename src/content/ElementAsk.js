@@ -3,14 +3,17 @@ const initElements = () => {
 		wrapper.classList.add('fluany-wrapper');
 		wrapper.innerHTML =
 			` <div class="fluany-header">
-					<div class="fluany-content">
-						<h2 class="fluany-front-title"></h2>
-						<input id="back-input" type="text" class="fluany-back-input">
-						<div class="fluany-buttons">
-							<a href="" id="idonknow" class="fluany-dontknow-btn">Eu não sei</a>
-							<a href="" id="answer-btn" class="fluany-answer-btn">Responder</a>
-						</div>
-					</div>
+          <h1 class="logo-title">
+            <span class="flu">Flu</span><span class="any">any</span>
+          </h1>
+        </div>
+        <div class="fluany-content">
+          <h2 class="fluany-front-title"></h2>
+          <input autofocus id="back-input" type="text" class="fluany-back-input">
+          <div class="fluany-buttons">
+            <a href="" id="idonknow" class="fluany-dontknow-btn">Eu não sei</a>
+            <a href="" id="answer-btn" class="fluany-answer-btn">Responder</a>
+          </div>
 				</div>`;
 
 	const css = `
@@ -25,6 +28,38 @@ const initElements = () => {
     box-sizing: border-box;
 		background: #873e92;
 	}
+  .fluany-header .logo-title{
+    margin: 32px 30px;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    float: left;
+    font-size: 22px;
+  }
+  .fluany-header .logo-title .flu{
+      color: #FFF;
+      font-weight: 200;
+  }
+  .fluany-header .logo-title .flu:after{
+      content: "";
+      width: 20px;
+      height: 2px;
+      background: #FFF;
+      position: absolute;
+      margin-left: -18px;
+      margin-top: 7px;
+  }
+  .fluany-header .logo-title .flu:before{
+      content: "";
+      width: 10px;
+      height: 2px;
+      background: #FFF;
+      position: absolute;
+      margin-left: 27px;
+      margin-top: 13px;
+  }
+  .fluany-header .logo-title .any{
+      color: #3b9772;
+  }
 	.fluany-content{
 		color: #FFF;
 		width: 100%;
