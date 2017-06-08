@@ -12,8 +12,8 @@ const initElements = () => {
           <h2 class="fluany-front-title"></h2>
           <input autofocus placeholder="Digite aqui" id="back-input" type="text" class="fluany-back-input">
           <div class="fluany-buttons">
-            <a id="idonknow" class="fluany-dontknow-btn">Eu não sei</a>
-            <a id="answer-btn" class="fluany-answer-btn">Responder</a>
+            <a class="fluany-dontknow-btn">Eu não sei</a>
+            <a class="fluany-answer-btn">Responder</a>
           </div>
 				</div>`;
 
@@ -26,7 +26,6 @@ const initElements = () => {
     text-align: center;
     width: 100%;
     z-index: 2147483647;
-    box-sizing: border-box;
 		background: #873e92;
 		opacity: 0;
 		visibility: hidden;
@@ -165,10 +164,10 @@ const initElements = () => {
 	}
 
 	head.appendChild(style);
-		document.body.appendChild(wrapper);
+	document.body.appendChild(wrapper);
 };
 
-const askDraw = (front) => {
+const askDraw = (front, back) => {
 	const wrapper = document.querySelector('.fluany-wrapper');
 	wrapper.style.top = '0';
 	wrapper.style.visibility = 'visible';

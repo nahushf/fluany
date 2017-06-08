@@ -22,7 +22,6 @@ export const getRandomCard = (cards) => {
 export const ask = async () => {
   const cardsInTraining = await getInLocal('cardsInTraining');
   const card = getRandomCard(cardsInTraining);
-  const alarm = new Alarm('remindme', 1);
-	alarm.cancel();
 	askDraw(card.front);
+	console.log('asking..', card);
 };
