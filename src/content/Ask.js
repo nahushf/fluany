@@ -10,7 +10,7 @@ export const loadPacks = async () => {
   const idPackToTrain = await getInLocal('idPackToTrain');
   const indexOfThePack = getIndexThingById(allPacks, idPackToTrain);
   const packInTraining = allPacks[indexOfThePack];
-  // saveInLocal('cardsInTraining', packInTraining.cards);
+  saveInLocal('cardsInTraining', packInTraining.cards);
 };
 
 export const getRandomCard = (cards) => {
