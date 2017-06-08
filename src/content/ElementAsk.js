@@ -10,10 +10,10 @@ const initElements = () => {
         </div>
         <div class="fluany-content">
           <h2 class="fluany-front-title"></h2>
-          <input autofocus id="back-input" type="text" class="fluany-back-input">
+          <input autofocus placeholder="Digite aqui" id="back-input" type="text" class="fluany-back-input">
           <div class="fluany-buttons">
-            <a href="" id="idonknow" class="fluany-dontknow-btn">Eu não sei</a>
-            <a href="" id="answer-btn" class="fluany-answer-btn">Responder</a>
+            <a id="idonknow" class="fluany-dontknow-btn">Eu não sei</a>
+            <a id="answer-btn" class="fluany-answer-btn">Responder</a>
           </div>
 				</div>`;
 
@@ -28,6 +28,8 @@ const initElements = () => {
     z-index: 2147483647;
     box-sizing: border-box;
 		background: #873e92;
+		opacity: 0;
+		visibility: hidden;
 	}
   .fluany-header .logo-title{
     margin: 32px 30px;
@@ -59,7 +61,8 @@ const initElements = () => {
       margin-top: 13px;
   }
   .fluany-header .logo-title .any{
-      color: #3b9772;
+      color: #3ca87c;
+;
   }
   .fluany-header .fluany-close{
       width: 40px;
@@ -94,7 +97,7 @@ const initElements = () => {
 	.fluany-content{
 		color: #FFF;
 		width: 100%;
-		max-width: 800px;
+		max-width: 960px;
 		margin: 0 auto;
 		text-align: left;
 		position: absolute;
@@ -103,41 +106,50 @@ const initElements = () => {
 		transform: translate(-50%, -50%);
 	}
 	.fluany-front-title{
-		font-size: 50px;
+		font-size: 40px;
 		margin-top: 0;
-		margin-bottom: 10px;
+		margin-bottom: 24px;
 	}
   .fluany-back-input{
 		height: 50px;
 		width: 100%;
 		border: none;
-		font-size: 40px;
+		font-size: 56px;
 		background: transparent;
 		border-bottom: 1px solid #FFF;
 		outline: none;
+		padding-bottom: 16px;
+		padding-top: 16px;
 		color: rgba(255, 255, 206, 1);
+	}
+	.fluany-back-input::-webkit-input-placeholder {
+		color: rgba(0, 0, 0, 0.3);
 	}
 	.fluany-buttons{
 		text-align: right;
 		font-weight: bolder;
 		font-size: 16px;
-		margin-top: 20px;
+		margin-top: 32px;
+	}
+	.fluany-buttons a{
+		cursor: pointer;
+		transition all .2s;
+		text-decoration: none;
+		color: #FFF;
 	}
 	.fluany-buttons .fluany-answer-btn{
 		margin-left: 20px;
 		background: #3ca87c;
-		padding: 10px 20px;
+		padding: 12px 32px;
 		border-radius: 25px;
-		color: #FFF;
-		text-decoration: none;
-		transition: .2s all;
 	}
 	.fluany-buttons .fluany-answer-btn:hover {
 		background: #3b9772;
 	}
-	.fluany-buttons .fluany-dontknow-btn {
-		color: #FFF;
-		text-decoration: none;
+	.fluany-buttons .fluany-dontknow-btn:hover {
+		text-decoration: initial;
+		padding-bottom: 2px;
+		border-bottom: 1px solid #FFF;
 	}
  `,
 
@@ -159,6 +171,8 @@ const initElements = () => {
 const askDraw = (front) => {
 	const wrapper = document.querySelector('.fluany-wrapper');
 	wrapper.style.top = '0';
+	wrapper.style.visibility = 'visible';
+	wrapper.style.opacity = '1';
 	const title = document.querySelector('.fluany-front-title');
 	title.innerHTML = front;
   const close = document.querySelector('.fluany-close');
