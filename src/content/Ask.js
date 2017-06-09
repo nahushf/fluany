@@ -3,9 +3,8 @@ import { getIndexThingById } from '../popup/reducers/stateManipulate';
 import Alarm from '../shared/Alarms.js';
 import { getRandomInt } from '../shared/helpers';
 import { dec, assocPath, remove} from 'ramda';
-import { initElements, askDraw } from './ElementAsk.js';
+import { drawElementAsk } from './ElementAsk.js';
 
-initElements();
 export const loadPacks = async () => {
   const allPacks = await getInLocal('packState');
   const idPackToTrain = await getInLocal('idPackToTrain');
@@ -22,5 +21,5 @@ export const getRandomCard = (cards) => {
 export const ask = async () => {
   const cardsInTraining = await getInLocal('cardsInTraining');
   const card = getRandomCard(cardsInTraining);
-	askDraw(card.front, card.back);
+	drawElementAsk(card.front, card.back);
 };

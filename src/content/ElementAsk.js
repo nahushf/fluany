@@ -1,4 +1,4 @@
-const initElements = () => {
+const drawElementAsk = (front, back) => {
 		const wrapper = document.createElement('div');
     addClass(wrapper, 'fluany-wrapper');
 
@@ -22,6 +22,7 @@ const initElements = () => {
 
     const frontTitle = document.createElement('h2');
     addClass(frontTitle, 'fluany-front-title');
+    frontTitle.textContent = front;
     contentFlu.appendChild(frontTitle);
 
     const inputAnswer = document.createElement('input');
@@ -48,14 +49,12 @@ const initElements = () => {
     font-size: 1.6rem;
     height: 100vh;
     left: 0;
-    top: -100%;
+    top: 0;
     position: fixed;
     text-align: center;
     width: 100%;
     z-index: 2147483647;
 		background: #873e92;
-		opacity: 0;
-		visibility: hidden;
 	}
 	.fluany-wrapper-show {
     opacity: 1;
@@ -197,6 +196,18 @@ const initElements = () => {
 
 	head.appendChild(style);
 	document.body.appendChild(wrapper);
+
+
+  //Events and Actions
+  window.addEventListener('keydown', function (event) {
+    const enterClicked = ( event.which === 13 || event.keyCode === 13 );
+    const escapeClicked = ( event.which === 27 || event.keyCode === 27 );
+  });
+
+  close.addEventListener('click', function(e){
+    e.preventDefault();
+    wrapper.style.display = 'none';
+  });
 };
 
 // Internal helper functions
@@ -216,10 +227,7 @@ const removeClass = (element, className) => {
 	}
 };
 
-const askDraw = (front, back) => {
-};
 
 export default {
-	initElements,
-	askDraw
+	drawElementAsk
 };
