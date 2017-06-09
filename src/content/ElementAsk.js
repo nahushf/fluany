@@ -16,6 +16,7 @@ const drawElementAsk = (front, back) => {
     addClass(close, 'fluany-close');
     header.appendChild(close);
 
+
     const contentFlu = document.createElement('div');
     addClass(contentFlu, 'fluany-content');
     wrapper.appendChild(contentFlu);
@@ -33,6 +34,15 @@ const drawElementAsk = (front, back) => {
     const buttons = document.createElement('div');
     addClass(buttons, 'fluany-buttons');
     contentFlu.appendChild(buttons);
+
+		const emoji = document.createElement('div');
+		addClass(emoji, 'emoji');
+		addClass(emoji, 'neutral');
+		emoji.innerHTML =
+			` <span class="eyes"></span>
+				<span class="mouth"></span>
+			`;
+		contentFlu.appendChild(emoji);
 
     const dontKnowButton = document.createElement('a');
     addClass(dontKnowButton, 'fluany-dontknow-btn');
@@ -71,7 +81,7 @@ const drawElementAsk = (front, back) => {
 		font-size: 24px;
 		color: #FFF;
 		left: 0;
-		top: -40px;
+		top: -35px;
 	}
 
   .fluany-wrapper.invalid .fluany-front-title{
@@ -84,6 +94,11 @@ const drawElementAsk = (front, back) => {
 	.fluany-wrapper.success .fluany-front-title{
 		font-size: 72px;
 	}
+
+	.fluany-wrapper.success .emoji, .fluany-wrapper.invalid .emoji{
+		top: -54px;
+	}
+
 	.fluany-wrapper-show {
     opacity: 1;
     visibility: visible;
@@ -160,18 +175,20 @@ const drawElementAsk = (front, back) => {
 		margin: 0 auto;
 		text-align: left;
 		position: absolute;
-		top: 40%;
+		top: 50%;
 		left: 50%;
 		transform: translate(-50%, -50%);
     transition: transform .3s;
+		text-align: right;
 	}
   .fluany-content.feedback-message{
-    transform: translate(-50%, 0%);
+    transform: translate(-50%, -16%);
   }
 	.fluany-front-title{
 		font-size: 40px;
 		margin-top: 0;
 		margin-bottom: 24px;
+		text-align: left;
 	}
   .fluany-back-input{
 		height: 50px;
@@ -216,10 +233,152 @@ const drawElementAsk = (front, back) => {
 		padding-bottom: 2px;
 		border-bottom: 1px solid #FFF;
 	}
+	.emoji {
+		width: 150px;
+		height: 150px;
+		border-radius: 50%;
+		background: yellow;
+		position: absolute;
+		right: 0;
+		top: -104px;
+		margin: 0;
+	}
+	.emoji .eyes {
+		position: absolute;
+		left: 50%;
+		width: 60px;
+		top: 80px;
+	}
+	.emoji .eyes::before, .emoji .eyes::after {
+		content: '';
+		background: black;
+		width: 15px;
+		height: 15px;
+		border-radius: 50%;
+	}
+	.emoji .eyes::before {
+		float: left;
+	}
+	.emoji .eyes::after {
+		float: right;
+		left: 100px;
+		top: 50px;
+	}
+	.emoji.neutral {
+		background: #ffe982;
+	}
+	.emoji.neutral .mouth, .emoji.neutral .eyes {
+		top: 70px;
+		transform: translate(-50%, -50%);
+		animation: neutral 4s ease-in-out infinite;
+	}
+	.emoji.neutral .eyes::before, .emoji.neutral .eyes::after {
+		animation: blinkeyes 3s ease-in-out infinite;
+	}
+	.emoji.neutral .mouth {
+		position: absolute;
+		left: 50%;
+		top: 70%;
+		background: black;
+		width: 30px;
+		height: 10px;
+		border-radius: 50%;
+	}
+	@keyframes neutral {
+		0% {
+			height: 10px;
+		}
+		30% {
+			height: 15px;
+		}
+		100% {
+			height: 10px;
+		}
+	}
+	@keyframes sad {
+			0% {
+					transform: translate(-60%, -50%);
+			}
+			60% {
+					transform: translate(-40%, -50%);
+			}
+			100% {
+					transform: translate(-60%, -50%);
+			}
+	}
+	@keyframes  {
+		0% {
+			transform: translate(-50%, -50%);
+		}
+		60% {
+			transform: translate(-50%, -100%);
+		}
+		100% {
+			transform: translate(-50%, -50%);
+		}
+	}
+	@keyframes blinkeyes {
+		0% {
+			transform: scaleY(1);
+		}
+		97% {
+			transform: scaleY(1);
+		}
+		100% {
+			transform: scaleY(0);
+		}
+	}
+	.fluany-wrapper.invalid .emoji .eyes, .fluany-wrapper.invalid .emoji .mouth {
+		animation: sad 1s ease-in-out infinite;
+	}
+	.fluany-wrapper.invalid .emoji .mouth {
+		transform: translate(-50%, -50%);
+		border-top: 6px solid black;
+		border-right: 6px solid transparent;
+		border-left: 6px solid transparent;
+		border-bottom: 8px solid transparent;
+		width: 25px;
+		height: 10px;
+		border-radius: initial;
+		background: none;
+		border-top-right-radius: 1999px;
+		border-top-left-radius: 1999px;
+	}
+	.fluany-wrapper.invalid .emoji .eyes::before, .fluany-wrapper.invalid .emoji .eyes::after {
+		animation: blinkeyes 3s ease-in-out infinite 1s;
+	}
+
+	.fluany-wrapper.success .emoji .mouth, .fluany-wrapper.success .emoji .eyes {
+		animation: happy 1s ease-in-out infinite;
+	}
+	.fluany-wrapper.success .emoji .eyes::before, .fluany-wrapper.success .emoji .eyes::after {
+		height: 15px;
+		animation: blinkeyes 2s ease-in-out infinite;
+	}
+	.fluany-wrapper.success .emoji .mouth {
+		transform: translate(-50%, -50%);
+		height: 15px;
+		border-radius: initial;
+		border-bottom-left-radius: 30px;
+		border-bottom-right-radius: 30px;
+		border-top-left-radius: 10px;
+		border-top-right-radius: 10px;
+	}
+	.fluany-wrapper.success .emoji .mouth::after {
+		content: '';
+		position: absolute;
+		background: red;
+		width: 10px;
+		height: 5px;
+		bottom: 2px;
+		left: 50%;
+		transform: translateX(-50%);
+		border-radius: 50%;
+	}
  `,
 
-		head = document.head || document.getElementsByTagName('head')[0],
-		style = document.createElement('style');
+	head = document.head || document.getElementsByTagName('head')[0],
+	style = document.createElement('style');
 
 	style.type = 'text/css';
 
@@ -244,9 +403,10 @@ const drawElementAsk = (front, back) => {
     addClass(wrapper, 'fadeOut');
   });
 
+
+  console.log('back: ', back);
   answerButton.addEventListener('click', () => {
 
-    console.log('back: ', back);
 
     if(inputAnswer.value.toLowerCase() === back.toLowerCase()){
       addClass(wrapper, 'success');
