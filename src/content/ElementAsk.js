@@ -1,4 +1,4 @@
-const drawElementAsk = (front, back, alarm) => {
+const drawElementAsk = (front, back) => {
 		const wrapper = document.createElement('div');
     addClass(wrapper, 'fluany-wrapper');
 
@@ -244,7 +244,6 @@ const drawElementAsk = (front, back, alarm) => {
     addClass(contentFlu, 'feedback-message');
     addClass(buttons, 'fadeOut');
     addClass(inputAnswer, 'fadeOut');
-    alarm.create();
   });
 };
 
