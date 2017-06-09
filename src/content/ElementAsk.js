@@ -65,10 +65,25 @@ const drawElementAsk = (front, back) => {
     background: #fd8a78;
   }
 
+  .fluany-wrapper.invalid .fluany-front-title:before{
+		content: "A resposta é:";
+		position: absolute;
+		font-size: 24px;
+		color: #FFF;
+		left: 0;
+		top: -40px;
+	}
+
+  .fluany-wrapper.invalid .fluany-front-title{
+		font-size: 56px;
+	}
+
   .fluany-wrapper.success{
     background: #78bfa3;
   }
-
+	.fluany-wrapper.success .fluany-front-title{
+		font-size: 72px;
+	}
 	.fluany-wrapper-show {
     opacity: 1;
     visibility: visible;
@@ -238,7 +253,7 @@ const drawElementAsk = (front, back) => {
       frontTitle.textContent = 'Ta manjando heim!';
     }else{
       addClass(wrapper, 'invalid');
-      frontTitle.textContent = 'Errrrrrou! Putz grila heim!';
+      frontTitle.textContent = back;
     }
 
     addClass(contentFlu, 'feedback-message');
