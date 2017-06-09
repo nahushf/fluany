@@ -15,7 +15,8 @@ let Play = ({
         e.stopPropagation();
         dispatch(changePlayPack(!playing, packageid));
         saveInLocal('idPackToTrain', packageid);
-        alarm.create();
+        if(playing) alarm.cancel();
+        else alarm.create();
     }
 
     return (
