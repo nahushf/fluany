@@ -7,7 +7,7 @@ export default [
 		isChangingColor: false,
     isSetting: false,
 		timeMinutes: 3,
-		playing: true,
+		playing: false,
     cards: [
         {
             id: 7,

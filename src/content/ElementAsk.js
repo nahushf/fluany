@@ -1,27 +1,54 @@
 const initElements = () => {
 		const wrapper = document.createElement('div');
-		wrapper.classList.add('fluany-wrapper');
-		wrapper.innerHTML =
-			` <div class="fluany-header">
-          <h1 class="logo-title">
-            <span class="flu">Flu</span><span class="any">any</span>
-          </h1>
-          <a href="" class="fluany-close" title="Fechar"></a>
-        </div>
-        <div class="fluany-content">
-          <h2 class="fluany-front-title"></h2>
-          <input autofocus placeholder="Digite aqui" id="back-input" type="text" class="fluany-back-input">
-          <div class="fluany-buttons">
-            <a class="fluany-dontknow-btn">Eu não sei</a>
-            <a class="fluany-answer-btn">Responder</a>
-          </div>
-				</div>`;
+    addClass(wrapper, 'fluany-wrapper');
+
+    const header = document.createElement('div');
+    addClass(header, 'fluany-header');
+    wrapper.appendChild(header);
+
+    const logo = document.createElement('h1');
+    addClass(logo, 'logo-title');
+    logo.innerHTML =
+      `<span class="flu">Flu</span><span class="any">any</span>`;
+    header.appendChild(logo);
+
+    const close = document.createElement('a');
+    addClass(close, 'fluany-close');
+    header.appendChild(close);
+
+    const contentFlu = document.createElement('div');
+    addClass(contentFlu, 'fluany-content');
+    wrapper.appendChild(contentFlu);
+
+    const frontTitle = document.createElement('h2');
+    addClass(frontTitle, 'fluany-front-title');
+    contentFlu.appendChild(frontTitle);
+
+    const inputAnswer = document.createElement('input');
+    addClass(inputAnswer, 'fluany-back-input');
+		inputAnswer.setAttribute('placeholder', 'Digite aqui');
+    contentFlu.appendChild(inputAnswer);
+
+    const buttons = document.createElement('div');
+    addClass(buttons, 'fluany-buttons');
+    contentFlu.appendChild(buttons);
+
+    const dontKnowButton = document.createElement('a');
+    addClass(dontKnowButton, 'fluany-dontknow-btn');
+    dontKnowButton.textContent = 'Eu não sei';
+    buttons.appendChild(dontKnowButton);
+
+    const answerButton = document.createElement('a');
+    addClass(answerButton, 'fluany-answer-btn');
+    answerButton.textContent = 'Responder';
+    buttons.appendChild(answerButton);
 
 	const css = `
 	.fluany-wrapper {
     font-size: 1.6rem;
     height: 100vh;
     left: 0;
+    top: -100%;
     position: fixed;
     text-align: center;
     width: 100%;
@@ -30,13 +57,18 @@ const initElements = () => {
 		opacity: 0;
 		visibility: hidden;
 	}
+	.fluany-wrapper-show {
+    opacity: 1;
+    visibility: visible;
+    top: 0;
+  }
   .fluany-header .logo-title{
     margin: 32px 30px;
     text-transform: uppercase;
     letter-spacing: 4px;
     float: left;
     font-size: 22px;
-  }
+    }
   .fluany-header .logo-title .flu{
       color: #FFF;
       font-weight: 200;
@@ -167,18 +199,24 @@ const initElements = () => {
 	document.body.appendChild(wrapper);
 };
 
+// Internal helper functions
+const addClass = (element, className) => {
+	if ( element.classList ) {
+		element.classList.add(className);
+	} else {
+		element.className += ' ' + className;
+	}
+};
+
+const removeClass = (element, className) => {
+	if ( element.classList ) {
+		element.classList.remove(className);
+	} else {
+		element.className = element.className.replace(new RegExp('(^|\\b)' + className.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
+	}
+};
+
 const askDraw = (front, back) => {
-	const wrapper = document.querySelector('.fluany-wrapper');
-	wrapper.style.top = '0';
-	wrapper.style.visibility = 'visible';
-	wrapper.style.opacity = '1';
-	const title = document.querySelector('.fluany-front-title');
-	title.innerHTML = front;
-  const close = document.querySelector('.fluany-close');
-  close.addEventListener('click', function(e){
-    e.preventDefault();
-    wrapper.style.display = 'none';
-  });
 };
 
 export default {

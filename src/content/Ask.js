@@ -22,6 +22,5 @@ export const getRandomCard = (cards) => {
 export const ask = async () => {
   const cardsInTraining = await getInLocal('cardsInTraining');
   const card = getRandomCard(cardsInTraining);
-	askDraw(card.front);
-	console.log('asking..', card);
+	askDraw(card.front, card.back);
 };
