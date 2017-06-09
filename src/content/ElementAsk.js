@@ -1,4 +1,4 @@
-const drawElementAsk = (front, back) => {
+const drawElementAsk = (front, back, alarm) => {
 		const wrapper = document.createElement('div');
     addClass(wrapper, 'fluany-wrapper');
 
@@ -45,6 +45,10 @@ const drawElementAsk = (front, back) => {
     buttons.appendChild(answerButton);
 
 	const css = `
+  .fadeOut{
+    opacity: 0;
+    visibility: hidden;
+  }
 	.fluany-wrapper {
     font-size: 1.6rem;
     height: 100vh;
@@ -55,12 +59,22 @@ const drawElementAsk = (front, back) => {
     width: 100%;
     z-index: 2147483647;
 		background: #873e92;
+    transition: background .3s;
 	}
+  .fluany-wrapper.invalid{
+    background: #fd8a78;
+  }
+
+  .fluany-wrapper.success{
+    background: #78bfa3;
+  }
+
 	.fluany-wrapper-show {
     opacity: 1;
     visibility: visible;
     top: 0;
   }
+
   .fluany-header .logo-title{
     margin: 32px 30px;
     text-transform: uppercase;
@@ -123,7 +137,7 @@ const drawElementAsk = (front, back) => {
       right: 10px;
       transform: rotate(-45deg);
       top: 18px;
-}
+  }
 	.fluany-content{
 		color: #FFF;
 		width: 100%;
@@ -134,7 +148,11 @@ const drawElementAsk = (front, back) => {
 		top: 40%;
 		left: 50%;
 		transform: translate(-50%, -50%);
+    transition: transform .3s;
 	}
+  .fluany-content.feedback-message{
+    transform: translate(-50%, 0%);
+  }
 	.fluany-front-title{
 		font-size: 40px;
 		margin-top: 0;
@@ -151,6 +169,7 @@ const drawElementAsk = (front, back) => {
 		padding-bottom: 16px;
 		padding-top: 16px;
 		color: rgba(255, 255, 206, 1);
+    transition: opacity .2s;
 	}
 	.fluany-back-input::-webkit-input-placeholder {
 		color: rgba(0, 0, 0, 0.3);
@@ -160,6 +179,7 @@ const drawElementAsk = (front, back) => {
 		font-weight: bolder;
 		font-size: 16px;
 		margin-top: 32px;
+    transition: all .3s;
 	}
 	.fluany-buttons a{
 		cursor: pointer;
@@ -199,14 +219,32 @@ const drawElementAsk = (front, back) => {
 
 
   //Events and Actions
-  window.addEventListener('keydown', function (event) {
+  window.addEventListener('keydown', (event) => {
     const enterClicked = ( event.which === 13 || event.keyCode === 13 );
     const escapeClicked = ( event.which === 27 || event.keyCode === 27 );
   });
 
-  close.addEventListener('click', function(e){
+  close.addEventListener('click', (e) => {
     e.preventDefault();
-    wrapper.style.display = 'none';
+    addClass(wrapper, 'fadeOut');
+  });
+
+  answerButton.addEventListener('click', () => {
+
+    console.log('back: ', back);
+
+    if(inputAnswer.value.toLowerCase() === back.toLowerCase()){
+      addClass(wrapper, 'success');
+      frontTitle.textContent = 'Ta manjando heim!';
+    }else{
+      addClass(wrapper, 'invalid');
+      frontTitle.textContent = 'Errrrrrou! Putz grila heim!';
+    }
+
+    addClass(contentFlu, 'feedback-message');
+    addClass(buttons, 'fadeOut');
+    addClass(inputAnswer, 'fadeOut');
+    alarm.create();
   });
 };
 
