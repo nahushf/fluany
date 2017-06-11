@@ -262,6 +262,16 @@ export const initCSS = (wrapper) => {
 			transform: translate(-50%, -50%);
 		}
 	}
+  @keyframes fadeOut {
+    from {
+      opacity: 1;
+    }
+
+    to {
+      opacity: 0;
+    }
+  }
+
 	@keyframes blinkeyes {
 		0% {
 			transform: scaleY(1);
@@ -320,6 +330,9 @@ export const initCSS = (wrapper) => {
 		transform: translateX(-50%);
 		border-radius: 50%;
 	}
+  .fluany-wrapper.success, .fluany-wrapper.invalid {
+		animation: fadeOut 4.5s;
+  }
  `,
 
 	head = document.head || document.getElementsByTagName('head')[0],

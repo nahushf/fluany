@@ -91,6 +91,9 @@ const drawElementAsk = (front, back) => {
     addClass(contentFlu, 'feedback-message');
     addClass(buttons, 'fadeOut');
     addClass(inputAnswer, 'fadeOut');
+    setTimeout(() => {
+      wrapper.outerHTML="";
+    }, 4000);
   });
 };
 
