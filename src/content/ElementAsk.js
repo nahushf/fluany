@@ -1,6 +1,7 @@
 import { initCSS } from './ElementCSS.js';
 const drawElementAsk = (front, back) => {
 		let elementIsShowing = true;
+    console.log('call.. ', elementIsShowing);
 		const wrapper = document.createElement('div');
     addClass(wrapper, 'fluany-wrapper');
 		initCSS(wrapper);
@@ -33,6 +34,7 @@ const drawElementAsk = (front, back) => {
     addClass(inputAnswer, 'fluany-back-input');
 		inputAnswer.setAttribute('placeholder', 'Digite aqui');
     contentFlu.appendChild(inputAnswer);
+    inputAnswer.focus();
 
     const buttons = document.createElement('div');
     addClass(buttons, 'fluany-buttons');
@@ -76,8 +78,6 @@ const drawElementAsk = (front, back) => {
     addClass(wrapper, 'fadeOut');
   });
 
-
-  console.log('back: ', back);
   answerButton.addEventListener('click', () => {
 		elementIsShowing = false;
     if(inputAnswer.value.toLowerCase() === back.toLowerCase()){
