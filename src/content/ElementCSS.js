@@ -15,6 +15,7 @@ export const initCSS = (wrapper) => {
     z-index: 2147483647;
 		background: #873e92;
     transition: background .3s;
+		animation: fadeIn 1s
 	}
   .fluany-wrapper.invalid{
     background: #fd8a78;
@@ -262,6 +263,15 @@ export const initCSS = (wrapper) => {
 			transform: translate(-50%, -50%);
 		}
 	}
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
   @keyframes fadeOut {
     from {
       opacity: 1;
@@ -271,7 +281,6 @@ export const initCSS = (wrapper) => {
       opacity: 0;
     }
   }
-
 	@keyframes blinkeyes {
 		0% {
 			transform: scaleY(1);
@@ -330,9 +339,6 @@ export const initCSS = (wrapper) => {
 		transform: translateX(-50%);
 		border-radius: 50%;
 	}
-  .fluany-wrapper.success, .fluany-wrapper.invalid {
-		animation: fadeOut 4.5s;
-  }
  `,
 
 	head = document.head || document.getElementsByTagName('head')[0],

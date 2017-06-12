@@ -92,8 +92,11 @@ const drawElementAsk = (front, back) => {
     addClass(buttons, 'fadeOut');
     addClass(inputAnswer, 'fadeOut');
     setTimeout(() => {
+      wrapper.style.animation = 'fadeOut 2s';
+    }, 3000);
+    setTimeout(() => {
       wrapper.outerHTML="";
-    }, 4000);
+    }, 5000);
   });
 };
 
