@@ -1,6 +1,5 @@
 import { getInLocal, saveInLocal } from '../popup/store/LocalStore';
 import { getIndexThingById } from '../popup/reducers/stateManipulate';
-import Alarm from '../shared/Alarms.js';
 import { getRandomInt } from '../shared/helpers';
 import { dec, assocPath, remove} from 'ramda';
 import { drawElementAsk } from './ElementAsk.js';
