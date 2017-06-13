@@ -21,9 +21,7 @@ let Play = ({
 
     return (
         <section className={'play-content' + (playing ? ' playing': '')} onClick={handleClickPlay}>
-            <svg className="play-icon">
-                <use xlinkHref="#icon-play"></use>
-            </svg>
+            <a href="" className={"play-btn" + (playing ? ' stop' : ' to-play')}></a>
             <span className="play-label">{ playing ? 'Parar' : 'Treinar'}</span>
         </section>
     );

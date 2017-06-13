@@ -41,7 +41,7 @@ chrome.runtime.onMessage.addListener(function( msg, sender, sendResponse){
 		let alarm = new Alarm('remindme', 1); //default
     if(typeof(msg.message) !== 'undefined' && msg.message === 'createAlarm'){
 			getInLocal('timeMinutes').then(obj => {
-				console.log('obj: ', obj);
+				alarm = new Alarm('remindme', obj);
 				alarm.create(); //returning after answer
 				alarm.check(); //returning after answer
 			});
