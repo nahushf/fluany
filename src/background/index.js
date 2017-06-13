@@ -1,4 +1,5 @@
 import Alarm from 'shared/Alarms';
+import { getInLocal } from '../popup/store/LocalStore';
 import './contextMenus';
 // Setting popup icon
 
@@ -31,29 +32,20 @@ chrome.alarms.onAlarm.addListener(function( alarm ) {
   chrome.tabs.query({active: true, highlighted: true}, function(tabs) {
     chrome.tabs.sendMessage(tabs[0].id, { message: "LOAD" }, function(response){
 				console.log('Load background');
-        if (response !== null)
-            console.log('[Background]: response message tab:', response);
-        else
-          console.log('[Background]: Response is null');
     });
   });
 });
 
 //run only when called the questions
 chrome.runtime.onMessage.addListener(function( msg, sender, sendResponse){
-
-  let alarm = new Alarm('remindme', 1); //default
-
-  //component start : putStorage > get
-  chrome.storage.sync.get('rangeInterval', (obj) => {
-    //get value in localStorage created by component [ButtonStart]
-    alarm = new Alarm('remindme', obj.rangeInterval);
-    // alarm = new Alarm('reamindme', inter);
+		let alarm = new Alarm('remindme', 1); //default
     if(typeof(msg.message) !== 'undefined' && msg.message === 'createAlarm'){
-      alarm.create(); //returning after answer
-      alarm.check(); //returning after answer
+			getInLocal('timeMinutes').then(obj => {
+				console.log('obj: ', obj);
+				alarm.create(); //returning after answer
+				alarm.check(); //returning after answer
+			});
     }else if (typeof(msg.message) !== 'undefined' && msg.message === 'killAlarm'){
       alarm.cancel(); //waiting for response
     }
-  });
 });

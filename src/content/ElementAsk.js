@@ -91,6 +91,7 @@ const drawElementAsk = (front, back) => {
     addClass(contentFlu, 'feedback-message');
     addClass(buttons, 'fadeOut');
     addClass(inputAnswer, 'fadeOut');
+		chrome.runtime.sendMessage({message: "createAlarm"}, ()=>{});
     setTimeout(() => {
       wrapper.style.animation = 'fadeOut 2s';
     }, 3000);

@@ -6,7 +6,7 @@ export default [
     colorID: 4,
 		isChangingColor: false,
     isSetting: false,
-		timeMinutes: 3,
+		timeMinutes: 1,
 		playing: false,
     cards: [
         {

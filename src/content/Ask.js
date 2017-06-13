@@ -9,6 +9,7 @@ export const loadPacks = async () => {
   const idPackToTrain = await getInLocal('idPackToTrain');
   const indexOfThePack = getIndexThingById(allPacks, idPackToTrain);
   const packInTraining = allPacks[indexOfThePack];
+  saveInLocal('timeMinutes', packInTraining.timeMinutes);
   saveInLocal('cardsInTraining', packInTraining.cards);
 };
 
