@@ -4,9 +4,11 @@ import 'babel-polyfill';
 
 console.log('working..');
 chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
-  if (msg.message && (msg.message == "LOAD")) {
+  if (msg.name && (msg.trigger == "LOAD_PACK")) {
+    const idPackInTraning = parseInt(msg.name.split('_')[1]);
+      console.log('LOAD...', idPackInTraning);
 			stopAlarm();
-      ask();
+      ask(idPackInTraning);
 	}
     return true;
 });

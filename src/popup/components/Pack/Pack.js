@@ -1,17 +1,17 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { changePackageTitle,
-         changePackageDescription,
-         changePackageColor,
-         allNoEditingCard } from '../../actions/pack';
+import { isEditPackage } from '../../actions/flags';
 import Play  from '../Play/Play';
 import Palette from '../Palette/Palette';
 import TitlePack from './TitlePack';
 import Setting from '../Setting/Setting';
 import DescriptionPack from './DescriptionPack';
-import { isEditPackage } from '../../actions/flags';
 import Delete from './Delete';
 import Progress from './Progress';
+import { changePackageTitle,
+         changePackageDescription,
+         changePackageColor,
+         allNoEditingCard } from '../../actions/pack';
 
 /**
  * A component to see Pack information
@@ -27,6 +27,7 @@ let Pack = ({
     dispatch,
     title,
     id,
+    timeMinutes,
     playing,
     colorID,
     isChangingColor,
@@ -69,7 +70,11 @@ let Pack = ({
                            disabled="true"
                            handleEditTitle={handleEditTitle}
                            title={title}/>
-                <Play packageid={id} playing={playing} dispatch={dispatch}/>
+                <Play packageid={id}
+                      playing={playing}
+                      title={title}
+                      interval={timeMinutes}
+                      dispatch={dispatch}/>
                 <a className="show-pack">Ver Lista</a>
                 <Palette dispatch={dispatch} isChanging={isChangingColor} packageid={id} />
                 <Delete dispatch={dispatch} packageid={id}/>

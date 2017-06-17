@@ -1,22 +1,26 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { changePlayPack } from '../../actions/pack';
-import { saveInLocal } from '../../store/LocalStore';
+import { saveInLocal, getInLocal } from '../../store/LocalStore';
 import Alarm from '../../../shared/Alarms.js';
-
+import { insert, reject, propEq } from 'ramda';
 
 let Play = ({
     packageid,
     playing,
-    dispatch
+    title,
+    dispatch,
+    interval
 }) => {
-    const alarm = new Alarm('remindme', 1);
+    const alarm = new Alarm('ALARM_'+packageid, interval);
     const handleClickPlay = (e) => {
         e.stopPropagation();
         dispatch(changePlayPack(!playing, packageid));
-        saveInLocal('idPackToTrain', packageid);
-        if(playing) alarm.cancel();
-        else alarm.create();
+        if(!playing){
+            alarm.create();
+        }else{
+            alarm.cancel();
+        }
     }
 
     return (

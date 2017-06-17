@@ -27,10 +27,10 @@ if(chrome.browserAction) {
   });
 }
 
-
 chrome.alarms.onAlarm.addListener(function( alarm ) {
   chrome.tabs.query({active: true, highlighted: true}, function(tabs) {
-    chrome.tabs.sendMessage(tabs[0].id, { message: "LOAD" }, function(response){
+    const objMessages = { name: alarm.name, trigger: "LOAD_PACK" };
+    chrome.tabs.sendMessage(tabs[0].id, objMessages, function(response){
 				console.log('Load background');
     });
   });

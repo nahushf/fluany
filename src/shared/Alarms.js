@@ -1,5 +1,5 @@
 export default class Alarm {
-  constructor(name, period){
+  constructor(name, period, packageid){
     this._name = name;
     this._period = period;
   }
@@ -18,7 +18,7 @@ export default class Alarm {
   }
 
   create(){
-    console.log("[Alarm] create with period: ", this._period);
+    console.log("[Alarm] create, interval: %d, name: %s", this._period, this._name);
     chrome.alarms.create(this._name,
        {
           delayInMinutes: this._period,

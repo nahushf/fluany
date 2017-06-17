@@ -1,23 +1,35 @@
 import { getInLocal, saveInLocal } from '../popup/store/LocalStore';
 import { getIndexThingById } from '../popup/reducers/stateManipulate';
 import { getRandomInt } from '../shared/helpers';
-import { dec, assocPath, remove, propEq, reject } from 'ramda';
+import { dec, insert, assocPath, remove, propEq, reject, find, head } from 'ramda';
 import { drawElementAsk } from './ElementAsk.js';
 
-export const loadPacks = async () => {
+export const loadPacks = async (idPackOfTheAlarm) => {
+  const getElementById = (id, state) => find(propEq('id', id), state);
+  const allPacks = await getInLocal('packState');
+  const indexOfThePack = getIndexThingById(allPacks, idPackOfTheAlarm);
+  const fullPackOfTheAlarm = allPacks[indexOfThePack];
+  const cardsInTraning = fullPackOfTheAlarm.cards;
+  const firstPackInTrain = [{id: idPackOfTheAlarm, cards: cardsInTraning}];
+  let packsInTraning = false;
+
   try{
-    const loadCards  = await getInLocal('cardsInTraining');
-    return loadCards;
+    packsInTraning = await getInLocal('packsInTraning');
   }catch(e){
-    const allPacks = await getInLocal('packState');
-    const idPackToTrain = await getInLocal('idPackToTrain');
-    const indexOfThePack = getIndexThingById(allPacks, idPackToTrain);
-    const packInTraining = allPacks[indexOfThePack];
-    const cardsInTraning = packInTraining.cards;
-    saveInLocal('timeMinutes', packInTraining.timeMinutes);
-    saveInLocal('cardsInTraining', cardsInTraning);
-    return cardsInTraning;
+    saveInLocal('packsInTraning', firstPackInTrain);
+    return head(firstPackInTrain);
   }
+
+  const elementOfTheAlarm = getElementById(idPackOfTheAlarm, packsInTraning);
+
+  if(elementOfTheAlarm){
+    return elementOfTheAlarm;
+  }
+
+  //not found element, so create
+  const packsInTraningWithNewPack = insert(0, head(firstPackInTrain), packsInTraning);
+  saveInLocal('packsInTraning', packsInTraningWithNewPack);
+  return head(firstPackInTrain);
 };
 
 export const getRandomCard = (cards) => {
@@ -25,13 +37,13 @@ export const getRandomCard = (cards) => {
 	return cards[indexCardBeingUsed];
 };
 
-export const ask = async () => {
-  const cardsInTraining = await loadPacks();
-  if(cardsInTraining.length > 0){
-    const card = getRandomCard(cardsInTraining);
+export const ask = async (idPackInTraning) => {
+  const packOnAlarm = await loadPacks(idPackInTraning);
+  if(packOnAlarm.cards.length > 0){
+    const card = getRandomCard(packOnAlarm.cards);
     const doSuccess = () => {
-      const newCards = reject(propEq('id', card.id), cardsInTraining);
-      saveInLocal('cardsInTraining', newCards);
+      // const newCards = reject(propEq('id', card.id), packOnAlarm.cards);
+      // saveInLocal('cardsInTraining', newCards);
     };
     drawElementAsk(card.front, card.back, doSuccess);
   }
