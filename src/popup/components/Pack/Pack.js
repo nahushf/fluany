@@ -2,7 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { changePackageTitle,
          changePackageDescription,
-         changePackageColor } from '../../actions/pack';
+         changePackageColor,
+         allNoEditingCard } from '../../actions/pack';
 import Play  from '../Play/Play';
 import Palette from '../Palette/Palette';
 import TitlePack from './TitlePack';
@@ -37,8 +38,10 @@ let Pack = ({
 
     const handleClickItem = () => {
         const anyThingFocused = document.activeElement;
-        if(!anyThingFocused || anyThingFocused === document.body) //check if any element is focused
+        if(!anyThingFocused || anyThingFocused === document.body){ //check if any element is focused
             dispatch(isEditPackage({newPackage: false, packageid: id}))
+            dispatch(allNoEditingCard(id))
+        }
     }
 
     const handleOnMouseLeave = () => {
