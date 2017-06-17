@@ -20,7 +20,8 @@ let Play = ({
     }
 
     return (
-        <section className={'play-content' + (playing ? ' playing': '')} onClick={handleClickPlay}>
+        <section className={'play-content' + (playing ? ' playing': '')}
+                 onClick={handleClickPlay}>
             <a className={"play-btn" + (playing ? ' stop' : ' to-play')}></a>
             <span className="play-label">{ playing ? 'Parar' : 'Treinar'}</span>
         </section>

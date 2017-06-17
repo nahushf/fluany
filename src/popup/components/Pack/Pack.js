@@ -10,6 +10,7 @@ import Setting from '../Setting/Setting';
 import DescriptionPack from './DescriptionPack';
 import { isEditPackage } from '../../actions/flags';
 import Delete from './Delete';
+import Progress from './Progress';
 
 /**
  * A component to see Pack information
@@ -55,7 +56,10 @@ let Pack = ({
     }
 
     return (
-            <li className={"pack-item color-" + colorID} onClick={handleClickItem} onMouseLeave={handleOnMouseLeave} >
+            <li className={"pack-item color-" + colorID}
+                onClick={handleClickItem}
+                onMouseLeave={handleOnMouseLeave}>
+                <Progress />
                 <TitlePack onChange={handlePackageTitle}
                            refToComponent={refToComponentTitle}
                            onFocus="true"
