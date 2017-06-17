@@ -1,7 +1,6 @@
 import { initCSS } from './ElementCSS.js';
-const drawElementAsk = (front, back) => {
+const drawElementAsk = (front, back, doSuccess) => {
 		let elementIsShowing = true;
-    console.log('call.. ', elementIsShowing);
 		const wrapper = document.createElement('div');
     addClass(wrapper, 'fluany-wrapper');
 		initCSS(wrapper);
@@ -83,6 +82,7 @@ const drawElementAsk = (front, back) => {
     if(inputAnswer.value.toLowerCase() === back.toLowerCase()){
       addClass(wrapper, 'success');
       frontTitle.textContent = 'Ta manjando heim!';
+      doSuccess();
     }else{
       addClass(wrapper, 'invalid');
       frontTitle.textContent = back;

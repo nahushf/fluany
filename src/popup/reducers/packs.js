@@ -13,7 +13,7 @@ import { ADD_PACKAGE,
          LOAD_PACKS_LOCAL,
          CREATE_CARD,
          IS_EDITING_CARD } from '../constants/ActionTypes';
-import { assoc, update, propEq, insert, remove } from 'ramda';
+import { assoc, update, remove } from 'ramda';
 import { getRandomInt } from '../../shared/helpers.js';
 import { getIndexThingById } from './stateManipulate';
 import packsDefaultState from '../store/packsDefaultStore';

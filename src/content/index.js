@@ -6,7 +6,7 @@ console.log('working..');
 chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
   if (msg.message && (msg.message == "LOAD")) {
 			stopAlarm();
-      loadPacks().then( () => ask());
+      ask();
 	}
     return true;
 });

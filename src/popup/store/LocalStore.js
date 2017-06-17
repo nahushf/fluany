@@ -23,5 +23,3 @@ export const cleanLocalStorage = () => {
     }
 	});
 };
-
-export const hasInLocal = (name) => localStorage.getItem(name) ? true : false;
