@@ -16,3 +16,4 @@ export const REMOVE_CARD = 'REMOVE_CARD';
 export const CREATE_CARD = 'CREATE_CARD';
 export const LOAD_PACKS_LOCAL = 'LOAD_PACKS_LOCAL';
 export const CHANGE_PLAY_PACK = 'CHANGE_PLAY_PACK';
+export const ALL_NO_EDITING_CARD = 'ALL_NO_EDITING_CARD';

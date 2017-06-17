@@ -12,8 +12,9 @@ import { ADD_PACKAGE,
 				 CHANGE_PLAY_PACK,
          LOAD_PACKS_LOCAL,
          CREATE_CARD,
+         ALL_NO_EDITING_CARD,
          IS_EDITING_CARD } from '../constants/ActionTypes';
-import { assoc, update, remove } from 'ramda';
+import { assoc, update, remove, map } from 'ramda';
 import { getRandomInt } from '../../shared/helpers.js';
 import { getIndexThingById } from './stateManipulate';
 import packsDefaultState from '../store/packsDefaultStore';
@@ -62,8 +63,10 @@ const packs = (state = packsDefaultState, action) => {
 					return update(indexOfThePack, assoc('cards', cardsWithRemoved, packOfTheId), state);
         case CREATE_CARD:
 					const randomCardColor = getRandomInt(1, 4);
-			const newCard = { ...action.value, colorID: randomCardColor };
-        return update(indexOfThePack, assoc('cards', [newCard, ...packOfTheId.cards], packOfTheId), state);
+          const newCard = { ...action.value, colorID: randomCardColor };
+          return update(indexOfThePack, assoc('cards', [newCard, ...packOfTheId.cards], packOfTheId), state);
+        case ALL_NO_EDITING_CARD:
+          return update(indexOfThePack, assoc('cards', map(assoc('isEditing', false), packOfTheId.cards), packOfTheId), state);
         default:
             return state;
     }

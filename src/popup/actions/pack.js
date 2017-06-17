@@ -11,6 +11,7 @@ import { ADD_PACKAGE,
          LOAD_PACKS_LOCAL,
          CREATE_CARD,
 				 CHANGE_PLAY_PACK,
+         ALL_NO_EDITING_CARD,
          IS_SETTING } from '../constants/ActionTypes';
 
 export function addPackage(value){
@@ -120,4 +121,11 @@ export function createCard(id, idCard, value){
         idCard,
         value
 	  };
+}
+
+export function allNoEditingCard(id){
+  return {
+    type: ALL_NO_EDITING_CARD,
+    id: id
+  };
 }
