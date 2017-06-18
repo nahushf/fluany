@@ -82,6 +82,7 @@ let Pack = ({
                 <Play packageid={id}
                       playing={playing}
                       title={title}
+                      cards={cards}
                       percentage={percentage ? percentage : 0}
                       interval={timeMinutes}
                       dispatch={dispatch}/>

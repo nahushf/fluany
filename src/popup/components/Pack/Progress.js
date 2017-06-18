@@ -1,8 +1,10 @@
 import React from 'react';
 import { Line } from 'rc-progress';
 import { getInLocal } from '../../store/LocalStore';
-import { changePorcentProgress, changeColorProgress } from '../../actions/pack.js';
 import { find, propEq } from 'ramda';
+import { changePorcentProgress,
+         changeColorProgress,
+         changePlayPack } from '../../actions/pack.js';
 
 const Progress = ({
     dispatch,
@@ -19,7 +21,7 @@ const Progress = ({
             const packWithId = find(propEq('id', packageid), packsInTraning);
             if(packWithId){
                 const sizeAccepted = cards.length - packWithId.cards.length;
-                const updatePercent = (sizeAccepted/8) * 100;
+                const updatePercent = (sizeAccepted/cards.length) * 100;
                 dispatch(changePorcentProgress(updatePercent, packageid));
                 if(updatePercent < 50){
                     dispatch(changeColorProgress(low, packageid));
@@ -29,7 +31,8 @@ const Progress = ({
                 }else
                     dispatch(changeColorProgress(hight, packageid));
             }
-        });
+        })
+        .catch(() => {});
 
     return (
         <div className={"progress-panel" + (percentage === 100 ? ' success': '')}>
