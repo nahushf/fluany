@@ -10,6 +10,7 @@ let Play = ({
     playing,
     title,
     dispatch,
+    percentage,
     interval
 }) => {
     const alarm = new Alarm('ALARM_'+packageid, interval);
@@ -24,10 +25,14 @@ let Play = ({
     }
 
     return (
-        <section className={'play-content' + (playing ? ' playing': '')}
+        <section className={'play-content' + (percentage < 100
+                                              ? playing ? ' playing': ''
+                                              : /*otherwise*/ ' restart')}
                  onClick={handleClickPlay}>
             <a className={"play-btn" + (playing ? ' stop' : ' to-play')}></a>
-            <span className="play-label">{ playing ? 'Parar' : 'Treinar'}</span>
+            <span className="play-label">{ percentage < 100
+                                           ? playing ? 'Parar' : 'Treinar'
+                                           : /*otherwise*/ 'Recomeçar'}</span>
         </section>
     );
 }

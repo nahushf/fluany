@@ -68,7 +68,7 @@ let Pack = ({
                 onMouseLeave={handleOnMouseLeave}>
                 <Progress dispatch={dispatch}
                           packageid={id}
-                            colorProgress={colorProgress ? colorProgress : ''}
+                          colorProgress={colorProgress ? colorProgress : ''}
                           percentage={percentage ? percentage : 0}
                           cards={cards} />
 
@@ -82,6 +82,7 @@ let Pack = ({
                 <Play packageid={id}
                       playing={playing}
                       title={title}
+                      percentage={percentage ? percentage : 0}
                       interval={timeMinutes}
                       dispatch={dispatch}/>
                 <a className="show-pack">Ver Lista</a>
