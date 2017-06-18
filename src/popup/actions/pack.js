@@ -11,6 +11,8 @@ import { ADD_PACKAGE,
          LOAD_PACKS_LOCAL,
          CREATE_CARD,
 				 CHANGE_PLAY_PACK,
+         PORCENT_PROGRESS_PACK,
+         COLOR_PROGRESS_PACK,
          ALL_NO_EDITING_CARD,
          IS_SETTING } from '../constants/ActionTypes';
 
@@ -84,6 +86,22 @@ export function isSetting(value, id){
   };
 }
 
+export function changePorcentProgress(value, id){
+  return {
+    type: PORCENT_PROGRESS_PACK,
+    id: id,
+    value
+  };
+}
+
+export function changeColorProgress(value, id){
+  return {
+    type: COLOR_PROGRESS_PACK,
+    id: id,
+    value
+  };
+}
+
 export function changePlayPack(value, id){
   return {
     type: CHANGE_PLAY_PACK,
@@ -129,3 +147,4 @@ export function allNoEditingCard(id){
     id: id
   };
 }
+

@@ -240,7 +240,6 @@
   top -1px
   width 100%
   height 15px
-  overflow hidden
   svg.rc-progress-line 
     margin-left -2px
     background rgba(103, 103, 103, 0.23)
@@ -249,3 +248,27 @@
     border-radius 10px 20px
     .rc-progress-line-trail
       display none
+  .checkmark-icon
+    display none
+  &.success
+    .checkmark-icon
+      position absolute
+      width 20px
+      height 20px
+      z-index 10
+      top -4px
+      right -9px
+      display block
+    &:after
+      content ""
+      position absolute
+      right -13px
+      width 30px
+      height 21px
+      background #b2da76
+      color #FFF
+      box-shadow 0 7pt 18pt 0 rgba(0, 0, 0, 0.3)
+      top -10px
+      border-radius: 100%
+      text-align center
+      padding-top 10px

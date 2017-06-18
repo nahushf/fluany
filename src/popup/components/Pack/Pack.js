@@ -29,7 +29,10 @@ let Pack = ({
     id,
     timeMinutes,
     playing,
+    percentage,
+    colorProgress,
     colorID,
+    cards,
     isChangingColor,
     isSetting }) => {
     let inRefToTitle = '';
@@ -63,13 +66,19 @@ let Pack = ({
             <li className={"pack-item color-" + colorID}
                 onClick={handleClickItem}
                 onMouseLeave={handleOnMouseLeave}>
-                <Progress />
+                <Progress dispatch={dispatch}
+                          packageid={id}
+                            colorProgress={colorProgress ? colorProgress : ''}
+                          percentage={percentage ? percentage : 0}
+                          cards={cards} />
+
                 <TitlePack onChange={handlePackageTitle}
                            refToComponent={refToComponentTitle}
                            onFocus="true"
                            disabled="true"
                            handleEditTitle={handleEditTitle}
                            title={title}/>
+
                 <Play packageid={id}
                       playing={playing}
                       title={title}

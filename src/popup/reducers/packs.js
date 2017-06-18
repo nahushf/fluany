@@ -12,6 +12,8 @@ import { ADD_PACKAGE,
 				 CHANGE_PLAY_PACK,
          LOAD_PACKS_LOCAL,
          CREATE_CARD,
+         PORCENT_PROGRESS_PACK,
+         COLOR_PROGRESS_PACK,
          ALL_NO_EDITING_CARD,
          IS_EDITING_CARD } from '../constants/ActionTypes';
 import { assoc, update, remove, map } from 'ramda';
@@ -47,7 +49,11 @@ const packs = (state = packsDefaultState, action) => {
 				case CHANGE_TIME_PACKAGE:
 					return update(indexOfThePack, assoc('timeMinutes', action.value, packOfTheId), state);
 				case CHANGE_PLAY_PACK:
-					return update(indexOfThePack, assoc('playing', action.value, packOfTheId), state);
+          return update(indexOfThePack, assoc('playing', action.value, packOfTheId), state);
+        case PORCENT_PROGRESS_PACK:
+          return update(indexOfThePack, assoc('percentage', action.value, packOfTheId), state);
+        case COLOR_PROGRESS_PACK:
+          return update(indexOfThePack, assoc('colorProgress', action.value, packOfTheId), state);
 				/*
 			  ** CARDS ACTIONS
 			  ** Action [ idCard ] Is the position of the card in packages.
