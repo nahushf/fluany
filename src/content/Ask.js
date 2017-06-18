@@ -39,7 +39,7 @@ export const getRandomCard = (cards) => {
 	return cards[indexCardBeingUsed];
 };
 
-export const ask = async (idPackInTraning) => {
+export const ask = async (idPackInTraning, alarmName, periodInMinutes) => {
   const packs = await loadPacks(idPackInTraning);
   if(packs.packOnAlarm.cards.length > 0){
     const card = getRandomCard(packs.packOnAlarm.cards);
@@ -49,6 +49,6 @@ export const ask = async (idPackInTraning) => {
       const packsWithoutCardThatHit = update(index, assoc('cards', newCards, packs.packsInTraning[index]), packs.packsInTraning);
       saveInLocal('packsInTraning', packsWithoutCardThatHit);
     };
-    drawElementAsk(card.front, card.back, doSuccess);
+    drawElementAsk(card.front, card.back, doSuccess, alarmName, periodInMinutes);
   }
 };

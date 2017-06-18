@@ -6,9 +6,8 @@ console.log('working..');
 chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
   if (msg.name && (msg.trigger == "LOAD_PACK")) {
     const idPackInTraning = parseInt(msg.name.split('_')[1]);
-      console.log('LOAD...', idPackInTraning);
-			stopAlarm();
-      ask(idPackInTraning);
+    stopAlarm(msg.name);
+    ask(idPackInTraning, msg.name, msg.periodInMinutes);
 	}
     return true;
 });

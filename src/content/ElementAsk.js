@@ -1,5 +1,5 @@
 import { initCSS } from './ElementCSS.js';
-const drawElementAsk = (front, back, doSuccess) => {
+const drawElementAsk = (front, back, doSuccess, alarmName, periodInMinutes) => {
 		let elementIsShowing = true;
 		const wrapper = document.createElement('div');
     addClass(wrapper, 'fluany-wrapper');
@@ -91,7 +91,11 @@ const drawElementAsk = (front, back, doSuccess) => {
     addClass(contentFlu, 'feedback-message');
     addClass(buttons, 'fadeOut');
     addClass(inputAnswer, 'fadeOut');
-		chrome.runtime.sendMessage({message: "createAlarm"}, ()=>{});
+
+    const objMessages = { name: alarmName,
+                          trigger: "createAlarm",
+                          periodInMinutes };
+		chrome.runtime.sendMessage(objMessages, () => {});
     setTimeout(() => {
       wrapper.style.animation = 'fadeOut 2s';
     }, 3000);
