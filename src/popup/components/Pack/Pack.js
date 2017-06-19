@@ -35,6 +35,7 @@ let Pack = ({
     cards,
     isChangingColor,
     isSetting }) => {
+
     let inRefToTitle = '';
     const handlePackageTitle = e => {
         dispatch(changePackageTitle(id, e.target.value));
@@ -52,22 +53,26 @@ let Pack = ({
         dispatch(changePackageColor(false, id));
     }
 
-    const handleEditTitle = (e) => {
+    const handleEditTitle = e => {
         e.stopPropagation();
         inRefToTitle.removeAttribute('disabled')
         inRefToTitle.focus();
     }
 
-    const refToComponentTitle = (input) =>{
+    const refToComponentTitle = input =>{
         inRefToTitle = input;
+    }
+
+    const propsDefault = {
+        packageid: id,
+        dispatch
     }
 
     return (
             <li className={"pack-item color-" + colorID}
                 onClick={handleClickItem}
                 onMouseLeave={handleOnMouseLeave}>
-                <Progress dispatch={dispatch}
-                          packageid={id}
+                <Progress {...propsDefault}
                           colorProgress={colorProgress ? colorProgress : ''}
                           percentage={percentage ? percentage : 0}
                           cards={cards} />
@@ -87,21 +92,28 @@ let Pack = ({
                       interval={timeMinutes}
                       dispatch={dispatch}/>
                 <a className="show-pack">Ver Lista</a>
-                <Palette dispatch={dispatch} isChanging={isChangingColor} packageid={id} />
-                <Delete dispatch={dispatch} packageid={id}/>
+                <Palette {...propsDefault} isChanging={isChangingColor} />
+                <Delete {...propsDefault}/>
             </li>
     );
 }
 
 const {
-    func, number, bool, string
+    func, number, bool, string, array
 } = React.PropTypes;
 
 Pack.propTypes = {
     dispatch: func.isRequired,
     title: string.isRequired,
     id: number.isRequired,
-    colorID: number.isRequired
+    timeMinutes: number.isRequired,
+    playing: bool.isRequired,
+    percentage: number,
+    colorProgress: string,
+    colorID: number.isRequired,
+    cards: array.isRequired,
+    isChangingColor: bool.isRequired,
+    isSetting: bool.isRequired
 }
 
 export default connect()(Pack);
