@@ -53,4 +53,18 @@ let Play = ({
     );
 }
 
+const {
+    func, bool, array, number, string
+} = React.PropTypes;
+
+Play.propTypes = {
+    packageid: number,
+    playing: bool,
+    title: string,
+    cards: array,
+    dispatch: func,
+    percentage: number,
+    interval: number
+};
+
 export default connect()(Play);

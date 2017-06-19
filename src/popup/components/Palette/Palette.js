@@ -50,5 +50,16 @@ let Palette = ({
     );
 }
 
+const {
+    func, number, bool
+} = React.PropTypes;
+
+Palette.propTypes = {
+    dispatch: func.isRequired,
+    packageid: number.isRequired,
+    isChanging: bool.isRequired,
+    colorID: number
+}
+
 
 export default connect()(Palette);

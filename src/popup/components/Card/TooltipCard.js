@@ -15,4 +15,14 @@ const TooltipCard = ({
         </div>
 );
 
+const {
+    func, number, string
+} = React.PropTypes;
+
+TooltipCard.propTypes = {
+    back: string.isRequired,
+    color: number.isRequired,
+    handleOnDelete: func.isRequired
+}
+
 export default TooltipCard;

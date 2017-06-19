@@ -36,12 +36,15 @@ const TitlePack = ({ onChange,
 );
 
 const {
-  func, string
+  func, string, bool
 } = React.PropTypes;
 
 TitlePack.propTypes = {
-  onChange: func.isRequired,
-  title: string.isRequired
+    onChange: func.isRequired,
+    title: string.isRequired,
+    disabled: string,
+    onClick: func,
+    handleEditTitle: func
 };
 
 export default connect()(TitlePack);

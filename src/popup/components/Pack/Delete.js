@@ -22,4 +22,13 @@ const Delete = ({
 	);
 }
 
+const {
+    func, number
+} = React.PropTypes;
+
+Delete.propTypes = {
+    dispatch: func.isRequired,
+    packageid: number.isRequired
+}
+
 export default Delete;

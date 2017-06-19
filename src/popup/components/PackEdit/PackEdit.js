@@ -73,4 +73,15 @@ const mapStateToProps = (
   };
 };
 
+const {
+    func, bool, object, array
+} = React.PropTypes;
+
+PackEdit.propTypes = {
+    dispatch: func.isRequired,
+    isEdit: object.isRequired,
+    packflag: object.isRequired,
+    packs: array.isRequired
+};
+
 export default connect(mapStateToProps)(PackEdit);

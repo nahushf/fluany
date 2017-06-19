@@ -44,4 +44,16 @@ const Progress = ({
     )
 }
 
+const {
+    func, number, bool, string, array
+} = React.PropTypes;
+
+Progress.propTypes = {
+    dispatch: func.isRequired,
+    packageid: number.isRequired,
+    cards: array.isRequired,
+    porcentage: number,
+    colorProgress: string
+}
+
 export default Progress;

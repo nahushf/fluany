@@ -58,10 +58,12 @@ const mapStateToProps = (
 });
 
 const {
-    func
+    func, number, string
 } = React.PropTypes;
 
 Create.propTypes = {
+    packLength: number.isRequired,
+    titleEdited: string.isRequired,
     dispatch: func.isRequired
 };
 

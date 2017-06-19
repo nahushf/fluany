@@ -42,4 +42,14 @@ const mapStateToProps = (
   };
 };
 
+const {
+    func, array, number
+} = React.PropTypes;
+
+Time.propTypes = {
+    dispatch: func.isRequired,
+    packs: array.isRequired,
+    packageid: number.isRequired
+}
+
 export default connect(mapStateToProps)(Time);

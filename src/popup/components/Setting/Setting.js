@@ -24,5 +24,15 @@ const Setting = ({
   );
 };
 
+const {
+    func, bool, number
+} = React.PropTypes;
+
+Setting.propTypes = {
+    packageid: number.isRequired,
+    dispatch: func.isRequired,
+    isShow: bool.isRequired
+}
+
 
 export default connect()(Setting);

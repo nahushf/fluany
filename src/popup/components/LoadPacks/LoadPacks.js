@@ -12,4 +12,12 @@ const LoadPacks = ({
     return null;
 };
 
+const {
+    func
+} = React.PropTypes;
+
+LoadPacks.propTypes = {
+    dispatch: func.isRequired
+}
+
 export default LoadPacks;

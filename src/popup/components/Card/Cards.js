@@ -40,4 +40,15 @@ const mapStateToProps = (
     };
 };
 
+const {
+    func, number, array
+} = React.PropTypes;
+
+Cards.propTypes = {
+    dispatch: func.isRequired,
+    packs: array.isRequired,
+    packageid: number.isRequired,
+    indexOfPack: number.isRequired
+}
+
 export default connect(mapStateToProps)(Cards);

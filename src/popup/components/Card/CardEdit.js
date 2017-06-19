@@ -37,4 +37,16 @@ const CardEdit = ({
     );
 }
 
+const {
+    func, number, array
+} = React.PropTypes;
+
+CardEdit.propTypes = {
+    dispatch: func.isRequired,
+    packs: array.isRequired,
+    indexOfPack: number.isRequired,
+    indexOfCard: number.isRequired,
+    packageid: number.isRequired
+}
+
 export default CardEdit;

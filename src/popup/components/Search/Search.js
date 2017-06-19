@@ -40,4 +40,14 @@ const mapStateToProps = (
     };
 };
 
+const {
+    func, bool, string
+} = React.PropTypes;
+
+Search.propTypes = {
+    dispatch: func.isRequired,
+    filterPackage: string,
+    isActiveSearch: bool
+}
+
 export default connect(mapStateToProps)(Search);
