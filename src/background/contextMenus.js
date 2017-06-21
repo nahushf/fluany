@@ -1,5 +1,13 @@
 const handleShowFluany = (info, tab) => {
 	console.log('info: ', info);
+	let props = {
+    url: "../popup/index.html",
+    height: 450,
+    width: 715,
+    type: "popup"
+	};
+
+	chrome.windows.create(props);
 };
 
 const contextShowFluany = () => {
@@ -7,6 +15,7 @@ const contextShowFluany = () => {
 		{ "title": 'Abrir fluany',
 		  "contexts": ["page"],
 		  "onclick": handleShowFluany });
+
 };
 
 
@@ -46,4 +55,4 @@ contextShowFluany();
 contextsToGetText();
 contextEditPacks();
 
-//Packs Edit
+
