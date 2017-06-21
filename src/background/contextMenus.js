@@ -1,42 +1,49 @@
-let windowId = 2;
-const CONTEXT_MENU_ID = 'context_menu';
-console.log("About to try creating an invalid item - an error about " +
-            "item 999 should show up");
-function closeIfExist() {
-    if (windowId > 0) {
-        chrome.windows.remove(windowId);
-        windowId = chrome.windows.WINDOW_ID_NONE;
-    }
-}
+const handleShowFluany = (info, tab) => {
+	console.log('info: ', info);
+};
 
-function popWindow(type) {
-    closeIfExist();
-    const options = {
-        type: 'popup',
-        left: 100,
-        top: 100,
-        width: 800,
-        height: 475
-    };
-    if (type === 'open') {
-        options.url = 'window.html';
-        chrome.windows.create(options, (win) => {
-            windowId = win.id;
-        });
-    }
-}
+const contextShowFluany = () => {
+	let id = chrome.contextMenus.create(
+		{ "title": 'Abrir fluany',
+		  "contexts": ["page"],
+		  "onclick": handleShowFluany });
+};
 
-chrome.contextMenus.create({
-    id: CONTEXT_MENU_ID,
-    title: 'Fluany',
-    contexts: ['all'],
-    documentUrlPatterns: [
-        'https://github.com/*'
-    ]
-});
 
-chrome.contextMenus.onClicked.addListener((event) => {
-    if (event.menuItemId === CONTEXT_MENU_ID) {
-        popWindow('open');
-    }
-});
+const handleContextsToGetText = (info, tab) => {
+	console.log('info: ', info);
+};
+
+const contextsToGetText = () => {
+	const contexts = ["selection", "link"];
+	contexts.forEach(context => {
+		let id = chrome.contextMenus.create(
+			{ "title": 'Adicionar em um pacote',
+				"contexts": [context],
+			  "onclick": handleContextsToGetText });
+	});
+};
+
+const handleClickPackEdit = (info, tab) => {
+	console.log('info: ', info);
+};
+
+const contextEditPacks = () => {
+	let parent = chrome.contextMenus.create({"title": "Editar pacote"});
+
+	let pack1 = chrome.contextMenus.create(
+		{ "title": "Pacote 1",
+			"parentId": parent,
+			"onclick": handleClickPackEdit });
+
+	let pack2 = chrome.contextMenus.create(
+		{ "title": "Pacote 2",
+			"parentId": parent,
+			"onclick": handleClickPackEdit });
+};
+
+contextShowFluany();
+contextsToGetText();
+contextEditPacks();
+
+//Packs Edit
