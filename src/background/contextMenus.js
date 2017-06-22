@@ -30,14 +30,11 @@ const handleContextsToGetText = (info, tab) => {
 	console.log('info: ', info);
 };
 
-const contextsToGetText = () => {
-	const contexts = ["selection", "link"];
-	contexts.forEach(context => {
-		let id = chrome.contextMenus.create(
+const contextsToGetText = async () => {
+	const parentId = chrome.contextMenus.create(
 			{ "title": 'Adicionar em um pacote',
-				"contexts": [context],
+				"contexts": ['selection'],
 			  "onclick": handleContextsToGetText });
-	});
 };
 
 const handleClickPackEdit = (info, tab) => {
