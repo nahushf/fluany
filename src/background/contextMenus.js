@@ -1,10 +1,14 @@
+import { getInLocal } from '../popup/store/LocalStore';
+import 'babel-polyfill';
+
 const handleShowFluany = (info, tab) => {
 	console.log('info: ', info);
 	let props = {
-    url: "../popup/index.html",
+    url: chrome.extension.getURL('popup/index.html'),
     height: 450,
     width: 715,
-    type: "popup"
+    type: "popup",
+		focused: true
 	};
 
 	chrome.windows.create(props);
@@ -37,18 +41,16 @@ const handleClickPackEdit = (info, tab) => {
 	console.log('info: ', info);
 };
 
-const contextEditPacks = () => {
-	let parent = chrome.contextMenus.create({"title": "Editar pacote"});
-
-	let pack1 = chrome.contextMenus.create(
-		{ "title": "Pacote 1",
-			"parentId": parent,
-			"onclick": handleClickPackEdit });
-
-	let pack2 = chrome.contextMenus.create(
-		{ "title": "Pacote 2",
-			"parentId": parent,
-			"onclick": handleClickPackEdit });
+const contextEditPacks = async () => {
+	const parent = chrome.contextMenus.create({"title": "Editar pacote"});
+	const packs = await getInLocal('packState');
+	packs.forEach((pack) => {
+		chrome.contextMenus.create(
+			{ "title": pack.title,
+				"id": pack.id.toString(),
+				"parentId": parent,
+				"onclick": handleClickPackEdit });
+	});
 };
 
 contextShowFluany();

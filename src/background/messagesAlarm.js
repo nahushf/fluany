@@ -1,5 +1,4 @@
 import Alarm from 'shared/Alarms';
-import { getInLocal } from '../popup/store/LocalStore';
 
 chrome.alarms.onAlarm.addListener(function( alarm ) {
   chrome.tabs.query({active: true, highlighted: true}, function(tabs) {
