@@ -53,7 +53,6 @@ let PackEdit = ({
 				</nav>
 				<div>
 					<TitlePack {...titleProps}/>
-          <Play />
           <Time packageid={isEdit.packageid}/>
           <Cards indexOfPack={indexOfPack} packageid={isEdit.packageid}/>
 				</div>

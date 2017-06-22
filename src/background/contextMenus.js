@@ -1,4 +1,4 @@
-import { getInLocal } from '../popup/store/LocalStore';
+import { getInLocal, saveInLocal } from '../popup/store/LocalStore';
 import 'babel-polyfill';
 
 const handleShowFluany = (info, tab) => {
@@ -20,6 +20,9 @@ const contextShowFluany = () => {
 		  "contexts": ["page"],
 		  "onclick": handleShowFluany });
 
+	chrome.windows.onRemoved.addListener(() => {
+		saveInLocal('openInPackage', null);
+	});
 };
 
 
@@ -38,7 +41,17 @@ const contextsToGetText = () => {
 };
 
 const handleClickPackEdit = (info, tab) => {
-	console.log('info: ', info);
+	console.log('info: ', info.menuItemId);
+	saveInLocal('openInPackage', parseInt(info.menuItemId));
+	let props = {
+    url: chrome.extension.getURL('popup/index.html'),
+    height: 450,
+    width: 715,
+    type: "popup",
+		focused: true
+	};
+
+	chrome.windows.create(props);
 };
 
 const contextEditPacks = async () => {
