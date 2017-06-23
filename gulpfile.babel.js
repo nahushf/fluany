@@ -43,11 +43,6 @@ gulp.task('env', () => {
   process.env.NODE_ENV = env; // eslint-disable-line no-undef
 });
 
-// gulp.task('test-manifest', () => {
-//   const watcher = new Manifest(paths.manifest)
-//   watcher.watch()
-// })
-
 let manifest;
 
 gulp.task('manifest', () => {
