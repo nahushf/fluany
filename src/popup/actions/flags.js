@@ -1,6 +1,7 @@
 import { CHANGE_FILTER_PACKAGE,
          CHANGE_PAGINATION_PACKAGE,
          TOGGLE_ACTIVE_SEARCH,
+         CHANGE_CARD,
 				 IS_EDIT_PACKAGE,
          NEW_PACKAGE } from '../constants/ActionTypes.js';
 
@@ -40,3 +41,10 @@ export function isEditPackage(value){
 	};
 }
 
+
+export function changeCard(value){
+	return {
+		type: CHANGE_CARD,
+		value
+	};
+}

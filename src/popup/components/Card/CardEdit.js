@@ -1,5 +1,6 @@
 import React from 'react';
 import { isEditingCard } from '../../actions/pack';
+import { changeCard } from '../../actions/flags';
 import { getIndexThingById } from '../../reducers/stateManipulate';
 
 const CardEdit = ({
@@ -7,29 +8,38 @@ const CardEdit = ({
     packs,
     indexOfPack,
     indexOfCard,
-    packageid
+    packageid,
+    cardEditing,
 }) => {
 
     const handleCardFront = e => {
-        dispatch(isEditingCard(e.target.value, 'front', packageid, indexOfCard));
+        dispatch(changeCard({front: e.target.value, back: cardEditing.back}));
     }
 
     const handleCardBack = e => {
-        dispatch(isEditingCard(e.target.value, 'back', packageid, indexOfCard));
+        dispatch(changeCard({front: cardEditing.front, back: e.target.value}));
     }
+
+    const frontValue = cardEditing.front !== null
+                     ? cardEditing.front
+                     : packs[indexOfPack].cards[indexOfCard].front;
+
+    const backValue = cardEditing.back !== null
+                    ? cardEditing.back
+                    : packs[indexOfPack].cards[indexOfCard].back;
 
     return (
         <div className="card-edit-container">
             <div className="card-edit-content">
                 <p>Termo</p>
-                <input value={packs[indexOfPack].cards[indexOfCard].front}
+                <input value={frontValue}
                        onChange={handleCardFront}
                        placeholder="Digite o termo"></input>
             </div>
 
             <div className="card-edit-content">
                 <p>Definição</p>
-                <input value={packs[indexOfPack].cards[indexOfCard].back}
+                <input value={backValue}
                        onChange={handleCardBack}
                        placeholder="Digite a definição"></input>
             </div>
@@ -38,7 +48,7 @@ const CardEdit = ({
 }
 
 const {
-    func, number, array
+    func, number, array, object
 } = React.PropTypes;
 
 CardEdit.propTypes = {
@@ -46,7 +56,8 @@ CardEdit.propTypes = {
     packs: array.isRequired,
     indexOfPack: number.isRequired,
     indexOfCard: number.isRequired,
-    packageid: number.isRequired
+    packageid: number.isRequired,
+    cardEditing: object.isRequired
 }
 
 export default CardEdit;

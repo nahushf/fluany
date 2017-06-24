@@ -3,6 +3,7 @@ import { CHANGE_FILTER_PACKAGE,
          TOGGLE_ACTIVE_SEARCH,
 				 IS_EDIT_PACKAGE,
          CHANGE_PAGINATION_PACKAGE,
+         CHANGE_CARD,
          NEW_PACKAGE } from '../constants/ActionTypes';
 
 const assign = Object.assign;
@@ -13,7 +14,8 @@ let defaultState = {
     isActiveSearch: false,
 		paginationPackage: 3,
 		isEditPackage: {newPackage: false, packageid: null},
-    newPackage: {title: "", description: ""}
+    newPackage: {title: "", description: ""},
+    cardEditing: {front: null, back: null}
 };
 
 const flags = (state = defaultState, action) => {
@@ -28,6 +30,8 @@ const flags = (state = defaultState, action) => {
             return assign({}, state, {isEditPackage: action.value});
         case NEW_PACKAGE:
             return assign({}, state, {newPackage: action.value});
+        case CHANGE_CARD:
+            return assign({}, state, {cardEditing: action.value});
         default:
             return state;
     }

@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { inc, head, isEmpty, prop } from 'ramda';
 import { isEditingCard, removeCard, allNoEditingCard } from '../../actions/pack';
+import { changeCard } from '../../actions/flags';
 import { getIndexThingById } from '../../reducers/stateManipulate';
 import CardEdit from './CardEdit';
 import TooltipCard from './TooltipCard';
@@ -22,7 +23,8 @@ const Card = ({
     colorID,
     indexOfPack,
     id,
-    packageid
+    packageid,
+    cardEditing
 }) => {
 
     const indexOfCard = getIndexThingById(packs[indexOfPack].cards, id);
@@ -37,6 +39,7 @@ const Card = ({
 
         listItem.style.transform = 'translateX(-' + (listItem.getBoundingClientRect().left - 25) + 'px)';
         dispatch(isEditingCard(!isEditing, 'isEditing', packageid, indexOfCard));
+        dispatch(changeCard({front: null, back: null}));
     }
 
     const handleRemoveCard = (e) => {
@@ -44,12 +47,26 @@ const Card = ({
         dispatch(removeCard(packageid, indexOfCard));
     }
 
+    const handleSaveCard = (e) => {
+        e.stopPropagation();
+        if(cardEditing.front !== null){
+            dispatch(isEditingCard(cardEditing.front, 'front', packageid, indexOfPack));
+        }
+
+        if(cardEditing.back !== null){
+            dispatch(isEditingCard(cardEditing.back, 'back', packageid, indexOfPack));
+        }
+
+        handleClickCard();
+    }
+
     const cardEditProps = {
         dispatch,
         packs,
         indexOfPack,
         indexOfCard,
-        packageid
+        packageid,
+        cardEditing
     }
 
     return (
@@ -59,7 +76,7 @@ const Card = ({
                 <button className="btn-delete" onClick={handleClickCard}>
                     <span>Cancelar</span>
                 </button>
-                <button className="btn-save">
+                <button className="btn-save" onClick={handleSaveCard}>
                     <svg className="save-icon">
                         <use xlinkHref="#icon-correct"></use>
                     </svg>
@@ -77,12 +94,13 @@ const mapStateToProps = (
     state
 ) => {
     return {
-		    packs: state.packs
+		    packs: state.packs,
+        cardEditing: state.flags.cardEditing,
     };
 };
 
 const {
-    func, number, array
+    func, number, array, object
 } = React.PropTypes;
 
 Card.propTypes = {
@@ -92,7 +110,8 @@ Card.propTypes = {
     colorID: number.isRequired,
     indexOfPack: number.isRequired,
     id: number.isRequired,
-    packageid: number.isRequired
+    packageid: number.isRequired,
+    cardEditing: object.isRequired
 };
 
 export default connect(mapStateToProps)(Card);
