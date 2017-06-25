@@ -49,17 +49,18 @@ const Card = ({
 
     const handleSaveCard = (e) => {
         e.stopPropagation();
+        //if is empty, delete card.. :(
+        if(isCardsEmpty()){
+            handleRemoveCard(e);
+            return ;
+        }
+
         if(cardEditing.front !== null){
             dispatch(isEditingCard(cardEditing.front, 'front', packageid, indexOfPack));
         }
 
         if(cardEditing.back !== null){
             dispatch(isEditingCard(cardEditing.back, 'back', packageid, indexOfPack));
-        }
-
-        //if is empty, delete card.. :(
-        if(isCardsEmpty()){
-            handleRemoveCard(e);
         }
 
         handleClickCard();
@@ -72,7 +73,8 @@ const Card = ({
         handleClickCard();
     }
 
-    const isCardsEmpty = () => packs[indexOfPack].cards[indexOfCard].front === '' && packs[indexOfPack].cards[indexOfCard].back === '';
+    const isCardsEmpty = () => (cardEditing.front === '' && cardEditing.back === '')
+                          || (cardEditing.front === null && cardEditing.back === null);
 
     const cardEditProps = {
         dispatch,
@@ -114,7 +116,7 @@ const mapStateToProps = (
 };
 
 const {
-    func, number, array, object
+    func, number, array, object, string
 } = React.PropTypes;
 
 Card.propTypes = {
@@ -123,8 +125,7 @@ Card.propTypes = {
     index: number,
     colorID: number.isRequired,
     indexOfPack: number.isRequired,
-    id: number.isRequired,
-    packageid: number.isRequired,
+    id: string.isRequired,
     cardEditing: object.isRequired
 };
 

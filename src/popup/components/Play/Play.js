@@ -58,7 +58,6 @@ const {
 } = React.PropTypes;
 
 Play.propTypes = {
-    packageid: number,
     playing: bool,
     title: string,
     cards: array,

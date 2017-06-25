@@ -25,11 +25,11 @@ const Setting = ({
 };
 
 const {
-    func, bool, number
+    func, bool, string
 } = React.PropTypes;
 
 Setting.propTypes = {
-    packageid: number.isRequired,
+    packageid: string.isRequired,
     dispatch: func.isRequired,
     isShow: bool.isRequired
 }

@@ -1,6 +1,10 @@
+import uuid from 'uuid/v4';
+console.log(uuid());
+console.log(uuid());
+
 export default [
 {
-    id: 5,
+    id: uuid(),
     title: 'Falsos cognatos | Português-Inglês',
     description: 'Flashcards diversos com pares de palavras contendo falsos cognatos existentes entre o português e o inglês.',
     colorID: 4,
@@ -10,56 +14,56 @@ export default [
 		playing: false,
     cards: [
         {
-            id: 7,
+            id: uuid(),
             colorID: 1,
             front: "How are u?",
             back: "Como vai vc?",
             isEditing: false
         },
         {
-            id: 6,
+            id: uuid(),
             colorID: 2,
             front: "Where are you from?",
             back: "De onde voce é?",
             isEditing: false
         },
         {
-            id: 5,
+            id: uuid(),
             colorID: 3,
             front: "Thanks a lot",
             back: "Muito obrigado",
             isEditing: false
         },
         {
-            id: 4,
+            id: uuid(),
             colorID: 4,
             front: "I am studying english",
             back: "Eu estou estudando ingles",
             isEditing: false
         },
         {
-            id: 3,
+            id: uuid(),
             colorID: 1,
             front: "Hello",
             back: "Olá",
             isEditing: false
         },
         {
-            id: 2,
+            id: uuid(),
             colorID: 2,
             front: "Hi",
             back: "Olá",
             isEditing: false
         },
         {
-            id: 1,
+            id: uuid(),
             colorID: 3,
             front: "Hello",
             back: "Olá",
             isEditing: false
         },
         {
-            id: 0,
+            id: uuid(),
             colorID: 4,
             front: "Hello",
             back: "Olá",
@@ -68,7 +72,7 @@ export default [
     ]
 },
 {
-    id: 4,
+    id: uuid(),
     title: 'English Irregular Verbs',
     description: 'This is a deck of the 157 most common irregular English verbs.',
     colorID: 2,
@@ -78,14 +82,14 @@ export default [
 		playing: false,
     cards: [
         {
-            id: 1,
+            id: uuid(),
             colorID: 1,
             front: "Hello",
             back: "Olá",
             isEditing: false
         },
         {
-            id: 0,
+            id: uuid(),
             colorID: 2,
             front: "Hi",
             back: "Olá",
@@ -95,7 +99,7 @@ export default [
 },
 
 {
-    id: 3,
+    id: uuid(),
     title: 'English Vocabulary Profile British',
     description: 'This is a deck of the 100 most common english vocabulary profile British.',
     colorID: 1,
@@ -105,7 +109,7 @@ export default [
 		playing: false,
     cards: [
         {
-            id: 0,
+            id: uuid(),
             colorID: 1,
             front: "tete",
             back: "Olá",
@@ -114,7 +118,7 @@ export default [
     ]
 },
 {
-    id: 2,
+    id: uuid(),
     title: 'Pack 3',
     description: 'Donec pretium posuere tellus.',
     colorID: 3,
@@ -124,14 +128,14 @@ export default [
 		playing: false,
     cards: [
         {
-            id: 1,
+            id: uuid(),
             colorID: 1,
             front: "Hello",
             back: "Olá",
             isEditing: false
         },
         {
-            id: 0,
+            id: uuid(),
             colorID: 2,
             front: "isso é impressionante",
             back: "it is awesome",
@@ -140,7 +144,7 @@ export default [
     ]
 },
 {
-    id: 1,
+    id: uuid(),
     title: 'Pack teste numero 4',
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sithendrerit ultrices',
     colorID: 1,
@@ -150,7 +154,7 @@ export default [
 		playing: false,
     cards: [
         {
-            id: 0,
+            id: uuid(),
             colorID: 1,
             front: "Hello",
             back: "Olá",
@@ -159,7 +163,7 @@ export default [
     ]
 },
 {
-    id: 0,
+    id: uuid(),
     title: 'Pack teste numero 5',
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sithendrerit ultrices',
     colorID: 4,
@@ -169,14 +173,14 @@ export default [
 		playing: false,
     cards: [
         {
-            id: 1,
+            id: uuid(),
             colorID: 1,
             front: "Hello",
             back: "Olá",
             isEditing: false
         },
         {
-            id: 0,
+            id: uuid(),
             colorID: 2,
             front: "isso é impressionante",
             back: "it is awesome",

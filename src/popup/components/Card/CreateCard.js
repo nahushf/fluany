@@ -1,4 +1,5 @@
 import React from 'react';
+import uuid from 'uuid/v4';
 import { connect } from 'react-redux';
 import { createCard, isEditingCard } from '../../actions/pack';
 import { getIndexThingById } from '../../reducers/stateManipulate';
@@ -17,8 +18,8 @@ let CreateCard = ({
     packs }) => {
 
     const handleCreateCard = () => {
-        const idNewCard = packs[indexOfPack].cards.length;
-        const newCard = {id: idNewCard, isEditing: false, front: "", back: ""};
+        const idNewCard = uuid();
+        const newCard = { id: idNewCard, isEditing: false, front: "", back: "" };
         dispatch(createCard(packageid, idNewCard , newCard));
 
         //Effect to open card created
@@ -48,12 +49,12 @@ const mapStateToProps = (
 };
 
 const {
-    func, number, array
+    func, number, array, string
 } = React.PropTypes;
 
 CreateCard.propTypes = {
     dispatch: func.isRequired,
-    packageid: number.isRequired,
+    packageid: string.isRequired,
     indexOfPack: number.isRequired,
     packs: array.isRequired,
 };

@@ -51,12 +51,11 @@ let Palette = ({
 }
 
 const {
-    func, number, bool
+    func, number, bool, string
 } = React.PropTypes;
 
 Palette.propTypes = {
     dispatch: func.isRequired,
-    packageid: number.isRequired,
     isChanging: bool.isRequired,
     colorID: number
 }

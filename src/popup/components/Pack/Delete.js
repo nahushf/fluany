@@ -23,12 +23,11 @@ const Delete = ({
 }
 
 const {
-    func, number
+    func, string
 } = React.PropTypes;
 
 Delete.propTypes = {
     dispatch: func.isRequired,
-    packageid: number.isRequired
 }
 
 export default Delete;

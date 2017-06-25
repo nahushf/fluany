@@ -105,7 +105,6 @@ const {
 Pack.propTypes = {
     dispatch: func.isRequired,
     title: string.isRequired,
-    id: number.isRequired,
     timeMinutes: number.isRequired,
     percentage: number,
     colorProgress: string,

@@ -56,7 +56,6 @@ CardEdit.propTypes = {
     packs: array.isRequired,
     indexOfPack: number.isRequired,
     indexOfCard: number.isRequired,
-    packageid: number.isRequired,
     cardEditing: object.isRequired
 }
 

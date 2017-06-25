@@ -1,4 +1,5 @@
 import React from 'react';
+import uuid from 'uuid/v4';
 import { connect } from 'react-redux';
 import { addPackage } from '../../actions/pack';
 import { newPackage, isEditPackage } from '../../actions/flags';
@@ -10,14 +11,13 @@ import { newPackage, isEditPackage } from '../../actions/flags';
  * @return {Component}
  */
 let Create = ({
-    packLength,
     titleEdited,
     dispatch }) => {
 
     const handleClickCreate = () => {
         if(titleEdited !== ""){
-            dispatch(isEditPackage({newPackage: true, packageid: packLength}));
-            dispatch(addPackage({id: packLength, title: titleEdited}));
+            dispatch(isEditPackage({newPackage: true, packageid: uuid()}));
+            dispatch(addPackage({id: uuid(), title: titleEdited}));
             dispatch(newPackage({title: "", description: ""})); //initial
         }
     }
@@ -53,7 +53,6 @@ let Create = ({
 const mapStateToProps = (
   state
 ) => ({
-    packLength: state.packs.length,
     titleEdited: state.flags.newPackage.title
 });
 
@@ -62,7 +61,6 @@ const {
 } = React.PropTypes;
 
 Create.propTypes = {
-    packLength: number.isRequired,
     titleEdited: string.isRequired,
     dispatch: func.isRequired
 };
