@@ -28,13 +28,22 @@ const contextShowFluany = () => {
 
 const handleContextsToGetText = (info, tab) => {
 	console.log('info: ', info);
+  const idPack = info.menuItemId.trim();
+  saveInLocal('openNewCard', info.selectionText);
+  handleClickPackEdit(info, tab);
 };
 
 const contextsToGetText = async () => {
-	const parentId = chrome.contextMenus.create(
-			{ "title": 'Adicionar em um pacote',
-				"contexts": ['selection'],
-			  "onclick": handleContextsToGetText });
+	const parent = chrome.contextMenus.create({"title": 'Adicionar em um pacote', "contexts": ['selection']});
+	const packs = await getInLocal('packState');
+	packs.forEach((pack) => {
+		chrome.contextMenus.create(
+			{ "title": pack.title,
+				"id": pack.id.toString()+' ',
+				"parentId": parent,
+        "contexts": ['selection'],
+				"onclick": handleContextsToGetText });
+	});
 };
 
 const handleClickPackEdit = (info, tab) => {

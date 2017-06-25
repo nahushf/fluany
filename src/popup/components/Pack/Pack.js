@@ -107,13 +107,11 @@ Pack.propTypes = {
     title: string.isRequired,
     id: number.isRequired,
     timeMinutes: number.isRequired,
-    playing: bool.isRequired,
     percentage: number,
     colorProgress: string,
     colorID: number.isRequired,
     cards: array.isRequired,
     isChangingColor: bool.isRequired,
-    isSetting: bool.isRequired
 }
 
 export default connect()(Pack);
