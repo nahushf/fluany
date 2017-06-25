@@ -66,7 +66,7 @@ const Card = ({
         handleClickCard();
     }
     const handleCancelCard = (e) => {
-        if(isCardsEmpty()){
+        if(cardEditing.front.trim() === '' && cardEditing.back.trim() === ''){
             handleRemoveCard(e);
         }
 
@@ -125,7 +125,6 @@ Card.propTypes = {
     index: number,
     colorID: number.isRequired,
     indexOfPack: number.isRequired,
-    id: string.isRequired,
     cardEditing: object.isRequired
 };
 

@@ -54,7 +54,6 @@ const {
 
 CreateCard.propTypes = {
     dispatch: func.isRequired,
-    packageid: string.isRequired,
     indexOfPack: number.isRequired,
     packs: array.isRequired,
 };
