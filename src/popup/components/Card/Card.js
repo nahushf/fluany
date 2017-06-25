@@ -31,7 +31,7 @@ const Card = ({
     const isEditing = packs[indexOfPack].cards[indexOfCard].isEditing;
     let listItem = "";
 
-    const handleClickCard = () => {
+    const handleClickCard = (e) => {
 
         if(!isEditing){
             dispatch(allNoEditingCard(packageid));
@@ -57,8 +57,22 @@ const Card = ({
             dispatch(isEditingCard(cardEditing.back, 'back', packageid, indexOfPack));
         }
 
+        //if is empty, delete card.. :(
+        if(isCardsEmpty()){
+            handleRemoveCard(e);
+        }
+
         handleClickCard();
     }
+    const handleCancelCard = (e) => {
+        if(isCardsEmpty()){
+            handleRemoveCard(e);
+        }
+
+        handleClickCard();
+    }
+
+    const isCardsEmpty = () => packs[indexOfPack].cards[indexOfCard].front === '' && packs[indexOfPack].cards[indexOfCard].back === '';
 
     const cardEditProps = {
         dispatch,
@@ -73,7 +87,7 @@ const Card = ({
         <li className={"card-item" + (isEditing ? " isEditing" : " no-editing")} ref={(e) =>{listItem = e}}>
             <CardEdit {...cardEditProps} />
             <div className={"card-item-block color-" + colorID} onClick={handleClickCard}>
-                <button className="btn-delete" onClick={handleClickCard}>
+                <button className="btn-delete" onClick={handleCancelCard}>
                     <span>Cancelar</span>
                 </button>
                 <button className="btn-save" onClick={handleSaveCard}>
