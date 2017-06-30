@@ -2,6 +2,7 @@ import React from 'react';
 import { isEditingCard } from '../../actions/pack';
 import { changeCard } from '../../actions/flags';
 import { getIndexThingById } from '../../reducers/stateManipulate';
+import * as translator from '../../../shared/constants/internacionalization';
 
 const CardEdit = ({
     dispatch,
@@ -31,14 +32,14 @@ const CardEdit = ({
     return (
         <div className="card-edit-container">
             <div className="card-edit-content">
-                <p>Termo</p>
+                <p>{ translator.CARD_FRONT_LABEL }</p>
                 <input value={frontValue}
                        onChange={handleCardFront}
                        placeholder="Digite o termo"></input>
             </div>
 
             <div className="card-edit-content">
-                <p>Definição</p>
+                <p>{ translator.CARD_BACK_LABEL }</p>
                 <input value={backValue}
                        onChange={handleCardBack}
                        placeholder="Digite a definição"></input>

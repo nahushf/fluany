@@ -6,7 +6,7 @@ import { changeCard } from '../../actions/flags';
 import { getIndexThingById } from '../../reducers/stateManipulate';
 import CardEdit from './CardEdit';
 import TooltipCard from './TooltipCard';
-
+import * as  translator from '../../../shared/constants/internacionalization';
 
 /**
  * A Card -> <Front and Back>
@@ -90,7 +90,7 @@ const Card = ({
             <CardEdit {...cardEditProps} />
             <div className={"card-item-block color-" + colorID} onClick={handleClickCard}>
                 <button className="btn-delete" onClick={handleCancelCard}>
-                    <span>Cancelar</span>
+                  <span>{translator.CARD_CANCEL}</span>
                 </button>
                 <button className="btn-save" onClick={handleSaveCard}>
                     <svg className="save-icon">

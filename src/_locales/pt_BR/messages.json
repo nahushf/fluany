@@ -27,5 +27,15 @@
   "placeholderAsk": {
     "message": "Traduza aqui",
     "description": "Message for translate in input"
+  },
+
+  "cardCancel": {
+    "message": "Cancelar",
+    "description": "to cancel card edited"
+  },
+
+  "cardFrontLabel": {
+    "message": "Pergunta",
+    "description": "Label to card front"
   }
 }
