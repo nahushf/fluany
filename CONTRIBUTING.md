@@ -132,18 +132,12 @@ Unsure where to begin contributing to Fluany? You can start by looking through t
 
 ### Pull Requests
 
-* Include screenshots and animated GIFs in your pull request whenever possible.
 * Follow the [JavaScript](#javascript-styleguide) styleguides.
 * Document new code based on the
   [Documentation Styleguide](#documentation-styleguide)
-* End files with a newline.
-* Place requires in the following order:
-    * Built in Node Modules (such as `path`)
 * Place class properties in the following order:
     * Instance methods and properties
-* Using a plain `return` when returning explicitly at the end of a function.
-    * Not `return null`, `return undefined`, `null`, or `undefined`
-    
+* Using a plain `return` when returning explicitly at the end of a function.    
     
 ## Styleguides
 
