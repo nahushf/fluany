@@ -9,21 +9,6 @@
     "description": "The description of the application"
   },
 
-  "alertRight": {
-    "message": "Aê, acertou!",
-    "description": "if hit, gets the message"
-  },
-
-  "buttonSubmit": {
-    "message": "Enviar",
-    "description": "Submit the message"
-  },
-
-  "buttonIDontKnow": {
-    "message": "Eu não sei",
-    "description": "Informing does not know"
-  },
-
   "placeholderAsk": {
     "message": "Traduza aqui",
     "description": "Message for translate in input"
@@ -34,8 +19,18 @@
     "description": "to cancel card edited"
   },
 
+  "cardSave": {
+    "message": "Salvar",
+    "description": "to save card edited"
+  },
+
   "cardFrontLabel": {
     "message": "Pergunta",
     "description": "Label to card front"
+  },
+
+  "cardBackLabel": {
+    "message": "Resposta",
+    "description": "Label to card back"
   }
 }

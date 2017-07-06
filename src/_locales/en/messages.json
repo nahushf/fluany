@@ -9,33 +9,23 @@
     "description": "The description of the application"
   },
 
-  "alertRight": {
-    "message": "Uow, right!",
-    "description": "if hit, gets the message"
-  },
-
-  "buttonSubmit": {
-    "message": "Submit",
-    "description": "Submit the message"
-  },
-
-  "buttonIDontKnow": {
-    "message": "I don't know",
-    "description": "Informing does not know"
-  },
-
-  "placeholderAsk": {
-    "message": "Translate here",
-    "description": "Message for translate in input"
-  },
-
   "cardCancel": {
     "message": "Cancel",
     "description": "to cancel card edited"
   },
 
+  "cardSave": {
+    "message": "Save",
+    "description": "to save card edited"
+  },
+
   "cardFrontLabel": {
-    "message": "Ask",
+    "message": "Question",
     "description": "Label to card front"
+  },
+
+  "cardBackLabel": {
+    "message": "Answer",
+    "description": "Label to card back"
   }
 }

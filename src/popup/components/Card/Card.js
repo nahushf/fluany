@@ -96,10 +96,10 @@ const Card = ({
                     <svg className="save-icon">
                         <use xlinkHref="#icon-correct"></use>
                     </svg>
-                    <span>Salvar</span>
+                  <span>{translator.CARD_SAVE}</span>
                 </button>
                 <TooltipCard handleOnDelete={handleRemoveCard} color={colorID} back={packs[indexOfPack].cards[indexOfCard].back}/>
-                <p className="card-item--flash card-item--count">Pergunta</p>
+                <p className="card-item--flash card-item--count">{translator.CARD_FRONT_LABEL}</p>
                 <p className="card-item--count">{ packs[indexOfPack].cards[indexOfCard].front}</p>
             </div>
         </li>

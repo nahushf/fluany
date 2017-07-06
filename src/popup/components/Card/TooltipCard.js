@@ -1,4 +1,5 @@
 import React from 'react';
+import * as  translator from '../../../shared/constants/internacionalization';
 
 const TooltipCard = ({
     back,
@@ -6,7 +7,7 @@ const TooltipCard = ({
     handleOnDelete
 }) => (
         <div className={"tooltip-card color-" + color}>
-            <p className="card-item--flash">Resposta</p>
+            <p className="card-item--flash">{translator.CARD_BACK_LABEL}</p>
             <p className="card-back">{ back }</p>
             <p className="card-item--count card-item--edit">Editar</p>
             <svg className="trash-icon" onClick={handleOnDelete}>
