@@ -49,10 +49,9 @@ const Card = ({
 
     const handleSaveCard = (e) => {
         e.stopPropagation();
-        //if is empty, delete card.. :(
-        if(isCardsEmpty()){
-            handleRemoveCard(e);
-            return ;
+        //if is empty, you don't save it :(
+        if(cardEditing.front === '' || cardEditing.back === ''){
+            return;
         }
 
         if(cardEditing.front !== null){
@@ -66,15 +65,8 @@ const Card = ({
         handleClickCard();
     }
     const handleCancelCard = (e) => {
-        if(cardEditing.front.trim() === '' && cardEditing.back.trim() === ''){
-            handleRemoveCard(e);
-        }
-
         handleClickCard();
     }
-
-    const isCardsEmpty = () => (cardEditing.front === '' && cardEditing.back === '')
-                          || (cardEditing.front === null && cardEditing.back === null);
 
     const cardEditProps = {
         dispatch,
