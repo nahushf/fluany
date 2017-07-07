@@ -10,3 +10,4 @@ global.mount = mount;
 global.render = render;
 global.shallow = shallow;
 global.localStorage = {getItem(){}, setItem(){}};
+global.chrome = {i18n: {getMessage(){}}};
