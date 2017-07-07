@@ -30,6 +30,7 @@ const handleContextsToGetText = (info, tab) => {
 	console.log('info: ', info);
   const idPack = info.menuItemId.trim();
   saveInLocal('openNewCard', info.selectionText);
+	saveInLocal('openInPackage', info.menuItemId.trim());
   handleClickPackEdit(info, tab);
 };
 
@@ -48,7 +49,6 @@ const contextsToGetText = async () => {
 
 const handleClickPackEdit = (info, tab) => {
 	console.log('info: ', info.menuItemId);
-	saveInLocal('openInPackage', parseInt(info.menuItemId));
 	let props = {
     url: chrome.extension.getURL('popup/index.html'),
     height: 450,
