@@ -15,9 +15,10 @@ let Create = ({
     dispatch }) => {
 
     const handleClickCreate = () => {
+        const newPackageId = uuid();
         if(titleEdited !== ""){
-            dispatch(isEditPackage({newPackage: true, packageid: uuid()}));
-            dispatch(addPackage({id: uuid(), title: titleEdited}));
+            dispatch(isEditPackage({newPackage: true, packageid: newPackageId}));
+            dispatch(addPackage({id: newPackageId, title: titleEdited}));
             dispatch(newPackage({title: "", description: ""})); //initial
         }
     }

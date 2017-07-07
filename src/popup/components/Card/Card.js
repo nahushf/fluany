@@ -103,7 +103,7 @@ const mapStateToProps = (
 ) => {
     return {
 		    packs: state.packs,
-        cardEditing: state.flags.cardEditing,
+        cardEditing: state.flags.cardEditing
     };
 };
 
