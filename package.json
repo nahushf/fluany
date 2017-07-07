@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "scripts": {
     "start": "gulp",
+	"precommit": "npm test",
     "test": "nyc mocha --compilers js:babel-core/register --require ./test/helpers.js --require ./test/dom.js --recursive --reporter nyan",
     "test:auto": "mocha --compilers js:babel-core/register --require ./test/helpers.js --require ./test/dom.js --recursive -w --reporter nyan"
   },
@@ -36,6 +37,7 @@
     "gulp-bg": "0.0.5",
     "gulp-eslint": "^0.15.0",
     "gulp-util": "^3.0.6",
+    "husky": "^0.14.3",
     "jsdom": "^9.12.0",
     "json-loader": "^0.5.2",
     "lodash": "^3.10.1",

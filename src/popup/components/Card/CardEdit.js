@@ -35,14 +35,14 @@ const CardEdit = ({
                 <p>{ translator.CARD_FRONT_LABEL }</p>
                 <input value={frontValue}
                        onChange={handleCardFront}
-                       placeholder="Digite o termo"></input>
+                       placeholder={translator.CARD_PLACE_FRONT}></input>
             </div>
 
             <div className="card-edit-content">
                 <p>{ translator.CARD_BACK_LABEL }</p>
                 <input value={backValue}
                        onChange={handleCardBack}
-                       placeholder="Digite a definição"></input>
+                       placeholder={translator.CARD_PLACE_BACK}></input>
             </div>
         </div>
     );

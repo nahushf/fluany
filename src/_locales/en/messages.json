@@ -27,5 +27,15 @@
   "cardBackLabel": {
     "message": "Answer",
     "description": "Label to card back"
+  },
+
+  "cardPlaceholderFront": {
+    "message": "Type the question",
+    "description": "Placeholder to question input"
+  },
+
+  "cardPlaceholderBack": {
+    "message": "Type the answer",
+    "description": "Placeholder to answer input"
   }
 }

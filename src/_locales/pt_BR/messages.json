@@ -32,5 +32,15 @@
   "cardBackLabel": {
     "message": "Resposta",
     "description": "Label to card back"
+  },
+
+  "cardPlaceholderFront": {
+    "message": "Informe a questão",
+    "description": "Placeholder to question input"
+  },
+
+  "cardPlaceholderBack": {
+    "message": "Informe a resposta",
+    "description": "Placeholder to answer input"
   }
 }
