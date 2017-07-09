@@ -6,7 +6,7 @@ import { changeCard } from '../../actions/flags';
 import { getIndexThingById } from '../../reducers/stateManipulate';
 import CardEdit from './CardEdit';
 import TooltipCard from './TooltipCard';
-import * as  translator from '../../../shared/constants/internacionalization';
+import * as translator from '../../../shared/constants/internacionalization';
 
 /**
  * A Card -> <Front and Back>
@@ -55,11 +55,11 @@ const Card = ({
         }
 
         if(cardEditing.front !== null){
-            dispatch(isEditingCard(cardEditing.front, 'front', packageid, indexOfPack));
+            dispatch(isEditingCard(cardEditing.front, 'front', packageid, indexOfCard));
         }
 
         if(cardEditing.back !== null){
-            dispatch(isEditingCard(cardEditing.back, 'back', packageid, indexOfPack));
+            dispatch(isEditingCard(cardEditing.back, 'back', packageid, indexOfCard));
         }
 
         handleClickCard();
