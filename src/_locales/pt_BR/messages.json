@@ -42,5 +42,10 @@
   "cardPlaceholderBack": {
     "message": "Informe a resposta",
     "description": "Placeholder to answer input"
+  },
+
+  "cardNewCardLabel": {
+    "message": "Adicionar pergunta",
+    "description": "New question label"
   }
 }

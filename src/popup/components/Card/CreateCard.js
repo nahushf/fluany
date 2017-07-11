@@ -3,6 +3,7 @@ import uuid from 'uuid/v4';
 import { connect } from 'react-redux';
 import { createCard, isEditingCard } from '../../actions/pack';
 import { getIndexThingById } from '../../reducers/stateManipulate';
+import * as translator from '../../../shared/constants/internacionalization';
 
 /**
  * A component to Create card
@@ -34,7 +35,7 @@ let CreateCard = ({
             onClick={handleCreateCard}>
             <div className="card-item-block">
                 <p className="card-item--more">+</p>
-                <p className="item-more-message">Adicionar pergunta</p>
+                <p className="item-more-message">{ translator.CARD_NEW_LABEL }</p>
             </div>
         </li>
     );

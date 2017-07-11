@@ -37,5 +37,10 @@
   "cardPlaceholderBack": {
     "message": "Type the answer",
     "description": "Placeholder to answer input"
+  },
+
+  "cardNewCardLabel": {
+    "message": "New question",
+    "description": "New question label"
   }
 }
