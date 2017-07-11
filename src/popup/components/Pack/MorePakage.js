@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { changePagination } from '../../actions/flags';
+import * as translator from '../../../shared/constants/internacionalization';
 
 /**
  * A component to click and see more package
@@ -24,7 +25,8 @@ let MorePackage = ({
     let isPagination = paginationPackage  >= packs.length || filterPackage !== "";
     return (
         <section className={"more-package--content " + (isPagination ? "more-package--hidden":"")}>
-            <button className="more-package--button btn" onClick={handleClickMorePack}>+ Carregar mais</button>
+            <button className="more-package--button btn"
+                    onClick={handleClickMorePack}>+ { translator.PACK_LOAD_MORE }</button>
         </section>
     );
 }

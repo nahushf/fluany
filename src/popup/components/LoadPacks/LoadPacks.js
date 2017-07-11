@@ -20,7 +20,6 @@ const LoadPacks = ({
             const selected = await getInLocal('openNewCard');
             if(selected){
                 const newCard = {id: idNewCard, isEditing: false, front: selected, back: ''}
-                console.log('newCard: ', newCard)
                 dispatch(createCard(id, packState.length, newCard));
                 //Effect to open card created
                 setTimeout(()=>{

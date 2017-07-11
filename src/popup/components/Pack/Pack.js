@@ -8,6 +8,7 @@ import Setting from '../Setting/Setting';
 import DescriptionPack from './DescriptionPack';
 import Delete from './Delete';
 import Progress from './Progress';
+import * as translator from '../../../shared/constants/internacionalization';
 import { changePackageTitle,
          changePackageDescription,
          changePackageColor,
@@ -91,7 +92,7 @@ let Pack = ({
                       percentage={percentage ? percentage : 0}
                       interval={timeMinutes}
                       dispatch={dispatch}/>
-                <a className="show-pack">Ver Lista</a>
+                <a className="show-pack">{ translator.PACK_SHOW_LIST }</a>
                 <Palette {...propsDefault} isChanging={isChangingColor} />
                 <Delete {...propsDefault}/>
             </li>

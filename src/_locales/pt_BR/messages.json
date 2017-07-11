@@ -9,6 +9,11 @@
     "description": "The description of the application"
   },
 
+  "backLabel": {
+    "message": "Voltar",
+    "description": "label to go back"
+  },
+
   "placeholderAsk": {
     "message": "Traduza aqui",
     "description": "Message for translate in input"
@@ -47,5 +52,50 @@
   "cardNewCardLabel": {
     "message": "Adicionar pergunta",
     "description": "New question label"
+  },
+
+  "packCreateTitle": {
+    "message": "Criar uma nova lista de estudos",
+    "description": "Title to create a new study list"
+  },
+
+  "packCreatePlaceholder": {
+    "message": "Qual o nome da lista ?",
+    "description": "Placeholder of the input"
+  },
+
+  "packCreateButton": {
+    "message": "Criar lista",
+    "description": "Button's label to create list"
+  },
+
+  "packTitlePlaceholder": {
+    "message": "Clique aqui para mudar o título",
+    "description": "Placeholder to change the título"
+  },
+
+  "packDescriptionPlaceholder": {
+    "message": "Clique aqui para mudar a descrição",
+    "description": "Placeholder to change the description"
+  },
+
+  "packLoadMore": {
+    "message": "Carregar mais",
+    "description": "Label to button from load more"
+  },
+
+  "packShotList": {
+    "message": "Ver lista",
+    "description": "Label to show list"
+  },
+
+  "packPlay": {
+    "message": "Começar",
+    "description": "Label to play"
+  },
+
+  "packStop": {
+    "message": "Parar",
+    "description": "Label to stop"
   }
 }

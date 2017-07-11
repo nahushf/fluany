@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { saveInLocal, getInLocal } from '../../store/LocalStore';
 import { getIndexThingById } from '../../reducers/stateManipulate';
 import { insert, reject, propEq, update, assoc } from 'ramda';
+import * as translator from '../../../shared/constants/internacionalization';
 import { changePlayPack,
          changePorcentProgress,
          changeColorProgress } from '../../actions/pack';
@@ -47,7 +48,7 @@ let Play = ({
                  onClick={handleClickPlay}>
             <a className={"play-btn" + (playing ? ' stop' : ' to-play')}></a>
             <span className="play-label">{ percentage < 100
-                                           ? playing ? 'Parar' : 'Treinar'
+                                           ? playing ? translator.PACK_STOP_LABEL : translator.PACK_PLAY_LABEL
                                            : /*otherwise*/ 'Recomeçar'}</span>
         </section>
     );

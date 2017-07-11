@@ -6,6 +6,7 @@ import DescriptionPack from '../Pack/DescriptionPack';
 import Cards from '../Card/Cards';
 import Time from './Time';
 import Play from '../Play/Play';
+import * as translator from '../../../shared/constants/internacionalization';
 import { changePackageTitle,
          changePackageDescription } from '../../actions/pack';
 import { newPackage, isEditPackage } from '../../actions/flags';
@@ -45,7 +46,8 @@ let PackEdit = ({
   const Container = () => (
       <section className="config-package">
 				<nav>
-					<button className="btn btn-back" onClick={handleComeBack}>Voltar
+					  <button className="btn btn-back" onClick={handleComeBack}>
+                { translator.BACK_LABEL }
 							<svg className="arrow-back">
 								<use xlinkHref="#icon-arrow"></use>
 							</svg>

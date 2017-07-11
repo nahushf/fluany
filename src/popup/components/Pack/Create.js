@@ -3,6 +3,7 @@ import uuid from 'uuid/v4';
 import { connect } from 'react-redux';
 import { addPackage } from '../../actions/pack';
 import { newPackage, isEditPackage } from '../../actions/flags';
+import * as translator from '../../../shared/constants/internacionalization';
 
 /**
  * A component to Create pack
@@ -29,16 +30,16 @@ let Create = ({
 
     const Creating = () => (
         <div className="pack-item--creating">
-            <p className="pack-item--title">Criar uma nova lista de estudos</p>
+            <p className="pack-item--title">{ translator.PACK_CRETE_TITLE }</p>
             <input className="pack-item--input"
                    name="newpack"
                    type="text"
                    onChange={handleInputNewPackage}
-                   placeholder="Qual o nome da lista ?"/>
+                   placeholder={ translator.PACK_CREATE_PLACEHOLDER }/>
 
             <div className="new-pack--buttons">
                 <button className="btn btn-create"
-                        onClick={handleClickCreate}>Criar lista</button>
+                        onClick={handleClickCreate}>{ translator.PACK_CREATE_BUTTON }</button>
             </div>
         </div>
 

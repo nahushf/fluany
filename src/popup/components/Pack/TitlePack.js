@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import * as translator from '../../../shared/constants/internacionalization';
 
 /**
  * A component to see/edit package's title
@@ -24,10 +25,10 @@ const TitlePack = ({ onChange,
 				autoCorrect="false"
         maxLength="30"
         ref={refToComponent}
-        placeholder="Digite aqui o título"
+        placeholder={ translator.PACK_TITLE_PLACEHOLDER }
 				value={title}>
 			</textarea>
-      <div className="title-edit-icon" onClick={handleEditTitle} title="Editar título">
+      <div className="title-edit-icon" onClick={handleEditTitle} title={ translator.PACK_TITLE_PLACEHOLDER }>
         <svg className="edit-icon">
             <use xlinkHref="#icon-edit"></use>
         </svg>

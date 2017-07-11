@@ -1,5 +1,6 @@
 import React from 'react';
 import { removePackage } from '../../actions/pack';
+import * as translator from '../../../shared/constants/internacionalization';
 
 const Delete = ({
 	dispatch,
@@ -14,7 +15,7 @@ const Delete = ({
 	};
 
 	return (
-	 <div className="setting-trash" onClick={handleRemovePack} title="Apagar lista">
+	 <div className="setting-trash" onClick={handleRemovePack} title={ translator.PACK_DELETE_LABE  }>
 			<svg className="trash-icon" >
 				<use xlinkHref="#icon-trash"></use>
 			</svg>

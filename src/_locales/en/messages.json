@@ -9,6 +9,11 @@
     "description": "The description of the application"
   },
 
+  "backLabel": {
+    "message": "Go back",
+    "description": "label to go back"
+  },
+
   "cardCancel": {
     "message": "Cancel",
     "description": "to cancel card edited"
@@ -42,5 +47,55 @@
   "cardNewCardLabel": {
     "message": "New question",
     "description": "New question label"
+  },
+
+  "packCreateTitle": {
+    "message": "Create a new study list",
+    "description": "Title to create a new study list"
+  },
+
+  "packCreatePlaceholder": {
+    "message": "Which is the list's name ?",
+    "description": "Placeholder of the input"
+  },
+
+  "packCreateButton": {
+    "message": "Create list",
+    "description": "Button's label to create list"
+  },
+
+  "packDeleteLabel": {
+    "message": "Delete list",
+    "description": "Label to delete list"
+  },
+
+  "packTitlePlaceholder": {
+    "message": "Click here to change the title",
+    "description": "Placeholder to change the título"
+  },
+
+  "packDescriptionPlaceholder": {
+    "message": "Click here to change the description",
+    "description": "Placeholder to change the description"
+  },
+
+  "packLoadMore": {
+    "message": "Load more",
+    "description": "Label to button from load more"
+  },
+
+  "packShotList": {
+    "message": "Show list",
+    "description": "Label to show list"
+  },
+
+  "packPlay": {
+    "message": "Play",
+    "description": "Label to play"
+  },
+
+  "packStop": {
+    "message": "Stop",
+    "description": "Label to stop"
   }
 }

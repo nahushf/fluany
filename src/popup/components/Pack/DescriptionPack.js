@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-
+import * as translator from '../../../shared/constants/internacionalization';
 /**
  * A component to see/edit package's description
  *
@@ -17,7 +17,7 @@ const DescriptionPack = ({onChange, description}) => (
 				value={description}
 				spellCheck="false"
 				maxLength="82"
-        placeholder="Clique aqui para mudar a descrição"
+        placeholder={ translator.PACK_DESCRIPTION_PLACEHOLDER }
 				autoCorrect="false">
 			</textarea>
       <div className="description-edit-icon">
