@@ -40,7 +40,6 @@ let Play = ({
         }
     }
 
-
     return (
         <section className={'play-content' + (percentage < 100
                                               ? playing ? ' playing': ''
