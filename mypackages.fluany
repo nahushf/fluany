@@ -1,0 +1,17 @@
+{
+  "packages": [
+    {
+      "title": "A package test",
+      "cards": [
+        {
+          "front": "A first card front test",
+          "back": "A first card back test"
+        },
+        {
+          "front": "A second card front test",
+          "back": "A secont card back test"
+        }
+      ]
+    }
+  ]
+}

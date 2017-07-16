@@ -26,7 +26,7 @@ const packs = (state = packsDefaultState, action) => {
 	  const packOfTheId = state[indexOfThePack];
     switch(action.type){
         case LOAD_PACKS_LOCAL:
-          return action.value;
+         return action.value.concat(state);
         case ADD_PACKAGE:
 					const randomColor = getRandomInt(1, 4);
           const newPackage = { ...action.value,
