@@ -1,6 +1,7 @@
 import { toLower } from 'ramda';
 import { CHANGE_FILTER_PACKAGE,
          TOGGLE_ACTIVE_SEARCH,
+         MENU_TOGGLE,
 				 IS_EDIT_PACKAGE,
          CHANGE_PAGINATION_PACKAGE,
          CHANGE_CARD,
@@ -13,6 +14,7 @@ let defaultState = {
     filterPackage: "",
     isActiveSearch: false,
 		paginationPackage: 3,
+    menuToggle: false,
 		isEditPackage: {newPackage: false, packageid: null},
     newPackage: {title: "", description: ""},
     cardEditing: {front: null, back: null}
@@ -32,6 +34,8 @@ const flags = (state = defaultState, action) => {
             return assign({}, state, {newPackage: action.value});
         case CHANGE_CARD:
             return assign({}, state, {cardEditing: action.value});
+        case MENU_TOGGLE:
+          return assign({}, state, {menuToggle: action.value});
         default:
             return state;
     }

@@ -5,8 +5,7 @@ import PackList from '../components/Pack/PackList';
 import Logo from '../components/Logo/Logo';
 import Rocket from '../components/Rocket/Rocket';
 import LoadPack from '../components/LoadPacks/LoadPacks.js';
-import ImportPack from '../components/ImportPack/ImportPack.js';
-import ExportPack from '../components/ExportPack/ExportPack.js';
+import Menu from '../components/Menu/Menu.js';
 
 const Home = ({
     isEdit,
@@ -19,8 +18,7 @@ const Home = ({
           <LoadPack dispatch={dispatch} />
           <Logo/>
           <Rocket/>
-          <ImportPack dispatch={dispatch}/>
-          <ExportPack dispatch={dispatch}/>
+          <Menu/>
 					<Search/>
 					<PackList/>
 				</div>

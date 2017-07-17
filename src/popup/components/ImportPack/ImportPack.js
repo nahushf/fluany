@@ -58,7 +58,6 @@ let ImportPack = ({
             <use xlinkHref="#icon-import"></use>
           </svg>
         </label>
-
         <input type="file" id="input-import" onChange={handleOnChange}></input>
       </section>
     );

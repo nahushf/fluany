@@ -1,9 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { assoc, isNil } from 'ramda';
 
 let ExportPack = ({
-    dispatch,
     packs
 }) => {
 
@@ -39,7 +37,6 @@ const {
 } = React.PropTypes;
 
 ExportPack.propTypes = {
-    dispatch: func.isRequired,
     packs: array.isRequired
 };
 
