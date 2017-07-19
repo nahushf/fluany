@@ -15,6 +15,7 @@ import { ADD_PACKAGE,
          PORCENT_PROGRESS_PACK,
          COLOR_PROGRESS_PACK,
          ALL_NO_EDITING_CARD,
+         IMPORT_PACKAGE,
          IS_EDITING_CARD } from '../constants/ActionTypes';
 import { assoc, update, remove, map } from 'ramda';
 import { getRandomInt } from '../../shared/helpers.js';
@@ -26,7 +27,7 @@ const packs = (state = packsDefaultState, action) => {
 	  const packOfTheId = state[indexOfThePack];
     switch(action.type){
         case LOAD_PACKS_LOCAL:
-         return action.value.concat(state);
+          return action.value;
         case ADD_PACKAGE:
 					const randomColor = getRandomInt(1, 4);
           const newPackage = { ...action.value,
@@ -54,6 +55,8 @@ const packs = (state = packsDefaultState, action) => {
           return update(indexOfThePack, assoc('percentage', action.value, packOfTheId), state);
         case COLOR_PROGRESS_PACK:
           return update(indexOfThePack, assoc('colorProgress', action.value, packOfTheId), state);
+        case IMPORT_PACKAGE:
+          return action.value.concat(state);
 				/*
 			  ** CARDS ACTIONS
 			  ** Action [ idCard ] Is the position of the card in packages.

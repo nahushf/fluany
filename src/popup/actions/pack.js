@@ -12,6 +12,7 @@ import { ADD_PACKAGE,
          CREATE_CARD,
 				 CHANGE_PLAY_PACK,
          PORCENT_PROGRESS_PACK,
+         IMPORT_PACKAGE,
          COLOR_PROGRESS_PACK,
          ALL_NO_EDITING_CARD,
          IS_SETTING } from '../constants/ActionTypes';
@@ -107,6 +108,13 @@ export function changePlayPack(value, id){
     type: CHANGE_PLAY_PACK,
     value,
     id
+  };
+}
+
+export function importPackage(value){
+  return {
+    type: IMPORT_PACKAGE,
+    value
   };
 }
 

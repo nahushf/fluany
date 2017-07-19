@@ -1,7 +1,7 @@
 import React from 'react';
 import uuid from 'uuid/v4';
 import { connect } from 'react-redux';
-import { loadPackLocal } from '../../actions/pack';
+import { importPackage } from '../../actions/pack';
 import { getIndexThingById } from '../../reducers/stateManipulate';
 import * as translator from '../../../shared/constants/internacionalization';
 import { assoc, compose, merge } from 'ramda';
@@ -42,7 +42,7 @@ let ImportPack = ({
       const packLoaded = JSON.parse(event.target.result);
       const packages = packLoaded.packages.map(settingNewPacks);
       console.log('newpackages: ', packages);
-      dispatch(loadPackLocal(packages));
+      dispatch(importPackage(packages));
     };
 
     const handleOnChange = (e) => {
