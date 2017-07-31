@@ -47,7 +47,6 @@ let PackEdit = ({
       <section className="config-package">
 				<nav>
 					  <button className="btn btn-back" onClick={handleComeBack}>
-                { translator.BACK_LABEL }
 							<svg className="arrow-back">
 								<use xlinkHref="#icon-arrow"></use>
 							</svg>
