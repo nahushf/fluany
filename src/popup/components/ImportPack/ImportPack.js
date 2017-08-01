@@ -40,8 +40,7 @@ let ImportPack = ({
 
     const onReaderLoad = event => {
       const packLoaded = JSON.parse(event.target.result);
-      const packages = packLoaded.packages.map(settingNewPacks);
-      console.log('newpackages: ', packages);
+      const packages = packLoaded.map(settingNewPacks);
       dispatch(importPackage(packages));
     };
 
