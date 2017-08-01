@@ -46,10 +46,11 @@ let PackEdit = ({
   const Container = () => (
       <section className="config-package">
 				<nav>
-					  <button className="btn btn-back" onClick={handleComeBack}>
+					<button className="btn btn-back" onClick={handleComeBack}>
 							<svg className="arrow-back">
 								<use xlinkHref="#icon-arrow"></use>
 							</svg>
+              {translator.BACK_LABEL}
 					</button>
 				</nav>
 				<div>
