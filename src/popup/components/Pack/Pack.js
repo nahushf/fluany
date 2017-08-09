@@ -5,6 +5,7 @@ import Play  from '../Play/Play';
 import Palette from '../Palette/Palette';
 import TitlePack from './TitlePack';
 import Setting from '../Setting/Setting';
+import ExportPack from '../ExportPack/ExportPack.js'
 import DescriptionPack from './DescriptionPack';
 import Delete from './Delete';
 import Progress from './Progress';
@@ -93,6 +94,7 @@ let Pack = ({
                       interval={timeMinutes}
                       dispatch={dispatch}/>
                 <a className="show-pack">{ translator.PACK_SHOW_LIST }</a>
+                <ExportPack id={id} />
                 <Palette {...propsDefault} isChanging={isChangingColor} />
                 <Delete {...propsDefault}/>
             </li>

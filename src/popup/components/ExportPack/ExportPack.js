@@ -2,7 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 let ExportPack = ({
-    packs
+    packs,
+    id
 }) => {
 
   const handleClick = () => {

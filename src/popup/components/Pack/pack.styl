@@ -21,13 +21,14 @@
   transition background .3s ease-in
   cursor pointer
   z-index 1
+
   &:hover
-    .palette-color, .play-content, .play-label, .show-pack 
+    .palette-color, .play-content, .play-label, .show-pack
       opacity 1
       visibility visible
     .play-content
       width 71px
-    .setting-trash
+    .setting-trash, .exportPack
       opacity .4
   h3
     color #FFF
@@ -106,6 +107,16 @@
     .trash-icon
       width 19px
       height 19px
+      fill #FFF
+    &:hover
+      opacity 1
+  .exportPack
+    position absolute
+    right 68px
+    bottom 4px
+    opacity 0
+    .export-icon
+      width 21px
       fill #FFF
     &:hover
       opacity 1
