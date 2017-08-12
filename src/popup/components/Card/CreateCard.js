@@ -20,7 +20,7 @@ let CreateCard = ({
 
     const handleCreateCard = () => {
         const idNewCard = uuid();
-        const newCard = { id: idNewCard, isEditing: false, front: "", back: "" };
+        const newCard = { id: idNewCard, isEditing: false, front: "", back: "", isCreating: true};
         dispatch(createCard(packageid, idNewCard , newCard));
 
         //Effect to open card created

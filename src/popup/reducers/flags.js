@@ -10,7 +10,7 @@ import { CHANGE_FILTER_PACKAGE,
 const assign = Object.assign;
 
 let defaultState = {
-    isCreatingPackage: true,
+    isCreatingPackage: false,
     filterPackage: "",
     isActiveSearch: false,
 		paginationPackage: 3,

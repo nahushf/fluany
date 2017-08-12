@@ -21,14 +21,18 @@ const Card = ({
     packs,
     index,
     colorID,
+    back,
+    front,
     indexOfPack,
     id,
     packageid,
+    isEditing,
+    isCreating,
     cardEditing
 }) => {
 
     const indexOfCard = getIndexThingById(packs[indexOfPack].cards, id);
-    const isEditing = packs[indexOfPack].cards[indexOfCard].isEditing;
+    /* const isEditing = packs[indexOfPack].cards[indexOfCard].isEditing;*/
     let listItem = "";
 
     const handleClickCard = (e) => {
@@ -50,7 +54,9 @@ const Card = ({
     const handleSaveCard = (e) => {
         e.stopPropagation();
         //if is empty, you don't save it :(
-        if(cardEditing.front === '' || cardEditing.back === ''){
+        if(cardEditing.front === ''
+           || cardEditing.back === ''
+           || (isCreating && front === ''  && back === '')){
             return;
         }
 
@@ -66,6 +72,10 @@ const Card = ({
     }
     const handleCancelCard = (e) => {
         handleClickCard();
+        if(isCreating && front === '' && back === ''){
+            dispatch(removeCard(packageid, indexOfCard));
+            dispatch(isEditingCard(false, 'isCreating', packageid, indexOfCard));
+        }
     }
 
     const cardEditProps = {
@@ -90,9 +100,9 @@ const Card = ({
                     </svg>
                   <span>{translator.CARD_SAVE}</span>
                 </button>
-                <TooltipCard handleOnDelete={handleRemoveCard} color={colorID} back={packs[indexOfPack].cards[indexOfCard].back}/>
+                <TooltipCard handleOnDelete={handleRemoveCard} color={colorID} back={back}/>
                 <p className="card-item--flash card-item--count">{translator.CARD_FRONT_LABEL}</p>
-                <p className="card-item--count">{ packs[indexOfPack].cards[indexOfCard].front}</p>
+                <p className="card-item--count">{ front }</p>
             </div>
         </li>
     );
