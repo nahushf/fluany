@@ -1,6 +1,19 @@
 .rocket-icon
   width 40px
   height 27px
-  margin-left 200px
   position absolute
-  top 9px
+  bottom 20px
+  right 30px
+  animation 3s 1 rocket
+  animation-fill-mode forwards
+
+@keyframes rocket {
+
+  from {
+      transform: translate(70px, 44px)
+  }
+
+  to {
+      transform: translate(0, 0)
+  }
+}
