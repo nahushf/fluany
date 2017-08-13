@@ -13,6 +13,7 @@ const TitlePack = ({ onChange,
                      title,
                      disabled,
                      onClick,
+                     tabIndex,
                      refToComponent,
                      handleEditTitle }) => (
     <div className="title-package--container">
@@ -24,16 +25,15 @@ const TitlePack = ({ onChange,
         disabled={disabled}
 				autoCorrect="false"
         maxLength="30"
+        tabIndex={tabIndex}
         ref={refToComponent}
         placeholder={ translator.PACK_TITLE_PLACEHOLDER }
 				value={title}>
 			</textarea>
       <div className="title-edit-icon" onClick={handleEditTitle} title={ translator.PACK_TITLE_PLACEHOLDER }>
-          <a href='#'>
-              <svg className="edit-icon">
-                <use xlinkHref="#icon-edit"></use>
-              </svg>
-          </a>
+        <svg className="edit-icon">
+            <use xlinkHref="#icon-edit"></use>
+        </svg>
       </div>
     </div>
 );
