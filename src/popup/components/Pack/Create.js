@@ -34,12 +34,13 @@ let Create = ({
             <input className="pack-item--input"
                    name="newpack"
                    type="text"
-                   ref={ input => { input.focus() }}
+                   tabIndex='1'
                    onChange={handleInputNewPackage}
                    placeholder={ translator.PACK_CREATE_PLACEHOLDER }/>
 
             <div className="new-pack--buttons">
                 <button className="btn btn-create"
+                        tabIndex='2'
                         onClick={handleClickCreate}>{ translator.PACK_CREATE_BUTTON }</button>
             </div>
         </div>

@@ -39,13 +39,19 @@ let Pack = ({
     isSetting }) => {
 
     let inRefToTitle = '';
+
+    const refToComponentTitle = input =>{
+        inRefToTitle = input;
+    }
+
     const handlePackageTitle = e => {
         dispatch(changePackageTitle(id, e.target.value));
     }
 
-    const handleClickItem = () => {
+    const handleClickItem = (e) => {
+        e.preventDefault();
         const anyThingFocused = document.activeElement;
-        if(!anyThingFocused || anyThingFocused === document.body){ //check if any element is focused
+        if(!anyThingFocused || anyThingFocused !== inRefToTitle){ //check if any element is focused
             dispatch(isEditPackage({newPackage: false, packageid: id}))
             dispatch(allNoEditingCard(id))
         }
@@ -61,42 +67,41 @@ let Pack = ({
         inRefToTitle.focus();
     }
 
-    const refToComponentTitle = input =>{
-        inRefToTitle = input;
-    }
-
     const propsDefault = {
         packageid: id,
         dispatch
     }
 
     return (
-            <li className={"pack-item color-" + colorID}
-                onClick={handleClickItem}
-                onMouseLeave={handleOnMouseLeave}>
-                <Progress {...propsDefault}
-                          colorProgress={colorProgress ? colorProgress : ''}
-                          percentage={percentage ? percentage : 0}
-                          cards={cards} />
+            <li>
+                <a href='#'
+                   className={"pack-item color-" + colorID}
+                   onClick={handleClickItem}
+                   onMouseLeave={handleOnMouseLeave}>
+                    <Progress {...propsDefault}
+                            colorProgress={colorProgress ? colorProgress : ''}
+                            percentage={percentage ? percentage : 0}
+                            cards={cards} />
 
-                <TitlePack onChange={handlePackageTitle}
-                           refToComponent={refToComponentTitle}
-                           onFocus="true"
-                           disabled="true"
-                           handleEditTitle={handleEditTitle}
-                           title={title}/>
+                    <TitlePack onChange={handlePackageTitle}
+                            refToComponent={refToComponentTitle}
+                            onFocus="true"
+                            disabled="true"
+                            handleEditTitle={handleEditTitle}
+                            title={title}/>
 
-                <Play packageid={id}
-                      playing={playing}
-                      title={title}
-                      cards={cards}
-                      percentage={percentage ? percentage : 0}
-                      interval={timeMinutes}
-                      dispatch={dispatch}/>
-                <a className="show-pack">{ translator.PACK_SHOW_LIST }</a>
-                <ExportPack id={id} />
-                <Palette {...propsDefault} isChanging={isChangingColor} />
-                <Delete {...propsDefault}/>
+                    <Play packageid={id}
+                        playing={playing}
+                        title={title}
+                        cards={cards}
+                        percentage={percentage ? percentage : 0}
+                        interval={timeMinutes}
+                        dispatch={dispatch}/>
+                    <a className="show-pack">{ translator.PACK_SHOW_LIST }</a>
+                    <ExportPack id={id} />
+                    <Palette {...propsDefault} isChanging={isChangingColor} />
+                    <Delete {...propsDefault}/>
+                </a>
             </li>
     );
 }

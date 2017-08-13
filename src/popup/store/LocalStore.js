@@ -9,8 +9,8 @@ export const getInLocal = (name) => {
     chrome.storage.sync.get(name, obj => {
 			if(obj[name]){
         resolve(obj[name]);
-			}else
-				reject(null, `${name} was not found`);
+			}
+				// reject(null, `${name} was not found`);
 		});
   });
 };

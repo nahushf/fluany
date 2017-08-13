@@ -18,9 +18,9 @@ let Search = ({
 
     return (
         <section className={"search-content " + (isActiveSearch ? "search-active":"")}>
-            <svg className="search-icon" onClick={handleClickSearch}>
+            <a><svg className="search-icon" onClick={handleClickSearch}>
                 <use xlinkHref="#icon-search"></use>
-            </svg>
+            </svg></a>
             <input type="search"
                 className="search-input"
                 placeholder="Pesquisar"

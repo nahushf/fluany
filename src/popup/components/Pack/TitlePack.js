@@ -29,9 +29,11 @@ const TitlePack = ({ onChange,
 				value={title}>
 			</textarea>
       <div className="title-edit-icon" onClick={handleEditTitle} title={ translator.PACK_TITLE_PLACEHOLDER }>
-        <svg className="edit-icon">
-            <use xlinkHref="#icon-edit"></use>
-        </svg>
+          <a href='#'>
+              <svg className="edit-icon">
+                <use xlinkHref="#icon-edit"></use>
+              </svg>
+          </a>
       </div>
     </div>
 );

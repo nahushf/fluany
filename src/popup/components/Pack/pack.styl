@@ -17,12 +17,15 @@
   height 100px
   margin-top 15px
   position relative
+  display block
+  text-decoration none
   border-radius 4px
   transition background .3s ease-in
   cursor pointer
+  outline none
   z-index 1
 
-  &:hover, &:active
+  &:hover, &:active, &:focus
     .palette-color, .play-content, .play-label, .show-pack
       opacity 1
       visibility visible
@@ -52,7 +55,7 @@
       left 2px
       top 15px
       transition all .3s
-    &:hover, &:active
+    &:hover, &:active, &:focus
       &:before
         width 80%
 
@@ -90,7 +93,7 @@
       box-shadow 2px 8px 22px darken(color-3,  20%)
 
   &.color-4
-    background-color color-4
+    background-color color-4 
     .play-content
       background-color lighten(color-4, 7%)
       box-shadow 2px 8px 22px darken(color-4,  20%)
@@ -108,7 +111,7 @@
       width 19px
       height 19px
       fill #FFF
-    &:hover, &:active
+    &:hover, &:active, &:focus
       opacity 1
   .exportPack
     position absolute
@@ -120,7 +123,7 @@
       transform scale(.6)
       path
         fill #FFF
-    &:hover, &:active
+    &:hover, &:active, &:focus
       opacity 1
 
 .pack-item--new
@@ -173,7 +176,7 @@
       width 100%
       background color-3
       transition .3s
-      &:hover, &:active
+      &:hover, &:active, &:focus
         background darken(color-3, 15%)
 
 .title-package--container
@@ -190,7 +193,7 @@
       color darken(color-1, 10%)
       background #FFF
       cursor auto
-  &:hover, &:active
+  &:hover, &:active, &:focus
     .title-edit-icon
       opacity 1
       visibility visible
@@ -206,7 +209,7 @@
     height 100%
     &:focus
       background #FFF
-  &:hover, &:active
+  &:hover, &:active, &:focus
     .description-edit-icon
       opacity 1
       visibility visible
@@ -218,6 +221,10 @@
     background transparent
     border 2px solid color-4
     color color-4
+    transition background .2s
+    &:hover, &:active, &:focus
+      background color-4
+      color #FFF
   &.more-package--hidden
     display none
 
