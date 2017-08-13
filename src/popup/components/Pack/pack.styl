@@ -22,7 +22,7 @@
   cursor pointer
   z-index 1
 
-  &:hover
+  &:hover, &:active
     .palette-color, .play-content, .play-label, .show-pack
       opacity 1
       visibility visible
@@ -52,7 +52,7 @@
       left 2px
       top 15px
       transition all .3s
-    &:hover
+    &:hover, &:active
       &:before
         width 80%
 
@@ -108,17 +108,19 @@
       width 19px
       height 19px
       fill #FFF
-    &:hover
+    &:hover, &:active
       opacity 1
   .exportPack
     position absolute
-    right 68px
-    bottom 4px
+    right 64px
+    bottom 0
     opacity 0
     .export-icon
-      width 21px
       fill #FFF
-    &:hover
+      transform scale(.6)
+      path
+        fill #FFF
+    &:hover, &:active
       opacity 1
 
 .pack-item--new
@@ -171,7 +173,7 @@
       width 100%
       background color-3
       transition .3s
-      &:hover
+      &:hover, &:active
         background darken(color-3, 15%)
 
 .title-package--container
@@ -188,7 +190,7 @@
       color darken(color-1, 10%)
       background #FFF
       cursor auto
-  &:hover
+  &:hover, &:active
     .title-edit-icon
       opacity 1
       visibility visible
@@ -204,7 +206,7 @@
     height 100%
     &:focus
       background #FFF
-  &:hover
+  &:hover, &:active
     .description-edit-icon
       opacity 1
       visibility visible

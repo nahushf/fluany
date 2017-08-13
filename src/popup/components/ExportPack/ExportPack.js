@@ -16,11 +16,11 @@ let ExportPack = ({
 
   return (
     <section className="exportPack" onClick={handleClick}>
-    <a href="#" id="packExport">
-      <svg className="export-icon">
-        <use xlinkHref="#icon-export"></use>
-      </svg>
-    </a>
+        <a id="packExport">
+            <svg className="export-icon">
+                <use xlinkHref="#icon-export"></use>
+            </svg>
+        </a>
     </section>
   );
 };

@@ -34,6 +34,7 @@ let Create = ({
             <input className="pack-item--input"
                    name="newpack"
                    type="text"
+                   ref={ input => { input.focus() }}
                    onChange={handleInputNewPackage}
                    placeholder={ translator.PACK_CREATE_PLACEHOLDER }/>
 
