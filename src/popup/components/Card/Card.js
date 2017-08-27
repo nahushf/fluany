@@ -54,9 +54,8 @@ const Card = ({
     const handleSaveCard = (e) => {
         e.stopPropagation();
         //if is empty, you don't save it :(
-        if(cardEditing.front === ''
-           || cardEditing.back === ''
-           || (isCreating && front === ''  && back === '')){
+        if(cardEditing.front === '' || cardEditing.back === ''
+           || (isCreating && cardEditing.front === null && cardEditing.back === null)){
             return;
         }
 
