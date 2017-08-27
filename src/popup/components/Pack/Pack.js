@@ -98,7 +98,7 @@ let Pack = ({
                         interval={timeMinutes}
                         dispatch={dispatch}/>
                     <a className="show-pack">{ translator.PACK_SHOW_LIST }</a>
-                    <ExportPack id={id} />
+                    <ExportPack id={id} icon='pack' dispatch={dispatch} isPack={true} />
                     <Palette {...propsDefault} isChanging={isChangingColor} />
                     <Delete {...propsDefault}/>
                 </a>

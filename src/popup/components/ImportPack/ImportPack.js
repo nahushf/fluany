@@ -6,6 +6,7 @@ import { getIndexThingById } from '../../reducers/stateManipulate';
 import * as translator from '../../../shared/constants/internacionalization';
 import { assoc, compose, merge } from 'ramda';
 import { getRandomInt } from '../../../shared/helpers.js';
+import Icon from './import-icon.png';
 
 /**
  * A component to import pack
@@ -53,9 +54,7 @@ let ImportPack = ({
     return (
       <section className="importPack">
 				<label htmlFor="input-import">
-          <svg className="import-icon">
-            <use xlinkHref="#icon-import"></use>
-          </svg>
+            <img src={Icon}></img>
         </label>
         <input type="file" id="input-import" onChange={handleOnChange}></input>
       </section>

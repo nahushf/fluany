@@ -1,24 +1,30 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { getIndexThingById } from '../../reducers/stateManipulate';
 
 let ExportPack = ({
     packs,
-    id
+    id,
+    icon,
+    isPack
 }) => {
-
-  const handleClick = () => {
-    let a = document.getElementById("packExport");
-    const packsGenerated = JSON.stringify(packs);
+  let linkA = '';
+  const indexOfThePack = getIndexThingById(packs, id);
+  const handleClick = (e) => {
+    e.stopPropagation();
+    const packToGenerate = isPack ? [packs[indexOfThePack]] : packs;
+    const packsGenerated = JSON.stringify(packToGenerate);
     const file = new Blob([packsGenerated], {type: 'application/json'});
-    a.href = URL.createObjectURL(file);
-    a.download = 'fluany_packs.flu';
+    const nameFile = isPack ? `${packs[indexOfThePack].title} - fluany.flu` : 'all-packages.flu';
+    linkA.href = URL.createObjectURL(file);
+    linkA.download = nameFile;
   };
 
   return (
     <section className="exportPack" onClick={handleClick}>
-        <a id="packExport">
+        <a ref={a => { linkA = a }}>
             <svg className="export-icon">
-                <use xlinkHref="#icon-export"></use>
+                <use xlinkHref={`#icon-export-${icon}`}></use>
             </svg>
         </a>
     </section>
@@ -34,11 +40,13 @@ const mapStateToProps = (
 };
 
 const {
-    func, array
+    string, array
 } = React.PropTypes;
 
 ExportPack.propTypes = {
-    packs: array.isRequired
+    packs: array.isRequired,
+    id: string.isRequired,
+    icon: string.isRequired
 };
 
 export default connect(mapStateToProps)(ExportPack);
