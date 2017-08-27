@@ -18,30 +18,30 @@ import Icon from './import-icon.png';
 let ImportPack = ({
     dispatch }) => {
 
-
 	  const randomColor = () => getRandomInt(1, 4);
-    const bootstrapPack = {
+    const bootstrapPack = () => ({
 		  isChangingColor: false,
       colorID: randomColor(),
       isSetting: false,
 		  timeMinutes: 1,
 		  playing: false,
       id: uuid()
-    };
+    });
 
-    const bootstrapCard = {
+    const bootstrapCard = () => ({
       id: uuid(),
       colorId: randomColor(),
       isEditing: false
-    };
+    });
 
-    const mergeCard = pack => assoc('cards', pack.cards.map((card => merge(card, bootstrapCard))), pack);
-    const mergePack = pack => merge(pack, bootstrapPack);
+    const mergeCard = pack => assoc('cards', pack.cards.map((card => merge(card, bootstrapCard()))), pack);
+    const mergePack = pack => merge(pack, bootstrapPack());
     const settingNewPacks = packs => compose(mergeCard, mergePack)(packs);
 
     const onReaderLoad = event => {
       const packLoaded = JSON.parse(event.target.result);
       const packages = packLoaded.map(settingNewPacks);
+      console.log('packages', packages)
       dispatch(importPackage(packages));
     };
 
