@@ -6,12 +6,17 @@
   display flex
   flex-wrap wrap
   .card-item
+    display block
     width 200px
     height 114px
     transition all .2s ease-in
     margin-top 20px
     margin-right 18px
     z-index 1
+    a
+      display block
+      width 200px
+      height 114px
     &.card-item--empty
       border 2px dotted lighten(color-3, 50%)
       margin-right 0
@@ -121,7 +126,7 @@
         &.btn-save
           bottom 0
           background color-1
-          &:hover
+          &:hover, &:active, &:focus
             background darken(color-1, 10%)
           .save-icon
             fill #FFF
@@ -132,7 +137,7 @@
         &.btn-delete
           top 0
           background color-2
-          &:hover
+          &:hover, &:focus, &:active
             background darken(color-2, 10%)
           .trash-icon
             width 19px

@@ -41,7 +41,6 @@ let ImportPack = ({
     const onReaderLoad = event => {
       const packLoaded = JSON.parse(event.target.result);
       const packages = packLoaded.map(settingNewPacks);
-      console.log('packages', packages)
       dispatch(importPackage(packages));
     };
 
@@ -53,9 +52,11 @@ let ImportPack = ({
 
     return (
       <section className="importPack">
-				<label htmlFor="input-import">
-            <img src={Icon}></img>
-        </label>
+			    <a href="#">
+            <label htmlFor="input-import">
+              <img src={Icon}></img>
+            </label>
+        </a>
         <input type="file" id="input-import" onChange={handleOnChange}></input>
       </section>
     );

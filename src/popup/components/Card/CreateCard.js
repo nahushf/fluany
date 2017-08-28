@@ -30,13 +30,13 @@ let CreateCard = ({
     }
 
     return (
-        <li key="0"
-            className={"card-item " + (packs[indexOfPack].cards.length > 0 ? "card-item--new" : "card-item--new")}
-            onClick={handleCreateCard}>
-            <div className="card-item-block">
-                <p className="card-item--more">+</p>
-                <p className="item-more-message">{ translator.CARD_NEW_LABEL }</p>
-            </div>
+        <li key="0" className={"card-item " + (packs[indexOfPack].cards.length > 0 ? "card-item--new" : "card-item--new")} onClick={handleCreateCard}>
+            <a href="#">
+                <div className="card-item-block">
+                    <p className="card-item--more">+</p>
+                    <p className="item-more-message">{ translator.CARD_NEW_LABEL }</p>
+                </div>
+            </a>
         </li>
     );
 }

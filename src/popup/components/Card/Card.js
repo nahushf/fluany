@@ -32,11 +32,11 @@ const Card = ({
 }) => {
 
     const indexOfCard = getIndexThingById(packs[indexOfPack].cards, id);
-    /* const isEditing = packs[indexOfPack].cards[indexOfCard].isEditing;*/
-    let listItem = "";
+    //ref components
+    let listItem = '';
 
     const handleClickCard = (e) => {
-
+        e.preventDefault();
         if(!isEditing){
             dispatch(allNoEditingCard(packageid));
         }
@@ -88,21 +88,23 @@ const Card = ({
 
     return (
         <li className={"card-item" + (isEditing ? " isEditing" : " no-editing")} ref={(e) =>{listItem = e}}>
-            <CardEdit {...cardEditProps} />
-            <div className={"card-item-block color-" + colorID} onClick={handleClickCard}>
-                <button className="btn-delete" onClick={handleCancelCard}>
-                  <span>{translator.CARD_CANCEL}</span>
-                </button>
-                <button className="btn-save" onClick={handleSaveCard}>
-                    <svg className="save-icon">
-                        <use xlinkHref="#icon-correct"></use>
-                    </svg>
-                  <span>{translator.CARD_SAVE}</span>
-                </button>
-                <TooltipCard handleOnDelete={handleRemoveCard} color={colorID} back={back}/>
-                <p className="card-item--flash card-item--count">{translator.CARD_FRONT_LABEL}</p>
-                <p className="card-item--count">{ front }</p>
-            </div>
+            <a href="#" onClick={handleClickCard}>
+                <CardEdit {...cardEditProps} />
+                <div className={"card-item-block color-" + colorID} onClick={handleClickCard}>
+                    <button className="btn-delete" onClick={handleCancelCard}>
+                    <span>{translator.CARD_CANCEL}</span>
+                    </button>
+                    <button className="btn-save" onClick={handleSaveCard}>
+                        <svg className="save-icon">
+                            <use xlinkHref="#icon-correct"></use>
+                        </svg>
+                    <span>{translator.CARD_SAVE}</span>
+                    </button>
+                    <TooltipCard handleOnDelete={handleRemoveCard} color={colorID} back={back}/>
+                    <p className="card-item--flash card-item--count">{translator.CARD_FRONT_LABEL}</p>
+                    <p className="card-item--count">{ front }</p>
+                </div>
+            </a>
         </li>
     );
 }
