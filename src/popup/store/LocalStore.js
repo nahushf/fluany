@@ -10,7 +10,7 @@ export const getInLocal = (name) => {
 			if(obj[name]){
         resolve(obj[name]);
 			}
-				// reject(null, `${name} was not found`);
+				reject(null, `${name} was not found`);
 		});
   });
 };

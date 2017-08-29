@@ -6,7 +6,6 @@ chrome.alarms.onAlarm.addListener(function( alarm ) {
                           trigger: "LOAD_PACK",
                           periodInMinutes: alarm.periodInMinutes };
     chrome.tabs.sendMessage(tabs[0].id, objMessages, function(response){
-			console.log('Load background');
     });
   });
 });

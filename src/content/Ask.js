@@ -16,7 +16,6 @@ export const loadPacks = async (idPackOfTheAlarm) => {
   /* If first time that is running the play, -> catch, else -> continue */
   try{
     packsInTraning = await getInLocal('packsInTraning');
-    console.log('packsInTraning: ', packsInTraning);
   }catch(e){
     saveInLocal('packsInTraning', firstPackInTrain);
     return { packOnAlarm: head(firstPackInTrain), packsInTraning: firstPackInTrain };
