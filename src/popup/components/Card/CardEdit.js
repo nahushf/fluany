@@ -57,8 +57,7 @@ CardEdit.propTypes = {
     packs: array.isRequired,
     indexOfPack: number.isRequired,
     indexOfCard: number.isRequired,
-    cardEditing: object.isRequired,
-    refToInputFrontCard: func.isRequired
+    cardEditing: object.isRequired
 }
 
 export default CardEdit;

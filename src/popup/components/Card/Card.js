@@ -4,6 +4,7 @@ import { inc, head, isEmpty, prop } from 'ramda';
 import { isEditingCard, removeCard, allNoEditingCard } from '../../actions/pack';
 import { changeCard } from '../../actions/flags';
 import { getIndexThingById } from '../../reducers/stateManipulate';
+import { getInLocal } from '../../store/LocalStore';
 import CardEdit from './CardEdit';
 import TooltipCard from './TooltipCard';
 import * as translator from '../../../shared/constants/internacionalization';
@@ -36,7 +37,6 @@ const Card = ({
     let listItem = '';
 
     const handleClickCard = (e) => {
-        e.preventDefault();
         if(!isEditing){
             dispatch(allNoEditingCard(packageid));
         }
@@ -68,6 +68,13 @@ const Card = ({
         }
 
         handleClickCard();
+
+        getInLocal('openInPackage').then(data => {
+            //when is clicked in save when is selected text, close window to continue the navigation
+            setTimeout( () => {
+                window.close()
+            }, 1500)
+        })
     }
     const handleCancelCard = (e) => {
         handleClickCard();
@@ -88,23 +95,21 @@ const Card = ({
 
     return (
         <li className={"card-item" + (isEditing ? " isEditing" : " no-editing")} ref={(e) =>{listItem = e}}>
-            <a href="#" onClick={handleClickCard}>
-                <CardEdit {...cardEditProps} />
-                <div className={"card-item-block color-" + colorID} onClick={handleClickCard}>
-                    <button className="btn-delete" onClick={handleCancelCard}>
-                    <span>{translator.CARD_CANCEL}</span>
-                    </button>
-                    <button className="btn-save" onClick={handleSaveCard}>
-                        <svg className="save-icon">
-                            <use xlinkHref="#icon-correct"></use>
-                        </svg>
-                    <span>{translator.CARD_SAVE}</span>
-                    </button>
-                    <TooltipCard handleOnDelete={handleRemoveCard} color={colorID} back={back}/>
-                    <p className="card-item--flash card-item--count">{translator.CARD_FRONT_LABEL}</p>
-                    <p className="card-item--count">{ front }</p>
-                </div>
-            </a>
+            <CardEdit {...cardEditProps} />
+            <div className={"card-item-block color-" + colorID} onClick={handleClickCard}>
+                <button className="btn-delete" onClick={handleCancelCard}>
+                <span>{translator.CARD_CANCEL}</span>
+                </button>
+                <button className="btn-save" onClick={handleSaveCard}>
+                    <svg className="save-icon">
+                        <use xlinkHref="#icon-correct"></use>
+                    </svg>
+                <span>{translator.CARD_SAVE}</span>
+                </button>
+                <TooltipCard handleOnDelete={handleRemoveCard} color={colorID} back={back}/>
+                <p className="card-item--flash card-item--count">{translator.CARD_FRONT_LABEL}</p>
+                <p className="card-item--count">{ front }</p>
+            </div>
         </li>
     );
 }

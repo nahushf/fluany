@@ -40,7 +40,7 @@ const contextsToGetText = async () => {
 	packs.forEach((pack) => {
 		chrome.contextMenus.create(
 			{ "title": pack.title,
-				"id": pack.id.toString()+' ',
+				"id": pack.id+' ',
 				"parentId": parent,
         "contexts": ['selection'],
 				"onclick": handleContextsToGetText });
@@ -63,10 +63,11 @@ const handleClickPackEdit = (info, tab) => {
 const contextEditPacks = async () => {
 	const parent = chrome.contextMenus.create({"title": "Editar pacote"});
 	const packs = await getInLocal('packState');
+  console.log('packs:::', packs)
 	packs.forEach((pack) => {
 		chrome.contextMenus.create(
 			{ "title": pack.title,
-				"id": pack.id.toString(),
+				"id": pack.id,
 				"parentId": parent,
 				"onclick": handleClickPackEdit });
 	});
