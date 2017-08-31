@@ -5,231 +5,231 @@ export const initCSS = (wrapper) => {
     visibility: hidden;
   }
 	.fluany-wrapper {
-    font-size: 1.6rem;
-    height: 100vh;
-    left: 0;
-    top: 0;
-    position: fixed;
-    text-align: center;
-    width: 100%;
-    z-index: 2147483647;
-		background: #873e92;
-    transition: background .3s;
-		animation: fadeIn 1s
+    font-size: 1.6rem !important;
+    height: 100vh !important;
+    left: 0 !important;
+    top: 0 !important;
+    position: fixed !important;
+    text-align: center !important;
+    width: 100% !important;
+    z-index: 2147483647 !important;
+		background: #873e92 !important;
+    transition: background .3s !important;
+		animation: fadeIn 1 !importants
 	}
   .fluany-wrapper.invalid{
     background: #fd8a78;
   }
 
   .fluany-wrapper.invalid .fluany-front-title:before{
-		content: "A resposta é:";
-		position: absolute;
-		font-size: 24px;
-		color: #FFF;
-		left: 0;
-		top: -35px;
+		content: "A resposta é:" !important;
+		position: absolute !important;
+		font-size: 24px !important;
+		color: #FFF !important;
+		left: 0 !important;
+		top: -35px !important;
 	}
 
   .fluany-wrapper.invalid .fluany-front-title{
-		font-size: 56px;
+		font-size: 56px !important;
 	}
 
   .fluany-wrapper.success{
-    background: #78bfa3;
+    background: #78bfa3 !important;
   }
 	.fluany-wrapper.success .fluany-front-title{
-		font-size: 72px;
+		font-size: 72px !important;
 	}
 
 	.fluany-wrapper.success .emoji, .fluany-wrapper.invalid .emoji{
-		top: -54px;
+		top: -54px !important;
 	}
 
 	.fluany-wrapper-show {
-    opacity: 1;
-    visibility: visible;
-    top: 0;
+    opacity: 1 !important;
+    visibility: visible !important;
+    top: 0 !important;
   }
 
   .fluany-header .logo-title{
-    margin: 32px 30px;
-    text-transform: uppercase;
-    letter-spacing: 4px;
-    float: left;
-    font-size: 22px;
+    margin: 32px 30px !important;
+    text-transform: uppercase !important;
+    letter-spacing: 4px !important;
+    float: left !important;
+    font-size: 22px !important;
     }
   .fluany-header .logo-title .flu{
-      color: #FFF;
-      font-weight: 200;
+      color: #FFF !important;
+      font-weight: 200 !important;
   }
   .fluany-header .logo-title .flu:after{
-      content: "";
-      width: 20px;
-      height: 2px;
-      background: #FFF;
-      position: absolute;
-      margin-left: -18px;
-      margin-top: 7px;
+      content: "" !important;
+      width: 20px !important;
+      height: 2px !important;
+      background: #FFF !important;
+      position: absolute !important;
+      margin-left: -18px !important;
+      margin-top: 7px !important;
   }
   .fluany-header .logo-title .flu:before{
-      content: "";
-      width: 10px;
-      height: 2px;
-      background: #FFF;
-      position: absolute;
-      margin-left: 27px;
-      margin-top: 13px;
+      content: "" !important;
+      width: 10px !important;
+      height: 2px !important;
+      background: #FFF !important;
+      position: absolute !important;
+      margin-left: 27px !important;
+      margin-top: 13px !important;
   }
   .fluany-header .logo-title .any{
-      color: #3ca87c;
+      color: #3ca87c !important;
 ;
   }
   .fluany-header .fluany-close{
-      width: 40px;
-      height: 40px;
-      background: #FFF;
-      border-radius: 100%;
-      float: right;
-      margin: 23px 20px;
-      position: relative;
-      cursor: pointer;
+      width: 40px !important;
+      height: 40px !important;
+      background: #FFF !important;
+      border-radius: 100% !important;
+      float: right !important;
+      margin: 23px 20px !important;
+      position: relative !important;
+      cursor: pointer !important;
   }
   .fluany-header .fluany-close:before{
-      content: "";
-      width: 50%;
-      height: 4px;
-      background: #873e92;
-      position: absolute;
-      left: 10px;
-      transform: rotate(45deg);
-      top: 18px;
+      content: "" !important;
+      width: 50% !important;
+      height: 4px !important;
+      background: #873e92 !important;
+      position: absolute !important;
+      left: 10px !important;
+      transform: rotate(45deg) !important;
+      top: 18px !important;
   }
   .fluany-header .fluany-close:after{
-      content: "";
-      width: 50%;
-      height: 4px;
-      background: #873e92;
-      position: absolute;
-      right: 10px;
-      transform: rotate(-45deg);
-      top: 18px;
+      content: "" !important;
+      width: 50% !important;
+      height: 4px !important;
+      background: #873e92 !important;
+      position: absolute !important;
+      right: 10px !important;
+      transform: rotate(-45deg) !important;
+      top: 18px !important;
   }
 	.fluany-content{
-		color: #FFF;
-		width: 100%;
-		max-width: 960px;
-		margin: 0 auto;
-		text-align: left;
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		transform: translate(-50%, -50%);
-    transition: transform .3s;
-		text-align: right;
+		color: #FFF !important;
+		width: 100% !important;
+		max-width: 960px !important;
+		margin: 0 auto !important;
+		text-align: left !important;
+		position: absolute !important;
+		top: 50% !important;
+		left: 50% !important;
+		transform: translate(-50%, -50%) !important;
+    transition: transform .3s !important;
+		text-align: right !important;
 	}
   .fluany-content.feedback-message{
-    transform: translate(-50%, -16%);
+    transform: translate(-50%, -16%) !important;
   }
 	.fluany-front-title{
-		font-size: 40px;
-		margin-top: 0;
-		margin-bottom: 24px;
-		text-align: left;
-    max-width: 80%;
+		font-size: 40px !important;
+		margin-top: 0 !important;
+		margin-bottom: 24px !important;
+		text-align: left !important;
+    max-width: 80% !important;
 	}
   .fluany-back-input{
-		height: 50px;
-		width: 100%;
-		border: none;
-		font-size: 56px;
-		background: transparent;
-		border-bottom: 1px solid #FFF;
-		outline: none;
-		padding-bottom: 16px;
-		padding-top: 16px;
-		color: rgba(255, 255, 206, 1);
-    transition: opacity .2s;
+		height: 50px !important;
+		width: 100% !important;
+		border: none !important;
+		font-size: 56px !important;
+		background: transparent !important;
+		border-bottom: 1px solid #FFF !important;
+		outline: none !important;
+		padding-bottom: 16px !important;
+		padding-top: 16px !important;
+		color: rgba(255, 255, 206, 1) !important;
+    transition: opacity .2s !important;
 	}
 	.fluany-back-input::-webkit-input-placeholder {
-		color: rgba(0, 0, 0, 0.3);
+		color: rgba(0, 0, 0, 0.3) !important;
 	}
 	.fluany-buttons{
-		text-align: right;
-		font-weight: bolder;
-		font-size: 16px;
-		margin-top: 32px;
-    transition: all .3s;
+		text-align: right !important;
+		font-weight: bolder !important;
+		font-size: 16px !important;
+		margin-top: 32px !important;
+    transition: all .3s !important;
 	}
 	.fluany-buttons a{
-		cursor: pointer;
-		transition all .2s;
-		text-decoration: none;
-		color: #FFF;
+		cursor: pointer !important;
+		transition all .2s !important;
+		text-decoration: none !important;
+		color: #FFF !important;
 	}
 	.fluany-buttons .fluany-answer-btn{
-		margin-left: 20px;
-		background: #3ca87c;
-		padding: 12px 32px;
-		border-radius: 25px;
+		margin-left: 20px !important;
+		background: #3ca87c !important;
+		padding: 12px 32px !important;
+		border-radius: 25px !important;
 	}
 	.fluany-buttons .fluany-answer-btn:hover {
-		background: #3b9772;
+		background: #3b9772 !important;
 	}
 	.fluany-buttons .fluany-dontknow-btn:hover {
-		text-decoration: initial;
-		padding-bottom: 2px;
-		border-bottom: 1px solid #FFF;
+		text-decoration: initial !important;
+		padding-bottom: 2px !important;
+		border-bottom: 1px solid #FFF !important;
 	}
 	.emoji {
-		width: 150px;
-		height: 150px;
-		border-radius: 50%;
-		background: yellow;
-		position: absolute;
-		right: 0;
-		top: -104px;
-		margin: 0;
+		width: 150px !important;
+		height: 150px !important;
+		border-radius: 50% !important;
+		background: yellow !important;
+		position: absolute !important;
+		right: 0 !important;
+		top: -104px !important;
+		margin: 0 !important;
 	}
 	.emoji .eyes {
-		position: absolute;
-		left: 50%;
-		width: 60px;
-		top: 80px;
+		position: absolute !important;
+		left: 50% !important;
+		width: 60px !important;
+		top: 80px !important;
 	}
 	.emoji .eyes::before, .emoji .eyes::after {
-		content: '';
-		background: black;
-		width: 15px;
-		height: 15px;
-		border-radius: 50%;
+		content: '' !important;
+		background: black !important;
+		width: 15px !important;
+		height: 15px !important;
+		border-radius: 50% !important;
 	}
 	.emoji .eyes::before {
-		float: left;
+		float: left !important;
 	}
 	.emoji .eyes::after {
-		float: right;
-		left: 100px;
-		top: 50px;
+		float: right !important;
+		left: 100px !important;
+		top: 50px !important;
 	}
 	.emoji.neutral {
-		background: #ffe982;
+		background: #ffe982 !important;
 	}
 	.emoji.neutral .mouth, .emoji.neutral .eyes {
-		top: 70px;
-		transform: translate(-50%, -50%);
-		animation: neutral 4s ease-in-out infinite;
+		top: 70px !important;
+		transform: translate(-50%, -50%) !important;
+		animation: neutral 4s ease-in-out infinite !important;
 	}
 	.emoji.neutral .eyes::before, .emoji.neutral .eyes::after {
-		animation: blinkeyes 3s ease-in-out infinite;
+		animation: blinkeyes 3s ease-in-out infinite !important;
 	}
 	.emoji.neutral .mouth {
-		position: absolute;
-		left: 50%;
-		top: 70%;
-		background: black;
-		width: 30px;
-		height: 10px;
-		border-radius: 50%;
+		position: absolute !important;
+		left: 50% !important;
+		top: 70% !important;
+		background: black !important;
+		width: 30px !important;
+		height: 10px !important;
+		border-radius: 50% !important;
 	}
 	@keyframes neutral {
 		0% {
@@ -294,51 +294,51 @@ export const initCSS = (wrapper) => {
 		}
 	}
 	.fluany-wrapper.invalid .emoji .eyes, .fluany-wrapper.invalid .emoji .mouth {
-		animation: sad 1s ease-in-out infinite;
+		animation: sad 1s ease-in-out infinite !important;
 	}
 	.fluany-wrapper.invalid .emoji .mouth {
-		transform: translate(-50%, -50%);
-		border-top: 6px solid black;
-		border-right: 6px solid transparent;
-		border-left: 6px solid transparent;
-		border-bottom: 8px solid transparent;
-		width: 25px;
-		height: 10px;
-		border-radius: initial;
-		background: none;
-		border-top-right-radius: 1999px;
-		border-top-left-radius: 1999px;
+		transform: translate(-50%, -50%) !important;
+		border-top: 6px solid black !important;
+		border-right: 6px solid transparent !important;
+		border-left: 6px solid transparent !important;
+		border-bottom: 8px solid transparent !important;
+		width: 25px !important;
+		height: 10px !important;
+		border-radius: initial !important;
+		background: none !important;
+		border-top-right-radius: 1999px !important;
+		border-top-left-radius: 1999px !important;
 	}
 	.fluany-wrapper.invalid .emoji .eyes::before, .fluany-wrapper.invalid .emoji .eyes::after {
-		animation: blinkeyes 3s ease-in-out infinite 1s;
+		animation: blinkeyes 3s ease-in-out infinite 1s !important;
 	}
 
 	.fluany-wrapper.success .emoji .mouth, .fluany-wrapper.success .emoji .eyes {
-		animation: happy 1s ease-in-out infinite;
+		animation: happy 1s ease-in-out infinite !important;
 	}
 	.fluany-wrapper.success .emoji .eyes::before, .fluany-wrapper.success .emoji .eyes::after {
-		height: 15px;
-		animation: blinkeyes 2s ease-in-out infinite;
+		height: 15px !important;
+		animation: blinkeyes 2s ease-in-out infinite !important;
 	}
 	.fluany-wrapper.success .emoji .mouth {
-		transform: translate(-50%, -50%);
-		height: 15px;
-		border-radius: initial;
-		border-bottom-left-radius: 30px;
-		border-bottom-right-radius: 30px;
-		border-top-left-radius: 10px;
-		border-top-right-radius: 10px;
+		transform: translate(-50%, -50%) !important;
+		height: 15px !important;
+		border-radius: initial !important;
+		border-bottom-left-radius: 30px !important;
+		border-bottom-right-radius: 30px !important;
+		border-top-left-radius: 10px !important;
+		border-top-right-radius: 10px !important;
 	}
 	.fluany-wrapper.success .emoji .mouth::after {
-		content: '';
-		position: absolute;
-		background: red;
-		width: 10px;
-		height: 5px;
-		bottom: 2px;
-		left: 50%;
-		transform: translateX(-50%);
-		border-radius: 50%;
+		content: '' !important;
+		position: absolute !important;
+		background: red !important;
+		width: 10px !important;
+		height: 5px !important;
+		bottom: 2px !important;
+		left: 50% !important;
+		transform: translateX(-50%) !important;
+		border-radius: 50% !important;
 	}
  `,
 
