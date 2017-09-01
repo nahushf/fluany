@@ -3,7 +3,9 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Join the chat at https://gitter.im/fluany](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/fluany?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-Fluany is a chrome extension to practise a foreign language fast and easy, to improve your communication skills while you're surfing the Internet.
+![](https://github.com/victorvoid/fluany/blob/master/src/assets/octoflu.png)
+
+Fluany is a chrome extension to memorize and study anything, fast and easy while you're surfing the Internet.
 
 ## How Can I Contribute?
   Read [Contributing to Fluany](CONTRIBUTING.md)
