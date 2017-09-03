@@ -5,7 +5,7 @@ import { importPackage } from '../../actions/pack';
 import { getIndexThingById } from '../../reducers/stateManipulate';
 import * as translator from '../../../shared/constants/internacionalization';
 import { assoc, compose, merge } from 'ramda';
-import { getRandomInt } from '../../../shared/helpers.js';
+import { settingNewPack } from '../../../shared/helpers.js';
 import Icon from './import-icon.png';
 
 /**
@@ -18,29 +18,9 @@ import Icon from './import-icon.png';
 let ImportPack = ({
     dispatch }) => {
 
-	  const randomColor = () => getRandomInt(1, 4);
-    const bootstrapPack = () => ({
-		  isChangingColor: false,
-      colorID: randomColor(),
-      isSetting: false,
-		  timeMinutes: 1,
-		  playing: false,
-      id: uuid()
-    });
-
-    const bootstrapCard = () => ({
-      id: uuid(),
-      colorId: randomColor(),
-      isEditing: false
-    });
-
-    const mergeCard = pack => assoc('cards', pack.cards.map((card => merge(card, bootstrapCard()))), pack);
-    const mergePack = pack => merge(pack, bootstrapPack());
-    const settingNewPacks = packs => compose(mergeCard, mergePack)(packs);
-
     const onReaderLoad = event => {
       const packLoaded = JSON.parse(event.target.result);
-      const packages = packLoaded.map(settingNewPacks);
+      const packages = packLoaded.map(settingNewPack);
       dispatch(importPackage(packages));
     };
 

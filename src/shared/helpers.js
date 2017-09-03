@@ -1,3 +1,6 @@
+import uuid from 'uuid/v4';
+import { assoc, compose, merge } from 'ramda';
+
 //insert in storage chrome extension
 export let putStorage = (key, value) => {
 	let obj = {
@@ -57,3 +60,26 @@ export let getAllKeysInStorage = () => {
 export let stopAlarm = (alarmName) => {
 	chrome.runtime.sendMessage({name: alarmName, trigger: "killAlarm"}, () => {});
 };
+
+export let settingNewPack = (packs) => {
+	const randomColor = () => getRandomInt(1, 4);
+  const bootstrapPack = () => ({
+		isChangingColor: false,
+    colorID: randomColor(),
+    isSetting: false,
+		timeMinutes: 1,
+		playing: false,
+    id: uuid()
+  });
+
+  const bootstrapCard = () => ({
+    id: uuid(),
+    colorId: randomColor(),
+    isEditing: false
+  });
+
+  const mergeCard = pack => assoc('cards', pack.cards.map((card => merge(card, bootstrapCard()))), pack);
+  const mergePack = pack => merge(pack, bootstrapPack());
+  console.log('return .. ', compose(mergeCard, mergePack)(packs));
+  return compose(mergeCard, mergePack)(packs);
+}
