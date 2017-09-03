@@ -60,14 +60,12 @@
   &.color-1, &.color-2, &.color-3, &.color-4
     .input-description-package, .input-title-package
       width 95%
-      height 41px
+      height 45px
       transition all .3s
       &:focus
         color #FFF
         padding-left 10px
         background rgba(0, 0, 0, .1);
-    .input-title-package
-      height 55px
     .input-title-package:focus + .title-edit-icon, .input-description-package:focus + .description-edit-icon
       display none
 
@@ -178,9 +176,9 @@
 
 .title-package--container
   margin-top -10px
+  position relative
   .input-title-package
     display block
-    height 22px
     cursor pointer
     color #FFF
     font-size 20px
@@ -232,9 +230,9 @@
   fill rgba(255, 255, 255, 0.68)
 
 .title-edit-icon
-  float right
-  margin-top -59px
-  margin-right -6px
+  position absolute
+  right -12px
+  top 8px
   cursor pointer
   opacity 0
   visibility hidden

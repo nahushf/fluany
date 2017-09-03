@@ -45,7 +45,6 @@ const {
 
 ExportPack.propTypes = {
     packs: array.isRequired,
-    id: string.isRequired,
     icon: string.isRequired
 };
 

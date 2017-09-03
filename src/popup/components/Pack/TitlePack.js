@@ -9,34 +9,54 @@ import * as translator from '../../../shared/constants/internacionalization';
  * @param  {String}   title   The package title
  * @return {Component}
  */
+
+let elementTitle = '';
 const TitlePack = ({ onChange,
                      title,
                      disabled,
                      onClick,
                      tabIndex,
                      refToComponent,
-                     handleEditTitle }) => (
-    <div className="title-package--container">
-			<textarea
-				className="input-title-package"
-				type="text"
-				onChange={onChange}
-				spellCheck="false"
-        disabled={disabled}
-				autoCorrect="false"
-        maxLength="30"
-        tabIndex={tabIndex}
-        ref={refToComponent}
-        placeholder={ translator.PACK_TITLE_PLACEHOLDER }
-				value={title}>
-			</textarea>
-      <div className="title-edit-icon" onClick={handleEditTitle} title={ translator.PACK_TITLE_PLACEHOLDER }>
-        <svg className="edit-icon">
-            <use xlinkHref="#icon-edit"></use>
-        </svg>
-      </div>
-    </div>
-);
+                     handleEditTitle }) => {
+                         const handleRefElement = (element) => {
+                            refToComponent(element);
+                            elementTitle = element;
+                            setTimeout(() => {
+                                const height = elementTitle.scrollHeight;
+                                elementTitle.style.cssText = `height: ${height}px`;
+                            }, 0);
+                         }
+
+                         const handleOnChange = (e) => {
+                            setTimeout(() => {
+                                elementTitle.style.cssText = 'height:auto;';
+                                elementTitle.style.cssText = `height: ${elementTitle.scrollHeight}px`;
+                            }, 0);
+                             onChange(e);
+                          }
+
+    return (
+        <div className="title-package--container">
+            <textarea
+                className="input-title-package"
+                type="text"
+                onChange={handleOnChange}
+                spellCheck="false"
+                disabled={disabled}
+                autoCorrect="false"
+                tabIndex={tabIndex}
+                ref={handleRefElement}
+                placeholder={ translator.PACK_TITLE_PLACEHOLDER }
+                value={title}>
+            </textarea>
+            <div className="title-edit-icon" onClick={handleEditTitle} title={ translator.PACK_TITLE_PLACEHOLDER }>
+                <svg className="edit-icon">
+                    <use xlinkHref="#icon-edit"></use>
+                </svg>
+            </div>
+        </div>
+    );
+}
 
 const {
   func, string, bool

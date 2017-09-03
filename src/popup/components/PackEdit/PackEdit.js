@@ -40,7 +40,8 @@ let PackEdit = ({
 		onChange: handlePackTitle,
 		title: (!isNil(isEdit.packageid)
             ? packs[indexOfPack].title
-            : packflag.title)
+          : packflag.title),
+    refToComponent: (el) => {}
 	};
 
   const Container = () => (
