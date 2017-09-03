@@ -1,6 +1,6 @@
 export default {
-    title: 'Estados/Capitais do Brasil | Português',
-    description: 'Flashcards com todos estados e capitais para decorar em português.',
+    title: 'States/Capitals of Brazil | State - Capital',
+    description: 'The Capitals and states of Brazil',
     cards: [
         {
             front: "Acre",

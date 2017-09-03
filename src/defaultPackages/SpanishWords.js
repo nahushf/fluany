@@ -1,7 +1,7 @@
 export default {
-      title: 'Estados/Capitais do Brasil | Português',
-      description: 'Flashcards com todos estados e capitais para decorar em português.',
-    cars: [
+    title: 'Useful Spanish Words | Español - Português',
+    description: 'Spanish words available for free to beginners up to advanced users.',
+    cards: [
       {
           front: 'donde',
           back: 'onde'

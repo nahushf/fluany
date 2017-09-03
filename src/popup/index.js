@@ -10,6 +10,7 @@ const store = configureStore();
 
 store.subscribe(() => {
     saveInLocal('packState', store.getState().packs);
+    console.log('-->', store.getState().packs)
 })
 
 render(

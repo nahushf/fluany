@@ -12,7 +12,7 @@ export let putStorage = (key, value) => {
 };
 /**
  * Get a random integer between `min` and `max`.
- * 
+ *
  * @param {number} min - min number
  * @param {number} max - max number
  * @return {int} a random integer
@@ -74,12 +74,11 @@ export let settingNewPack = (packs) => {
 
   const bootstrapCard = () => ({
     id: uuid(),
-    colorId: randomColor(),
+    colorID: randomColor(),
     isEditing: false
   });
 
   const mergeCard = pack => assoc('cards', pack.cards.map((card => merge(card, bootstrapCard()))), pack);
   const mergePack = pack => merge(pack, bootstrapPack());
-  console.log('return .. ', compose(mergeCard, mergePack)(packs));
   return compose(mergeCard, mergePack)(packs);
 }

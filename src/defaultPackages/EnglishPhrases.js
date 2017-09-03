@@ -1,6 +1,6 @@
 export default {
-    title: 'English Phrases | Inglês-Português',
-    description: 'Flashcards com diversas frases em inglês para treinar a tradução para o português.',
+    title: 'Useful English Expression | English - Português',
+    description: 'English expressions available for free to beginners up to advanced users.',
     cards: [
         {
             front: "I've never done that.",

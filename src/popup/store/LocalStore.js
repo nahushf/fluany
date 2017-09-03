@@ -1,12 +1,12 @@
 export const saveInLocal = (key, value) => {
-    chrome.storage.sync.set({[key]: value}, () => {
+    chrome.storage.local.set({[key]: value}, () => {
       console.log(`${key} saved`);
     });
 };
 
 export const getInLocal = (name) => {
   return new Promise((resolve, reject) => {
-    chrome.storage.sync.get(name, obj => {
+    chrome.storage.local.get(name, obj => {
 			if(obj[name]){
         resolve(obj[name]);
 			}

@@ -1,6 +1,7 @@
-import './contextMenus.js';
-import './messagesAlarm.js';
-import './browserAction.js';
-import './onStartup.js';
+import './loadPackages';
+import './contextMenus';
+import './messagesAlarm';
+import './browserAction';
+import './onStartup';
 // Setting popup icon
 

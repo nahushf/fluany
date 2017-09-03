@@ -22,7 +22,7 @@ import { getRandomInt } from '../../shared/helpers.js';
 import { getIndexThingById } from './stateManipulate';
 import packsDefaultState from '../store/packsDefaultStore';
 
-const packs = (state = packsDefaultState, action) => {
+const packs = (state = [], action) => {
 		const indexOfThePack = getIndexThingById(state, action.id);
 	  const packOfTheId = state[indexOfThePack];
     switch(action.type){
