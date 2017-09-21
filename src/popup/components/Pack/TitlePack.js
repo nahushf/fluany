@@ -18,22 +18,14 @@ const TitlePack = ({ onChange,
                      tabIndex,
                      refToComponent,
                      handleEditTitle }) => {
-                         const handleRefElement = (element) => {
-                            refToComponent(element);
-                            elementTitle = element;
-                            setTimeout(() => {
-                                const height = elementTitle.scrollHeight;
-                                elementTitle.style.cssText = `height: ${height}px`;
-                            }, 0);
-                         }
 
-                         const handleOnChange = (e) => {
-                            setTimeout(() => {
-                                elementTitle.style.cssText = 'height:auto;';
-                                elementTitle.style.cssText = `height: ${elementTitle.scrollHeight}px`;
-                            }, 0);
-                             onChange(e);
-                          }
+    const handleRefElement = (element) => {
+        refToComponent(element);
+        elementTitle = element;
+    }
+    const handleOnChange = (e) => {
+        onChange(e);
+    }
 
     return (
         <div className="title-package--container">
@@ -42,6 +34,7 @@ const TitlePack = ({ onChange,
                 type="text"
                 onChange={handleOnChange}
                 spellCheck="false"
+                maxLength="40"
                 disabled={disabled}
                 autoCorrect="false"
                 tabIndex={tabIndex}
