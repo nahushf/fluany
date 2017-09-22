@@ -26,8 +26,11 @@ let PackList = ({
                  )}
 				    </ul>
             <MorePackage/>
-            <svg className="planet-icon">
-                <use xlinkHref="#icon-planet"></use>
+            <svg className="fish-2">
+                <use xlinkHref="#fish-2"></use>
+            </svg>
+            <svg className="fish-2 bro">
+                <use xlinkHref="#fish-2"></use>
             </svg>
         </section>
     );

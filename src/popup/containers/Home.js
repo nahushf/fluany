@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import Search from '../components/Search/Search';
 import PackList from '../components/Pack/PackList';
 import Logo from '../components/Logo/Logo';
-import Rocket from '../components/Rocket/Rocket';
+import Fish3 from '../components/Fish3/Fish3';
 import LoadPack from '../components/LoadPacks/LoadPacks.js';
 import ExportPack from '../components/ExportPack/ExportPack';
 import ImportPack from '../components/ImportPack/ImportPack';
@@ -18,7 +18,7 @@ const Home = ({
 				<div>
           <LoadPack dispatch={dispatch} />
           <Logo/>
-          <Rocket/>
+          <Fish3/>
             <ExportPack dispatch={dispatch} icon='all' />
             <ImportPack dispatch={dispatch} />
 					<Search/>
