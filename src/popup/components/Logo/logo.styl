@@ -4,6 +4,8 @@
   position absolute
   left 26px
   top 8px
+  animation 1s 1 octo
+  animation-fill-mode forwards
 .logo-title
   position absolute
   left 75px
@@ -16,12 +18,15 @@
     font-weight 400
     &:after
       content ""
-      width 20px
+      width 0
       height 2px
       background color-3
       position absolute
       margin-left -18px
       margin-top 7px
+      animation 1s 1 onew
+      animation-delay .5s
+      animation-fill-mode forwards
     &:before
       content ""
       width 10px
@@ -32,3 +37,26 @@
       top 13px
   .any
     color color-1
+
+
+@keyframes onew {
+
+  from {
+      width 0
+  }
+
+  to {
+      width 20px
+  }
+}
+
+@keyframes octo {
+
+  from {
+    transform translateY(-20px)
+  }
+
+  to {
+    transform translateY(0)
+  }
+}
