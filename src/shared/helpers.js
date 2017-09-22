@@ -61,6 +61,10 @@ export let stopAlarm = (alarmName) => {
 	chrome.runtime.sendMessage({name: alarmName, trigger: "killAlarm"}, () => {});
 };
 
+export const sendMessageBackground = (obgMessage) => {
+	chrome.runtime.sendMessage(obgMessage, () => {});
+}
+
 export let settingNewPack = (packs) => {
 	const randomColor = () => getRandomInt(1, 4);
   const bootstrapPack = () => ({

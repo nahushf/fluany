@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { addPackage } from '../../actions/pack';
 import { newPackage, isEditPackage } from '../../actions/flags';
 import * as translator from '../../../shared/constants/internacionalization';
+import { sendMessageBackground } from '../../../shared/helpers.js';
 
 /**
  * A component to Create pack
@@ -21,6 +22,8 @@ let Create = ({
             dispatch(isEditPackage({newPackage: true, packageid: newPackageId}));
             dispatch(addPackage({id: newPackageId, title: titleEdited}));
             dispatch(newPackage({title: "", description: ""})); //initial
+            sendMessageBackground({ name:'updateContextAddPackages',
+                                    trigger: { title: titleEdited, id: newPackageId }})
         }
     }
 

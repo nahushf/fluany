@@ -1,8 +1,10 @@
 import { getInLocal, saveInLocal } from '../popup/store/LocalStore';
 import 'babel-polyfill';
 
+const PARENT_CONTEXT_ADD_PACKAGES = chrome.contextMenus.create({"title": 'Adicionar em um pacote', "contexts": ['selection']});
+const PARENT_CONTEXT_EDIT_PACKAGES = chrome.contextMenus.create({"title": "Editar pacote"});
+
 const handleShowFluany = (info, tab) => {
-	console.log('info: ', info);
 	let props = {
     url: chrome.extension.getURL('popup/index.html'),
     height: 450,
@@ -27,7 +29,6 @@ const contextShowFluany = () => {
 
 
 const handleContextsToGetText = (info, tab) => {
-	console.log('info: ', info);
   const idPack = info.menuItemId.trim();
   saveInLocal('openNewCard', info.selectionText);
 	saveInLocal('openInPackage', info.menuItemId.trim());
@@ -35,20 +36,33 @@ const handleContextsToGetText = (info, tab) => {
 };
 
 const contextsToGetText = async () => {
-	const parent = chrome.contextMenus.create({"title": 'Adicionar em um pacote', "contexts": ['selection']});
 	const packs = await getInLocal('packState');
 	packs.forEach((pack) => {
 		chrome.contextMenus.create(
 			{ "title": pack.title,
 				"id": pack.id+' ',
-				"parentId": parent,
+				"parentId": PARENT_CONTEXT_ADD_PACKAGES,
         "contexts": ['selection'],
 				"onclick": handleContextsToGetText });
 	});
 };
 
+export const updateContextToPacks = (pack) => {
+  chrome.contextMenus.create(
+    { "title": pack.title,
+      "id": pack.id+' ',
+      "parentId": PARENT_CONTEXT_ADD_PACKAGES,
+      "contexts": ['selection'],
+      "onclick": handleContextsToGetText });
+
+  chrome.contextMenus.create(
+    { "title": pack.title,
+      "id": pack.id,
+      "parentId": PARENT_CONTEXT_EDIT_PACKAGES,
+      "onclick": handleClickPackEdit });
+};
+
 const handleClickPackEdit = (info, tab) => {
-	console.log('info: ', info.menuItemId);
 	let props = {
     url: chrome.extension.getURL('popup/index.html'),
     height: 450,
@@ -61,15 +75,13 @@ const handleClickPackEdit = (info, tab) => {
 };
 
 const contextEditPacks = async () => {
-	const parent = chrome.contextMenus.create({"title": "Editar pacote"});
   try{
     const packs = await getInLocal('packState');
-    console.log('packs:::', packs)
     packs.forEach((pack) => {
       chrome.contextMenus.create(
         { "title": pack.title,
           "id": pack.id,
-          "parentId": parent,
+          "parentId": PARENT_CONTEXT_EDIT_PACKAGES,
           "onclick": handleClickPackEdit });
     });
   }catch(e){
@@ -79,5 +91,3 @@ const contextEditPacks = async () => {
 contextShowFluany();
 contextsToGetText();
 contextEditPacks();
-
-
