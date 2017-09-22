@@ -22,13 +22,13 @@ let Play = ({
 
     const handleClickPlay = (e) => {
         e.stopPropagation();
+      if(cards.length > 0) {
         dispatch(changePlayPack(!playing, packageid));
         if(!playing){
             alarm.create();
         }else{
             alarm.cancel();
         }
-
         if(percentage === 100 && !playing){
             getInLocal('packsInTraning')
                 .then((packsInTraning) => {
@@ -38,6 +38,7 @@ let Play = ({
                     dispatch(changePorcentProgress(0, packageid));
                 })
         }
+      }
     }
 
     return (
