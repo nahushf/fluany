@@ -136,6 +136,7 @@ export const initCSS = (wrapper) => {
 		margin-bottom: 24px !important;
 		text-align: left !important;
     max-width: 80% !important;
+    color: #FFF;
 	}
   .fluany-back-input{
 		height: 50px !important;
