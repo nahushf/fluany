@@ -28,25 +28,13 @@
   </h3>
 </div>
 
-## How Can I Contribute?
-  Read [Contributing to Fluany](CONTRIBUTING.md)
-  
-## How to run development environment
+## Welcome
 
-You should do this before editing any code to see how it works.
-
-1. run `gulp` which will start webpack-dev-server
-2. in Chrome open `chrome://extensions/`
-3. check `Developer mode`
-4. click on `Load unpacked extension`
-5. add REPOSITORY_DIRECTORY/build
-6. Now you can check background script via link in extension `Inspect views: background page` and you will see some messages in console
-7. Navigate to any http or **https** page and open development tools and console. You can see messages from content scripts.
-8. Find extension icon right from adress bar.
-  1. Click with left mouse button to show html content
-  2. Click with right mouse button and select `Inspect Popup`. Then in console you can see some messages
-9. You can edit your codebase with almost 100% hot/full reload support.
-10. You can to use [remote-redux-devtools](https://github.com/zalmoxisus/remote-redux-devtools).
+| Question | Answer |
+|--------|-------|
+| "I have a question" | [Join the chat](https://gitter.im/fluany/)<br />Or<br />[Create a StackOverflow question](http://stackoverflow.com/questions/tagged/fluany)<br />Or<br />[Open an issue](https://github.com/victorvoid/fluany/issues/new)<br />
+| "I found a bug" | [Open an issue](https://github.com/victorvoid/fluany/issues/new) |
+| "I want to help build Fluany" | [Contributing to Fluany](CONTRIBUTING.md)<br />Then<br />[Choose an issue marked "help wanted"](https://github.com/victorvoid/fluany/issues?q=is%3Aissue+is%3Aopen+label%3A%22help+wanted%22) |
 
 ## LICENSE
 
