@@ -14,6 +14,7 @@ These are just guidelines, not rules. Use your best judgment, and feel free to p
   * [Suggesting Enhancements](#suggesting-enhancements)
   * [Your First Code Contribution](#your-first-code-contribution)
   * [Pull Requests](#pull-requests)
+  * [How to run development environment](how-to-run-development-environment)
 
 
 ### Code of Conduct
@@ -192,3 +193,21 @@ This section lists the labels we use to help us track and manage issues and pull
 The labels are loosely grouped by their purpose, but it's not required that every issue have a label from every group or that an issue can't have more than one label from the same group.
 
 Please open an issue on `fluany` if you have suggestions for new labels, and if you notice some labels are missing on some repositories, then please open an issue on that repository.
+
+## How to run development environment
+
+You should do this before editing any code to see how it works.
+
+1. run `gulp` which will start webpack-dev-server
+2. in Chrome open `chrome://extensions/`
+3. check `Developer mode`
+4. click on `Load unpacked extension`
+5. add REPOSITORY_DIRECTORY/build
+6. Now you can check background script via link in extension `Inspect views: background page` and you will see some messages in console
+7. Navigate to any http or **https** page and open development tools and console. You can see messages from content scripts.
+8. Find extension icon right from adress bar.
+  1. Click with left mouse button to show html content
+  2. Click with right mouse button and select `Inspect Popup`. Then in console you can see some messages
+9. You can edit your codebase with almost 100% hot/full reload support.
+10. You can to use [remote-redux-devtools](https://github.com/zalmoxisus/remote-redux-devtools).
+
