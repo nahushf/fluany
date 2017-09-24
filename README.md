@@ -1,11 +1,32 @@
-# Fluany
+<h1 align="center">Fluany</h1>
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Join the chat at https://gitter.im/fluany](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/fluany?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+<div align="center">
+  <img alt="logo" src="https://github.com/victorvoid/fluany/blob/master/src/assets/fluflu.svg" width="128">
+</div>
 
-![](https://github.com/victorvoid/fluany/blob/master/src/assets/octoflu.png)
+<div align="center">
+  <strong>Fluany is a chrome extension to memorize and study anything, fast and easy while you're surfing the Internet.</strong>
+</div>
 
-Fluany is a chrome extension to memorize and study anything, fast and easy while you're surfing the Internet.
+<div align="center">
+  <h3>
+    <a href="https://www.fluany.com">
+      Website
+    </a>
+    <span> | </span>
+    <a href="https://www.fluany.com/packages">
+      Packages
+    </a>
+    <span> | </span>
+    <a href="https://github.com/victorvoid/fluany/issues?q=is%3Aissue+is%3Aopen+label%3A%22help+wanted%22">
+      Contribute
+    </a>
+    <span> | </span>
+    <a href="https://gitter.im/fluany/">
+      Chat
+    </a>
+  </h3>
+</div>
 
 ## How Can I Contribute?
   Read [Contributing to Fluany](CONTRIBUTING.md)
@@ -27,3 +48,6 @@ You should do this before editing any code to see how it works.
 9. You can edit your codebase with almost 100% hot/full reload support.
 10. You can to use [remote-redux-devtools](https://github.com/zalmoxisus/remote-redux-devtools).
 
+## LICENSE
+
+The code is available under the [MIT License](LICENSE.md).
