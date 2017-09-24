@@ -14,7 +14,7 @@ These are just guidelines, not rules. Use your best judgment, and feel free to p
   * [Suggesting Enhancements](#suggesting-enhancements)
   * [Your First Code Contribution](#your-first-code-contribution)
   * [Pull Requests](#pull-requests)
-  * [How to run development environment](how-to-run-development-environment)
+  * [How to run development environment](#how-to-run-development-environment)
 
 
 ### Code of Conduct
