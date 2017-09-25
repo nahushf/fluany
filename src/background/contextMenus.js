@@ -3,7 +3,7 @@ import * as translator from '../shared/constants/internacionalization';
 import 'babel-polyfill';
 
 const PARENT_CONTEXT_ADD_PACKAGES = chrome.contextMenus.create({"title": translator.CONTEXT_ADD_PACKAGE, "contexts": ['selection']});
-const PARENT_CONTEXT_EDIT_PACKAGES = chrome.contextMenus.create({"title": translator.CONTEXT_EDIT_IN_PACKAGE});
+// const PARENT_CONTEXT_EDIT_PACKAGES = chrome.contextMenus.create({"title": translator.CONTEXT_EDIT_IN_PACKAGE});
 
 const handleShowFluany = (info, tab) => {
 	let props = {
@@ -57,11 +57,11 @@ export const updateContextToPacks = (pack) => {
       "contexts": ['selection'],
       "onclick": handleContextsToGetText });
 
-  chrome.contextMenus.create(
-    { "title": pack.title,
-      "id": pack.id,
-      "parentId": PARENT_CONTEXT_EDIT_PACKAGES,
-      "onclick": handleClickPackEdit });
+  // chrome.contextMenus.create(
+  //   { "title": pack.title,
+  //     "id": pack.id,
+  //     "parentId": PARENT_CONTEXT_EDIT_PACKAGES,
+  //     "onclick": handleClickPackEdit });
 };
 
 const handleClickPackEdit = (info, tab) => {
@@ -92,4 +92,4 @@ const contextEditPacks = async () => {
 
 contextShowFluany();
 contextsToGetText();
-contextEditPacks();
+// contextEditPacks();
