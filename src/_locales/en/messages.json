@@ -97,5 +97,20 @@
   "packStop": {
     "message": "Stop",
     "description": "Label to stop"
+  },
+
+  "backgroundAddPackage": {
+    "message": "Add in Package",
+    "description": "Label to add in package"
+  },
+
+  "backgroundEditPackage": {
+    "message": "Edit Package",
+    "description": "Label to edit package"
+  },
+
+  "backgroundOpenApp": {
+    "message": "Open Fluany",
+    "description": "Label to open app"
   }
 }

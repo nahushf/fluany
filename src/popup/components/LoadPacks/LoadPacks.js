@@ -13,9 +13,11 @@ const LoadPacks = ({
         if(packState){
             dispatch(loadPackLocal(packState));
             const id = await getInLocal('openInPackage');
+            console.log('id', id)
             if(id){
                 dispatch(isEditPackage({newPackage: false, packageid: id}));
                 const indexOfThePack = getIndexThingById(packState, id);
+                console.log('indexOfThePack', indexOfThePack)
                 const cardsOfThePack = packState[indexOfThePack].cards;
                 const idNewCard = cardsOfThePack.length;
                 const selected = await getInLocal('openNewCard');

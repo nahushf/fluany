@@ -3,6 +3,11 @@
 //SYSTEM
 export const BACK_LABEL = chrome.i18n.getMessage('backLabel');
 
+//BACKGROUND
+export const CONTEXT_ADD_PACKAGE = chrome.i18n.getMessage('backgroundAddPackage');
+export const CONTEXT_EDIT_IN_PACKAGE = chrome.i18n.getMessage('backgroundEditPackage');
+export const CONTEXT_OPEN_APP = chrome.i18n.getMessage('backgroundOpenApp');
+
 //CARDS
 export const CARD_CANCEL = chrome.i18n.getMessage('cardCancel');
 export const CARD_SAVE = chrome.i18n.getMessage('cardSave');
