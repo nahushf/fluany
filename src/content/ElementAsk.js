@@ -1,4 +1,6 @@
 import { initCSS } from './ElementCSS.js';
+import { sendMessageBackground } from '../shared/helpers';
+
 const drawElementAsk = (front, back, doSuccess, alarmName, periodInMinutes) => {
 		let elementIsShowing = true;
 		const wrapper = document.createElement('div');
@@ -58,6 +60,10 @@ const drawElementAsk = (front, back, doSuccess, alarmName, periodInMinutes) => {
     answerButton.textContent = 'Responder';
     buttons.appendChild(answerButton);
 
+
+  const MESSAGE_TO_PLAY = { name: alarmName,
+                            trigger: "createAlarm",
+                            periodInMinutes };
   //Events and Actions
   window.addEventListener('keydown', (event) => {
     const enterClicked = ( event.which === 13 || event.keyCode === 13 );
@@ -66,15 +72,24 @@ const drawElementAsk = (front, back, doSuccess, alarmName, periodInMinutes) => {
 			if(enterClicked){
 				answerButton.click();
 			}else if(escapeClicked){
-				close.click();
+		    sendMessageBackground(MESSAGE_TO_PLAY)
+        wrapper.outerHTML="";
 			}
 		}
   });
+
+  dontKnowButton.addEventListener('click', (e) => {
+	  elementIsShowing = false;
+    e.preventDefault();
+    addClass(wrapper, 'fadeOut');
+		sendMessageBackground(MESSAGE_TO_PLAY)
+  })
 
   close.addEventListener('click', (e) => {
 		elementIsShowing = false;
     e.preventDefault();
     addClass(wrapper, 'fadeOut');
+		sendMessageBackground(MESSAGE_TO_PLAY)
   });
 
   answerButton.addEventListener('click', () => {
@@ -91,11 +106,7 @@ const drawElementAsk = (front, back, doSuccess, alarmName, periodInMinutes) => {
     addClass(contentFlu, 'feedback-message');
     addClass(buttons, 'fadeOut');
     addClass(inputAnswer, 'fadeOut');
-
-    const objMessages = { name: alarmName,
-                          trigger: "createAlarm",
-                          periodInMinutes };
-		chrome.runtime.sendMessage(objMessages, () => {});
+		sendMessageBackground(MESSAGE_TO_PLAY)
     setTimeout(() => {
       wrapper.style.animation = 'fadeOut 2s';
     }, 3000);
