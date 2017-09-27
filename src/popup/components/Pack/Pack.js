@@ -50,8 +50,9 @@ let Pack = ({
 
     const handleClickItem = (e) => {
         e.preventDefault();
+        console.log('kdlsjdlksjl')
         const anyThingFocused = document.activeElement;
-        if(!anyThingFocused || anyThingFocused !== inRefToTitle){ //check if any element is focused
+        if((!anyThingFocused || anyThingFocused !== inRefToTitle) && !playing){ //check if any element is focused
             dispatch(isEditPackage({newPackage: false, packageid: id}))
             dispatch(allNoEditingCard(id))
         }
