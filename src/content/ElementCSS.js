@@ -13,7 +13,7 @@ export const initCSS = (wrapper) => {
     text-align: center !important;
     width: 100% !important;
     z-index: 2147483647 !important;
-		background: #873e92 !important;
+		background: #873e92;
     transition: background .3s !important;
 		animation: fadeIn 1 !importants
 	}
