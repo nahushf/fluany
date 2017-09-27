@@ -50,7 +50,6 @@ let Pack = ({
 
     const handleClickItem = (e) => {
         e.preventDefault();
-        console.log('kdlsjdlksjl')
         const anyThingFocused = document.activeElement;
         if((!anyThingFocused || anyThingFocused !== inRefToTitle) && !playing){ //check if any element is focused
             dispatch(isEditPackage({newPackage: false, packageid: id}))
@@ -70,6 +69,7 @@ let Pack = ({
 
     const propsDefault = {
         packageid: id,
+        playing,
         dispatch
     }
 

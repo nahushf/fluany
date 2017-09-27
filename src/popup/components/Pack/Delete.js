@@ -4,14 +4,16 @@ import * as translator from '../../../shared/constants/internacionalization';
 
 const Delete = ({
 	dispatch,
-	packageid
+	packageid,
+  playing
 }) => {
 
 	const handleRemovePack = (e) => {
     // Prevents the event from bubbling up the DOM tree, preventing any parent handlers from being notified of
     // the event.
     e.stopPropagation();
-		dispatch(removePackage(packageid));
+    if(!playing)
+      dispatch(removePackage(packageid));
 	};
 
 	return (
