@@ -4,6 +4,7 @@ import { Provider } from 'react-redux';
 import App from './containers/App';
 import configureStore from './store/configureStore';
 import { saveInLocal } from './store/LocalStore.js';
+import '../shared/analytics';
 import './styl/app.styl';
 
 const store = configureStore();
