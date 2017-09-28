@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { getIndexThingById } from '../../reducers/stateManipulate';
+import { sendEventButton } from '../../../analytics/analytics';
 
 let ExportPack = ({
     packs,
@@ -12,6 +13,7 @@ let ExportPack = ({
   const indexOfThePack = getIndexThingById(packs, id);
   const handleClick = (e) => {
     e.stopPropagation();
+    sendEventButton('home', 'Export Package');
     const packToGenerate = isPack ? [packs[indexOfThePack]] : packs;
     const packsGenerated = JSON.stringify(packToGenerate);
     const file = new Blob([packsGenerated], {type: 'application/json'});

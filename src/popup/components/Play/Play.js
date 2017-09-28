@@ -5,6 +5,7 @@ import { saveInLocal, getInLocal } from '../../store/LocalStore';
 import { getIndexThingById } from '../../reducers/stateManipulate';
 import { insert, reject, propEq, update, assoc } from 'ramda';
 import * as translator from '../../../shared/constants/internacionalization';
+import { sendEventButton } from '../../../analytics/analytics';
 import { changePlayPack,
          changePorcentProgress,
          changeColorProgress } from '../../actions/pack';
@@ -21,12 +22,14 @@ let Play = ({
     const alarm = new Alarm('ALARM_'+packageid, interval);
 
     const handleClickPlay = (e) => {
-        e.stopPropagation();
+      e.stopPropagation();
       if(cards.length > 0) {
         dispatch(changePlayPack(!playing, packageid));
         if(!playing){
+            sendEventButton('home', 'Play Package');
             alarm.create();
         }else{
+            sendEventButton('home', 'Cancel Package');
             alarm.cancel();
         }
         if(percentage === 100 && !playing){

@@ -9,3 +9,7 @@ if (process.env.NODE_ENV === 'production') {
 ga('set', 'checkProtocolTask', function(){});
 
 ga('require', 'displayfeatures');
+
+export function sendEventButton(eventCategory, eventLabel){
+  ga('send', 'event', eventCategory, 'click', eventLabel);
+}

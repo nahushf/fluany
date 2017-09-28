@@ -5,6 +5,7 @@ import { addPackage } from '../../actions/pack';
 import { newPackage, isEditPackage } from '../../actions/flags';
 import * as translator from '../../../shared/constants/internacionalization';
 import { sendMessageBackground } from '../../../shared/helpers.js';
+import { sendEventButton } from '../../../analytics/analytics';
 
 /**
  * A component to Create pack
@@ -17,6 +18,7 @@ let Create = ({
     dispatch }) => {
 
     const handleClickCreate = () => {
+        sendEventButton('home', 'Create Package');
         const newPackageId = uuid();
         if(titleEdited !== ""){
             dispatch(isEditPackage({newPackage: true, packageid: newPackageId}));

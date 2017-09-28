@@ -6,6 +6,7 @@ import { getIndexThingById } from '../../reducers/stateManipulate';
 import * as translator from '../../../shared/constants/internacionalization';
 import { assoc, compose, merge } from 'ramda';
 import { settingNewPack } from '../../../shared/helpers.js';
+import { sendEventButton } from '../../../analytics/analytics';
 import Icon from './import-icon.png';
 
 /**
@@ -25,6 +26,7 @@ let ImportPack = ({
     };
 
     const handleOnChange = (e) => {
+      sendEventButton('home', 'Import Package');
       const reader = new FileReader();
       reader.onload = onReaderLoad;
       reader.readAsText(e.target.files[0]);
