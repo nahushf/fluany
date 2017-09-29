@@ -1,3 +1,4 @@
+import '../analytics/analytics';
 import './loadPackages';
 import './contextMenus';
 import './messagesAlarm';

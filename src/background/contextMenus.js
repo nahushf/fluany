@@ -1,4 +1,5 @@
 import { getInLocal, saveInLocal } from '../popup/store/LocalStore';
+import { sendEventButton } from '../analytics/analytics';
 import * as translator from '../shared/constants/internacionalization';
 import 'babel-polyfill';
 
@@ -6,6 +7,7 @@ const PARENT_CONTEXT_ADD_PACKAGES = chrome.contextMenus.create({"title": transla
 // const PARENT_CONTEXT_EDIT_PACKAGES = chrome.contextMenus.create({"title": translator.CONTEXT_EDIT_IN_PACKAGE});
 
 const handleShowFluany = (info, tab) => {
+  sendEventButton('background', 'Open Fluany');
 	let props = {
     url: chrome.extension.getURL('popup/index.html'),
     height: 450,
@@ -30,7 +32,7 @@ const contextShowFluany = () => {
 
 
 const handleContextsToGetText = (info, tab) => {
-  console.log('info', info)
+  sendEventButton('background', 'Add to Fluany');
   const idPack = info.menuItemId.trim();
   saveInLocal('openNewCard', info.selectionText);
 	saveInLocal('openInPackage', info.menuItemId.trim());
