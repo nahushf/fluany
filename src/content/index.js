@@ -1,3 +1,4 @@
+import '../analytics/analytics.js';
 import { ask, loadPacks } from './Ask.js';
 import { stopAlarm } from '../shared/helpers';
 import 'babel-polyfill';

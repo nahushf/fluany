@@ -1,5 +1,6 @@
 import { initCSS } from './ElementCSS.js';
 import { sendMessageBackground } from '../shared/helpers';
+import { sendEventButton } from '../analytics/analytics';
 
 const drawElementAsk = (front, back, doSuccess, alarmName, periodInMinutes) => {
 		let elementIsShowing = true;
@@ -70,8 +71,10 @@ const drawElementAsk = (front, back, doSuccess, alarmName, periodInMinutes) => {
     const escapeClicked = ( event.which === 27 || event.keyCode === 27 );
 		if( elementIsShowing ){
 			if(enterClicked){
+        sendEventButton('content', 'Enter answer');
 				answerButton.click();
 			}else if(escapeClicked){
+        sendEventButton('content', 'Esc answer');
 		    sendMessageBackground(MESSAGE_TO_PLAY)
         wrapper.outerHTML="";
 			}
