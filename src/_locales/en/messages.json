@@ -112,5 +112,10 @@
   "backgroundOpenApp": {
     "message": "Open Fluany",
     "description": "Label to open app"
+  },
+
+  "messageCreatePackage": {
+    "message": "You need to enter a title to create your study list.",
+    "description": "Label to show error when the user dont type the package name"
   }
 }

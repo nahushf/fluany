@@ -23,7 +23,7 @@ let Create = ({
         if(titleEdited === ""){
             dispatch(changeMessage({
                 error: true,
-                info: 'Voce precisa inserir um título para criar sua lista de estudos',
+                info: translator.MESSAGE_ERROR_CREATE_PACKAGE,
             }))
         }else{
             dispatch(changeMessage({
