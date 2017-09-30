@@ -2,7 +2,7 @@ import React from 'react';
 import uuid from 'uuid/v4';
 import { connect } from 'react-redux';
 import { addPackage } from '../../actions/pack';
-import { newPackage, isEditPackage } from '../../actions/flags';
+import { newPackage, isEditPackage, changeMessage } from '../../actions/flags';
 import * as translator from '../../../shared/constants/internacionalization';
 import { sendMessageBackground } from '../../../shared/helpers.js';
 import { sendEventButton } from '../../../analytics/analytics';
@@ -20,7 +20,17 @@ let Create = ({
     const handleClickCreate = () => {
         sendEventButton('home', 'Create Package');
         const newPackageId = uuid();
-        if(titleEdited !== ""){
+        if(titleEdited === ""){
+            dispatch(changeMessage({
+                error: true,
+                info: 'Voce precisa inserir um título para criar sua lista de estudos',
+            }))
+        }else{
+            dispatch(changeMessage({
+                error: false,
+                success: false,
+                info: '',
+            }));
             dispatch(isEditPackage({newPackage: true, packageid: newPackageId}));
             dispatch(addPackage({id: newPackageId, title: titleEdited}));
             dispatch(newPackage({title: "", description: ""})); //initial

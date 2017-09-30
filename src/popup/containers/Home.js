@@ -1,27 +1,18 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import Search from '../components/Search/Search';
 import PackList from '../components/Pack/PackList';
-import Logo from '../components/Logo/Logo';
-import Fish3 from '../components/Fish3/Fish3';
-import LoadPack from '../components/LoadPacks/LoadPacks.js';
-import ExportPack from '../components/ExportPack/ExportPack';
-import ImportPack from '../components/ImportPack/ImportPack';
+import Header from '../components/Header/Header';
 
 const Home = ({
     isEdit,
-    dispatch }) => {
+    dispatch
+}) => {
 	if(isEdit.newPackage || isEdit.packageid !== null){
 		return null;
 	}else
 		return (
 				<div>
-          <LoadPack dispatch={dispatch} />
-          <Logo/>
-          <Fish3/>
-            <ExportPack dispatch={dispatch} icon='all' />
-            <ImportPack dispatch={dispatch} />
-					<Search/>
+          <Header dispatch={dispatch}/>
 					<PackList/>
 				</div>
 		);

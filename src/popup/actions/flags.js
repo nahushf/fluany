@@ -2,6 +2,7 @@ import { CHANGE_FILTER_PACKAGE,
          CHANGE_PAGINATION_PACKAGE,
          TOGGLE_ACTIVE_SEARCH,
          CHANGE_CARD,
+         CHANGE_MESSAGE,
          MENU_TOGGLE,
 				 IS_EDIT_PACKAGE,
          NEW_PACKAGE } from '../constants/ActionTypes.js';
@@ -53,6 +54,13 @@ export function changeCard(value){
 export function menuToggle(value){
   return {
     type: MENU_TOGGLE,
+    value
+  };
+}
+
+export function changeMessage(value){
+  return {
+    type: CHANGE_MESSAGE,
     value
   };
 }

@@ -5,12 +5,18 @@ import { CHANGE_FILTER_PACKAGE,
 				 IS_EDIT_PACKAGE,
          CHANGE_PAGINATION_PACKAGE,
          CHANGE_CARD,
+         CHANGE_MESSAGE,
          NEW_PACKAGE } from '../constants/ActionTypes';
 
 const assign = Object.assign;
 
 let defaultState = {
     isCreatingPackage: false,
+    message: {
+      error: false,
+      success: false,
+      info: ''
+    },
     filterPackage: "",
     isActiveSearch: false,
 		paginationPackage: 3,
@@ -36,6 +42,8 @@ const flags = (state = defaultState, action) => {
             return assign({}, state, {cardEditing: action.value});
         case MENU_TOGGLE:
           return assign({}, state, {menuToggle: action.value});
+        case CHANGE_MESSAGE:
+          return assign({}, state, { message: {...state.message, ...action.value }});
         default:
             return state;
     }

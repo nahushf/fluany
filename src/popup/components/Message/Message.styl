@@ -1,0 +1,70 @@
+.error-container
+  position absolute
+  background color-2
+  display flex
+  opacity 0
+  visibility hidden
+  top 10px
+  left 75px
+  padding 10px
+  border-radius 4px
+  max-width 255px
+  &:before
+    content ""
+    position absolute
+    width 10px
+    height 10px
+    background color-2
+    left -3px
+    top 20px
+    transform rotate(45deg)
+  .error-message
+    margin 0
+    color #FFF
+  .alert-icon
+    width 30px
+    height 30px
+    margin-right 8px
+    fill #FFF
+  &.error, &.success
+    animation .3s 1 showMessage
+    animation-fill-mode forwards
+  .error-close{
+    position absolute
+    cursor pointer
+    width 14px
+    height 14px
+    right 4px
+    top 4px
+    &:before, &:after {
+      content ""
+      position absolute
+      background #FFF
+      width 3px
+      height 10px
+      right 5px
+      top 1px
+    }
+    &:after{
+      transform rotate(45deg)
+    }
+    &:before{
+      transform rotate(-45deg)
+    }
+  }
+
+
+@keyframes showMessage {
+
+  from {
+    transform translateY(15px)
+    opacity 0
+    visibility hidden
+  }
+
+  to {
+    transform translateY(0)
+    opacity 1
+    visibility visible
+  }
+}
