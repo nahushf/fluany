@@ -145,8 +145,13 @@ function configGenerator(isDevelopment, Manifest) {
         // NOTE Aliasing
         // If you want to override some path with another. Good for importing same version of React across different libraries
         var alias = {
-          // "react$": require.resolve(path.join(__dirname, '../node_modules/react')),
-          // "react/addons$": require.resolve(path.join(__dirname, '../node_modules/react/addons'))
+          '@popup': path.resolve(__dirname, '../src/popup'),
+          '@content': path.resolve(__dirname, '../src/content'),
+          '@background': path.resolve(__dirname, '../src/background'),
+          '@analytics': path.resolve(__dirname, '../src/analytics'),
+          '@_locales': path.resolve(__dirname, '../src/_locales'),
+          '@shared': path.resolve(__dirname, '../src/shared'),
+          '@defaultPackages': path.resolve(__dirname, '../src/defaultPackages')
         };
 
         return alias;
