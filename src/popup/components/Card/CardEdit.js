@@ -1,23 +1,22 @@
 import React from 'react'
 import { isEditingCard } from 'actions/pack'
-import { changeCard } from 'actions/flags'
 import { getIndexThingById } from 'reducers/stateManipulate'
 import * as translator from 'shared/constants/internacionalization'
 
 const CardEdit = ({
-    dispatch,
     packs,
     indexOfPack,
     indexOfCard,
     packageid,
-    cardEditing
+    cardEditing,
+    onChangeCard
 }) => {
   const handleCardFront = e => {
-    dispatch(changeCard({front: e.target.value, back: cardEditing.back}))
+      onChangeCard({front: e.target.value, back: cardEditing.back})
   }
 
   const handleCardBack = e => {
-    dispatch(changeCard({front: cardEditing.front, back: e.target.value}))
+      onChangeCard({front: cardEditing.front, back: e.target.value})
   }
 
   const frontValue = cardEditing.front !== null
@@ -52,8 +51,8 @@ const {
 } = React.PropTypes
 
 CardEdit.propTypes = {
-  dispatch: func.isRequired,
   packs: array.isRequired,
+  onChangeCard: func.isRequired,
   indexOfPack: number.isRequired,
   indexOfCard: number.isRequired,
   cardEditing: object.isRequired

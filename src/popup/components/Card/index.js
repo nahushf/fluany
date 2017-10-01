@@ -18,7 +18,10 @@ import * as translator from 'shared/constants/internacionalization'
  * @return {Component}
  */
 const Card = ({
-    dispatch,
+    onChangeCard,
+    onAllNoEditingCard,
+    onEditingCard,
+    onRemoveCard,
     packs,
     index,
     colorID,
@@ -37,17 +40,17 @@ const Card = ({
 
   const handleClickCard = (e) => {
     if (!isEditing) {
-      dispatch(allNoEditingCard(packageid))
+        onAllNoEditingCard(packageid)
     }
 
     listItem.style.transform = 'translateX(-' + (listItem.getBoundingClientRect().left - 25) + 'px)'
-    dispatch(isEditingCard(!isEditing, 'isEditing', packageid, indexOfCard))
-    dispatch(changeCard({front: null, back: null}))
+    onEditingCard(!isEditing, 'isEditing', packageid, indexOfCard)
+    onChangeCard({front: null, back: null})
   }
 
   const handleRemoveCard = (e) => {
     e.stopPropagation()
-    dispatch(removeCard(packageid, indexOfCard))
+    onRemoveCard(packageid, indexOfCard)
   }
 
   const handleSaveCard = (e) => {
@@ -59,11 +62,11 @@ const Card = ({
     }
 
     if (cardEditing.front !== null) {
-      dispatch(isEditingCard(cardEditing.front, 'front', packageid, indexOfCard))
+        onEditingCard(cardEditing.front, 'front', packageid, indexOfCard)
     }
 
     if (cardEditing.back !== null) {
-      dispatch(isEditingCard(cardEditing.back, 'back', packageid, indexOfCard))
+        onEditingCard(cardEditing.back, 'back', packageid, indexOfCard)
     }
 
     handleClickCard()
@@ -78,18 +81,18 @@ const Card = ({
   const handleCancelCard = (e) => {
     handleClickCard()
     if (isCreating && front === '' && back === '') {
-      dispatch(removeCard(packageid, indexOfCard))
-      dispatch(isEditingCard(false, 'isCreating', packageid, indexOfCard))
+        onRemoveCard(packageid, indexOfCard)
+        onEditingCard(false, 'isCreating', packageid, indexOfCard)
     }
   }
 
   const cardEditProps = {
-    dispatch,
     packs,
     indexOfPack,
     indexOfCard,
     packageid,
-    cardEditing
+    cardEditing,
+    onChangeCard
   }
 
   return (
@@ -122,12 +125,24 @@ const mapStateToProps = (
   }
 }
 
+function mapDispatchToProps(dispatch) {
+  return {
+      onChangeCard: (c) => dispatch(changeCard(c)),
+      onAllNoEditingCard: (id) => dispatch(allNoEditingCard(id)),
+      onEditingCard: (...props) => dispatch(isEditingCard(...props)),
+      onRemoveCard: (...props) => dispatch(removeCard(...props))
+  }
+}
+
 const {
     func, number, array, object, string
 } = React.PropTypes
 
 Card.propTypes = {
-  dispatch: func.isRequired,
+  onChangeCard: func.isRequired,
+  onAllNoEditingCard: func.isRequired,
+  onEditingCard: func.isRequired,
+  onRemoveCard: func.isRequired,
   packs: array.isRequired,
   index: number,
   colorID: number.isRequired,
@@ -135,4 +150,4 @@ Card.propTypes = {
   cardEditing: object.isRequired
 }
 
-export default connect(mapStateToProps)(Card)
+export default connect(mapStateToProps, mapDispatchToProps)(Card)
