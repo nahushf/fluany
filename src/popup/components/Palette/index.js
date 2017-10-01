@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { changeColorID, changePackageColor } from '../../actions/pack';
+import { changeColorID, changePackageColor } from '@popup/actions/pack';
 
 let Palette = ({
     dispatch,

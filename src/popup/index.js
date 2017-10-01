@@ -1,12 +1,12 @@
 import React from 'react';
-import { render } from 'react-dom';
-import { Provider } from 'react-redux';
 import App from './containers/App';
 import configureStore from './store/configureStore';
+import { render } from 'react-dom';
+import { Provider } from 'react-redux';
 import { saveInLocal } from './store/LocalStore.js';
-import '../analytics/analytics';
-import '../analytics/popup';
 import './styl/app.styl';
+import '@analytics/analytics';
+import '@analytics/popup';
 
 const store = configureStore();
 

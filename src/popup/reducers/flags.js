@@ -7,7 +7,7 @@ import { CHANGE_FILTER_PACKAGE,
          CHANGE_CARD,
          LOADING_EDIT_PACKAGES,
          CHANGE_MESSAGE,
-         NEW_PACKAGE } from '../constants/ActionTypes';
+         NEW_PACKAGE } from '@popup/constants/ActionTypes';
 
 const assign = Object.assign;
 

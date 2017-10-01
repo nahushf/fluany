@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { getIndexThingById } from '../../reducers/stateManipulate';
-import { sendEventButton } from '../../../analytics/analytics';
+import { getIndexThingById } from '@popup/reducers/stateManipulate';
+import { sendEventButton } from '@analytics/analytics';
 
 let ExportPack = ({
     packs,

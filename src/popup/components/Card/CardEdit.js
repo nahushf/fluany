@@ -1,8 +1,8 @@
 import React from 'react';
-import { isEditingCard } from '../../actions/pack';
-import { changeCard } from '../../actions/flags';
-import { getIndexThingById } from '../../reducers/stateManipulate';
-import * as translator from '../../../shared/constants/internacionalization';
+import { isEditingCard } from '@popup/actions/pack';
+import { changeCard } from '@popup/actions/flags';
+import { getIndexThingById } from '@popup/reducers/stateManipulate';
+import * as translator from '@shared/constants/internacionalization';
 
 const CardEdit = ({
     dispatch,

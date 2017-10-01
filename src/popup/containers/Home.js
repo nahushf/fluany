@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import PackList from '../components/Pack/PackList';
-import Header from '../components/Header/Header';
+import PackList from '@popup/components/Pack/PackList';
+import Header from '@popup/components/Header';
 
 const Home = ({
     isEdit,

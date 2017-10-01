@@ -1,10 +1,10 @@
 import React from 'react';
 import 'babel-polyfill';
-import { loadPackLocal, createCard } from '../../actions/pack';
-import { editPackageLoading } from '../../actions/flags';
-import { getIndexThingById } from '../../reducers/stateManipulate';
-import { isEditPackage } from '../../actions/flags';
-import { getInLocal } from '../../store/LocalStore';
+import { loadPackLocal, createCard } from '@popup/actions/pack';
+import { editPackageLoading } from '@popup/actions/flags';
+import { getIndexThingById } from '@popup/reducers/stateManipulate';
+import { isEditPackage } from '@popup/actions/flags';
+import { getInLocal } from '@popup/store/LocalStore';
 
 const LoadPacks = ({
     dispatch

@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import * as translator from '../../../shared/constants/internacionalization';
+import * as translator from '@shared/constants/internacionalization';
 
 /**
  * A component to see/edit package's title

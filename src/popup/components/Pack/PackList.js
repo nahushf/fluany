@@ -1,9 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import Create from './Create';
-import Pack from './Pack';
-import MorePackage from './MorePakage';
 import { filter, toLower, take, compose } from 'ramda';
+import Create from './Create';
+import MorePackage from './MorePakage';
+import Pack from './';
 
 /**
  * A component to list store's packs

@@ -15,7 +15,7 @@ import { ADD_PACKAGE,
          IMPORT_PACKAGE,
          COLOR_PROGRESS_PACK,
          ALL_NO_EDITING_CARD,
-         IS_SETTING } from '../constants/ActionTypes';
+         IS_SETTING } from '@popup/constants/ActionTypes';
 
 export function addPackage(value){
 	  return {

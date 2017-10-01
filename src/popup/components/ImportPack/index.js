@@ -1,12 +1,12 @@
 import React from 'react';
 import uuid from 'uuid/v4';
 import { connect } from 'react-redux';
-import { importPackage } from '../../actions/pack';
-import { getIndexThingById } from '../../reducers/stateManipulate';
-import * as translator from '../../../shared/constants/internacionalization';
 import { assoc, compose, merge } from 'ramda';
-import { settingNewPack } from '../../../shared/helpers.js';
-import { sendEventButton } from '../../../analytics/analytics';
+import { importPackage } from '@popup/actions/pack';
+import { getIndexThingById } from '@popup/reducers/stateManipulate';
+import * as translator from '@shared/constants/internacionalization';
+import { settingNewPack } from '@shared/helpers.js';
+import { sendEventButton } from '@analytics/analytics';
 import Icon from './import-icon.png';
 
 /**

@@ -1,7 +1,4 @@
 import uuid from 'uuid/v4';
-console.log(uuid());
-console.log(uuid());
-
 export default [
 {
     id: uuid(),

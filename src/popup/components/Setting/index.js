@@ -1,13 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import SettingPanel from './SettingPanel';
-
-import { isSetting } from '../../actions/pack';
+import { isSetting } from '@popup/actions/pack';
 
 const Setting = ({
-    packageid,
-    dispatch,
-    isShow
+  packageid,
+  dispatch,
+  isShow
 }) => {
 
 	const handleClickSetting = () => {
@@ -16,22 +15,22 @@ const Setting = ({
 
   return (
       <section className={"setting-content" + (isShow ? " show-setting": "")}>
-				<svg className="setting-icon" onClick={handleClickSetting}>
-					<use xlinkHref="#icon-setting"></use>
-				</svg>
-        <SettingPanel packageid={packageid} />
+			<svg className="setting-icon" onClick={handleClickSetting}>
+			<use xlinkHref="#icon-setting"></use>
+			</svg>
+      <SettingPanel packageid={packageid} />
       </section>
   );
 };
 
 const {
-    func, bool, string
+  func, bool, string
 } = React.PropTypes;
 
 Setting.propTypes = {
-    packageid: string.isRequired,
-    dispatch: func.isRequired,
-    isShow: bool.isRequired
+  packageid: string.isRequired,
+  dispatch: func.isRequired,
+  isShow: bool.isRequired
 }
 
 

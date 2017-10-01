@@ -1,14 +1,14 @@
 import React from 'react';
-import Alarm from '../../../shared/Alarms.js';
 import { connect } from 'react-redux';
-import { saveInLocal, getInLocal } from '../../store/LocalStore';
-import { getIndexThingById } from '../../reducers/stateManipulate';
 import { insert, reject, propEq, update, assoc } from 'ramda';
-import * as translator from '../../../shared/constants/internacionalization';
-import { sendEventButton } from '../../../analytics/analytics';
+import Alarm from '@shared/Alarms.js';
+import { saveInLocal, getInLocal } from '@popup/store/LocalStore';
+import { getIndexThingById } from '@popup/reducers/stateManipulate';
+import * as translator from '@shared/constants/internacionalization';
+import { sendEventButton } from '@analytics/analytics';
 import { changePlayPack,
          changePorcentProgress,
-         changeColorProgress } from '../../actions/pack';
+         changeColorProgress } from '@popup/actions/pack';
 
 let Play = ({
     packageid,

@@ -1,3 +1,4 @@
+import { assoc, update, remove, map } from 'ramda';
 import { ADD_PACKAGE,
          CHANGE_PACKAGE_TITLE,
          CHANGE_PACKAGE_DESCRIPTION,
@@ -16,11 +17,10 @@ import { ADD_PACKAGE,
          COLOR_PROGRESS_PACK,
          ALL_NO_EDITING_CARD,
          IMPORT_PACKAGE,
-         IS_EDITING_CARD } from '../constants/ActionTypes';
-import { assoc, update, remove, map } from 'ramda';
-import { getRandomInt } from '../../shared/helpers.js';
+         IS_EDITING_CARD } from '@popup/constants/ActionTypes';
+import packsDefaultState from '@popup/store/packsDefaultStore';
+import { getRandomInt } from '@shared/helpers.js';
 import { getIndexThingById } from './stateManipulate';
-import packsDefaultState from '../store/packsDefaultStore';
 
 const packs = (state = [], action) => {
 		const indexOfThePack = getIndexThingById(state, action.id);

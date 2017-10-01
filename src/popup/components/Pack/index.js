@@ -1,19 +1,19 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { isEditPackage } from '../../actions/flags';
-import Play  from '../Play/Play';
-import Palette from '../Palette/Palette';
-import TitlePack from './TitlePack';
-import Setting from '../Setting/Setting';
-import ExportPack from '../ExportPack/ExportPack.js'
 import DescriptionPack from './DescriptionPack';
 import Delete from './Delete';
+import TitlePack from './TitlePack';
 import Progress from './Progress';
-import * as translator from '../../../shared/constants/internacionalization';
+import Play  from '@popup/components/Play';
+import Palette from '@popup/components/Palette';
+import Setting from '@popup/components/Setting';
+import ExportPack from '@popup/components/ExportPack'
+import { isEditPackage } from '@popup/actions/flags';
+import * as translator from '@shared/constants/internacionalization';
 import { changePackageTitle,
          changePackageDescription,
          changePackageColor,
-         allNoEditingCard } from '../../actions/pack';
+         allNoEditingCard } from '@popup/actions/pack';
 
 /**
  * A component to see Pack information
@@ -123,4 +123,3 @@ Pack.propTypes = {
 }
 
 export default connect()(Pack);
-

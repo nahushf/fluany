@@ -1,10 +1,10 @@
 import React from 'react';
-import { Line } from 'rc-progress';
-import { getInLocal } from '../../store/LocalStore';
 import { find, propEq } from 'ramda';
+import { Line } from 'rc-progress';
+import { getInLocal } from '@popup/store/LocalStore';
 import { changePorcentProgress,
          changeColorProgress,
-         changePlayPack } from '../../actions/pack.js';
+         changePlayPack } from '@popup/actions/pack.js';
 
 const Progress = ({
     dispatch,

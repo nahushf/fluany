@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import PackEdit from '../components/PackEdit/PackEdit';
+import PackEdit from '@popup/components/PackEdit';
 const PackConfig = ({isEdit}) => {
 	if(isEdit.newPackage || isEdit.packageid != null){
 		return (
