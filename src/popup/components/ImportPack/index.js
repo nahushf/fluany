@@ -12,35 +12,40 @@ import Icon from './import-icon.png'
 /**
  * A component to import pack
  *
- * @param  {Function} dispatch   The result from `store.dispatch()`
+ * @param  {Function} onImportPackage  The action to import new package/packages
  * @return {Component}
  */
 
-let ImportPack = ({
-    dispatch }) => {
-  const onReaderLoad = event => {
+function onReaderLoad(event, onImportPackage) {
     const packLoaded = JSON.parse(event.target.result)
     const packages = packLoaded.map(settingNewPack)
-    dispatch(importPackage(packages))
-  }
+    onImportPackage(packages)
+}
 
-  const handleOnChange = (e) => {
+function handleOnChange(e, onImportPackage) {
     sendEventButton('home', 'Import Package')
     const reader = new FileReader()
-    reader.onload = onReaderLoad
+    reader.onload = (e) => onReaderLoad(e, onImportPackage)
     reader.readAsText(e.target.files[0])
-  }
+}
 
-  return (
-    <section className='importPack'>
-      <a href='#'>
-        <label htmlFor='input-import'>
-          <img src={Icon} />
-        </label>
-      </a>
-      <input type='file' id='input-import' onChange={handleOnChange} />
-    </section>
-  )
+let ImportPack = ({
+    onImportPackage
+}) => (<section className='importPack'>
+            <a href='#'>
+                <label htmlFor='input-import'>
+                    <img src={Icon} />
+                </label>
+            </a>
+            <input type='file'
+                    id='input-import'
+                    onChange={(e) => handleOnChange(e, onImportPackage)} />
+        </section>)
+
+function mapDispatchToProps(dispatch) {
+    return {
+        onImportPackage: (pkg) => dispatch(importPackage(pkg))
+    }
 }
 
 const {
@@ -48,7 +53,7 @@ const {
 } = React.PropTypes
 
 ImportPack.propTypes = {
-  dispatch: func.isRequired
+    onImportPackage: func.isRequired
 }
 
-export default ImportPack
+export default connect(null, mapDispatchToProps)(ImportPack)

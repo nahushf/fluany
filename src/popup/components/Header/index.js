@@ -7,14 +7,14 @@ import ImportPack from 'components/ImportPack'
 import ExportPack from 'components/ExportPack'
 import Message from 'components/Message'
 
-const Header = ({ dispatch }) => (
+const Header = () => (
   <div>
-    <LoadPack dispatch={dispatch} />
+    <LoadPack/>
     <Logo />
-    <Message dispatch={dispatch} />
+    <Message />
     <Fish3 />
-    <ExportPack dispatch={dispatch} icon='all' />
-    <ImportPack dispatch={dispatch} />
+    <ExportPack icon='all' />
+    <ImportPack />
     <Search />
   </div>
 )
