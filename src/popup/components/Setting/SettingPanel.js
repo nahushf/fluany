@@ -1,52 +1,51 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import { removePackage, isSetting } from 'actions/pack';
-import { isEditPackage } from 'actions/flags';
+import React from 'react'
+import { connect } from 'react-redux'
+import { removePackage, isSetting } from 'actions/pack'
+import { isEditPackage } from 'actions/flags'
 
 const SettingContent = ({
     dispatch,
     packageid
 }) => {
-
   const handleClickItem = () => {
-      dispatch(isEditPackage({newPackage: false, packageid}))
+    dispatch(isEditPackage({newPackage: false, packageid}))
   }
 
   const handleRemovePack = () => {
-      /* dispatch(isSetting(false, packageid));*/
-      dispatch(removePackage(packageid));
+      /* dispatch(isSetting(false, packageid)); */
+    dispatch(removePackage(packageid))
   }
 
-	return (
-		<section className="setting-panel">
-			<ul>
-				<li className="setting-share">
-            <svg className="share-icon">
-                <use xlinkHref="#icon-share"></use>
-            </svg>
+  return (
+    <section className='setting-panel'>
+      <ul>
+        <li className='setting-share'>
+          <svg className='share-icon'>
+            <use xlinkHref='#icon-share' />
+          </svg>
 
-            <label>Compartilhar</label>
-				</li>
+          <label>Compartilhar</label>
+        </li>
 
-				<li className="setting-edit" onClick={handleClickItem}>
-            <svg className="edit-icon">
-                <use xlinkHref="#icon-edit"></use>
-            </svg>
+        <li className='setting-edit' onClick={handleClickItem}>
+          <svg className='edit-icon'>
+            <use xlinkHref='#icon-edit' />
+          </svg>
 
-            <label>Editar</label>
-				</li>
+          <label>Editar</label>
+        </li>
 
-				<li className="setting-trash" onClick={handleRemovePack}>
-            <svg className="trash-icon">
-                <use xlinkHref="#icon-trash"></use>
-            </svg>
+        <li className='setting-trash' onClick={handleRemovePack}>
+          <svg className='trash-icon'>
+            <use xlinkHref='#icon-trash' />
+          </svg>
 
-            <label>Apagar</label>
-				</li>
+          <label>Apagar</label>
+        </li>
 
-			</ul>
-		</section>
-	);
-};
+      </ul>
+    </section>
+  )
+}
 
-export default connect()(SettingContent);
+export default connect()(SettingContent)

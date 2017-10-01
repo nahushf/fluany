@@ -1,6 +1,6 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import * as translator from 'shared/constants/internacionalization';
+import React from 'react'
+import { connect } from 'react-redux'
+import * as translator from 'shared/constants/internacionalization'
 
 /**
  * A component to see/edit package's title
@@ -10,7 +10,7 @@ import * as translator from 'shared/constants/internacionalization';
  * @return {Component}
  */
 
-let elementTitle = '';
+let elementTitle = ''
 const TitlePack = ({ onChange,
                      title,
                      disabled,
@@ -18,49 +18,47 @@ const TitlePack = ({ onChange,
                      tabIndex,
                      refToComponent,
                      handleEditTitle }) => {
+  const handleRefElement = (element) => {
+    refToComponent(element)
+    elementTitle = element
+  }
+  const handleOnChange = (e) => {
+    onChange(e)
+  }
 
-    const handleRefElement = (element) => {
-        refToComponent(element);
-        elementTitle = element;
-    }
-    const handleOnChange = (e) => {
-        onChange(e);
-    }
-
-    return (
-        <div className="title-package--container">
-            <textarea
-                className="input-title-package"
-                type="text"
-                onChange={handleOnChange}
-                spellCheck="false"
-                maxLength="40"
-                disabled={disabled}
-                autoCorrect="false"
-                tabIndex={tabIndex}
-                ref={handleRefElement}
-                placeholder={ translator.PACK_TITLE_PLACEHOLDER }
-                value={title}>
-            </textarea>
-            <div className="title-edit-icon" onClick={handleEditTitle} title={ translator.PACK_TITLE_PLACEHOLDER }>
-                <svg className="edit-icon">
-                    <use xlinkHref="#icon-edit"></use>
-                </svg>
-            </div>
-        </div>
-    );
+  return (
+    <div className='title-package--container'>
+      <textarea
+        className='input-title-package'
+        type='text'
+        onChange={handleOnChange}
+        spellCheck='false'
+        maxLength='40'
+        disabled={disabled}
+        autoCorrect='false'
+        tabIndex={tabIndex}
+        ref={handleRefElement}
+        placeholder={translator.PACK_TITLE_PLACEHOLDER}
+        value={title} />
+      <div className='title-edit-icon' onClick={handleEditTitle} title={translator.PACK_TITLE_PLACEHOLDER}>
+        <svg className='edit-icon'>
+          <use xlinkHref='#icon-edit' />
+        </svg>
+      </div>
+    </div>
+  )
 }
 
 const {
   func, string, bool
-} = React.PropTypes;
+} = React.PropTypes
 
 TitlePack.propTypes = {
-    onChange: func.isRequired,
-    title: string.isRequired,
-    disabled: string,
-    onClick: func,
-    handleEditTitle: func
-};
+  onChange: func.isRequired,
+  title: string.isRequired,
+  disabled: string,
+  onClick: func,
+  handleEditTitle: func
+}
 
-export default connect()(TitlePack);
+export default connect()(TitlePack)

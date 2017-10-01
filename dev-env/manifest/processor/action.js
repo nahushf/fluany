@@ -1,15 +1,14 @@
 import html from './lib/html'
 
-const process = function({action: {default_popup} = {}, buildPath, scripts}) {
-  if(!default_popup) return
+const process = function ({action: {default_popup} = {}, buildPath, scripts}) {
+  if (!default_popup) return
 
   scripts.push(html(default_popup, buildPath))
 
   return true
 }
 
-export default function(manifest, {buildPath}) {
-
+export default function (manifest, {buildPath}) {
   const {browser_action, page_action} = manifest
 
   const scripts = []

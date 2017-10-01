@@ -5,11 +5,11 @@ import mkdirp from 'mkdirp'
 
 import * as paths from '../../paths'
 import * as log from '../log'
-import * as Remove from '../../remove';
+import * as Remove from '../../remove'
 
-const buildAssetsDir = "$assets"
+const buildAssetsDir = '$assets'
 
-const processAsset = function(object, key, buildPath) {
+const processAsset = function (object, key, buildPath) {
   const assetPath = object[key]
 
   log.pending(`Processing asset '${assetPath}'`)
@@ -17,11 +17,10 @@ const processAsset = function(object, key, buildPath) {
   // Create directory if not exists
   const buildAssetsDirPath = path.join(buildPath, buildAssetsDir)
   try {
-    const buildAssetsDirStats = fs.lstatSync(buildAssetsDirPath);
+    const buildAssetsDirStats = fs.lstatSync(buildAssetsDirPath)
 
-    if(!buildAssetsDirStats.isDirectory())
-      mkdirp.sync(buildAssetsDirPath)
-  } catch(ex) {
+    if (!buildAssetsDirStats.isDirectory()) { mkdirp.sync(buildAssetsDirPath) }
+  } catch (ex) {
     mkdirp.sync(buildAssetsDirPath)
   }
 
@@ -38,8 +37,7 @@ const processAsset = function(object, key, buildPath) {
   return true
 }
 
-export default function(manifest, {buildPath}) {
-
+export default function (manifest, {buildPath}) {
   // Process icons
   if (manifest.icons && Object.keys(manifest.icons).length) {
     _.forEach(manifest.icons, (iconPath, name) => processAsset(manifest.icons, name, buildPath))

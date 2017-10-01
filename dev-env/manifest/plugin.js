@@ -1,21 +1,21 @@
-import SingleEntryPlugin from "webpack/lib/SingleEntryPlugin"
-import MultiEntryPlugin from "webpack/lib/MultiEntryPlugin"
+import SingleEntryPlugin from 'webpack/lib/SingleEntryPlugin'
+import MultiEntryPlugin from 'webpack/lib/MultiEntryPlugin'
 import * as Remove from '../remove'
 
 export default class ManifestPlugin {
-  constructor(Manifest, isDevelopment = true) {
+  constructor (Manifest, isDevelopment = true) {
     this.Manifest = Manifest
     this.isDevelopment = isDevelopment
   }
 
-  apply(compiler) {
+  apply (compiler) {
     this.Manifest.scripts.forEach((script) => {
       // name
       const name = Remove.extension(script)
 
       // item
       let item
-      if(this.isDevelopment) {
+      if (this.isDevelopment) {
         item = [
           'webpack-dev-server/client?https://localhost:3001',
           'webpack/hot/only-dev-server',
@@ -31,11 +31,11 @@ export default class ManifestPlugin {
     })
   }
 
-  itemToPlugin(item, name) {
-    if(Array.isArray(item)) {
-      return new MultiEntryPlugin(null, item, name);
+  itemToPlugin (item, name) {
+    if (Array.isArray(item)) {
+      return new MultiEntryPlugin(null, item, name)
     } else {
-      return new SingleEntryPlugin(null, item, name);
+      return new SingleEntryPlugin(null, item, name)
     }
   }
 }

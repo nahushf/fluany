@@ -1,17 +1,15 @@
 import html from './lib/html'
 
-const process = function({page, buildPath, scripts}) {
-  if(!page) return
+const process = function ({page, buildPath, scripts}) {
+  if (!page) return
 
   scripts.push(html(page, buildPath))
 
   return true
 }
 
-export default function(manifest, {buildPath}) {
-
-  if(!manifest.chrome_url_overrides)
-    return
+export default function (manifest, {buildPath}) {
+  if (!manifest.chrome_url_overrides) { return }
 
   const {bookmarks, history, newtab} = manifest.chrome_url_overrides
 

@@ -1,46 +1,44 @@
 export default class Alarm {
-  constructor(name, period, packageid){
-    this._name = name;
-    this._period = period;
+  constructor (name, period, packageid) {
+    this._name = name
+    this._period = period
   }
 
-  check(callback){
-    let _self = this;
-    chrome.alarms.getAll(function(alarms) {
+  check (callback) {
+    let _self = this
+    chrome.alarms.getAll(function (alarms) {
+      var hasAlarm = alarms.some((a) => {
+        return a.name == _self._name
+      })
 
-      var hasAlarm = alarms.some( (a) => {
-        return a.name == _self._name;
-      });
-
-        if (callback)
-          callback(hasAlarm);
-    });
+      if (callback) { callback(hasAlarm) }
+    })
   }
 
-  create(){
-    console.log("[Alarm] create, interval: %d, name: %s", this._period, this._name);
+  create () {
+    console.log('[Alarm] create, interval: %d, name: %s', this._period, this._name)
     chrome.alarms.create(this._name,
-       {
-          delayInMinutes: this._period,
-          periodInMinutes: this._period
-        }
-    );
+      {
+        delayInMinutes: this._period,
+        periodInMinutes: this._period
+      }
+    )
   }
 
-  cancel(){
-    chrome.alarms.clear(this._name);
-    console.log("[Alarm] cancel");
+  cancel () {
+    chrome.alarms.clear(this._name)
+    console.log('[Alarm] cancel')
   }
 
-  toggle(){
-    //arrow function beacause escope :: this
+  toggle () {
+    // arrow function beacause escope :: this
     this.check((hasAlarm) => {
       if (hasAlarm) {
-        this.cancel();
+        this.cancel()
       } else {
-        this.create();
+        this.create()
       }
-        this.check();
-    });
+      this.check()
+    })
   }
 }

@@ -3,9 +3,9 @@ import path from 'path'
 import mkdirp from 'mkdirp'
 
 import * as log from '../../log'
-import * as Remove from '../../../remove';
+import * as Remove from '../../../remove'
 
-const makeInjector = function(scriptName) {
+const makeInjector = function (scriptName) {
   return (
 `// Injector file for '${scriptName}'
 var context = this;
@@ -26,12 +26,12 @@ request.send();`
   )
 }
 
-export default function(scriptName, buildPath) {
-  if(process.env.NODE_ENV == 'development') {
+export default function (scriptName, buildPath) {
+  if (process.env.NODE_ENV == 'development') {
     log.pending(`Making injector '${scriptName}'`)
 
-    const injectorScript = makeInjector(scriptName);
-    const injectorFilepath = path.join(buildPath, scriptName);
+    const injectorScript = makeInjector(scriptName)
+    const injectorFilepath = path.join(buildPath, scriptName)
     const injectorPath = Remove.file(injectorFilepath)
 
     mkdirp.sync(injectorPath)

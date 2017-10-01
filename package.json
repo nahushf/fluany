@@ -4,7 +4,9 @@
   "scripts": {
     "start": "gulp",
     "test": "nyc mocha --compilers js:babel-core/register --require ./test/helpers.js --require ./test/dom.js --recursive --reporter nyan",
-    "test:auto": "mocha --compilers js:babel-core/register --require ./test/helpers.js --require ./test/dom.js --recursive -w --reporter nyan"
+    "test:auto": "mocha --compilers js:babel-core/register --require ./test/helpers.js --require ./test/dom.js --recursive -w --reporter nyan",
+    "static_test": "standard src/",
+    "static_fix": "standard src/ --fix"
   },
   "engines": {
     "iojs": ">= 2.2.x",
@@ -52,6 +54,7 @@
     "rimraf": "^2.4.2",
     "run-sequence": "^1.1.2",
     "sinon": "^2.1.0",
+    "standard": "^10.0.3",
     "style-loader": "^0.12.3",
     "stylus": "^0.54.5",
     "stylus-loader": "^2.3.1",

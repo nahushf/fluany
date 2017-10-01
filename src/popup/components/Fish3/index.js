@@ -1,9 +1,9 @@
-import React from 'react';
+import React from 'react'
 
 const Fish3 = () => (
-		<svg className="fish-3">
-		<use xlinkHref="#fish-3"></use>
-		</svg>
-);
+  <svg className='fish-3'>
+    <use xlinkHref='#fish-3' />
+  </svg>
+)
 
-export default Fish3;
+export default Fish3

@@ -1,53 +1,52 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import { changeFilterPackage, toggleActiveSearch } from 'actions/flags';
+import React from 'react'
+import { connect } from 'react-redux'
+import { changeFilterPackage, toggleActiveSearch } from 'actions/flags'
 let Search = ({
     dispatch,
     filterPackage,
     isActiveSearch }) => {
+  let refToSearch = ''
+  const handleChangeFilter = e => {
+    dispatch(changeFilterPackage(e.target.value))
+  }
 
-    let refToSearch = '';
-    const handleChangeFilter = e => {
-        dispatch(changeFilterPackage(e.target.value));
-    };
+  const handleClickSearch = () => {
+    refToSearch.focus()
+    dispatch(toggleActiveSearch())
+  }
 
-    const handleClickSearch = () => {
-        refToSearch.focus();
-        dispatch(toggleActiveSearch());
-    }
-
-    return (
-        <section className={"search-content " + (isActiveSearch ? "search-active":"")}>
-            <a><svg className="search-icon" onClick={handleClickSearch}>
-                <use xlinkHref="#icon-search"></use>
-            </svg></a>
-            <input type="search"
-                className="search-input"
-                placeholder="Pesquisar"
-                onChange={handleChangeFilter}
-                ref={(input) => { refToSearch = input; }}
-                value={filterPackage}></input>
-        </section>
-    );
+  return (
+    <section className={'search-content ' + (isActiveSearch ? 'search-active' : '')}>
+      <a><svg className='search-icon' onClick={handleClickSearch}>
+        <use xlinkHref='#icon-search' />
+      </svg></a>
+      <input type='search'
+        className='search-input'
+        placeholder='Pesquisar'
+        onChange={handleChangeFilter}
+        ref={(input) => { refToSearch = input }}
+        value={filterPackage} />
+    </section>
+  )
 }
 
 const mapStateToProps = (
     state
 ) => {
-    return {
-        filterPackage: state.flags.filterPackage,
-        isActiveSearch: state.flags.isActiveSearch
-    };
-};
+  return {
+    filterPackage: state.flags.filterPackage,
+    isActiveSearch: state.flags.isActiveSearch
+  }
+}
 
 const {
     func, bool, string
-} = React.PropTypes;
+} = React.PropTypes
 
 Search.propTypes = {
-    dispatch: func.isRequired,
-    filterPackage: string,
-    isActiveSearch: bool
+  dispatch: func.isRequired,
+  filterPackage: string,
+  isActiveSearch: bool
 }
 
-export default connect(mapStateToProps)(Search);
+export default connect(mapStateToProps)(Search)

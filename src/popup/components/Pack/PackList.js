@@ -1,9 +1,9 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import { filter, toLower, take, compose } from 'ramda';
-import Create from './Create';
-import MorePackage from './MorePakage';
-import Pack from './';
+import React from 'react'
+import { connect } from 'react-redux'
+import { filter, toLower, take, compose } from 'ramda'
+import Create from './Create'
+import MorePackage from './MorePakage'
+import Pack from './'
 
 /**
  * A component to list store's packs
@@ -15,27 +15,26 @@ let PackList = ({
     packs,
     filterPackage
     }) => {
-    return (
-        <section className="pack-container">
-				    <ul className="packs-content">
-                { filterPackage === "" ? <Create/> : null }
-                {packs.map(pack =>
-                        <Pack
-                         key={pack.id}
-                         {...pack}/>
+  return (
+    <section className='pack-container'>
+      <ul className='packs-content'>
+        { filterPackage === '' ? <Create /> : null }
+        {packs.map(pack =>
+          <Pack
+            key={pack.id}
+            {...pack} />
                  )}
-				    </ul>
-            <MorePackage/>
-            <svg className="fish-2">
-                <use xlinkHref="#fish-2"></use>
-            </svg>
-            <svg className="fish-2 bro">
-                <use xlinkHref="#fish-2"></use>
-            </svg>
-        </section>
-    );
+      </ul>
+      <MorePackage />
+      <svg className='fish-2'>
+        <use xlinkHref='#fish-2' />
+      </svg>
+      <svg className='fish-2 bro'>
+        <use xlinkHref='#fish-2' />
+      </svg>
+    </section>
+  )
 }
-
 
 /**
  * A function to take the packages in accordance with the store's pagination
@@ -48,12 +47,11 @@ const getVisiblePackages = (
     pagination,
     filterPackage
 ) => {
-    if(filterPackage === ""){
-        return take(pagination, packs);
-    }
-    return packs;
+  if (filterPackage === '') {
+    return take(pagination, packs)
+  }
+  return packs
 }
-
 
 /**
  * A function to filter packages in accordance with the store's filter
@@ -65,39 +63,37 @@ const getSearchPackages = (
     packs,
     filterPackage
 ) => {
-    if(filterPackage !== ""){
-        return filter(pack => {
-                    let title = toLower(pack.title);
-                    let description = toLower(pack.description);
+  if (filterPackage !== '') {
+    return filter(pack => {
+      let title = toLower(pack.title)
+      let description = toLower(pack.description)
 
-                    return title.indexOf(filterPackage) != -1
-                        || description.indexOf(filterPackage) != -1;
+      return title.indexOf(filterPackage) != -1 ||
+                        description.indexOf(filterPackage) != -1
+    }, packs)
+  }
 
-                }, packs);
-    }
-
-    return packs;
+  return packs
 }
 
 const mapStateToProps = (
   state
 ) => ({
-      packs: getVisiblePackages(
+  packs: getVisiblePackages(
                 getSearchPackages(state.packs, state.flags.filterPackage),
                 state.flags.paginationPackage, state.flags.filterPackage
       ),
-    filterPackage: state.flags.filterPackage
-    }
-);
-
+  filterPackage: state.flags.filterPackage
+}
+)
 
 const {
   array
-} = React.PropTypes;
+} = React.PropTypes
 
 PackList.propTypes = {
-    packs: array.isRequired
-};
+  packs: array.isRequired
+}
 
 export default connect(
-    mapStateToProps)(PackList);
+    mapStateToProps)(PackList)

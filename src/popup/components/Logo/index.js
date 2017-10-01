@@ -1,12 +1,12 @@
-import React from 'react';
+import React from 'react'
 
 const Logo = () => (
   <div>
-    <svg className="octopus-logo" >
-    <use xlinkHref="#octopus"></use>
+    <svg className='octopus-logo' >
+      <use xlinkHref='#octopus' />
     </svg>
-    <h1 className="logo-title"><span className="flu">Flu</span><span className="any">any</span></h1>
+    <h1 className='logo-title'><span className='flu'>Flu</span><span className='any'>any</span></h1>
   </div>
-);
+)
 
-export default Logo;
+export default Logo

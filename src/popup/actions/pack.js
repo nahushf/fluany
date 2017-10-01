@@ -15,144 +15,142 @@ import { ADD_PACKAGE,
          IMPORT_PACKAGE,
          COLOR_PROGRESS_PACK,
          ALL_NO_EDITING_CARD,
-         IS_SETTING } from 'constants/ActionTypes';
+         IS_SETTING } from 'constants/ActionTypes'
 
-export function addPackage(value){
+export function addPackage (value) {
 	  return {
 		    type: ADD_PACKAGE,
-        value
-	  };
-}
-
-export function loadPackLocal(value){
-	return {
-		type: LOAD_PACKS_LOCAL,
     value
-	};
+	  }
 }
 
-export function removePackage(id){
-	return {
-		type: REMOVE_PACKAGE,
-		id
-	};
+export function loadPackLocal (value) {
+  return {
+    type: LOAD_PACKS_LOCAL,
+    value
+  }
 }
 
-export function changePackageTitle(id, value){
-    return {
-        type: CHANGE_PACKAGE_TITLE,
-        value,
-        id
-    };
+export function removePackage (id) {
+  return {
+    type: REMOVE_PACKAGE,
+    id
+  }
 }
 
-export function changePackageDescription(id, value){
-    return {
-        type: CHANGE_PACKAGE_DESCRIPTION,
-        value,
-        id
-    };
+export function changePackageTitle (id, value) {
+  return {
+    type: CHANGE_PACKAGE_TITLE,
+    value,
+    id
+  }
 }
 
-export function changeColorID(value, id){
-    return {
-        type: CHANGE_PACKAGE_COLORID,
-        value,
-        id
-    };
+export function changePackageDescription (id, value) {
+  return {
+    type: CHANGE_PACKAGE_DESCRIPTION,
+    value,
+    id
+  }
 }
 
-export function changePackageColor(value, id){
-    return {
-      type: CHANGE_PACKAGE_COLOR,
-        value,
-        id
-    };
+export function changeColorID (value, id) {
+  return {
+    type: CHANGE_PACKAGE_COLORID,
+    value,
+    id
+  }
 }
 
-export function changeTimePackage(value, id){
-	return {
-		type: CHANGE_TIME_PACKAGE,
-		value,
-		id
-	};
+export function changePackageColor (value, id) {
+  return {
+    type: CHANGE_PACKAGE_COLOR,
+    value,
+    id
+  }
 }
 
+export function changeTimePackage (value, id) {
+  return {
+    type: CHANGE_TIME_PACKAGE,
+    value,
+    id
+  }
+}
 
-export function isSetting(value, id){
+export function isSetting (value, id) {
   return {
     type: IS_SETTING,
     value,
     id
-  };
+  }
 }
 
-export function changePorcentProgress(value, id){
+export function changePorcentProgress (value, id) {
   return {
     type: PORCENT_PROGRESS_PACK,
     id: id,
     value
-  };
+  }
 }
 
-export function changeColorProgress(value, id){
+export function changeColorProgress (value, id) {
   return {
     type: COLOR_PROGRESS_PACK,
     id: id,
     value
-  };
+  }
 }
 
-export function changePlayPack(value, id){
+export function changePlayPack (value, id) {
   return {
     type: CHANGE_PLAY_PACK,
     value,
     id
-  };
+  }
 }
 
-export function importPackage(value){
+export function importPackage (value) {
   return {
     type: IMPORT_PACKAGE,
     value
-  };
+  }
 }
 
 /*
 ** CARDS ACTIONS
 */
 
-export function isEditingCard(value, prop, id, indexCard){
+export function isEditingCard (value, prop, id, indexCard) {
 	  return {
 		    type: IS_EDITING_CARD,
 		    value,
-        prop,
+    prop,
 		    id,
-        indexCard
-	  };
-}
-
-export function removeCard(id, indexCard){
-	return {
-		type: REMOVE_CARD,
-		id,
     indexCard
-	};
+	  }
 }
 
-export function createCard(id, idCard, value){
+export function removeCard (id, indexCard) {
+  return {
+    type: REMOVE_CARD,
+    id,
+    indexCard
+  }
+}
+
+export function createCard (id, idCard, value) {
 	  return {
 		    type: CREATE_CARD,
 		    id,
-        idCard,
-        value
-	  };
+    idCard,
+    value
+	  }
 }
 
-export function allNoEditingCard(id){
+export function allNoEditingCard (id) {
   return {
     type: ALL_NO_EDITING_CARD,
     id: id
-  };
+  }
 }
-

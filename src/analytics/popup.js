@@ -1,1 +1,1 @@
-ga('send', 'pageview', '/popup.html');
+ga('send', 'pageview', '/popup.html')

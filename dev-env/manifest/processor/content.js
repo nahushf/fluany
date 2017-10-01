@@ -2,10 +2,10 @@ import _ from 'lodash'
 
 import script from './lib/script'
 
-export default function(manifest, {buildPath}) {
+export default function (manifest, {buildPath}) {
   const {content_scripts} = manifest
 
-  if(!content_scripts) return
+  if (!content_scripts) return
 
   const scripts = []
 

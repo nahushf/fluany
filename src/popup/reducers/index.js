@@ -1,10 +1,10 @@
-import { combineReducers } from 'redux';
-import packs from './packs';
-import flags from './flags';
+import { combineReducers } from 'redux'
+import packs from './packs'
+import flags from './flags'
 
 const app = combineReducers({
-    packs,
-    flags
-});
+  packs,
+  flags
+})
 
-export default app;
+export default app

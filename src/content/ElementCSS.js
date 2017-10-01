@@ -1,5 +1,5 @@
 export const initCSS = (wrapper) => {
-	let css = `
+  let css = `
   .fadeOut{
     opacity: 0;
     visibility: hidden;
@@ -343,17 +343,17 @@ export const initCSS = (wrapper) => {
 	}
  `,
 
-	head = document.head || document.getElementsByTagName('head')[0],
-	style = document.createElement('style');
+    head = document.head || document.getElementsByTagName('head')[0],
+    style = document.createElement('style')
 
-	style.type = 'text/css';
+  style.type = 'text/css'
 
-	if ( style.styleSheet ){
-		style.styleSheet.cssText = css;
-	} else {
-		style.appendChild(document.createTextNode(css));
-	}
+  if (style.styleSheet) {
+    style.styleSheet.cssText = css
+  } else {
+    style.appendChild(document.createTextNode(css))
+  }
 
-	head.appendChild(style);
-	document.body.appendChild(wrapper);
-};
+  head.appendChild(style)
+  document.body.appendChild(wrapper)
+}

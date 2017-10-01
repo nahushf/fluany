@@ -1,7 +1,7 @@
 import fs from 'fs'
 import path from 'path'
 // import chokidar from 'chokidar'
-import rimraf from 'rimraf';
+import rimraf from 'rimraf'
 import mkdirp from 'mkdirp'
 
 import processors from './processors'
@@ -9,18 +9,18 @@ import * as log from './log'
 import * as paths from '../paths'
 
 export default class Manifest {
-  constructor(path) {
+  constructor (path) {
     this.path = path
   }
 
-  run() {
+  run () {
     this.prepareBuildDir()
     this.processManifest()
     this.writeManifest()
   }
 
   // Start as plugin in webpack
-  apply() {
+  apply () {
     this.run()
     // this.watch()
   }
@@ -33,8 +33,8 @@ export default class Manifest {
   //   this.processManifest()
   // }
 
-  prepareBuildDir() {
-    if(process.env.NODE_ENV == "development") {
+  prepareBuildDir () {
+    if (process.env.NODE_ENV == 'development') {
       this.buildPath = paths.build
     } else {
       this.buildPath = paths.releaseBuild
@@ -45,18 +45,18 @@ export default class Manifest {
     fs.mkdirSync(this.buildPath)
   }
 
-  writeManifest() {
-    const manifestPath = path.join(this.buildPath, "manifest.json");
+  writeManifest () {
+    const manifestPath = path.join(this.buildPath, 'manifest.json')
     log.pending(`Making 'build/manifest.json'`)
     fs.writeFileSync(manifestPath, JSON.stringify(this.manifest, null, 2), {encoding: 'utf8'})
     log.done()
   }
 
-  loadManifest() {
+  loadManifest () {
     return JSON.parse(fs.readFileSync(this.path, 'utf8'))
   }
 
-  processManifest() {
+  processManifest () {
     this.scripts = []
     this.manifest = this.loadManifest()
 
@@ -70,11 +70,10 @@ export default class Manifest {
     return true
   }
 
-  applyProcessorResult({manifest, scripts} = {}) {
-    if(manifest)
-      this.manifest = manifest
+  applyProcessorResult ({manifest, scripts} = {}) {
+    if (manifest) { this.manifest = manifest }
 
-    if(scripts) {
+    if (scripts) {
       // TODO validace na skripty
       // const pushScriptName = function(scriptName) {
       //   const scriptPath = path.join(paths.src, scriptName)

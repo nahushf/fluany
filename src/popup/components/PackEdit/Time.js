@@ -1,50 +1,49 @@
-import React from 'react';
-import InputRange from 'react-input-range';
-import { connect } from 'react-redux';
-import { changeTimePackage } from 'actions/pack';
-import { getIndexThingById } from 'reducers/stateManipulate';
+import React from 'react'
+import InputRange from 'react-input-range'
+import { connect } from 'react-redux'
+import { changeTimePackage } from 'actions/pack'
+import { getIndexThingById } from 'reducers/stateManipulate'
 
 let Time = ({
   dispatch,
 	packs,
 	packageid
 }) => {
+  const handleTimeChange = (component, value) => {
+		  dispatch(changeTimePackage(value, packageid))
+  }
 
-	const handleTimeChange = (component, value) => {
-		  dispatch(changeTimePackage(value, packageid));
-	};
+  return (
+    <section className='time-container'>
+      <h2 className='time-title'>Escolha o seu intervalo de estudo:</h2>
 
-	return (
-		  <section className="time-container">
-          <h2 className="time-title">Escolha o seu intervalo de estudo:</h2>
-
-        <InputRange
-            maxValue={50}
-            minValue={1}
-            value={packs[getIndexThingById(packs, packageid)].timeMinutes}
-            onChange={handleTimeChange}
-            defaultValue={4}
-            labelSuffix="min"
+      <InputRange
+        maxValue={50}
+        minValue={1}
+        value={packs[getIndexThingById(packs, packageid)].timeMinutes}
+        onChange={handleTimeChange}
+        defaultValue={4}
+        labelSuffix='min'
         />
-		</section>
-	);
+    </section>
+  )
 }
 
 const mapStateToProps = (
   state
 ) => {
   return {
-		packs: state.packs
-  };
-};
+    packs: state.packs
+  }
+}
 
 const {
     func, array, number
-} = React.PropTypes;
+} = React.PropTypes
 
 Time.propTypes = {
-    dispatch: func.isRequired,
-    packs: array.isRequired,
+  dispatch: func.isRequired,
+  packs: array.isRequired
 }
 
-export default connect(mapStateToProps)(Time);
+export default connect(mapStateToProps)(Time)
