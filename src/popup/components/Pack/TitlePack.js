@@ -11,17 +11,20 @@ import * as translator from 'shared/constants/internacionalization'
  */
 
 let elementTitle = ''
-const TitlePack = ({ onChange,
-                     title,
-                     disabled,
-                     onClick,
-                     tabIndex,
-                     refToComponent,
-                     handleEditTitle }) => {
+const TitlePack = ({
+    onChange,
+    title,
+    disabled,
+    onClick,
+    tabIndex,
+    refToComponent,
+    handleEditTitle
+}) => {
   const handleRefElement = (element) => {
     refToComponent(element)
     elementTitle = element
   }
+
   const handleOnChange = (e) => {
     onChange(e)
   }

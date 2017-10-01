@@ -17,15 +17,13 @@ let MorePackage = ({
     packs,
     filterPackage,
     paginationPackage }) => {
-  const handleClickMorePack = () => {
-    dispatch(changePagination())
-  }
 
-  let isPagination = paginationPackage >= packs.length || filterPackage !== ''
+  const handleClickMorePack = () => dispatch(changePagination())
+  const isPagination = paginationPackage >= packs.length || filterPackage !== ''
   return (
     <section className={'more-package--content ' + (isPagination ? 'more-package--hidden' : '')}>
-      <button className='more-package--button btn'
-        onClick={handleClickMorePack}>+ { translator.PACK_LOAD_MORE }</button>
+        <button className='more-package--button btn'
+                onClick={handleClickMorePack}>+ { translator.PACK_LOAD_MORE }</button>
     </section>
   )
 }
@@ -36,8 +34,7 @@ const mapStateToProps = (
   packs: state.packs,
   paginationPackage: state.flags.paginationPackage,
   filterPackage: state.flags.filterPackage
-}
-)
+})
 
 const {
   func, array, number

@@ -4,7 +4,9 @@ import { changeFilterPackage, toggleActiveSearch } from 'actions/flags'
 let Search = ({
     dispatch,
     filterPackage,
-    isActiveSearch }) => {
+    isActiveSearch
+}) => {
+
   let refToSearch = ''
   const handleChangeFilter = e => {
     dispatch(changeFilterPackage(e.target.value))
@@ -17,9 +19,11 @@ let Search = ({
 
   return (
     <section className={'search-content ' + (isActiveSearch ? 'search-active' : '')}>
-      <a><svg className='search-icon' onClick={handleClickSearch}>
-        <use xlinkHref='#icon-search' />
-      </svg></a>
+        <a>
+            <svg className='search-icon' onClick={handleClickSearch}>
+                <use xlinkHref='#icon-search' />
+            </svg>
+        </a>
       <input type='search'
         className='search-input'
         placeholder='Pesquisar'

@@ -1,10 +1,10 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { insert, reject, propEq, update, assoc } from 'ramda'
+import { update, assoc } from 'ramda'
 import Alarm from 'shared/Alarms'
-import { saveInLocal, getInLocal } from 'store/LocalStore'
-import { getIndexThingById } from 'reducers/stateManipulate'
 import * as translator from 'shared/constants/internacionalization'
+import { getIndexThingById } from 'reducers/stateManipulate'
+import { saveInLocal, getInLocal } from 'store/LocalStore'
 import { sendEventButton } from 'analytics/analytics'
 import { changePlayPack,
          changePorcentProgress,
@@ -34,12 +34,12 @@ let Play = ({
       }
       if (percentage === 100 && !playing) {
         getInLocal('packsInTraning')
-                .then((packsInTraning) => {
-                  const index = getIndexThingById(packsInTraning, packageid)
-                  const packsInTraningWithCardsRestarted = update(index, assoc('cards', cards, packsInTraning[index]), packsInTraning)
-                  saveInLocal('packsInTraning', packsInTraningWithCardsRestarted)
-                  dispatch(changePorcentProgress(0, packageid))
-                })
+            .then((packsInTraning) => {
+                const index = getIndexThingById(packsInTraning, packageid)
+                const packsInTraningWithCardsRestarted = update(index, assoc('cards', cards, packsInTraning[index]), packsInTraning)
+                saveInLocal('packsInTraning', packsInTraningWithCardsRestarted)
+                dispatch(changePorcentProgress(0, packageid))
+            })
       }
     }
   }

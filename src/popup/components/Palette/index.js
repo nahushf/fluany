@@ -6,7 +6,8 @@ let Palette = ({
     dispatch,
     packageid,
     isChanging,
-    colorID}) => {
+    colorID
+}) => {
   const handleChangeColor = (e, colorid) => {
     e.stopPropagation()
     dispatch(changeColorID(colorid, packageid))

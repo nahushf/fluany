@@ -14,7 +14,7 @@ import Pack from './'
 let PackList = ({
     packs,
     filterPackage
-    }) => {
+}) => {
   return (
     <section className='pack-container'>
       <ul className='packs-content'>
