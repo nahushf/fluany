@@ -1,8 +1,8 @@
 import React from 'react'
-import TooltipCard from '../../../src/popup/components/Card/TooltipCard'
 import { Provider } from 'react-redux'
 import configureMockStore from 'redux-mock-store'
-import packsDefaultStore from '../../../src/popup/store/packsDefaultStore'
+import TooltipCard from 'components/Card/TooltipCard'
+import packsDefaultStore from 'store/packsDefaultStore'
 
 describe('Card/ <TooltipCard />', () => {
   const mockStore = configureMockStore([])

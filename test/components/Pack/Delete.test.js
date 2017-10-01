@@ -1,7 +1,7 @@
 import React from 'react'
-import Delete from '../../../src/popup/components/Pack/Delete'
 import { Provider } from 'react-redux'
 import configureMockStore from 'redux-mock-store'
+import Delete from 'components/Pack/Delete'
 
 describe('Pack/ <Delete />', () => {
   const mockStore = configureMockStore([])

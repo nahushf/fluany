@@ -1,7 +1,7 @@
 import React from 'react'
-import Create from '../../../src/popup/components/Pack/Create'
 import { Provider } from 'react-redux'
 import configureMockStore from 'redux-mock-store'
+import Create from 'components/Pack/Create'
 import thunk from 'redux-thunk'
 
 describe('Pack/ <Create />', () => {

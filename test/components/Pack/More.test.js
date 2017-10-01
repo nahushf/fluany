@@ -1,7 +1,7 @@
 import React from 'react'
-import MorePackage from '../../../src/popup/components/Pack/MorePakage'
 import { Provider } from 'react-redux'
 import configureMockStore from 'redux-mock-store'
+import MorePackage from 'components/Pack/MorePakage'
 
 describe('Pack/ <MorePackage />', () => {
   const mockStore = configureMockStore([])

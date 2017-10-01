@@ -1,7 +1,7 @@
 import React from 'react'
-import TitlePack from '../../../src/popup/components/Pack/TitlePack'
 import { Provider } from 'react-redux'
 import configureMockStore from 'redux-mock-store'
+import TitlePack from 'components/Pack/TitlePack'
 
 describe('Pack/ <TitlePack />', () => {
   const mockStore = configureMockStore([])

@@ -1,7 +1,7 @@
 import React from 'react'
-import DescriptionPack from '../../../src/popup/components/Pack/DescriptionPack'
 import { Provider } from 'react-redux'
 import configureMockStore from 'redux-mock-store'
+import DescriptionPack from 'components/Pack/DescriptionPack'
 
 describe('Pack/ <DescriptionPack />', () => {
   const mockStore = configureMockStore([])
