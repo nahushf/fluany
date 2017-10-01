@@ -1,7 +1,7 @@
-import { getInLocal, saveInLocal } from '../popup/store/LocalStore';
-import { sendEventButton } from '../analytics/analytics';
-import * as translator from '../shared/constants/internacionalization';
 import 'babel-polyfill';
+import { getInLocal, saveInLocal } from 'store/LocalStore';
+import { sendEventButton } from 'analytics/analytics';
+import * as translator from 'shared/constants/internacionalization';
 
 const PARENT_CONTEXT_ADD_PACKAGES = chrome.contextMenus.create({"title": translator.CONTEXT_ADD_PACKAGE, "contexts": ['selection']});
 // const PARENT_CONTEXT_EDIT_PACKAGES = chrome.contextMenus.create({"title": translator.CONTEXT_EDIT_IN_PACKAGE});

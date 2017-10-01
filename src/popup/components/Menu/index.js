@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import ImportPack from '@popup/components/ImportPack';
-import ExportPack from '@popup/components/ExportPack';
-import { menuToggle } from '@popup/actions/flags';
+import ImportPack from 'components/ImportPack';
+import ExportPack from 'components/ExportPack';
+import { menuToggle } from 'actions/flags';
 
 let Menu = ({
   dispatch,

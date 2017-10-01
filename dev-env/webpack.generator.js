@@ -145,13 +145,11 @@ function configGenerator(isDevelopment, Manifest) {
         // NOTE Aliasing
         // If you want to override some path with another. Good for importing same version of React across different libraries
         var alias = {
-          '@popup': path.resolve(__dirname, '../src/popup'),
-          '@content': path.resolve(__dirname, '../src/content'),
-          '@background': path.resolve(__dirname, '../src/background'),
-          '@analytics': path.resolve(__dirname, '../src/analytics'),
-          '@_locales': path.resolve(__dirname, '../src/_locales'),
-          '@shared': path.resolve(__dirname, '../src/shared'),
-          '@defaultPackages': path.resolve(__dirname, '../src/defaultPackages')
+          'components': path.resolve(__dirname, '../src/popup/components'),
+          'constants': path.resolve(__dirname, '../src/popup/constants'),
+          'actions': path.resolve(__dirname, '../src/popup/actions'),
+          'reducers': path.resolve(__dirname, '../src/popup/reducers'),
+          'store': path.resolve(__dirname, '../src/popup/store')
         };
 
         return alias;

@@ -1,11 +1,11 @@
 import React from 'react';
 import uuid from 'uuid/v4';
 import { connect } from 'react-redux';
-import { addPackage } from '@popup/actions/pack';
-import { newPackage, isEditPackage, changeMessage } from '@popup/actions/flags';
-import { sendMessageBackground } from '@shared/helpers.js';
-import { sendEventButton } from '@analytics/analytics';
-import * as translator from '@shared/constants/internacionalization';
+import { addPackage } from 'actions/pack';
+import { newPackage, isEditPackage, changeMessage } from 'actions/flags';
+import { sendMessageBackground } from 'shared/helpers.js';
+import { sendEventButton } from 'analytics/analytics';
+import * as translator from 'shared/constants/internacionalization';
 
 /**
  * A component to Create pack

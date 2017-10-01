@@ -5,8 +5,8 @@ import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import { saveInLocal } from './store/LocalStore.js';
 import './styl/app.styl';
-import '@analytics/analytics';
-import '@analytics/popup';
+import 'analytics/analytics';
+import 'analytics/popup';
 
 const store = configureStore();
 

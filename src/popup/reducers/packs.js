@@ -17,9 +17,9 @@ import { ADD_PACKAGE,
          COLOR_PROGRESS_PACK,
          ALL_NO_EDITING_CARD,
          IMPORT_PACKAGE,
-         IS_EDITING_CARD } from '@popup/constants/ActionTypes';
-import packsDefaultState from '@popup/store/packsDefaultStore';
-import { getRandomInt } from '@shared/helpers.js';
+         IS_EDITING_CARD } from 'constants/ActionTypes';
+import packsDefaultState from 'store/packsDefaultStore';
+import { getRandomInt } from 'shared/helpers.js';
 import { getIndexThingById } from './stateManipulate';
 
 const packs = (state = [], action) => {

@@ -1,16 +1,16 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { assoc, isNil } from 'ramda';
-import TitlePack from '@popup/components/Pack/TitlePack';
-import DescriptionPack from '@popup/components/Pack/DescriptionPack';
-import Cards from '@popup/components/Card/Cards';
+import TitlePack from 'components/Pack/TitlePack';
+import DescriptionPack from 'components/Pack/DescriptionPack';
+import Cards from 'components/Card/Cards';
 import Time from './Time';
-import Play from '@popup/components/Play';
-import * as translator from '@shared/constants/internacionalization';
+import Play from 'components/Play';
+import * as translator from 'shared/constants/internacionalization';
 import { changePackageTitle,
-         changePackageDescription } from '@popup/actions/pack';
-import { newPackage, isEditPackage } from '@popup/actions/flags';
-import { getIndexThingById } from '@popup/reducers/stateManipulate';
+         changePackageDescription } from 'actions/pack';
+import { newPackage, isEditPackage } from 'actions/flags';
+import { getIndexThingById } from 'reducers/stateManipulate';
 
 let PackEdit = ({
     dispatch,

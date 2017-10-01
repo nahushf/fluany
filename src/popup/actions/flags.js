@@ -6,7 +6,7 @@ import { CHANGE_FILTER_PACKAGE,
          CHANGE_MESSAGE,
          MENU_TOGGLE,
 				 IS_EDIT_PACKAGE,
-         NEW_PACKAGE } from '@popup/constants/ActionTypes.js';
+         NEW_PACKAGE } from 'constants/ActionTypes.js';
 
 
 

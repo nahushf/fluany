@@ -1,6 +1,6 @@
 import React from 'react';
-import { removePackage } from '@popup/actions/pack';
-import * as translator from '@shared/constants/internacionalization';
+import { removePackage } from 'actions/pack';
+import * as translator from 'shared/constants/internacionalization';
 
 const Delete = ({
 	dispatch,

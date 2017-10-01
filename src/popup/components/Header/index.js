@@ -1,11 +1,11 @@
 import React from 'react';
-import Fish3 from '@popup/components/Fish3';
-import Logo from '@popup/components/Logo';
-import Search from '@popup/components/Search';
-import LoadPack from '@popup/components/LoadPacks';
-import ImportPack from '@popup/components/ImportPack';
-import ExportPack from '@popup/components/ExportPack';
-import Message from '@popup/components/Message';
+import Fish3 from 'components/Fish3';
+import Logo from 'components/Logo';
+import Search from 'components/Search';
+import LoadPack from 'components/LoadPacks';
+import ImportPack from 'components/ImportPack';
+import ExportPack from 'components/ExportPack';
+import Message from 'components/Message';
 
 const Header = ({ dispatch }) => (
   <div>

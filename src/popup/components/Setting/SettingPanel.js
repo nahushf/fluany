@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { removePackage, isSetting } from '@popup/actions/pack';
-import { isEditPackage } from '@popup/actions/flags.js';
+import { removePackage, isSetting } from 'actions/pack';
+import { isEditPackage } from 'actions/flags';
 
 const SettingContent = ({
     dispatch,

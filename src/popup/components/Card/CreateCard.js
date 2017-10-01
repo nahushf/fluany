@@ -1,9 +1,9 @@
 import React from 'react';
 import uuid from 'uuid/v4';
 import { connect } from 'react-redux';
-import { createCard, isEditingCard } from '@popup/actions/pack';
-import { getIndexThingById } from '@popup/reducers/stateManipulate';
-import * as translator from '@shared/constants/internacionalization';
+import { createCard, isEditingCard } from 'actions/pack';
+import { getIndexThingById } from 'reducers/stateManipulate';
+import * as translator from 'shared/constants/internacionalization';
 
 /**
  * A component to Create card

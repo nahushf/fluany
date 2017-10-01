@@ -1,8 +1,8 @@
 import React from 'react';
 import InputRange from 'react-input-range';
 import { connect } from 'react-redux';
-import { changeTimePackage } from '@popup/actions/pack';
-import { getIndexThingById } from '@popup/reducers/stateManipulate';
+import { changeTimePackage } from 'actions/pack';
+import { getIndexThingById } from 'reducers/stateManipulate';
 
 let Time = ({
   dispatch,

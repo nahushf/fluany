@@ -1,5 +1,5 @@
 import React from 'react';
-import * as  translator from '@shared/constants/internacionalization';
+import * as  translator from 'shared/constants/internacionalization';
 
 const TooltipCard = ({
     back,

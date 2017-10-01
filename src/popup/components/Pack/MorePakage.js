@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { changePagination } from '@popup/actions/flags';
-import * as translator from '@shared/constants/internacionalization';
+import { changePagination } from 'actions/flags';
+import * as translator from 'shared/constants/internacionalization';
 
 /**
  * A component to click and see more package

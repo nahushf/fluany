@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import SettingPanel from './SettingPanel';
-import { isSetting } from '@popup/actions/pack';
+import { isSetting } from 'actions/pack';
 
 const Setting = ({
   packageid,

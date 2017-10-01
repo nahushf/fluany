@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { changeMessage } from '@popup/actions/flags';
+import { changeMessage } from 'actions/flags';
 
 const Message = ({ dispatch, message }) => {
   const onClose = () => dispatch(changeMessage({ error: false }))

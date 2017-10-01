@@ -1,6 +1,6 @@
+import { sendMessageBackground } from 'shared/helpers';
+import { sendEventButton } from 'analytics/analytics';
 import { initCSS } from './ElementCSS.js';
-import { sendMessageBackground } from '../shared/helpers';
-import { sendEventButton } from '../analytics/analytics';
 
 const drawElementAsk = (front, back, doSuccess, alarmName, periodInMinutes) => {
 		let elementIsShowing = true;

@@ -1,9 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { map,  } from 'ramda';
-import Card from '@popup/components/Card';
+import Card from 'components/Card';
+import { getIndexThingById } from 'reducers/stateManipulate.js';
 import CreateCard from './CreateCard';
-import { getIndexThingById } from '@popup/reducers/stateManipulate.js';
 
 /**
  * A component to list store's packs

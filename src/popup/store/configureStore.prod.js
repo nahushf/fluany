@@ -1,5 +1,5 @@
 import { createStore, applyMiddleware } from 'redux';
-import rootReducer from '@popup/reducers/index';
+import rootReducer from 'reducers/index';
 
 export default function configureStore(initialState) {
     const store = createStore(rootReducer, initialState);

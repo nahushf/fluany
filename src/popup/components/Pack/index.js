@@ -4,16 +4,16 @@ import DescriptionPack from './DescriptionPack';
 import Delete from './Delete';
 import TitlePack from './TitlePack';
 import Progress from './Progress';
-import Play  from '@popup/components/Play';
-import Palette from '@popup/components/Palette';
-import Setting from '@popup/components/Setting';
-import ExportPack from '@popup/components/ExportPack'
-import { isEditPackage } from '@popup/actions/flags';
-import * as translator from '@shared/constants/internacionalization';
+import Play  from 'components/Play';
+import Palette from 'components/Palette';
+import Setting from 'components/Setting';
+import ExportPack from 'components/ExportPack'
+import * as translator from 'shared/constants/internacionalization';
+import { isEditPackage } from 'actions/flags';
 import { changePackageTitle,
          changePackageDescription,
          changePackageColor,
-         allNoEditingCard } from '@popup/actions/pack';
+         allNoEditingCard } from 'actions/pack';
 
 /**
  * A component to see Pack information

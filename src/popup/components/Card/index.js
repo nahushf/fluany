@@ -3,11 +3,11 @@ import { connect } from 'react-redux';
 import { inc, head, isEmpty, prop } from 'ramda';
 import CardEdit from './CardEdit';
 import TooltipCard from './TooltipCard';
-import { isEditingCard, removeCard, allNoEditingCard } from '@popup/actions/pack';
-import { changeCard } from '@popup/actions/flags';
-import { getIndexThingById } from '@popup/reducers/stateManipulate';
-import { getInLocal } from '@popup/store/LocalStore';
-import * as translator from '@shared/constants/internacionalization';
+import { isEditingCard, removeCard, allNoEditingCard } from 'actions/pack';
+import { changeCard } from 'actions/flags';
+import { getIndexThingById } from 'reducers/stateManipulate';
+import { getInLocal } from 'store/LocalStore';
+import * as translator from 'shared/constants/internacionalization';
 
 /**
  * A Card -> <Front and Back>

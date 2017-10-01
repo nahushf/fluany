@@ -1,7 +1,7 @@
-import { getInLocal, saveInLocal } from '../popup/store/LocalStore';
-import { getIndexThingById } from '../popup/reducers/stateManipulate';
-import { getRandomInt } from '../shared/helpers';
 import { dec, insert, update, assoc, propEq, reject, find, head } from 'ramda';
+import { getInLocal, saveInLocal } from 'store/LocalStore';
+import { getIndexThingById } from 'reducers/stateManipulate';
+import { getRandomInt } from 'shared/helpers';
 import { drawElementAsk } from './ElementAsk.js';
 
 export const loadPacks = async (idPackOfTheAlarm) => {
