@@ -2,6 +2,14 @@ import React from 'react'
 import { removePackage } from 'actions/pack'
 import * as translator from 'shared/constants/internacionalization'
 
+/**
+ * A component to delete a Pack
+ *
+ * @param  {Function} dispatch   The result from `store.dispatch()`
+ * @param  {String} packageid   The package's id to remove
+ * @param  {Boolean} playing   The package needs to be stopped
+ * @return {Component}
+ */
 const Delete = ({
 	dispatch,
 	packageid,
@@ -24,11 +32,13 @@ const Delete = ({
 }
 
 const {
-    func, string
+    func, string, bool
 } = React.PropTypes
 
 Delete.propTypes = {
-  dispatch: func.isRequired
+    dispatch: func.isRequired,
+    packageid: string.isRequired,
+    playing: bool.isRequired
 }
 
 export default Delete
