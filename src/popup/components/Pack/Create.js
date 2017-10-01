@@ -9,37 +9,45 @@ import * as translator from 'shared/constants/internacionalization'
 
 /**
  * A component to Create pack
- *
- * @param  {Function} dispatch   The result from `store.dispatch()`
+ * @param {Function} onChangeMessage  A function to dispatch action to show message
+ * @param {Function} onEditPackage  A function to dispatch action to edit package
+ * @param {Function} onAddPackage  A function to dispatch action to add package in flags store
+ * @param {Function} onNewPackage  A function to dispatch action to add package in packs store
  * @return {Component}
  */
 let Create = ({
+    onChangeMessage,
+    onEditPackage,
+    onAddPackage,
+    onNewPackage,
     titleEdited,
-    dispatch }) => {
+}) => {
   const handleClickCreate = () => {
     sendEventButton('home', 'Create Package')
     const newPackageId = uuid()
     if (titleEdited === '') {
-      dispatch(changeMessage({
+      onChangeMessage({
         error: true,
         info: translator.MESSAGE_ERROR_CREATE_PACKAGE
-      }))
+      })
     } else {
-      dispatch(changeMessage({
+      onChangeMessage({
         error: false,
         success: false,
         info: ''
-      }))
-      dispatch(isEditPackage({newPackage: true, packageid: newPackageId}))
-      dispatch(addPackage({id: newPackageId, title: titleEdited}))
-      dispatch(newPackage({title: '', description: ''})) // initial
-      sendMessageBackground({ name: 'updateContextAddPackages',
-        trigger: { title: titleEdited, id: newPackageId }})
+      })
+      onEditPackage({ newPackage: true, packageid: newPackageId })
+      onAddPackage({id: newPackageId, title: titleEdited})
+      onNewPackage({title: '', description: ''})
+      sendMessageBackground({
+        name: 'updateContextAddPackages',
+        trigger: { title: titleEdited, id: newPackageId }
+      })
     }
   }
 
   const handleInputNewPackage = (e) => {
-    dispatch(newPackage({title: e.target.value, description: ''}))
+    onNewPackage({title: e.target.value, description: ''})
   }
 
   const Creating = () => (
@@ -74,14 +82,26 @@ const mapStateToProps = (
   titleEdited: state.flags.newPackage.title
 })
 
+function mapDispatchToProps(dispatch) {
+  return {
+    onChangeMessage: (message) => dispatch(changeMessage(message)),
+    onEditPackage: (pkg) => dispatch(isEditPackage(pkg)),
+    onAddPackage: (pkg) => dispatch(addPackage(pkg)),
+    onNewPackage: (pkg) => dispatch(newPackage(pkg)),
+  }
+}
+
 const {
-    func, number, string
+    func, string
 } = React.PropTypes
 
 Create.propTypes = {
-  titleEdited: string.isRequired,
-  dispatch: func.isRequired
+  onChangeMessage: func.isRequired,
+  onEditPackage: func.isRequired,
+  onAddPackage: func.isRequired,
+  onNewPackage: func.isRequired,
+  titleEdited: string.isRequired
 }
 
-export default connect(
-    mapStateToProps)(Create)
+export default connect(mapStateToProps, mapDispatchToProps)(Create)
+

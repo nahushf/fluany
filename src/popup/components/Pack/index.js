@@ -36,7 +36,8 @@ let Pack = ({
     colorID,
     cards,
     isChangingColor,
-    isSetting }) => {
+    isSetting
+}) => {
   let inRefToTitle = ''
 
   const refToComponentTitle = input => {
