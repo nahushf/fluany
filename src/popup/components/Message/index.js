@@ -24,12 +24,12 @@ const mapStateToProps = (
 })
 
 const {
-  func, number, string
+  func, number, string, object
 } = React.PropTypes
 
 Message.propTypes = {
-  dispatch: func.isRequired
+  dispatch: func.isRequired,
+  message: object.isRequired
 }
 
-export default connect(
-  mapStateToProps)(Message)
+export default connect(mapStateToProps)(Message)

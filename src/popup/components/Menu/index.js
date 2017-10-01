@@ -9,9 +9,7 @@ let Menu = ({
   packs,
   active
 }) => {
-  const handleClick = () => {
-    dispatch(menuToggle(!active))
-  }
+  const handleClick = () => dispatch(menuToggle(!active))
 
   return (
     <section className={'menu-container ' + (active ? 'active' : '')} onClick={handleClick}>
@@ -20,7 +18,7 @@ let Menu = ({
       </svg>
       <ul className='menu-list'>
         <li>
-          <ImportPack dispatch={dispatch} />
+          <ImportPack />
           <label>Import pack</label>
         </li>
         <li>

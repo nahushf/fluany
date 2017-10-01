@@ -1,6 +1,5 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { map } from 'ramda'
 import Card from 'components/Card'
 import { getIndexThingById } from 'reducers/stateManipulate.js'
 import CreateCard from './CreateCard'

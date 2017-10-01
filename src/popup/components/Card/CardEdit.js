@@ -11,13 +11,9 @@ const CardEdit = ({
     cardEditing,
     onChangeCard
 }) => {
-  const handleCardFront = e => {
-      onChangeCard({front: e.target.value, back: cardEditing.back})
-  }
+  const handleCardFront = e => onChangeCard({front: e.target.value, back: cardEditing.back})
 
-  const handleCardBack = e => {
-      onChangeCard({front: cardEditing.front, back: e.target.value})
-  }
+  const handleCardBack = e => onChangeCard({front: cardEditing.front, back: e.target.value})
 
   const frontValue = cardEditing.front !== null
                      ? cardEditing.front
