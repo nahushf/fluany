@@ -5,6 +5,7 @@ import { CHANGE_FILTER_PACKAGE,
 				 IS_EDIT_PACKAGE,
          CHANGE_PAGINATION_PACKAGE,
          CHANGE_CARD,
+         LOADING_EDIT_PACKAGES,
          CHANGE_MESSAGE,
          NEW_PACKAGE } from '../constants/ActionTypes';
 
@@ -12,6 +13,7 @@ const assign = Object.assign;
 
 let defaultState = {
     isCreatingPackage: false,
+    editPackageLoading: false,
     message: {
       error: false,
       success: false,
@@ -44,6 +46,8 @@ const flags = (state = defaultState, action) => {
           return assign({}, state, {menuToggle: action.value});
         case CHANGE_MESSAGE:
           return assign({}, state, { message: {...state.message, ...action.value }});
+        case LOADING_EDIT_PACKAGES:
+          return assign({}, state, { editPackageLoading: action.value });
         default:
             return state;
     }

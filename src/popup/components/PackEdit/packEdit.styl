@@ -85,3 +85,17 @@
       transition all .2s ease
       float right 
       margin-right 5px 
+
+.load-packages-container
+  position fixed
+  left 0
+  top 0
+  width 100%
+  height 100%
+  z-index 10000
+  opacity 0
+  visibility hidden
+  &.loading
+    opacity 1
+    visibility visible
+    background #FFF

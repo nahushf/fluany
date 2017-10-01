@@ -16,11 +16,7 @@ let Time = ({
 
 	return (
 		  <section className="time-container">
-          <h2 className="time-title">Escolha o seu intervalo de estudo:
-							<svg className="info-icon">
-								<use xlinkHref="#icon-info"></use>
-							</svg>
-          </h2>
+          <h2 className="time-title">Escolha o seu intervalo de estudo:</h2>
 
         <InputRange
             maxValue={50}

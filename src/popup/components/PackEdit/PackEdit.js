@@ -15,6 +15,7 @@ import { getIndexThingById } from '../../reducers/stateManipulate';
 let PackEdit = ({
     dispatch,
     isEdit,
+    loading,
     packflag,
     packs
 }) => {
@@ -55,6 +56,7 @@ let PackEdit = ({
 					</button>
 				</nav>
 				<div>
+          <div className={'load-packages-container' + (loading ? ' loading' : '')}></div>
 					<TitlePack {...titleProps}/>
           <Time packageid={isEdit.packageid}/>
           <Cards indexOfPack={indexOfPack} packageid={isEdit.packageid}/>
@@ -71,7 +73,8 @@ const mapStateToProps = (
   return {
       isEdit: state.flags.isEditPackage,
       packflag: state.flags.newPackage,
-      packs: state.packs
+      loading: state.flags.editPackageLoading,
+      packs: state.packs,
   };
 };
 
@@ -83,7 +86,8 @@ PackEdit.propTypes = {
     dispatch: func.isRequired,
     isEdit: object.isRequired,
     packflag: object.isRequired,
-    packs: array.isRequired
+    packs: array.isRequired,
+    loading: bool.isRequired
 };
 
 export default connect(mapStateToProps)(PackEdit);

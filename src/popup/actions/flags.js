@@ -1,6 +1,7 @@
 import { CHANGE_FILTER_PACKAGE,
          CHANGE_PAGINATION_PACKAGE,
          TOGGLE_ACTIVE_SEARCH,
+         LOADING_EDIT_PACKAGES,
          CHANGE_CARD,
          CHANGE_MESSAGE,
          MENU_TOGGLE,
@@ -61,6 +62,13 @@ export function menuToggle(value){
 export function changeMessage(value){
   return {
     type: CHANGE_MESSAGE,
+    value
+  };
+}
+
+export function editPackageLoading(value){
+  return {
+    type: LOADING_EDIT_PACKAGES,
     value
   };
 }
