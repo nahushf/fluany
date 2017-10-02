@@ -117,5 +117,10 @@
   "messageCreatePackage": {
     "message": "Voce precisa inserir um título para criar sua lista de estudos.",
     "description": "Label to show error when the user dont type the package name"
+  },
+
+  "messagePlayPackageEmpty": {
+    "message": "Esta lista de estudos está vazia.",
+    "description": "Label to empty packages"
   }
 }

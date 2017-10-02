@@ -6,6 +6,7 @@ import * as translator from 'shared/constants/internacionalization'
 import { getIndexThingById } from 'reducers/stateManipulate'
 import { saveInLocal, getInLocal } from 'store/LocalStore'
 import { sendEventButton } from 'analytics/analytics'
+import { changeMessage } from 'actions/flags'
 import { changePlayPack,
          changePorcentProgress,
          changeColorProgress } from 'actions/pack'
@@ -41,6 +42,11 @@ let Play = ({
                 dispatch(changePorcentProgress(0, packageid))
             })
       }
+    }else{
+      dispatch(changeMessage({
+        error: true,
+        info: translator.MESSAGE_ERROR_EMPTY_PACKAGE
+      }))
     }
   }
 

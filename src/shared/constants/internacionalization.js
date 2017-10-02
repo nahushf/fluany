@@ -33,3 +33,5 @@ export const PACK_STOP_LABEL = chrome.i18n.getMessage('packStop')
 // MESSAGES -> ERRORS, SUCCESS, WARNING
 
 export const MESSAGE_ERROR_CREATE_PACKAGE = chrome.i18n.getMessage('messageCreatePackage')
+export const MESSAGE_ERROR_EMPTY_PACKAGE = chrome.i18n.getMessage('messagePlayPackageEmpty')
+
