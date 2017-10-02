@@ -142,6 +142,8 @@ Unsure where to begin contributing to Fluany? You can start by looking through t
     
 ## Styleguides
 
+[![js-standard-style](https://cdn.rawgit.com/standard/standard/master/badge.svg)](http://standardjs.com)
+
 ### Git Commit Messages
 
 * Use the present tense ("Add feature" not "Added feature")
