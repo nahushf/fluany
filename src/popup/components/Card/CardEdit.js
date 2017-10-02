@@ -1,3 +1,10 @@
+/**
+ * @fileOverview The component to edit a card (Back and front)
+ * @name CardEdit.js
+ * @author <a href="https://github.com/victorvoid">Victor Igor</a>
+ * @license MIT
+ */
+
 import React from 'react'
 import { isEditingCard } from 'actions/pack'
 import { getIndexThingById } from 'reducers/stateManipulate'
@@ -11,17 +18,24 @@ const CardEdit = ({
     cardEditing,
     onChangeCard
 }) => {
-  const handleCardFront = e => onChangeCard({front: e.target.value, back: cardEditing.back})
 
-  const handleCardBack = e => onChangeCard({front: cardEditing.front, back: e.target.value})
+  const handleCardFront = e => onChangeCard({
+    front: e.target.value,
+    back: cardEditing.back
+  })
 
-  const frontValue = cardEditing.front !== null
-                     ? cardEditing.front
-                     : packs[indexOfPack].cards[indexOfCard].front
+  const handleCardBack = e => onChangeCard({
+    front: cardEditing.front,
+    back: e.target.value
+  })
 
-  const backValue = cardEditing.back !== null
-                    ? cardEditing.back
-                    : packs[indexOfPack].cards[indexOfCard].back
+  const frontValue = cardEditing.front !== null ?
+    cardEditing.front :
+    packs[indexOfPack].cards[indexOfCard].front
+
+  const backValue = cardEditing.back !== null ?
+    cardEditing.back :
+    packs[indexOfPack].cards[indexOfCard].back
 
   return (
     <div className='card-edit-container'>
@@ -46,6 +60,14 @@ const {
     func, number, array, object
 } = React.PropTypes
 
+/**
+ * PropTypes
+ * @property {Array} All the packs availables
+ * @property {Function} Function to call when the inputs is changed
+ * @property {Number} The index of pack to change
+ * @property {Number} The index of card to change
+ * @property {Object} The object of the card is being changed
+ */
 CardEdit.propTypes = {
   packs: array.isRequired,
   onChangeCard: func.isRequired,
