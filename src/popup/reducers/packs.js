@@ -1,3 +1,9 @@
+/**
+ * @fileOverview All reducers of packs, they provide a separate reducer function to manage each individual data slice.
+ * @name packs.js<reducers>
+ * @author <a href="https://github.com/victorvoid">Victor Igor</a>
+ * @license MIT
+ */
 import { assoc, update, remove, map } from 'ramda'
 import { ADD_PACKAGE,
          CHANGE_PACKAGE_TITLE,

@@ -1,7 +1,7 @@
 /**
  * @fileOverview All the flags actions
  * @name flags.js<actions>
- * @author Victor Igor
+ * @author <a href="https://github.com/victorvoid">Victor Igor</a>
  * @license MIT
  */
 import {

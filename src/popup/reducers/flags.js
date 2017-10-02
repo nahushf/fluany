@@ -1,3 +1,9 @@
+/**
+ * @fileOverview All reducers of flags, they provide a separate reducer function to manage each individual data slice.
+ * @name flags.js<reducers>
+ * @author <a href="https://github.com/victorvoid">Victor Igor</a>
+ * @license MIT
+ */
 import { toLower } from 'ramda'
 import { CHANGE_FILTER_PACKAGE,
          TOGGLE_ACTIVE_SEARCH,

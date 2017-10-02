@@ -1,7 +1,7 @@
 /**
  * @fileOverview The application main to the popup.
  * @name index.js<popup>
- * @author <a href="https://github.com/victorvoid/fluany">Victor Igor</a>
+ * @author <a href="https://github.com/victorvoid">Victor Igor</a>
  * @license MIT
  */
 

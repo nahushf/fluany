@@ -1,7 +1,7 @@
 /**
  * @fileOverview All the packs actions
  * @name pack.js<actions>
- * @author Victor Igor
+ * @author <a href="https://github.com/victorvoid">Victor Igor</a>
  * @license MIT
  */
 import {
@@ -36,11 +36,11 @@ import {
  * @return {Action}
  *         The action to dispatch
  */
-export function addPackage (value) {
-	  return {
-		    type: ADD_PACKAGE,
+export function addPackage(value) {
+  return {
+    type: ADD_PACKAGE,
     value
-	  }
+  }
 }
 
 /**

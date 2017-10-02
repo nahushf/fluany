@@ -1,3 +1,10 @@
+/**
+ * @fileOverview The default packages to use with examples
+ * @name packsDefaultStore.js
+ * @author <a href="https://github.com/victorvoid">Victor Igor</a>
+ * @license MIT
+ */
+
 import uuid from 'uuid/v4'
 export default [
   {
