@@ -31,6 +31,9 @@ const Progress = ({
             } else {
                 dispatch(changeColorProgress(hight, packageid))
             }
+            if(percentage === 100){
+                dispatch(changePlayPack(false, packageid))
+            }
         }
     })
     .catch(() => {})
