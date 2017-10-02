@@ -1,5 +1,6 @@
 import React from 'react'
 import { removePackage } from 'actions/pack'
+import { changeMessage } from 'actions/flags'
 import * as translator from 'shared/constants/internacionalization'
 
 /**
@@ -19,7 +20,14 @@ const Delete = ({
     // Prevents the event from bubbling up the DOM tree, preventing any parent handlers from being notified of
     // the event.
     e.stopPropagation()
-    if (!playing) { dispatch(removePackage(packageid)) }
+    if (!playing) {
+      dispatch(removePackage(packageid))
+    } else {
+      dispatch(changeMessage({
+        error: true,
+        info: translator.MESSAGE_ERROR_DELETE_PACKAGE
+      }))
+    }
   }
 
   return (

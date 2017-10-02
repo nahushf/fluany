@@ -122,5 +122,10 @@
   "messagePlayPackageEmpty": {
     "message": "This study list is empty.",
     "description": "Label to empty packages"
+  },
+
+  "messageRemovePackPlaying": {
+    "message": "You need to stop the package to remove it.",
+    "description": "Label to stop the package when try remove it"
   }
 }
