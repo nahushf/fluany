@@ -221,7 +221,7 @@ export function importPackage (value) {
 //CARDS ACTIONS
 
 /**
- * Returns a action to change the isEditingCard field of a specific card in packs store
+ * Returns a action to change a prop of a specific card in packs store
  * @param {Boolean} value
  * @param {String} prop The prop config
  * @param {String} id The package id

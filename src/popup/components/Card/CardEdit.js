@@ -6,17 +6,17 @@
  */
 
 import React from 'react'
+import * as translator from 'shared/constants/internacionalization'
 import { isEditingCard } from 'actions/pack'
 import { getIndexThingById } from 'reducers/stateManipulate'
-import * as translator from 'shared/constants/internacionalization'
 
 const CardEdit = ({
-    packs,
-    indexOfPack,
-    indexOfCard,
-    packageid,
-    cardEditing,
-    onChangeCard
+  packs,
+  indexOfPack,
+  indexOfCard,
+  packageid,
+  cardEditing,
+  onChangeCard
 }) => {
 
   const handleCardFront = e => onChangeCard({
@@ -57,16 +57,16 @@ const CardEdit = ({
 }
 
 const {
-    func, number, array, object
+  func, number, array, object
 } = React.PropTypes
 
 /**
  * PropTypes
- * @property {Array} All the packs availables
- * @property {Function} Function to call when the inputs is changed
- * @property {Number} The index of pack to change
- * @property {Number} The index of card to change
- * @property {Object} The object of the card is being changed
+ * @property {Array} packs All the packs availables
+ * @property {Function} onChangeCard Function to call when the inputs is changed
+ * @property {Number} indexOfPack The index of pack to change
+ * @property {Number} indexOfCard The index of card to change
+ * @property {Object} cardEditing The object of the card is being changed
  */
 CardEdit.propTypes = {
   packs: array.isRequired,
