@@ -1,3 +1,10 @@
+/**
+ * @fileOverview A component to export a pack or all packs availables
+ * @name index.js<ExportPack>
+ * @author <a href="https://github.com/victorvoid">Victor Igor</a>
+ * @license MIT
+ */
+
 import React from 'react'
 import { connect } from 'react-redux'
 import { getIndexThingById } from 'reducers/stateManipulate'

@@ -38,7 +38,6 @@ const {
  * @property {Number} packageid The index of pack to change
  * @property {Number} indexOfPack The position(index) of pack that is using
  */
-
 Cards.propTypes = {
   packs: array.isRequired,
   packageid: string.isRequired,

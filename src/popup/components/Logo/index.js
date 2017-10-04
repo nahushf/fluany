@@ -1,3 +1,10 @@
+/**
+ * @fileOverview The logo component
+ * @name index.js<Logo>
+ * @author <a href="https://github.com/victorvoid">Victor Igor</a>
+ * @license MIT
+ */
+
 import React from 'react'
 
 const Logo = () => (

@@ -1,3 +1,10 @@
+/**
+ * @fileOverview The component to show others component in popup header
+ * @name index.js<Header>
+ * @author <a href="https://github.com/victorvoid">Victor Igor</a>
+ * @license MIT
+ */
+
 import React from 'react'
 import Fish3 from 'components/Fish3'
 import Logo from 'components/Logo'
