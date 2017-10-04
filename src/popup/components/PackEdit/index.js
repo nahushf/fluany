@@ -58,7 +58,7 @@ let PackEdit = ({
         <div className={'load-packages-container' + (loading ? ' loading' : '')} />
         <TitlePack {...titleProps} />
         <Time packageid={isEdit.packageid} />
-        <Cards indexOfPack={indexOfPack} packageid={isEdit.packageid} />
+        <Cards packs={packs} indexOfPack={indexOfPack} packageid={isEdit.packageid} />
       </div>
     </section>
   )

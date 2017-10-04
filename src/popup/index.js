@@ -1,3 +1,10 @@
+/**
+ * @fileOverview The application main to the popup.
+ * @name index.js<popup>
+ * @author <a href="https://github.com/victorvoid">Victor Igor</a>
+ * @license MIT
+ */
+
 import React from 'react'
 import App from './containers/App'
 import configureStore from './store/configureStore'
@@ -13,6 +20,7 @@ const store = configureStore()
 store.subscribe(() => {
   saveInLocal('packState', store.getState().packs)
 })
+
 
 render(
   <Provider store={store}>

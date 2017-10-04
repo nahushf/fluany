@@ -1,3 +1,10 @@
+/**
+ * @fileOverview The App container
+ * @name App.js<popup>
+ * @author <a href="https://github.com/victorvoid">Victor Igor</a>
+ * @license MIT
+ */
+
 import React from 'react'
 import { connect } from 'react-redux'
 import configureStore from 'store/configureStore'
