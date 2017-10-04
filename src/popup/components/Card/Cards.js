@@ -12,7 +12,6 @@ import Card from 'components/Card'
 import CreateCard from './CreateCard'
 
 const Cards = ({
-  dispatch,
   packs,
   packageid,
   indexOfPack
@@ -22,38 +21,28 @@ const Cards = ({
   return (
     <section>
       <ul className='card-content'>
-        <CreateCard {...{ packs, packageid, indexOfPack, dispatch }} />
+        <CreateCard {...{ packs, packageid, indexOfPack }} />
         { packs[getIndexThingById(packs, packageid)].cards.map(cardMap) }
       </ul>
     </section>
   )
 }
 
-const mapStateToProps = (
-  state
-) => {
-  return {
-    packs: state.packs
-  }
-}
-
 const {
-  func, number, array, string
+  number, array, string
 } = React.PropTypes
 
 /**
  * PropTypes
- * @property {Function} dispatch The result from `store.dispatch()`
  * @property {Array} packs All the packs availables
  * @property {Number} packageid The index of pack to change
  * @property {Number} indexOfPack The position(index) of pack that is using
  */
 
 Cards.propTypes = {
-  dispatch: func.isRequired,
   packs: array.isRequired,
   packageid: string.isRequired,
   indexOfPack: number.isRequired
 }
 
-export default connect(mapStateToProps)(Cards)
+export default connect()(Cards)

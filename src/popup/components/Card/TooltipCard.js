@@ -28,9 +28,9 @@ const {
 
 /**
  * PropTypes
- * @property {string} back The back card
- * @property {Number} color The color id of the card
- * @property {Function} handleOnDelete The function to get changes of the card
+ * @property {string}  back The back card
+ * @property {Number}  color The color id of the card
+ * @property {Function}  handleOnDelete The function to get changes of the card
  */
 TooltipCard.propTypes = {
   back: string.isRequired,

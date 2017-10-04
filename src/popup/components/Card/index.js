@@ -9,7 +9,7 @@ import * as translator from 'shared/constants/internacionalization'
 import CardEdit from './CardEdit'
 import TooltipCard from './TooltipCard'
 import { connect } from 'react-redux'
-import { inc, head, isEmpty, prop } from 'ramda'
+import { isEmpty, isNil } from 'ramda'
 import { isEditingCard, removeCard, allNoEditingCard } from 'actions/pack'
 import { changeCard } from 'actions/flags'
 import { getIndexThingById } from 'reducers/stateManipulate'
@@ -27,14 +27,11 @@ const Card = ({
   cardEditing
 }) => {
 
-  const indexOfCard = getIndexThingById(packs[indexOfPack].cards, card.id)
   let listItem = ''
+  const indexOfCard = getIndexThingById(packs[indexOfPack].cards, card.id)
   const handleClickCard = (e) => {
-    if (!card.isEditing) {
-      onAllNoEditingCard(packageid)
-    }
-
-    listItem.style.transform = 'translateX(-' + (listItem.getBoundingClientRect().left - 25) + 'px)'
+    onAllNoEditingCard(packageid)
+    listItem.style.transform = `translateX(-${listItem.getBoundingClientRect().left - 25}px)`
     onEditingCard(!card.isEditing, 'isEditing', packageid, indexOfCard)
     onChangeCard({front: null, back: null})
   }
@@ -46,18 +43,18 @@ const Card = ({
 
   const handleSaveCard = (e) => {
     e.stopPropagation()
-        // if is empty, you don't save it :(
-    if (cardEditing.front === '' || cardEditing.back === '' ||
-           (card.isCreating && cardEditing.front === null && cardEditing.back === null)) {
+    // if is empty, you don't save it :(
+    if ((isEmpty(cardEditing.front) || isEmpty(cardEditing.back)) ||
+        (card.isCreating && isNil(cardEditing.front) && isNil(cardEditing.back))) {
       return
     }
 
-    if (cardEditing.front !== null) {
-        onEditingCard(cardEditing.front, 'front', packageid, indexOfCard)
+    if (!isNil(cardEditing.front)) {
+      onEditingCard(cardEditing.front, 'front', packageid, indexOfCard)
     }
 
-    if (cardEditing.back !== null) {
-        onEditingCard(cardEditing.back, 'back', packageid, indexOfCard)
+    if (!isNil(cardEditing.back)) {
+      onEditingCard(cardEditing.back, 'back', packageid, indexOfCard)
     }
 
     handleClickCard()
@@ -72,7 +69,7 @@ const Card = ({
 
   const handleCancelCard = (e) => {
     handleClickCard()
-    if (card.isCreating && card.front === '' && card.back === '') {
+    if (card.isCreating && isEmpty(card.front) && isEmpty(card.back)) {
       onRemoveCard(packageid, indexOfCard)
       onEditingCard(false, 'isCreating', packageid, indexOfCard)
     }
@@ -88,9 +85,9 @@ const Card = ({
   }
 
   return (
-    <li className={'card-item' + (card.isEditing ? ' isEditing' : ' no-editing')} ref={(e) => { listItem = e }}>
+      <li className={`card-item ${card.isEditing ? 'isEditing' : 'no-editing'}`} ref={(e) => { listItem = e }}>
       <CardEdit {...cardEditProps} />
-      <div className={'card-item-block color-' + card.colorID} onClick={handleClickCard}>
+      <div className={`card-item-block color-${card.colorID}`} onClick={handleClickCard}>
         <button className='btn-delete' onClick={handleCancelCard}>
           <span>{translator.CARD_CANCEL}</span>
         </button>
@@ -118,10 +115,10 @@ const mapStateToProps = (
 
 function mapDispatchToProps(dispatch) {
   return {
-      onChangeCard: (c) => dispatch(changeCard(c)),
-      onAllNoEditingCard: (packid) => dispatch(allNoEditingCard(packid)),
-      onEditingCard: (...props) => dispatch(isEditingCard(...props)),
-      onRemoveCard: (...props) => dispatch(removeCard(...props))
+    onChangeCard: (c) => dispatch(changeCard(c)),
+    onAllNoEditingCard: (packid) => dispatch(allNoEditingCard(packid)),
+    onEditingCard: (...props) => dispatch(isEditingCard(...props)),
+    onRemoveCard: (...props) => dispatch(removeCard(...props))
   }
 }
 
@@ -135,10 +132,10 @@ const {
  * @property {Function}  onAllNoEditingCard  A action to close all cards that is being edited
  * @property {Function}  onEditingCard  A action to change a prop in card object (front, back, isEditing, etc)
  * @property {Function}  onRemoveCard  A action to remove a specific card
- * @property {Object} card  All cards of specific package
- * @property {Array} packs  All packages in store
- * @property {Number} indexOfPack  The package position(index)
- * @property {Object} cardEditing The object of the card is being changed
+ * @property {Object}  card  All cards of specific package
+ * @property {Array}  packs  All packages in store
+ * @property {Number}  indexOfPack  The package position(index)
+ * @property {Object}  cardEditing The object of the card is being changed
  */
 Card.propTypes = {
   onChangeCard: func.isRequired,

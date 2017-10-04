@@ -13,7 +13,7 @@ import { createCard, isEditingCard } from 'actions/pack'
 import { getIndexThingById } from 'reducers/stateManipulate'
 
 let CreateCard = ({
-  dispatch,
+  onCreateCard,
   packageid,
   indexOfPack,
   packs
@@ -27,8 +27,7 @@ let CreateCard = ({
       back: '',
       isCreating: true
     }
-    dispatch(createCard(packageid, idNewCard, newCard))
-    // Effect to open the card created
+    onCreateCard(packageid, idNewCard, newCard)
     setTimeout(() => {
       document.querySelector('ul.card-content li:nth-child(2) .card-item-block').click()
     }, 100)
@@ -36,7 +35,7 @@ let CreateCard = ({
 
   return (
     <li key='0'
-        className={'card-item ' + (packs[indexOfPack].cards.length > 0 ? 'card-item--new' : 'card-item--new')}
+        className={`card-item  ${(packs[indexOfPack].cards.length > 0 ? 'card-item--new' : 'card-item--new')}`}
         onClick={handleCreateCard}>
       <a href='#'>
         <div className='card-item-block'>
@@ -48,11 +47,9 @@ let CreateCard = ({
   )
 }
 
-const mapStateToProps = (
-  state
-) => {
+function mapDispatchToProps(dispatch) {
   return {
-    packs: state.packs
+    onCreateCard: (...props) => dispatch(createCard(...props)),
   }
 }
 
@@ -62,14 +59,14 @@ const {
 
 /**
  * PropTypes
- * @property {Function} dispatch The result from `store.dispatch()`
+ * @property {Function} onCreateCard A action to show inputs(front & back) to create a new card
  * @property {Number} indexOfPack The index of pack to change
  * @property {Array} packs All the packs availables
  */
 CreateCard.propTypes = {
-  dispatch: func.isRequired,
+  onCreateCard: func.isRequired,
   indexOfPack: number.isRequired,
   packs: array.isRequired
 }
 
-export default connect(mapStateToProps)(CreateCard)
+  export default connect(null, mapDispatchToProps)(CreateCard)

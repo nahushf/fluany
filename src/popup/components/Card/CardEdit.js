@@ -7,6 +7,7 @@
 
 import React from 'react'
 import * as translator from 'shared/constants/internacionalization'
+import { isNil } from 'ramda'
 import { isEditingCard } from 'actions/pack'
 import { getIndexThingById } from 'reducers/stateManipulate'
 
@@ -29,11 +30,11 @@ const CardEdit = ({
     back: e.target.value
   })
 
-  const frontValue = cardEditing.front !== null ?
+  const frontValue = !isNil(cardEditing.front) ?
     cardEditing.front :
     packs[indexOfPack].cards[indexOfCard].front
 
-  const backValue = cardEditing.back !== null ?
+  const backValue = !isNil(cardEditing.back) ?
     cardEditing.back :
     packs[indexOfPack].cards[indexOfCard].back
 
@@ -62,11 +63,11 @@ const {
 
 /**
  * PropTypes
- * @property {Array} packs All the packs availables
- * @property {Function} onChangeCard Function to call when the inputs is changed
- * @property {Number} indexOfPack The index of pack to change
- * @property {Number} indexOfCard The index of card to change
- * @property {Object} cardEditing The object of the card is being changed
+ * @property {Array}  packs All the packs availables
+ * @property {Function}  onChangeCard Function to call when the inputs is changed
+ * @property {Number}  indexOfPack The index of pack to change
+ * @property {Number}  indexOfCard The index of card to change
+ * @property {Object}  cardEditing The object of the card is being changed
  */
 CardEdit.propTypes = {
   packs: array.isRequired,
