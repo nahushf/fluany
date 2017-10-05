@@ -19,7 +19,6 @@ const App = ({ isEdit }) => (
         right={ <PackConfig /> } />
 )
 
-
 const mapStateToProps = (
   state
 ) => {

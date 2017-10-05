@@ -19,7 +19,7 @@ import { ADD_PACKAGE,
 				 CHANGE_PLAY_PACK,
          LOAD_PACKS_LOCAL,
          CREATE_CARD,
-         PORCENT_PROGRESS_PACK,
+         PERCENT_PROGRESS_PACK,
          COLOR_PROGRESS_PACK,
          ALL_NO_EDITING_CARD,
          IMPORT_PACKAGE,
@@ -57,7 +57,7 @@ const packs = (state = [], action) => {
       return update(indexOfThePack, assoc('timeMinutes', action.value, packOfTheId), state)
     case CHANGE_PLAY_PACK:
       return update(indexOfThePack, assoc('playing', action.value, packOfTheId), state)
-    case PORCENT_PROGRESS_PACK:
+    case PERCENT_PROGRESS_PACK:
       return update(indexOfThePack, assoc('percentage', action.value, packOfTheId), state)
     case COLOR_PROGRESS_PACK:
       return update(indexOfThePack, assoc('colorProgress', action.value, packOfTheId), state)

@@ -1,14 +1,18 @@
+/**
+ * @fileOverview A component to show and change package description
+ * @name DescriptionPack.js
+ * @author <a href="https://github.com/victorvoid">Victor Igor</a>
+ * @license MIT
+ */
+
 import React from 'react'
 import { connect } from 'react-redux'
 import * as translator from 'shared/constants/internacionalization'
-/**
- * A component to see/edit package's description
- *
- * @param  {Function} onChange   A function to receive value when change textarea;
- * @param  {String}   description   The package description
- * @return {Component}
- */
-const DescriptionPack = ({onChange, description}) => (
+
+const DescriptionPack = ({
+    onChange,
+    description
+}) => (
   <div className='description-package--container'>
     <textarea
       className='input-description-package'
@@ -31,6 +35,11 @@ const {
   func, string
 } = React.PropTypes
 
+/**
+ * PropTypes
+ * @property {Function}  onChange  A function to receive value when change textarea
+ * @property {String}  description  The pack description
+ */
 DescriptionPack.propTypes = {
   onChange: func.isRequired,
   description: string.isRequired

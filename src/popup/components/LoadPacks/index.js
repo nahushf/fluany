@@ -10,7 +10,6 @@ import uuid from 'uuid/v4'
 import 'babel-polyfill'
 import { connect } from 'react-redux'
 import { getInLocal } from 'store/LocalStore'
-import { getIndexThingById } from 'reducers/stateManipulate'
 import { editPackageLoading, isEditPackage } from 'actions/flags'
 import { loadPackLocal, createCard } from 'actions/pack'
 

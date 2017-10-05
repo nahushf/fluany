@@ -1,32 +1,30 @@
+/**
+ * @fileOverview A component to delete a pack
+ * @name Delete.js
+ * @author <a href="https://github.com/victorvoid">Victor Igor</a>
+ * @license MIT
+ */
 import React from 'react'
+import { connect } from 'react-redux'
 import { removePackage } from 'actions/pack'
 import { changeMessage } from 'actions/flags'
 import * as translator from 'shared/constants/internacionalization'
 
-/**
- * A component to delete a Pack
- *
- * @param  {Function} dispatch   The result from `store.dispatch()`
- * @param  {String} packageid   The package's id to remove
- * @param  {Boolean} playing   The package needs to be stopped
- * @return {Component}
- */
 const Delete = ({
 	dispatch,
 	packageid,
   playing
 }) => {
+
   const handleRemovePack = (e) => {
-    // Prevents the event from bubbling up the DOM tree, preventing any parent handlers from being notified of
-    // the event.
     e.stopPropagation()
-    if (!playing) {
-      dispatch(removePackage(packageid))
-    } else {
+    if (playing) {
       dispatch(changeMessage({
         error: true,
         info: translator.MESSAGE_ERROR_DELETE_PACKAGE
       }))
+    } else {
+      dispatch(removePackage(packageid))
     }
   }
 
@@ -39,14 +37,29 @@ const Delete = ({
   )
 }
 
+function mapDispatchToProps(dispatch) {
+  return {
+    onRemovePackage: (packageid) => dispatch(removePackage(packageid)),
+    onChangeMessage: (message) => dispatch(changeMessage(message))
+  }
+}
+
 const {
     func, string, bool
 } = React.PropTypes
 
+/**
+ * PropTypes
+ * @property {Function}  onRemovePackage  A action to remove a specific package
+ * @property {Function}  onChangeMessage  A action to show message/feedback
+ * @property {String}  packageid  The package's id to remove
+ * @property {Boolean}  playing  The package needs to be stopped
+ */
 Delete.propTypes = {
-    dispatch: func.isRequired,
-    packageid: string.isRequired,
-    playing: bool.isRequired
+  onRemovePackage: func.isRequired,
+  onChangeMessage: func.isRequired,
+  packageid: string.isRequired,
+  playing: bool.isRequired
 }
 
-export default Delete
+export default connect(null, mapDispatchToProps)(Delete)

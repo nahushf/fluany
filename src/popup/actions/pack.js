@@ -18,7 +18,7 @@ import {
   LOAD_PACKS_LOCAL,
   CREATE_CARD,
   CHANGE_PLAY_PACK,
-  PORCENT_PROGRESS_PACK,
+  PERCENT_PROGRESS_PACK,
   IMPORT_PACKAGE,
   COLOR_PROGRESS_PACK,
   ALL_NO_EDITING_CARD,
@@ -161,14 +161,14 @@ export function isSetting (value, id) {
 
 /**
  * Returns a action to change the progress of a specific package in packs store
- * @param {Number} value The porcentage value
+ * @param {Number} value The percentage value
  * @param {String} id The package id
  * @return {Action}
  *         The action to dispatch
  */
-export function changePorcentProgress (value, id) {
+export function changePercentProgress (value, id) {
   return {
-    type: PORCENT_PROGRESS_PACK,
+    type: PERCENT_PROGRESS_PACK,
     id: id,
     value
   }

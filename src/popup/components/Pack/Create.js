@@ -1,3 +1,10 @@
+/**
+ * @fileOverview A component to create a new Pack
+ * @name Create.js
+ * @author <a href="https://github.com/victorvoid">Victor Igor</a>
+ * @license MIT
+ */
+
 import React from 'react'
 import uuid from 'uuid/v4'
 import { connect } from 'react-redux'
@@ -7,14 +14,6 @@ import { sendMessageBackground } from 'shared/helpers.js'
 import { sendEventButton } from 'analytics/analytics'
 import * as translator from 'shared/constants/internacionalization'
 
-/**
- * A component to Create pack
- * @param {Function} onChangeMessage  A function to dispatch action to show message
- * @param {Function} onEditPackage  A function to dispatch action to edit package
- * @param {Function} onAddPackage  A function to dispatch action to add package in flags store
- * @param {Function} onNewPackage  A function to dispatch action to add package in packs store
- * @return {Component}
- */
 let Create = ({
     onChangeMessage,
     onEditPackage,
@@ -22,6 +21,9 @@ let Create = ({
     onNewPackage,
     titleEdited,
 }) => {
+
+  const handleInputNewPackage = (e) => onNewPackage({title: e.target.value, description: ''})
+
   const handleClickCreate = () => {
     sendEventButton('home', 'Create Package')
     const newPackageId = uuid()
@@ -37,8 +39,8 @@ let Create = ({
         info: ''
       })
       onEditPackage({ newPackage: true, packageid: newPackageId })
-      onAddPackage({id: newPackageId, title: titleEdited})
-      onNewPackage({title: '', description: ''})
+      onAddPackage({ id: newPackageId, title: titleEdited })
+      onNewPackage({ title: '', description: '' })
       sendMessageBackground({
         name: 'updateContextAddPackages',
         trigger: { title: titleEdited, id: newPackageId }
@@ -46,9 +48,6 @@ let Create = ({
     }
   }
 
-  const handleInputNewPackage = (e) => {
-    onNewPackage({title: e.target.value, description: ''})
-  }
 
   const Creating = () => (
     <div className='pack-item--creating'>
@@ -66,12 +65,11 @@ let Create = ({
           onClick={handleClickCreate}>{ translator.PACK_CREATE_BUTTON }</button>
       </div>
     </div>
-
     )
 
   return (
     <li key='0' className='pack-item pack-item--new'>
-      {Creating()}
+      { Creating() }
     </li>
   )
 }
@@ -95,6 +93,14 @@ const {
     func, string
 } = React.PropTypes
 
+/**
+ * PropTypes
+ * @property {Function}  onChangeMessage  A function to dispatch action to show messag
+ * @property {Function}  onEditPackage  A function to dispatch action to edit packag
+ * @property {Function}  onAddPackage  A function to dispatch action to add package in flags store
+ * @property {Function}  onNewPackage  A function to dispatch action to add package in packs store
+ * @property {String}  titleEdited  The title that the user have been written
+ */
 Create.propTypes = {
   onChangeMessage: func.isRequired,
   onEditPackage: func.isRequired,

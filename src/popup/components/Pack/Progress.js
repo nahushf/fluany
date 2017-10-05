@@ -1,18 +1,31 @@
+/**
+ * @fileOverview A componet to show the progress of the user
+ * @name Progress.js
+ * @author <a href="https://github.com/victorvoid">Victor Igor</a>
+ * @license MIT
+ */
+
 import React from 'react'
+import { connect } from 'react-redux'
 import { find, propEq } from 'ramda'
 import { Line } from 'rc-progress'
 import { getInLocal } from 'store/LocalStore'
-import { changePorcentProgress,
-         changeColorProgress,
-         changePlayPack } from 'actions/pack.js'
+import {
+  changePercentProgress,
+  changeColorProgress,
+  changePlayPack
+} from 'actions/pack.js'
 
 const Progress = ({
-    dispatch,
-    packageid,
-    cards,
-    percentage,
-    colorProgress
+  onChangeColorProgres,
+  onChangePercentProgress,
+  onChangePlayPack,
+  packageid,
+  cards,
+  percentage,
+  colorProgress
 }) => {
+
   const low = '#db5656'
   const middle = '#f2d368'
   const hight = '#b2da76'
@@ -23,16 +36,16 @@ const Progress = ({
         if (packWithId) {
             const sizeAccepted = cards.length - packWithId.cards.length
             const updatePercent = (sizeAccepted / cards.length) * 100
-            dispatch(changePorcentProgress(updatePercent, packageid))
+            onChangePercentProgress(updatePercent, packageid)
             if (updatePercent < 50) {
-                dispatch(changeColorProgress(low, packageid))
+              onChangeColorProgress(low, packageid)
             } else if (updatePercent < 70) {
-                dispatch(changeColorProgress(middle, packageid))
+              onChangeColorProgress(middle, packageid)
             } else {
-                dispatch(changeColorProgress(hight, packageid))
+              onChangeColorProgress(hight, packageid)
             }
             if(percentage === 100){
-                dispatch(changePlayPack(false, packageid))
+              onChangePlayPack(false, packageid)
             }
         }
     })
@@ -47,15 +60,36 @@ const Progress = ({
   )
 }
 
+function mapDispatchToProps(dispatch) {
+  return {
+    onChangeColorProgress: (...props) => dispatch(changeColorProgress(...props)),
+    onChangePercentProgress: (...props) => dispatch(changePercentProgress(...props)),
+    onChangePlayPack: (...props) => dispatch(changePlayPack(...props))
+  }
+}
+
 const {
-    func, number, bool, string, array
+    func, number, string, array
 } = React.PropTypes
 
+/**
+ * PropTypes
+ * @property {Function}  onChangeColorProgress  A action to change the color progress of the package
+ * @property {Function}  onChangePercentProgress  A action to change the percent of the package
+ * @property {Function}  onChangeColorProgress  A action to change the color of progress current of the package
+ * @property {String}  packageid  The id of package
+ * @property {Array}  cards  All cards of pack
+ * @property {Number}  percentage  The current percentage
+ * @property {String}  colorProgress  The color progress of the current package
+ */
 Progress.propTypes = {
-  dispatch: func.isRequired,
+  onChangeColorProgress: func.isRequired,
+  onChangePercentProgress: func.isRequired,
+  onChangePlayPack: func.isRequired,
+  packageid: string.isRequired,
   cards: array.isRequired,
-  porcentage: number,
+  percentage: number,
   colorProgress: string
 }
 
-export default Progress
+export default connect(null, mapDispatchToProps)(Progress)

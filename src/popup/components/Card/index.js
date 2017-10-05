@@ -135,7 +135,7 @@ const {
  * @property {Object}  card  All cards of specific package
  * @property {Array}  packs  All packages in store
  * @property {Number}  indexOfPack  The package position(index)
- * @property {Object}  cardEditing The object of the card is being changed
+ * @property {Object}  cardEditing  The object of the card is being changed
  */
 Card.propTypes = {
   onChangeCard: func.isRequired,
