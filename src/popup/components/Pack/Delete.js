@@ -11,7 +11,8 @@ import { changeMessage } from 'actions/flags'
 import * as translator from 'shared/constants/internacionalization'
 
 const Delete = ({
-	dispatch,
+  onRemovePackage,
+  onChangeMessage,
 	packageid,
   playing
 }) => {
@@ -19,12 +20,12 @@ const Delete = ({
   const handleRemovePack = (e) => {
     e.stopPropagation()
     if (playing) {
-      dispatch(changeMessage({
+      onChangeMessage({
         error: true,
         info: translator.MESSAGE_ERROR_DELETE_PACKAGE
-      }))
+      })
     } else {
-      dispatch(removePackage(packageid))
+      onRemovePackage(packageid)
     }
   }
 

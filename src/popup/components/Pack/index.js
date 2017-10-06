@@ -10,34 +10,27 @@ import Setting from 'components/Setting'
 import ExportPack from 'components/ExportPack'
 import * as translator from 'shared/constants/internacionalization'
 import { isEditPackage } from 'actions/flags'
-import { changePackageTitle,
-         changePackageDescription,
-         changePackageColor,
-         allNoEditingCard } from 'actions/pack'
-
-/**
- * A component to see Pack information
- *
- * @param  {Function} dispatch   The result from `store.dispatch()`
- * @param  {String} title   The package's title
- * @param  {Number} id   The package's id to change on Store
- * @param  {Number} colorID   The package's colorid to change package to color
- * @return {Component}
- */
+import {
+  changePackageTitle,
+  changePackageDescription,
+  changePackageColor,
+  allNoEditingCard
+} from 'actions/pack'
 
 let Pack = ({
-    dispatch,
-    title,
-    id,
-    timeMinutes,
-    playing,
-    percentage,
-    colorProgress,
-    colorID,
-    cards,
-    isChangingColor,
-    isSetting
+  dispatch,
+  title,
+  id,
+  timeMinutes,
+  playing,
+  percentage,
+  colorProgress,
+  colorID,
+  cards,
+  isChangingColor,
+  isSetting
 }) => {
+
   let inRefToTitle = ''
 
   const refToComponentTitle = input => {
@@ -111,15 +104,40 @@ const {
     func, number, bool, string, array
 } = React.PropTypes
 
+
+/**
+ * A component to see Pack information
+ *
+ * @param  {Function} dispatch   The result from `store.dispatch()`
+ * @param  {String} title   The package's title
+ * @param  {Number} id   The package's id to change on Store
+ * @param  {Number} colorID   The package's colorid to change package to color
+ * @return {Component}
+ */
+
+/**
+ * PropTypes
+ * @property {Function}  onChangeCard  A function to handler the changes of the card
+ * @property {String}  onAllNoEditingCard  A action to close all cards that is being edited
+ * @property {Function}  onEditingCard  A action to change a prop in card object (front, back, isEditing, etc)
+ * @property {Function}  onRemoveCard  A action to remove a specific card
+ * @property {Object}  card  All cards of specific package
+ * @property {Array}  packs  All packages in store
+ * @property {Number}  indexOfPack  The package position(index)
+ * @property {Object}  cardEditing  The object of the card is being changed
+ */
 Pack.propTypes = {
   dispatch: func.isRequired,
   title: string.isRequired,
+  id: string.isRequired,
   timeMinutes: number.isRequired,
+  playing: bool.isRequired,
   percentage: number,
   colorProgress: string,
   colorID: number.isRequired,
   cards: array.isRequired,
-  isChangingColor: bool.isRequired
+  isChangingColor: bool.isRequired,
+  isSetting: bool.isRequired
 }
 
 export default connect()(Pack)

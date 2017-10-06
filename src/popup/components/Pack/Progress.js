@@ -80,7 +80,7 @@ const {
  * PropTypes
  * @property {Function}  onChangeColorProgress  A action to change the color progress of the package
  * @property {Function}  onChangePercentProgress  A action to change the percent of the package
- * @property {Function}  onChangeColorProgress  A action to change the color of progress current of the package
+ * @property {Function}  onChangePlayPack  A action to change status play of the package
  * @property {String}  packageid  The id of package
  * @property {Array}  cards  All cards of pack
  * @property {Number}  percentage  The current percentage
