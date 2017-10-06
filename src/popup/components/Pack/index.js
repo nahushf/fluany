@@ -89,10 +89,9 @@ let Pack = ({
           title={title}
           cards={cards}
           percentage={percentage || 0}
-          interval={timeMinutes}
-          dispatch={dispatch} />
+          interval={timeMinutes}/>
         <a className='show-pack'>{ translator.PACK_SHOW_LIST }</a>
-        <ExportPack id={id} icon='pack' dispatch={dispatch} isPack />
+        <ExportPack id={id} icon='pack' isPack />
         <Palette {...propsDefault} isChanging={isChangingColor} />
         <Delete {...propsDefault} />
       </a>
@@ -103,17 +102,6 @@ let Pack = ({
 const {
     func, number, bool, string, array
 } = React.PropTypes
-
-
-/**
- * A component to see Pack information
- *
- * @param  {Function} dispatch   The result from `store.dispatch()`
- * @param  {String} title   The package's title
- * @param  {Number} id   The package's id to change on Store
- * @param  {Number} colorID   The package's colorid to change package to color
- * @return {Component}
- */
 
 /**
  * PropTypes
