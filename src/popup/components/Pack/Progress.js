@@ -32,26 +32,30 @@ const Progress = ({
 
   getInLocal('packsInTraning')
     .then((packsInTraning) => {
-        const packWithId = find(propEq('id', packageid), packsInTraning)
-        if (packWithId) {
-            const sizeAccepted = cards.length - packWithId.cards.length
-            const updatePercent = (sizeAccepted / cards.length) * 100
-            onChangePercentProgress(updatePercent, packageid)
-            if (updatePercent < 50) {
-              onChangeColorProgress(low, packageid)
-            } else if (updatePercent < 70) {
-              onChangeColorProgress(middle, packageid)
-            } else {
-              onChangeColorProgress(hight, packageid)
-            }
-            if(percentage === 100){
-              onChangePlayPack(false, packageid)
-            }
-        }
+      const packWithId = find(propEq('id', packageid), packsInTraning)
+      if(packWithId) return packWithId
+      throw new Error('It package is not in training')
+    })
+    .then((packWithId) => {
+      const sizeAccepted = cards.length - packWithId.cards.length
+      return (sizeAccepted / cards.length) * 100
+    })
+    .then((updatePercent) => {
+      onChangePercentProgress(updatePercent, packageid)
+      if (updatePercent < 50) {
+        onChangeColorProgress(low, packageid)
+      } else if (updatePercent < 70) {
+        onChangeColorProgress(middle, packageid)
+      } else {
+        onChangeColorProgress(hight, packageid)
+      }
+      if(percentage === 100){
+        onChangePlayPack(false, packageid)
+      }
     })
     .catch(() => {})
   return (
-    <div className={'progress-panel' + (percentage === 100 ? ' success' : '')}>
+    <div className={`progress-panel ${percentage === 100 ? ' success' : ''}`}>
       <svg className='checkmark-icon'>
         <use xlinkHref='#icon-checkmark' />
       </svg>
