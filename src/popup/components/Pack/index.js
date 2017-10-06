@@ -1,3 +1,9 @@
+/**
+ * @fileOverview A component to show a package
+ * @name index.js<Pack> * @author <a href="https://github.com/victorvoid">Victor Igor</a>
+ * @license MIT
+ */
+
 import React from 'react'
 import { connect } from 'react-redux'
 import DescriptionPack from './DescriptionPack'
@@ -12,13 +18,15 @@ import * as translator from 'shared/constants/internacionalization'
 import { isEditPackage } from 'actions/flags'
 import {
   changePackageTitle,
-  changePackageDescription,
   changePackageColor,
   allNoEditingCard
 } from 'actions/pack'
 
 let Pack = ({
-  dispatch,
+  onChangePackageTitle,
+  onChangePackageColor,
+  onAllNoEditingCard,
+  onIsEditPackage,
   title,
   id,
   timeMinutes,
@@ -37,21 +45,21 @@ let Pack = ({
     inRefToTitle = input
   }
 
-  const handlePackageTitle = e => {
-    dispatch(changePackageTitle(id, e.target.value))
+  const handlePackageTitle = (e) => {
+    onChangePackageTitle(id, e.target.value)
   }
 
   const handleClickItem = (e) => {
     e.preventDefault()
     const anyThingFocused = document.activeElement
     if ((!anyThingFocused || anyThingFocused !== inRefToTitle) && !playing) { // check if any element is focused
-      dispatch(isEditPackage({newPackage: false, packageid: id}))
-      dispatch(allNoEditingCard(id))
+      onIsEditPackage({newPackage: false, packageid: id})
+      onAllNoEditingCard(id)
     }
   }
 
   const handleOnMouseLeave = () => {
-    dispatch(changePackageColor(false, id))
+    onChangePackageColor(false, id)
   }
 
   const handleEditTitle = e => {
@@ -62,14 +70,13 @@ let Pack = ({
 
   const propsDefault = {
     packageid: id,
-    playing,
-    dispatch
+    playing
   }
 
   return (
     <li>
       <a href='#'
-        className={'pack-item color-' + colorID}
+        className={`pack-item color-${colorID}`}
         onClick={handleClickItem}
         onMouseLeave={handleOnMouseLeave}>
         <Progress {...propsDefault}
@@ -99,6 +106,15 @@ let Pack = ({
   )
 }
 
+function mapDispatchToProps(dispatch) {
+  return {
+    onChangePackageTitle: (...props) => dispatch(changePackageTitle(...props)),
+    onChangePackageColor: (...props) => dispatch(changePackageColor(...props)),
+    onAllNoEditingCard: (...props) => dispatch(allNoEditingCard(...props)),
+    onIsEditPackage: (...props) => dispatch(isEditPackage(...props))
+  }
+}
+
 const {
     func, number, bool, string, array
 } = React.PropTypes
@@ -115,7 +131,6 @@ const {
  * @property {Object}  cardEditing  The object of the card is being changed
  */
 Pack.propTypes = {
-  dispatch: func.isRequired,
   title: string.isRequired,
   id: string.isRequired,
   timeMinutes: number.isRequired,
@@ -128,4 +143,4 @@ Pack.propTypes = {
   isSetting: bool.isRequired
 }
 
-export default connect()(Pack)
+export default connect(null, mapDispatchToProps)(Pack)
