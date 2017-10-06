@@ -25,8 +25,10 @@ import { ADD_PACKAGE,
          IMPORT_PACKAGE,
          IS_EDITING_CARD } from 'constants/ActionTypes'
 import packsDefaultState from 'store/packsDefaultStore'
+import { settingNewPack } from 'shared/helpers'
 import { getRandomInt } from 'shared/helpers.js'
 import { getIndexThingById } from './stateManipulate'
+import { packStructured } from 'shared/constants/structures'
 
 const packs = (state = [], action) => {
   const indexOfThePack = getIndexThingById(state, action.id)
@@ -35,11 +37,7 @@ const packs = (state = [], action) => {
     case LOAD_PACKS_LOCAL:
       return action.value
     case ADD_PACKAGE:
-      const randomColor = getRandomInt(1, 4)
-      const newPackage = { ...action.value,
-        cards: [],
-        colorID: randomColor,
-        timeMinutes: 4 }
+      const newPackage = { ...action.value, cards: [], ...packStructured }
       return [newPackage, ...state]
     case REMOVE_PACKAGE:
       return remove(indexOfThePack, 1, state)

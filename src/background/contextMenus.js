@@ -43,7 +43,7 @@ const contextsToGetText = async () => {
   packs.forEach((pack) => {
     chrome.contextMenus.create(
       { 'title': pack.title,
-        'id': pack.id + ' ',
+        'id': pack.id,
         'parentId': PARENT_CONTEXT_ADD_PACKAGES,
         'contexts': ['selection'],
         'onclick': handleContextsToGetText })
@@ -53,7 +53,7 @@ const contextsToGetText = async () => {
 export const updateContextToPacks = (pack) => {
   chrome.contextMenus.create(
     { 'title': pack.title,
-      'id': pack.id + ' ',
+      'id': pack.id,
       'parentId': PARENT_CONTEXT_ADD_PACKAGES,
       'contexts': ['selection'],
       'onclick': handleContextsToGetText })

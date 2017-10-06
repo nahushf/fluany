@@ -17,7 +17,7 @@ import {
 } from 'actions/pack.js'
 
 const Progress = ({
-  onChangeColorProgres,
+  onChangeColorProgress,
   onChangePercentProgress,
   onChangePlayPack,
   packageid,

@@ -51,3 +51,4 @@ export const ask = async (idPackInTraning, alarmName, periodInMinutes) => {
     drawElementAsk(card.front, card.back, doSuccess, alarmName, periodInMinutes)
   }
 }
+getInLocal('packsInTraning').then(packs=> console.log('------> ', packs))

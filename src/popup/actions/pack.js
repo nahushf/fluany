@@ -169,7 +169,7 @@ export function isSetting (value, id) {
 export function changePercentProgress (value, id) {
   return {
     type: PERCENT_PROGRESS_PACK,
-    id: id,
+    id,
     value
   }
 }
@@ -184,7 +184,7 @@ export function changePercentProgress (value, id) {
 export function changeColorProgress (value, id) {
   return {
     type: COLOR_PROGRESS_PACK,
-    id: id,
+    id,
     value
   }
 }

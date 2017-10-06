@@ -67,12 +67,14 @@ export const sendMessageBackground = (obgMessage) => {
 export let settingNewPack = (packs) => {
   const randomColor = () => getRandomInt(1, 4)
   const bootstrapPack = () => ({
-    isChangingColor: false,
-    colorID: randomColor(),
-    isSetting: false,
+    id: uuid(),
     timeMinutes: 1,
     playing: false,
-    id: uuid()
+    percentage: 0,
+    colorProgress: '',
+    colorID: randomColor(),
+    isChangingColor: false,
+    isSetting: false
   })
 
   const bootstrapCard = () => ({

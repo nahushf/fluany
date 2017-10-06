@@ -22,7 +22,7 @@ let Create = ({
     titleEdited,
 }) => {
 
-  const handleInputNewPackage = (e) => onNewPackage({title: e.target.value, description: ''})
+  const handleInputNewPackage = (e) => onNewPackage({ title: e.target.value })
 
   const handleClickCreate = () => {
     sendEventButton('home', 'Create Package')
