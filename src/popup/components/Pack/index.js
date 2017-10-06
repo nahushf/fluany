@@ -68,30 +68,26 @@ let Pack = ({
     inRefToTitle.focus()
   }
 
-  const propsDefault = {
-    packageid: id,
-    playing
-  }
-
   return (
     <li>
       <a href='#'
         className={`pack-item color-${colorID}`}
         onClick={handleClickItem}
         onMouseLeave={handleOnMouseLeave}>
-        <Progress {...propsDefault}
+      <Progress
           colorProgress={colorProgress || ''}
+          packageid={id}
           percentage={percentage || 0}
           cards={cards} />
-
-        <TitlePack onChange={handlePackageTitle}
+      <TitlePack
+          onChange={handlePackageTitle}
           refToComponent={refToComponentTitle}
           onFocus='true'
           disabled='true'
           handleEditTitle={handleEditTitle}
           title={title} />
-
-        <Play packageid={id}
+      <Play
+          packageid={id}
           playing={playing}
           title={title}
           cards={cards}
@@ -99,8 +95,8 @@ let Pack = ({
           interval={timeMinutes}/>
         <a className='show-pack'>{ translator.PACK_SHOW_LIST }</a>
         <ExportPack id={id} icon='pack' isPack />
-        <Palette {...propsDefault} isChanging={isChangingColor} />
-        <Delete {...propsDefault} />
+        <Palette packageid={id} isChanging={isChangingColor} />
+        <Delete packageid={id} playing={playing} />
       </a>
     </li>
   )
