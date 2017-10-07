@@ -66,10 +66,8 @@ const getSearchPackages = (
   if (filterPackage !== '') {
     return filter(pack => {
       let title = toLower(pack.title)
-      let description = toLower(pack.description)
 
-      return title.indexOf(filterPackage) != -1 ||
-        description.indexOf(filterPackage) != -1
+      return title.indexOf(filterPackage) != -1
     }, packs)
   }
 
