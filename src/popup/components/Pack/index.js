@@ -12,7 +12,6 @@ import TitlePack from './TitlePack'
 import Progress from './Progress'
 import Play from 'components/Play'
 import Palette from 'components/Palette'
-import Setting from 'components/Setting'
 import ExportPack from 'components/ExportPack'
 import * as translator from 'shared/constants/internacionalization'
 import { isEditPackage } from 'actions/flags'
@@ -35,8 +34,7 @@ let Pack = ({
   colorProgress,
   colorID,
   cards,
-  isChangingColor,
-  isSetting
+  isChangingColor
 }) => {
 
   let inRefToTitle = ''
@@ -74,29 +72,32 @@ let Pack = ({
         className={`pack-item color-${colorID}`}
         onClick={handleClickItem}
         onMouseLeave={handleOnMouseLeave}>
-      <Progress
-          colorProgress={colorProgress || ''}
-          packageid={id}
-          percentage={percentage || 0}
-          cards={cards} />
-      <TitlePack
-          onChange={handlePackageTitle}
-          refToComponent={refToComponentTitle}
-          onFocus='true'
-          disabled='true'
-          handleEditTitle={handleEditTitle}
-          title={title} />
-      <Play
-          packageid={id}
-          playing={playing}
-          title={title}
-          cards={cards}
-          percentage={percentage || 0}
-          interval={timeMinutes}/>
+        <Progress
+            {...{ cards,
+                   colorProgress: colorProgress || '',
+                   packageid: id,
+                   percentage: percentage || 0 }}
+        />
+        <TitlePack
+            {...{ title,
+                   onChange: handlePackageTitle,
+                   refToComponent: refToComponentTitle,
+                   onFocus: 'true',
+                   disabled: 'true',
+                   handleEditTitle: handleEditTitle }}
+        />
+        <Play
+            {...{ packageid: id,
+                   playing,
+                   title,
+                   cards,
+                   interval: timeMinutes,
+                   percentage: percentage || 0 }}
+          />
         <a className='show-pack'>{ translator.PACK_SHOW_LIST }</a>
-        <ExportPack id={id} icon='pack' isPack />
-        <Palette packageid={id} isChanging={isChangingColor} />
-        <Delete packageid={id} playing={playing} />
+        <ExportPack {...{ id, icon: 'pack' }} isPack />
+        <Palette {...{ packageid: id, isChanging: isChangingColor }} />
+        <Delete {...{ packageid: id, playing }} />
       </a>
     </li>
   )
@@ -117,26 +118,33 @@ const {
 
 /**
  * PropTypes
- * @property {Function}  onChangeCard  A function to handler the changes of the card
- * @property {String}  onAllNoEditingCard  A action to close all cards that is being edited
- * @property {Function}  onEditingCard  A action to change a prop in card object (front, back, isEditing, etc)
- * @property {Function}  onRemoveCard  A action to remove a specific card
- * @property {Object}  card  All cards of specific package
- * @property {Array}  packs  All packages in store
- * @property {Number}  indexOfPack  The package position(index)
- * @property {Object}  cardEditing  The object of the card is being changed
+ * @property {Function}  onChangePackageTitle  A action to change the package title
+ * @property {Function}  onChangePackageColor  A action to change the package color
+ * @property {Function}  onAllNoEditingCard  A action to close all cards that is being edited
+ * @property {Function}  onIsEditPackage  A action to change flag to editing package
+ * @property {String}  title  The package title
+ * @property {String}  id  The package id
+ * @property {Number}  timeMinutes  The interval in minutes of the package
+ * @property {Boolean}  playing  A flag to know if package is being playing
+ * @property {String}  colorProgress  The package color progress
+ * @property {String}  colorID  The package color in id
+ * @property {Array}  cards  All cards availables to this package
+ * @property {Boolean}  isChangingColor  A flag to know if the user is editing the color
  */
 Pack.propTypes = {
+  onChangePackageTitle: func.isRequired,
+  onChangePackageColor: func.isRequired,
+  onAllNoEditingCard: func.isRequired,
+  onIsEditPackage: func.isRequired,
   title: string.isRequired,
   id: string.isRequired,
-  timeMinutes: number.isRequired,
-  playing: bool.isRequired,
+  timeMinutes: number,
+  playing: bool,
   percentage: number,
   colorProgress: string,
   colorID: number.isRequired,
   cards: array.isRequired,
-  isChangingColor: bool.isRequired,
-  isSetting: bool.isRequired
+  isChangingColor: bool.isRequired
 }
 
 export default connect(null, mapDispatchToProps)(Pack)
