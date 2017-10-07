@@ -94,6 +94,11 @@
     "description": "Label to play"
   },
 
+  "packRestart": {
+    "message": "Restart",
+    "description": "Label to restart"
+  },
+
   "packStop": {
     "message": "Stop",
     "description": "Label to stop"

@@ -29,6 +29,7 @@ export const PACK_LOAD_MORE = chrome.i18n.getMessage('packLoadMore')
 export const PACK_SHOW_LIST = chrome.i18n.getMessage('packShotList')
 export const PACK_PLAY_LABEL = chrome.i18n.getMessage('packPlay')
 export const PACK_STOP_LABEL = chrome.i18n.getMessage('packStop')
+export const PACK_RESTART_LABEL = chrome.i18n.getMessage('packRestart')
 
 //TIME
 

@@ -32,7 +32,7 @@ let ImportPack = ({
           <a href='#'>
             <label htmlFor='input-import'>
               <img src={Icon} />
-                </label>
+            </label>
           </a>
             <input type='file'
                     id='input-import'

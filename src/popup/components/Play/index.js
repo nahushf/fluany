@@ -68,7 +68,7 @@ let Play = ({
           <a className={`play-btn ${playing ? 'stop' : 'to-play'}`} />
           <span className='play-label'>{ percentage < 100
                                       ? playing ? translator.PACK_STOP_LABEL : translator.PACK_PLAY_LABEL
-                                      : /* otherwise */ 'Recomeçar'}</span>
+                                      : /* otherwise */ translator.PACK_RESTART_LABEL }</span>
 
       </section>
   )

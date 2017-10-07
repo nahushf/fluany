@@ -69,10 +69,10 @@ const {
  * @property {Function}  onEditPackage A action to save if the current package is loading and save values
  */
 LoadPacks.propTypes = {
-    onLoadPackLocal: func.isRequired,
-    onPackageLoad: func.isRequired,
-    onEditPackage: func.isRequired,
-    onCreateCard: func.isRequired
+  onLoadPackLocal: func.isRequired,
+  onPackageLoad: func.isRequired,
+  onEditPackage: func.isRequired,
+  onCreateCard: func.isRequired
 }
 
 export default connect(null, mapDispatchToProps)(LoadPacks)

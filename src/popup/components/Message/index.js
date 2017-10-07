@@ -9,10 +9,11 @@ import { connect } from 'react-redux'
 import { changeMessage } from 'actions/flags'
 
 const Message = ({
-  dispatch, message
+  onChangeMessage,
+  message
 }) => {
 
-  const onClose = () => dispatch(changeMessage({ error: false }))
+  const onClose = () => onChangeMessage({ error: false })
 
   return (
     <div className={`error-container ${(message.error ? 'error' : message.success ? 'success' : '')}`}>
@@ -31,18 +32,24 @@ const mapStateToProps = (
   message: state.flags.message
 })
 
+function mapDispatchToProps(dispatch) {
+  return {
+    onChangeMessage: (message) => dispatch(changeMessage(message)),
+  }
+}
+
 const {
   func, object
 } = React.PropTypes
 
 /**
  * PropTypes
- * @property {Function}  dispatch  The result from `store.dispatch()`
+ * @property {Function}  onChangeMessage  A function to dispatch action to show message
  * @property {Object}  message  The information of the message(if is error, success, and the message text)
  */
 Message.propTypes = {
-  dispatch: func.isRequired,
+  onChangeMessage: func.isRequired,
   message: object.isRequired
 }
 
-export default connect(mapStateToProps)(Message)
+export default connect(mapStateToProps, mapDispatchToProps)(Message)
