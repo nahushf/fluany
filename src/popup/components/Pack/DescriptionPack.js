@@ -10,8 +10,8 @@ import { connect } from 'react-redux'
 import * as translator from 'shared/constants/internacionalization'
 
 const DescriptionPack = ({
-    onChange,
-    description
+  onChange,
+  description
 }) => (
   <div className='description-package--container'>
     <textarea

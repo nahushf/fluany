@@ -1,49 +1,63 @@
+/**
+ * @fileOverview A component to change interval of the package
+ * @name Time.js
+ * @author <a href="https://github.com/victorvoid">Victor Igor</a>
+ * @license MIT
+ */
+
 import React from 'react'
 import InputRange from 'react-input-range'
 import { connect } from 'react-redux'
 import { changeTimePackage } from 'actions/pack'
 import { getIndexThingById } from 'reducers/stateManipulate'
+import * as translator from 'shared/constants/internacionalization'
 
 let Time = ({
-  dispatch,
+  onChangeTimePackage,
 	packs,
 	packageid
 }) => {
+
   const handleTimeChange = (component, value) => {
-		  dispatch(changeTimePackage(value, packageid))
+		onChangeTimePackage(value, packageid)
   }
 
   return (
     <section className='time-container'>
-      <h2 className='time-title'>Escolha o seu intervalo de estudo:</h2>
 
+      <h2 className='time-title'>{ translator.INTERVAL_MESSAGE }</h2>
       <InputRange
-        maxValue={50}
+        maxValue={60}
         minValue={1}
         value={packs[getIndexThingById(packs, packageid)].timeMinutes}
         onChange={handleTimeChange}
-        defaultValue={4}
+        defaultValue={5}
         labelSuffix='min'
         />
     </section>
   )
 }
 
-const mapStateToProps = (
-  state
-) => {
+function mapDispatchToProps(dispatch) {
   return {
-    packs: state.packs
+    onChangeTimePackage: (...props) => dispatch(changeTimePackage(...props)),
   }
 }
 
 const {
-    func, array, number
+  func, array, string
 } = React.PropTypes
 
+/**
+ * PropTypes
+ * @property {Function}  onChangeTimePackage  A action to change the package interval
+ * @property {Array}  packs  All package availables
+ * @property {String}  packageid  Id of the package to edit your interval
+ */
 Time.propTypes = {
-  dispatch: func.isRequired,
-  packs: array.isRequired
+  onChangeTimePackage: func.isRequired,
+  packs: array.isRequired,
+  packageid: string.isRequired
 }
 
-export default connect(mapStateToProps)(Time)
+export default connect(null, mapDispatchToProps)(Time)

@@ -30,6 +30,10 @@ export const PACK_SHOW_LIST = chrome.i18n.getMessage('packShotList')
 export const PACK_PLAY_LABEL = chrome.i18n.getMessage('packPlay')
 export const PACK_STOP_LABEL = chrome.i18n.getMessage('packStop')
 
+//TIME
+
+export const INTERVAL_MESSAGE = chrome.i18n.getMessage('messageChooseIntervalPackage')
+
 // MESSAGES -> ERRORS, SUCCESS, WARNING
 
 export const MESSAGE_ERROR_CREATE_PACKAGE = chrome.i18n.getMessage('messageCreatePackage')

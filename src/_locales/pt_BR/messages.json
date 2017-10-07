@@ -127,5 +127,10 @@
   "messageRemovePackPlaying": {
     "message": "Você precisa parar o pacote para remover-lo.",
     "description": "Label to stop the package when try remove it"
+  },
+
+  "messageChooseIntervalPackage": {
+    "message": "Escolha o seu intervalo de estudo:",
+    "description": "Label to choose a range of studies"
   }
 }
