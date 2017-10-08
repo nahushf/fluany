@@ -20,20 +20,8 @@ describe('Card/ <TooltipCard />', () => {
         newPackage: {title: '', description: ''}
       }
     })
-
-    const tooltipProps = {
-      back: 'it is a back phrase'
-    }
-
-    wrapper = mount(
-      <Provider store={store}>
-        <TooltipCard {...tooltipProps} />
-      </Provider>
-    )
   })
 
   it('should render the TooltipCard component', () => {
-    expect(wrapper.find('.tooltip-card')).to.have.length(1)
-    expect(wrapper.find('.card-back').text()).to.equal('it is a back phrase')
   })
 })

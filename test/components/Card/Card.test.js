@@ -1,46 +1,36 @@
 import React from 'react'
-import { Provider } from 'react-redux'
-import configureMockStore from 'redux-mock-store'
-import Card from 'components/Card'
+import { Card } from 'components/Card'
+import { isEditingCard, removeCard, allNoEditingCard } from 'actions/pack'
+import { changeCard } from 'actions/flags'
 import packsDefaultStore from 'store/packsDefaultStore'
 
 describe('Card/ <Card />', () => {
-  const mockStore = configureMockStore([])
-  let store
-  let wrapper
-  beforeEach(() => {
-    store = mockStore({
-      packs: packsDefaultStore,
-      flags: {
-        isCreatingPackage: true,
-        filterPackage: '',
-        isActiveSearch: false,
-        paginationPackage: 3,
-        isEditPackage: {newPackage: false, packageid: null},
-        newPackage: {title: '', description: ''}
-      }
-    })
-
-    const CardProps = {
-      index: 0,
-      indexOfPack: 0,
-      colorID: 1,
-      packageid: 0,
-      id: 0
+  function setup() {
+    const props = {
+        onChangeCard: changeCard,
+        onAllNoEditingCard: allNoEditingCard,
+        onEditingCard: isEditingCard,
+        onRemoveCard: removeCard,
+        card: { front: 'front card', back: 'back card', colorID: 1},
+        packs: packsDefaultStore,
+        cardEditing: { front: null, back: null },
+        indexOfPack: 0,
     }
 
-    wrapper = mount(
-      <Provider store={store}>
-        <Card {...CardProps} />
-      </Provider>
+    const enzymeWrapper = shallow(
+        <Card {...props} />
     )
-  })
+
+    return {
+        props,
+        enzymeWrapper
+    }
+  }
 
   it('should render the Card component', () => {
-    expect(wrapper.find('CardEdit')).to.have.length(1)
-    expect(wrapper.find('.card-item-block')).to.have.length(1)
-    expect(wrapper.find('.card-item')).to.have.length(1)
-    expect(wrapper.find('button')).to.have.length(2)
-    expect(wrapper.find('TooltipCard')).to.have.length(1)
+    const { enzymeWrapper } = setup()
+      expect(enzymeWrapper.find('.card-item').hasClass('no-editing')).toBe(true)
+      expect(enzymeWrapper.find('button')).toHaveLength(2)
+      expect(enzymeWrapper.find('TooltipCard')).toHaveLength(1)
   })
 })

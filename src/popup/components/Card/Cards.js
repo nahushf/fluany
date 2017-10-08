@@ -11,7 +11,7 @@ import { getIndexThingById } from 'reducers/stateManipulate.js'
 import Card from 'components/Card'
 import CreateCard from './CreateCard'
 
-const Cards = ({
+export const Cards = ({
   packs,
   packageid,
   indexOfPack

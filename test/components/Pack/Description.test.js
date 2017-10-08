@@ -22,23 +22,6 @@ describe('Pack/ <DescriptionPack />', () => {
     })
   })
 
-  const handleOnChange = (e) => {
-    mock.newDescription = e.target.value
-  }
-
   it('should render the DescriptionPack component', () => {
-    wrapper = mount(
-      <Provider store={store}>
-        <DescriptionPack onChange={handleOnChange} description={mock.description} />
-      </Provider>
-    )
-    expect(wrapper.find('svg')).to.have.length(1)
-  })
-
-  it('should change description input', () => {
-    const input = wrapper.find('textarea')
-    input.simulate('focus')
-    input.simulate('change', { target: { value: 'changed' } })
-    expect(mock.newDescription).to.equal('changed')
   })
 })

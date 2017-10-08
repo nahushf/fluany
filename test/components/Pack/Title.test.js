@@ -7,7 +7,6 @@ describe('Pack/ <TitlePack />', () => {
   const mockStore = configureMockStore([])
   let mock = { title: 'It is a title', newTitle: '' }
   let store
-  let wrapper
   beforeEach(() => {
     store = mockStore({
       packs: [],
@@ -21,24 +20,6 @@ describe('Pack/ <TitlePack />', () => {
       }
     })
   })
-
-  const handleOnChange = (e) => {
-    mock.newTitle = e.target.value
-  }
-
   it('should render the TitlePack component', () => {
-    wrapper = mount(
-      <Provider store={store}>
-        <TitlePack onChange={handleOnChange} title={mock.title} />
-      </Provider>
-    )
-    expect(wrapper.find('svg')).to.have.length(1)
-  })
-
-  it('should change title input', () => {
-    const input = wrapper.find('textarea')
-    input.simulate('focus')
-    input.simulate('change', { target: { value: 'changed' } })
-    expect(mock.newTitle).to.equal('changed')
   })
 })

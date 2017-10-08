@@ -1,43 +1,32 @@
 import React from 'react'
-import { Provider } from 'react-redux'
-import configureMockStore from 'redux-mock-store'
-import CardEdit from '../../../src/popup/components/Card/CardEdit'
-import packsDefaultStore from '../../../src/popup/store/packsDefaultStore'
+import { changeCard } from 'actions/flags'
+import CardEdit from 'components/Card/CardEdit'
+import packsDefaultStore from 'store/packsDefaultStore'
 
 describe('Card/ <CardEdit />', () => {
-  const mockStore = configureMockStore([])
-  let store
-  let wrapper
-  beforeEach(() => {
-    store = mockStore({
-      packs: packsDefaultStore,
-      flags: {
-        isCreatingPackage: true,
-        filterPackage: '',
-        isActiveSearch: false,
-        paginationPackage: 3,
-        isEditPackage: {newPackage: false, packageid: null},
-        newPackage: {title: '', description: ''}
-      }
-    })
-
-    const CardProps = {
-      packs: packsDefaultStore,
-      indexOfPack: 0,
-      indexOfCard: 0,
-      packageid: 0
+  function setup() {
+    const props = {
+        onChangeCard: changeCard,
+        packs: packsDefaultStore,
+        indexOfPack: 0,
+        indexOfCard: 0,
+        cardEditing: { front: null, back: null },
     }
 
-    wrapper = mount(
-      <Provider store={store}>
-        <CardEdit {...CardProps} />
-      </Provider>
+    const enzymeWrapper = shallow(
+        <CardEdit {...props} />
     )
-  })
+
+    return {
+        props,
+        enzymeWrapper
+    }
+  }
 
   it('should render the CardEdit component', () => {
-    expect(wrapper.find('input')).to.have.length(2)
-    expect(wrapper.find('.card-edit-container')).to.have.length(1)
-    expect(wrapper.find('.card-edit-content')).to.have.length(2)
+    const { enzymeWrapper } = setup()
+    expect(enzymeWrapper.find('input')).toHaveLength(2)
+    expect(enzymeWrapper.find('.card-edit-container')).toHaveLength(1)
+    expect(enzymeWrapper.find('.card-edit-content')).toHaveLength(2)
   })
 })

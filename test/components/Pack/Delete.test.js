@@ -21,11 +21,5 @@ describe('Pack/ <Delete />', () => {
   })
 
   it('should render the Delete component', () => {
-    const wrapper = mount(
-      <Provider store={store}>
-        <Delete />
-      </Provider>
-        )
-    expect(wrapper.find('svg')).to.have.length(1)
   })
 })

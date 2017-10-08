@@ -21,11 +21,5 @@ describe('Pack/ <MorePackage />', () => {
   })
 
   it('should render the MorePackage component', () => {
-    const wrapper = mount(
-      <Provider store={store}>
-        <MorePackage />
-      </Provider>
-    )
-    expect(wrapper.find('button')).to.have.length(1)
   })
 })

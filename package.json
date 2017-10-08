@@ -4,7 +4,8 @@
   "scripts": {
     "start": "gulp",
     "test": "jest",
-    "test:auto": "",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
     "static_test": "standard src/",
     "static_fix": "standard src/ --fix"
   },
@@ -13,6 +14,9 @@
     "node": ">= 0.12.x"
   },
   "jest": {
+    "setupFiles": [
+      "<rootDir>/test/jestsetup.js"
+    ],
     "moduleDirectories": [
       "node_modules",
       "bower_components",
