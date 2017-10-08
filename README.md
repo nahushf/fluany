@@ -1,10 +1,13 @@
+<div align="center">
+  <img alt="logo" src="https://github.com/victorvoid/fluany/blob/master/src/assets/fluflu.svg" width="128">
+  </div>
+
 <h1 align="center">Fluany</h1>
 
 <div align="center">
-  <img alt="logo" src="https://github.com/victorvoid/fluany/blob/master/src/assets/fluflu.svg" width="128">
-</div>
-
-<div align="center">
+  
+  [![Build Status](https://travis-ci.org/victorvoid/fluany.svg?branch=master)](https://travis-ci.org/victorvoid/fluany)
+  
   <strong>Fluany is a chrome extension to memorize and study anything, fast and easy while you're surfing the Internet.</strong>
 </div>
 
