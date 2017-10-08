@@ -6,8 +6,9 @@
  */
 
 import React from 'react'
+import propEq from 'ramda/src/propEq'
+import find from 'ramda/src/find'
 import { connect } from 'react-redux'
-import { find, propEq } from 'ramda'
 import { Line } from 'rc-progress'
 import { getInLocal } from 'store/LocalStore'
 import {

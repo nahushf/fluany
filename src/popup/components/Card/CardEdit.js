@@ -7,7 +7,7 @@
 
 import React from 'react'
 import * as translator from 'shared/constants/internacionalization'
-import { isNil } from 'ramda'
+import isNil from 'ramda/src/isNil'
 import { isEditingCard } from 'actions/pack'
 import { getIndexThingById } from 'reducers/stateManipulate'
 

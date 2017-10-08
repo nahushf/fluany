@@ -7,7 +7,8 @@
 
 import React from 'react'
 import { connect } from 'react-redux'
-import { update, assoc } from 'ramda'
+import update from 'ramda/src/update'
+import assoc from 'ramda/src/assoc'
 import Alarm from 'shared/Alarms'
 import * as translator from 'shared/constants/internacionalization'
 import { getIndexThingById } from 'reducers/stateManipulate'
