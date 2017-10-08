@@ -1,25 +1,29 @@
 import React from 'react'
-import { Provider } from 'react-redux'
-import configureMockStore from 'redux-mock-store'
-import MorePackage from 'components/Pack/MorePakage'
+import { MorePackage } from 'components/Pack/MorePakage'
+import packsDefaultStore from 'store/packsDefaultStore'
 
-describe('Pack/ <MorePackage />', () => {
-  const mockStore = configureMockStore([])
-  let store
-  beforeEach(() => {
-    store = mockStore({
-      packs: [],
-      flags: {
-        isCreatingPackage: true,
+describe('Pack/ <More />', () => {
+  function setup() {
+    const onChangePagination = jest.fn()
+    const props = {
+        packs: packsDefaultStore,
         filterPackage: '',
-        isActiveSearch: false,
-        paginationPackage: 3,
-        isEditPackage: {newPackage: false, packageid: null},
-        newPackage: {title: '', description: ''}
-      }
-    })
-  })
+        paginationPackage: 1,
+        onChangePagination
+    }
+
+    const enzymeWrapper = shallow(
+        <MorePackage {...props} />
+    )
+
+    return {
+        props,
+        enzymeWrapper
+    }
+  }
 
   it('should render the MorePackage component', () => {
+    const { enzymeWrapper } = setup()
+    expect(enzymeWrapper.find('button')).toHaveLength(1)
   })
 })

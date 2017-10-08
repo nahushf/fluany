@@ -10,7 +10,7 @@ import { connect } from 'react-redux'
 import { changePagination } from 'actions/flags'
 import * as translator from 'shared/constants/internacionalization'
 
-let MorePackage = ({
+export const MorePackage = ({
   packs,
   filterPackage,
   paginationPackage,
@@ -48,7 +48,7 @@ const {
 
 /**
  * PropTypes
- * @property {Function}  dispatch  The result from `store.dispatch()`
+ * @property {Function}  onChangePagination  A action to change pagination flag
  * @property {Array}  packs All the packs availables
  * @property {String}  filterPackage  A flag to know if is search anything(input value)
  * @property {Number}  paginationPackage  A flag to know pagination number

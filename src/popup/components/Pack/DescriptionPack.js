@@ -6,7 +6,6 @@
  */
 
 import React from 'react'
-import { connect } from 'react-redux'
 import * as translator from 'shared/constants/internacionalization'
 
 const DescriptionPack = ({
@@ -45,4 +44,4 @@ DescriptionPack.propTypes = {
   description: string.isRequired
 }
 
-export default connect()(DescriptionPack)
+export default DescriptionPack

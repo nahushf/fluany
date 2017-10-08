@@ -29,8 +29,8 @@ describe('Card/ <Card />', () => {
 
   it('should render the Card component', () => {
     const { enzymeWrapper } = setup()
-      expect(enzymeWrapper.find('.card-item').hasClass('no-editing')).toBe(true)
-      expect(enzymeWrapper.find('button')).toHaveLength(2)
-      expect(enzymeWrapper.find('TooltipCard')).toHaveLength(1)
+    expect(enzymeWrapper.find('.card-item').hasClass('no-editing')).toBe(true)
+    expect(enzymeWrapper.find('button')).toHaveLength(2)
+    expect(enzymeWrapper.find('TooltipCard')).toHaveLength(1)
   })
 })

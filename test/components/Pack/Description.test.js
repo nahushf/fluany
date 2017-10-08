@@ -1,27 +1,35 @@
 import React from 'react'
-import { Provider } from 'react-redux'
-import configureMockStore from 'redux-mock-store'
-import DescriptionPack from 'components/Pack/DescriptionPack'
+import Description from 'components/Pack/DescriptionPack'
+import packsDefaultStore from 'store/packsDefaultStore'
 
-describe('Pack/ <DescriptionPack />', () => {
-  const mockStore = configureMockStore([])
-  let mock = {description: 'It is a description', newDescription: ''}
-  let store
-  let wrapper
-  beforeEach(() => {
-    store = mockStore({
-      packs: [],
-      flags: {
-        isCreatingPackage: true,
-        filterPackage: '',
-        isActiveSearch: false,
-        paginationPackage: 3,
-        isEditPackage: {newPackage: false, packageid: null},
-        newPackage: {title: '', description: ''}
-      }
-    })
-  })
+describe('Pack/ <Description />', () => {
+  const onChange = jest.fn()
+  function setup(onChange) {
+    const props = {
+        onChange,
+        description: 'I am a description'
+    }
+
+    const enzymeWrapper = shallow(
+        <Description {...props} />
+    )
+
+    return {
+        props,
+        enzymeWrapper
+    }
+  }
 
   it('should render the DescriptionPack component', () => {
+    const { enzymeWrapper } = setup(onChange)
+    expect(enzymeWrapper.find('svg')).toHaveLength(1)
+  })
+
+  it('should change description input', () => {
+    const { enzymeWrapper } = setup(onChange)
+    const input = enzymeWrapper.find('textarea')
+    input.simulate('focus')
+    input.simulate('change', 'newvalue')
+    expect(onChange).toBeCalledWith('newvalue');
   })
 })
