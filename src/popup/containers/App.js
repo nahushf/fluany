@@ -7,7 +7,6 @@
 
 import React from 'react'
 import { connect } from 'react-redux'
-import configureStore from 'store/configureStore'
 import Either from 'components/Either'
 import Home from './Home'
 import PackConfig from './PackConfig'

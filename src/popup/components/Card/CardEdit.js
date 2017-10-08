@@ -12,12 +12,12 @@ import { isEditingCard } from 'actions/pack'
 import { getIndexThingById } from 'reducers/stateManipulate'
 
 const CardEdit = ({
+  onChangeCard,
   packs,
   indexOfPack,
   indexOfCard,
   packageid,
-  cardEditing,
-  onChangeCard
+  cardEditing
 }) => {
 
   const handleCardFront = e => onChangeCard({

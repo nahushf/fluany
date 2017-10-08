@@ -140,19 +140,18 @@ function configGenerator (isDevelopment, Manifest) {
       root: [
         path.join(__dirname, '../src')
       ],
-      alias: (function () {
-        // NOTE Aliasing
-        // If you want to override some path with another. Good for importing same version of React across different libraries
-        var alias = {
-          'components': path.resolve(__dirname, '../src/popup/components'),
-          'constants': path.resolve(__dirname, '../src/popup/constants'),
-          'actions': path.resolve(__dirname, '../src/popup/actions'),
-          'reducers': path.resolve(__dirname, '../src/popup/reducers'),
-          'store': path.resolve(__dirname, '../src/popup/store')
-        }
+      // alias: (function () {
+      //   // NOTE Aliasing
+      //   // If you want to override some path with another. Good for importing same version of React across different libraries
+      //   var alias = {
+      //     'components': path.resolve(__dirname, '../src/popup/components'),
+      //     'constants': path.resolve(__dirname, '../src/popup/constants'),
+      //     'actions': path.resolve(__dirname, '../src/popup/actions'),
+      //     'reducers': path.resolve(__dirname, '../src/popup/reducers'),
+      //     'store': path.resolve(__dirname, '../src/popup/store')
+      //   }
 
-        return alias
-      })()
+      //   return alias})()
     },
 
     // Loaders

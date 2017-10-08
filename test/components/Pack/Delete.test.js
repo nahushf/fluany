@@ -1,31 +1,31 @@
 import React from 'react'
-import { Provider } from 'react-redux'
-import configureMockStore from 'redux-mock-store'
-import Delete from 'components/Pack/Delete'
+import { Delete } from 'components/Pack/Delete'
+import packsDefaultStore from 'store/packsDefaultStore'
 
 describe('Pack/ <Delete />', () => {
-  const mockStore = configureMockStore([])
-  let store
-  beforeEach(() => {
-    store = mockStore({
-      packs: [],
-      flags: {
-        isCreatingPackage: true,
-        filterPackage: '',
-        isActiveSearch: false,
-        paginationPackage: 3,
-        isEditPackage: {newPackage: false, packageid: null},
-        newPackage: {title: '', description: ''}
-      }
-    })
-  })
+  function setup() {
+    const onRemovePackage = jest.fn()
+    const onChangeMessage = jest.fn()
+    const props = {
+        onRemovePackage,
+        onChangeMessage,
+        packageid: '1',
+        playing: false
+    }
+
+    const enzymeWrapper = shallow(
+        <Delete {...props} />
+    )
+
+    return {
+        props,
+        enzymeWrapper
+    }
+  }
+
 
   it('should render the Delete component', () => {
-    const wrapper = mount(
-      <Provider store={store}>
-        <Delete />
-      </Provider>
-        )
-    expect(wrapper.find('svg')).to.have.length(1)
+    const { enzymeWrapper } = setup()
+    expect(enzymeWrapper.find('svg')).toHaveLength(1)
   })
 })

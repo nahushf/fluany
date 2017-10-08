@@ -1,44 +1,35 @@
 import React from 'react'
-import { Provider } from 'react-redux'
-import configureMockStore from 'redux-mock-store'
-import TitlePack from 'components/Pack/TitlePack'
+import Title from 'components/Pack/TitlePack'
+import packsDefaultStore from 'store/packsDefaultStore'
 
-describe('Pack/ <TitlePack />', () => {
-  const mockStore = configureMockStore([])
-  let mock = { title: 'It is a title', newTitle: '' }
-  let store
-  let wrapper
-  beforeEach(() => {
-    store = mockStore({
-      packs: [],
-      flags: {
-        isCreatingPackage: true,
-        filterPackage: '',
-        isActiveSearch: false,
-        paginationPackage: 3,
-        isEditPackage: {newPackage: false, packageid: null},
-        newPackage: {title: '', description: ''}
-      }
-    })
-  })
+describe('Pack/ <Title />', () => {
+  const onChange = jest.fn()
+  function setup(onChange) {
+    const props = {
+        onChange,
+        title: 'I am a title'
+    }
 
-  const handleOnChange = (e) => {
-    mock.newTitle = e.target.value
+    const enzymeWrapper = shallow(
+        <Title {...props} />
+    )
+
+    return {
+        props,
+        enzymeWrapper
+    }
   }
 
   it('should render the TitlePack component', () => {
-    wrapper = mount(
-      <Provider store={store}>
-        <TitlePack onChange={handleOnChange} title={mock.title} />
-      </Provider>
-    )
-    expect(wrapper.find('svg')).to.have.length(1)
+    const { enzymeWrapper } = setup(onChange)
+    expect(enzymeWrapper.find('svg')).toHaveLength(1)
   })
 
   it('should change title input', () => {
-    const input = wrapper.find('textarea')
+    const { enzymeWrapper } = setup(onChange)
+    const input = enzymeWrapper.find('textarea')
     input.simulate('focus')
-    input.simulate('change', { target: { value: 'changed' } })
-    expect(mock.newTitle).to.equal('changed')
+    input.simulate('change', 'newvalue')
+    expect(onChange).toBeCalledWith('newvalue');
   })
 })

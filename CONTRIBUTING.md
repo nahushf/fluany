@@ -185,6 +185,30 @@ All JavaScript must adhere to [JavaScript Semi-Standard Style](https://github.co
   }
 
   ```
+  
+For React components, use [Stateless Functional Components](https://hackernoon.com/react-stateless-functional-components-nine-wins-you-might-have-overlooked-997b0d933dbc). 
+
+```js
+import React from ‘react’;
+
+const HelloWorld = ({ name }) => (
+ <div>{`Hi ${name}`}</div>
+);
+
+export default HelloWorld;
+```
+
+**Connected Components**
+
+```js
+import { connect } from 'react-redux'
+
+// Use named export for unconnected component (for tests)
+export const HelloWorld = ({ name }) => ( { /* ... */ } )
+
+// Use default export for the connected component (for app)
+export default connect(mapStateToProps)(HelloWorld)
+```
 
 ## Additional Notes
 

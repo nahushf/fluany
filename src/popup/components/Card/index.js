@@ -15,7 +15,7 @@ import { changeCard } from 'actions/flags'
 import { getIndexThingById } from 'reducers/stateManipulate'
 import { getInLocal } from 'store/LocalStore'
 
-const Card = ({
+export const Card = ({
   onChangeCard,
   onAllNoEditingCard,
   onEditingCard,

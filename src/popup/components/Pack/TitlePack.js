@@ -5,7 +5,6 @@
  * @license MIT
  */
 import React from 'react'
-import { connect } from 'react-redux'
 import * as translator from 'shared/constants/internacionalization'
 
 /**
@@ -80,4 +79,4 @@ TitlePack.propTypes = {
   handleEditTitle: func
 }
 
-export default connect()(TitlePack)
+export default TitlePack

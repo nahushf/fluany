@@ -10,7 +10,7 @@ import { removePackage } from 'actions/pack'
 import { changeMessage } from 'actions/flags'
 import * as translator from 'shared/constants/internacionalization'
 
-const Delete = ({
+export const Delete = ({
   onRemovePackage,
   onChangeMessage,
 	packageid,
