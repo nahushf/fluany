@@ -102,7 +102,7 @@ gulp.task('prepare-release-dir', (done) => {
 })
 
 gulp.task('production', (done) => {
-  runSequence('prepare-release-dir', 'manifest', 'webpack-production', 'extension', 'locales:build', done)
+  runSequence('prepare-release-dir', 'manifest', 'webpack-production', 'locales:build', done)
 })
 
 gulp.task('run', (done) => {
