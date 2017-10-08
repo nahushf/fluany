@@ -7,7 +7,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import * as translator from 'shared/constants/internacionalization'
-import { isNil } from 'ramda'
+import isNil from 'ramda/src/isNil'
 import TitlePack from 'components/Pack/TitlePack'
 import DescriptionPack from 'components/Pack/DescriptionPack'
 import Cards from 'components/Card/Cards'

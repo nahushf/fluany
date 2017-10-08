@@ -7,8 +7,10 @@
  */
 
 import React from 'react'
+import filter from 'ramda/src/filter'
+import toLower from 'ramda/src/toLower'
+import take from 'ramda/src/take'
 import { connect } from 'react-redux'
-import { filter, toLower, take } from 'ramda'
 import Create from './Create'
 import MorePackage from './MorePakage'
 import Pack from './'

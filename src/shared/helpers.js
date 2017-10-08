@@ -1,5 +1,7 @@
 import uuid from 'uuid/v4'
-import { assoc, compose, merge } from 'ramda'
+import assoc from 'ramda/src/assoc'
+import compose from 'ramda/src/compose'
+import merge from 'ramda/src/merge'
 
 // insert in storage chrome extension
 export let putStorage = (key, value) => {

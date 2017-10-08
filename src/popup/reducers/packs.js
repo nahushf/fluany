@@ -4,7 +4,11 @@
  * @author <a href="https://github.com/victorvoid">Victor Igor</a>
  * @license MIT
  */
-import { assoc, update, remove, map } from 'ramda'
+import assoc from 'ramda/src/assoc'
+import update from 'ramda/src/update'
+import remove from 'ramda/src/remove'
+import map from 'ramda/src/map'
+
 import { ADD_PACKAGE,
          CHANGE_PACKAGE_TITLE,
          CHANGE_PACKAGE_DESCRIPTION,

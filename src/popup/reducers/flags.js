@@ -4,7 +4,7 @@
  * @author <a href="https://github.com/victorvoid">Victor Igor</a>
  * @license MIT
  */
-import { toLower } from 'ramda'
+import toLower from 'ramda/src/toLower'
 import { CHANGE_FILTER_PACKAGE,
          TOGGLE_ACTIVE_SEARCH,
          MENU_TOGGLE,
