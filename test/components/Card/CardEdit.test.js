@@ -1,8 +1,8 @@
 import React from 'react'
 import { Provider } from 'react-redux'
 import configureMockStore from 'redux-mock-store'
-import CardEdit from 'components/Card/CardEdit'
-import packsDefaultStore from 'store/packsDefaultStore'
+import CardEdit from '../../../src/popup/components/Card/CardEdit'
+import packsDefaultStore from '../../../src/popup/store/packsDefaultStore'
 
 describe('Card/ <CardEdit />', () => {
   const mockStore = configureMockStore([])
