@@ -137,5 +137,10 @@
   "messageChooseIntervalPackage": {
     "message": "Choose a range of studies:",
     "description": "Label to choose a range of studies"
+  },
+
+  "messageAfterPlay": {
+    "message": "Great, now you can close me and continue surfing!",
+    "description": "Label to show after play"
   }
 }

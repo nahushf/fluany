@@ -13,13 +13,13 @@ const Message = ({
   message
 }) => {
 
-  const onClose = () => onChangeMessage({ error: false })
+  const onClose = () => onChangeMessage({ error: false, success: false })
 
   return (
     <div className={`error-container ${(message.error ? 'error' : message.success ? 'success' : '')}`}>
       <div className='error-close' onClick={onClose} />
       <svg className='alert-icon'>
-        <use xlinkHref='#icon-alert' />
+        <use xlinkHref={message.error ? '#icon-alert' : '#icon-smiley'} />
       </svg>
       <p className='error-message'>{ message.info }</p>
     </div>

@@ -40,5 +40,6 @@ export const INTERVAL_MESSAGE = chrome.i18n.getMessage('messageChooseIntervalPac
 export const MESSAGE_ERROR_CREATE_PACKAGE = chrome.i18n.getMessage('messageCreatePackage')
 export const MESSAGE_ERROR_EMPTY_PACKAGE = chrome.i18n.getMessage('messagePlayPackageEmpty')
 export const MESSAGE_ERROR_DELETE_PACKAGE = chrome.i18n.getMessage('messageRemovePackPlaying')
+export const MESSAGE_SUCCESS_AFTER_PLAY = chrome.i18n.getMessage('messageAfterPlay')
 
 

@@ -37,8 +37,16 @@ let Play = ({
     e.stopPropagation()
     if (cards.length > 0) {
       onChangePlayPack(!playing, packageid)
-
+      onChangeMessage({
+        success: false,
+        error: false,
+        info: translator.MESSAGE_SUCCESS_AFTER_PLAY
+      })
       if (!playing) {
+        onChangeMessage({
+          success: true,
+          info: translator.MESSAGE_SUCCESS_AFTER_PLAY
+        })
         sendEventButton('home', 'Play Package')
         alarm.create()
       } else {

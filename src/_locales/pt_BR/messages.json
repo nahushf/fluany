@@ -137,5 +137,10 @@
   "messageChooseIntervalPackage": {
     "message": "Escolha o seu intervalo de estudo:",
     "description": "Label to choose a range of studies"
+  },
+
+  "messageAfterPlay": {
+    "message": "Ótimo, agora você pode me fechar e continuar navegando!",
+    "description": "Label to show after play"
   }
 }
