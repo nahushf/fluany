@@ -10,11 +10,11 @@ import { connect } from 'react-redux'
 import { getIndexThingById } from 'reducers/stateManipulate'
 import { sendEventButton } from 'analytics/analytics'
 
-let ExportPack = ({
-    packs,
-    id,
-    icon,
-    isPack
+export const ExportPack = ({
+  packs,
+  id,
+  icon,
+  isPack
 }) => {
   let linkA = ''
   const indexOfThePack = getIndexThingById(packs, id)

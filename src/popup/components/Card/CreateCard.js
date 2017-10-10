@@ -12,7 +12,7 @@ import { connect } from 'react-redux'
 import { createCard, isEditingCard } from 'actions/pack'
 import { getIndexThingById } from 'reducers/stateManipulate'
 
-let CreateCard = ({
+export const CreateCard = ({
   onCreateCard,
   packageid,
   indexOfPack,
