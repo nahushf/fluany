@@ -6,6 +6,7 @@ export const initCSS = (wrapper) => {
   }
 	.fluany-wrapper {
     font-size: 1.6rem !important;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif !important;
     height: 100vh !important;
     left: 0 !important;
     top: 0 !important;
@@ -150,6 +151,11 @@ export const initCSS = (wrapper) => {
 		padding-top: 16px !important;
 		color: rgba(255, 255, 206, 1) !important;
     transition: opacity .2s !important;
+	}
+	.fluany-back-input:focus{
+    border: initial: !important;
+    border-bottom: 1px solid #FFF !important;
+    box-shadow: none;
 	}
 	.fluany-back-input::-webkit-input-placeholder {
 		color: rgba(0, 0, 0, 0.3) !important;
