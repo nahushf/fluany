@@ -13,6 +13,10 @@
 
 <div align="center">
   <h3>
+    <a href="https://chrome.google.com/webstore/detail/fluany/gijlnmefafhloacckomgabbndcepdnce?hl=en">
+      Download
+    </a>
+    <span> | </span>
     <a href="https://www.fluany.com">
       Website
     </a>
