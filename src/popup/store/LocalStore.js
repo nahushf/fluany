@@ -49,8 +49,7 @@ export const cleanLocalStorage = () => {
  * A task to get data in localstorage
  */
 
-export const getLocal = (name) => task(
-  _ => {
+export const getLocal = (name) => task( _ => {
     chrome.storage.local.get(name, obj => {
       if (obj[name]) {
         _.resolve(obj[name])

@@ -6,34 +6,23 @@ import assoc from 'ramda/src/assoc'
 import propEq from 'ramda/src/propEq'
 import reject from 'ramda/src/reject'
 import head from 'ramda/src/head'
-import { saveInLocal,  getLocal } from 'store/LocalStore'
-import { getRandomInt,  getElementByIdM } from 'shared/helpers'
+import { saveInLocal, getLocal } from 'store/LocalStore'
+import { getRandomInt, getElementByIdM } from 'shared/helpers'
 import { getIndexThingById } from 'reducers/stateManipulate'
 import { drawElementAsk } from './ElementAsk.js'
 import { Just } from 'folktale/maybe'
+import { of } from 'folktale/concurrency/task'
 
 export const loadPacks = async (idAlarmPack) => {
   const firstPackInTrain = await getLocal('packState')
         .map(allPacks => {
           return getElementByIdM(idAlarmPack, allPacks)
-            .map(packInAlarm => {
-              return [{
-                id: idAlarmPack,
-                cards: packInAlarm.cards
-              }]
-            }).value
+                  .chain(({ cards }) => [{ id: idAlarmPack, cards }])
         })
         .run()
         .promise()
 
   return await getLocal('packsInTraning')
-    .orElse( _ => {
-      saveInLocal('packsInTraning', firstPackInTrain)
-      return Just({
-        packOnAlarm: head(firstPackInTrain),
-        packsInTraning: firstPackInTrain
-      })
-    })
     .map(training => {
       return getElementByIdM(idAlarmPack, training)
         .map( packOnAlarm => ({ packOnAlarm, training }))
@@ -45,6 +34,13 @@ export const loadPacks = async (idAlarmPack) => {
             training
           })
         })
+    })
+    .orElse( _ => {
+      saveInLocal('packsInTraning', firstPackInTrain)
+      return of(Just({
+        packOnAlarm: head(firstPackInTrain),
+        training: firstPackInTrain
+      }))
     })
     .run()
     .promise()

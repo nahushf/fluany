@@ -4,7 +4,8 @@ import { ask, loadPacks } from './Ask.js'
 import 'babel-polyfill'
 import 'analytics/analytics.js'
 
-// ask('d7946a04-fdb4-4aa1-bd7b-b7c2dceedafa', 'name', 1)
+console.log('injected..')
+// ask('18d3b1a0-9eea-4b22-bde6-136581f175c3', 'name', 1)
 
 chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
   if (msg.name && (msg.trigger == 'LOAD_PACK')) {
