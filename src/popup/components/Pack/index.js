@@ -68,7 +68,7 @@ let Pack = ({
 
   return (
     <li>
-      <a
+      <a href='#'
         className={`pack-item color-${colorID}`}
         onClick={handleClickItem}
         onMouseLeave={handleOnMouseLeave}>
