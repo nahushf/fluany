@@ -1,20 +1,20 @@
 import dec from 'ramda/src/dec'
+import isEmpty from 'ramda/src/isEmpty'
 import insert from 'ramda/src/insert'
 import update from 'ramda/src/update'
 import assoc from 'ramda/src/assoc'
 import propEq from 'ramda/src/propEq'
 import reject from 'ramda/src/reject'
 import head from 'ramda/src/head'
-import { getInLocal, saveInLocal,  getLocal } from 'store/LocalStore'
-import { getIndexThingById } from 'reducers/stateManipulate'
+import { saveInLocal,  getLocal } from 'store/LocalStore'
 import { getRandomInt,  getElementByIdM } from 'shared/helpers'
+import { getIndexThingById } from 'reducers/stateManipulate'
 import { drawElementAsk } from './ElementAsk.js'
-import Maybe from 'folktale/maybe'
+import { Just } from 'folktale/maybe'
 
 export const loadPacks = async (idAlarmPack) => {
   const firstPackInTrain = await getLocal('packState')
         .map(allPacks => {
-          console.log('allPacks', allPacks)
           return getElementByIdM(idAlarmPack, allPacks)
             .map(packInAlarm => {
               return [{
@@ -29,19 +29,18 @@ export const loadPacks = async (idAlarmPack) => {
   return await getLocal('packsInTraning')
     .orElse( _ => {
       saveInLocal('packsInTraning', firstPackInTrain)
-      return Maybe.Just({
+      return Just({
         packOnAlarm: head(firstPackInTrain),
         packsInTraning: firstPackInTrain
       })
     })
     .map(training => {
-      console.log('training', training)
       return getElementByIdM(idAlarmPack, training)
         .map( packOnAlarm => ({ packOnAlarm, training }))
         .orElse( _ => {
           const packsInTrainingWithNewPack = insert(0, head(firstPackInTrain), training)
           saveInLocal('packsInTraning', packsInTrainingWithNewPack)
-          return Maybe.Just({
+          return Just({
             packOnAlarm: head(firstPackInTrain),
             training
           })
@@ -62,9 +61,7 @@ export const ask = async (idAlarmPack, alarmName, periodInMinutes) => {
     Just: ({ value }) => {
 
       const { packOnAlarm, training } = value
-      console.log('packOnAlarm', packOnAlarm)
-      console.log('training', training)
-      if (packOnAlarm.cards.length > 0) {
+      if (!isEmpty(packOnAlarm.cards)) {
         const card = getRandomCard(packOnAlarm.cards)
         const doSuccess = () => {
           const newCards = reject(propEq('id', card.id), packOnAlarm.cards)
