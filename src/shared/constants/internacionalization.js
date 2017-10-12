@@ -42,4 +42,9 @@ export const MESSAGE_ERROR_EMPTY_PACKAGE = chrome.i18n.getMessage('messagePlayPa
 export const MESSAGE_ERROR_DELETE_PACKAGE = chrome.i18n.getMessage('messageRemovePackPlaying')
 export const MESSAGE_SUCCESS_AFTER_PLAY = chrome.i18n.getMessage('messageAfterPlay')
 
+//CONTENT
 
+export const CONTENT_BACK_INPUT_PLACEHOLDER = chrome.i18n.getMessage('contentBackInputPlaceholder')
+export const CONTENT_I_DONT_KNOW_BUTTON = chrome.i18n.getMessage('contentDontKnowButton')
+export const CONTENT_ANSWER_BUTTON = chrome.i18n.getMessage('contentAnswerButton')
+export const CONTENT_FEEDBACK_SUCCESS = chrome.i18n.getMessage('contentFeedbackSuccess')

@@ -104,6 +104,26 @@
     "description": "Label to stop"
   },
 
+  "contentBackInputPlaceholder": {
+    "message": "Enter your answer here",
+    "description": "Placeholder message to placeholder input of the answer"
+  },
+
+  "contentDontKnowButton": {
+    "message": "I don't know",
+    "description": "Button to I dont know this question"
+  },
+
+  "contentAnswerButton": {
+    "message": "Answer",
+    "description": "Button to Answer this question"
+  },
+
+  "contentFeedbackSuccess": {
+    "message": "Congratulations!",
+    "description": "Label to feedback to success answer"
+  },
+
   "backgroundAddPackage": {
     "message": "Add to Fluany",
     "description": "Label to add in package"

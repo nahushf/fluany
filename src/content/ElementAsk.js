@@ -1,3 +1,4 @@
+import * as translator from 'shared/constants/internacionalization'
 import { sendMessageBackground } from 'shared/helpers'
 import { sendEventButton } from 'analytics/analytics'
 import { initCSS } from './ElementCSS.js'
@@ -33,7 +34,7 @@ const drawElementAsk = (front, back, doSuccess, alarmName, periodInMinutes) => {
 
   const inputAnswer = document.createElement('input')
   addClass(inputAnswer, 'fluany-back-input')
-  inputAnswer.setAttribute('placeholder', 'Digite aqui')
+  inputAnswer.setAttribute('placeholder', translator.CONTENT_BACK_INPUT_PLACEHOLDER)
   contentFlu.appendChild(inputAnswer)
   inputAnswer.focus()
 
@@ -52,12 +53,12 @@ const drawElementAsk = (front, back, doSuccess, alarmName, periodInMinutes) => {
 
   const dontKnowButton = document.createElement('a')
   addClass(dontKnowButton, 'fluany-dontknow-btn')
-  dontKnowButton.textContent = 'Eu não sei'
+  dontKnowButton.textContent = translator.CONTENT_I_DONT_KNOW_BUTTON
   buttons.appendChild(dontKnowButton)
 
   const answerButton = document.createElement('a')
   addClass(answerButton, 'fluany-answer-btn')
-  answerButton.textContent = 'Responder'
+  answerButton.textContent = translator.CONTENT_ANSWER_BUTTON
   buttons.appendChild(answerButton)
 
   const MESSAGE_TO_PLAY = { name: alarmName,
@@ -97,7 +98,7 @@ const drawElementAsk = (front, back, doSuccess, alarmName, periodInMinutes) => {
     elementIsShowing = false
     if (inputAnswer.value.toLowerCase() === back.toLowerCase()) {
       addClass(wrapper, 'success')
-      frontTitle.textContent = 'Ta manjando heim!'
+      frontTitle.textContent = translator.CONTENT_FEEDBACK_SUCCESS
       doSuccess()
     } else {
       addClass(wrapper, 'invalid')
