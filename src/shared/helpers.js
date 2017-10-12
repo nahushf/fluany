@@ -1,7 +1,10 @@
 import uuid from 'uuid/v4'
 import assoc from 'ramda/src/assoc'
 import compose from 'ramda/src/compose'
+import propEq from 'ramda/src/propEq'
+import find from 'ramda/src/find'
 import merge from 'ramda/src/merge'
+import Maybe from 'folktale/maybe'
 
 // insert in storage chrome extension
 export let putStorage = (key, value) => {
@@ -56,6 +59,12 @@ export let getAllKeysInStorage = () => {
       resolve(allKeys)
     })
   })
+}
+
+export const getElementById = (id, state) => find(propEq('id', id), state)
+export const getElementByIdM = (id, state) => {
+  const element = find(propEq('id', id), state)
+  return element ? Maybe.Just(element) : Maybe.Nothing()
 }
 
 export let stopAlarm = (alarmName) => {

@@ -4,40 +4,51 @@ import update from 'ramda/src/update'
 import assoc from 'ramda/src/assoc'
 import propEq from 'ramda/src/propEq'
 import reject from 'ramda/src/reject'
-import find from 'ramda/src/find'
 import head from 'ramda/src/head'
-import { getInLocal, saveInLocal } from 'store/LocalStore'
+import { getInLocal, saveInLocal,  getLocal } from 'store/LocalStore'
 import { getIndexThingById } from 'reducers/stateManipulate'
-import { getRandomInt } from 'shared/helpers'
+import { getRandomInt,  getElementByIdM } from 'shared/helpers'
 import { drawElementAsk } from './ElementAsk.js'
+import Maybe from 'folktale/maybe'
 
-export const loadPacks = async (idPackOfTheAlarm) => {
-  const getElementById = (id, state) => find(propEq('id', id), state)
-  const allPacks = await getInLocal('packState')
-  const indexOfThePack = getIndexThingById(allPacks, idPackOfTheAlarm)
-  const fullPackOfTheAlarm = allPacks[indexOfThePack]
-  const cardsInTraning = fullPackOfTheAlarm.cards
-  const firstPackInTrain = [{id: idPackOfTheAlarm, cards: cardsInTraning}]
-  let packsInTraning = false
+export const loadPacks = async (idAlarmPack) => {
+  const firstPackInTrain = await getLocal('packState')
+        .map(allPacks => {
+          console.log('allPacks', allPacks)
+          return getElementByIdM(idAlarmPack, allPacks)
+            .map(packInAlarm => {
+              return [{
+                id: idAlarmPack,
+                cards: packInAlarm.cards
+              }]
+            }).value
+        })
+        .run()
+        .promise()
 
-  /* If first time that is running the play, -> catch, else -> continue */
-  try {
-    packsInTraning = await getInLocal('packsInTraning')
-  } catch (e) {
-    saveInLocal('packsInTraning', firstPackInTrain)
-    return { packOnAlarm: head(firstPackInTrain), packsInTraning: firstPackInTrain }
-  }
-
-  const elementOfTheAlarm = getElementById(idPackOfTheAlarm, packsInTraning)
-
-  if (elementOfTheAlarm) {
-    return { packOnAlarm: elementOfTheAlarm, packsInTraning }
-  }
-
-  // not found element, so insert
-  const packsInTraningWithNewPack = insert(0, head(firstPackInTrain), packsInTraning)
-  saveInLocal('packsInTraning', packsInTraningWithNewPack)
-  return { packOnAlarm: head(firstPackInTrain), packsInTraning }
+  return await getLocal('packsInTraning')
+    .orElse( _ => {
+      saveInLocal('packsInTraning', firstPackInTrain)
+      return Maybe.Just({
+        packOnAlarm: head(firstPackInTrain),
+        packsInTraning: firstPackInTrain
+      })
+    })
+    .map(training => {
+      console.log('training', training)
+      return getElementByIdM(idAlarmPack, training)
+        .map( packOnAlarm => ({ packOnAlarm, training }))
+        .orElse( _ => {
+          const packsInTrainingWithNewPack = insert(0, head(firstPackInTrain), training)
+          saveInLocal('packsInTraning', packsInTrainingWithNewPack)
+          return Maybe.Just({
+            packOnAlarm: head(firstPackInTrain),
+            training
+          })
+        })
+    })
+    .run()
+    .promise()
 }
 
 export const getRandomCard = (cards) => {
@@ -45,17 +56,27 @@ export const getRandomCard = (cards) => {
   return cards[indexCardBeingUsed]
 }
 
-export const ask = async (idPackInTraning, alarmName, periodInMinutes) => {
-  const packs = await loadPacks(idPackInTraning)
-  if (packs.packOnAlarm.cards.length > 0) {
-    const card = getRandomCard(packs.packOnAlarm.cards)
-    const doSuccess = () => {
-      const newCards = reject(propEq('id', card.id), packs.packOnAlarm.cards)
-      const index = getIndexThingById(packs.packsInTraning, idPackInTraning)
-      const packsWithoutCardThatHit = update(index, assoc('cards', newCards, packs.packsInTraning[index]), packs.packsInTraning)
-      saveInLocal('packsInTraning', packsWithoutCardThatHit)
-    }
-    drawElementAsk(card.front, card.back, doSuccess, alarmName, periodInMinutes)
-  }
+export const ask = async (idAlarmPack, alarmName, periodInMinutes) => {
+  const packs = await loadPacks(idAlarmPack)
+  packs.matchWith({
+    Just: ({ value }) => {
+
+      const { packOnAlarm, training } = value
+      console.log('packOnAlarm', packOnAlarm)
+      console.log('training', training)
+      if (packOnAlarm.cards.length > 0) {
+        const card = getRandomCard(packOnAlarm.cards)
+        const doSuccess = () => {
+          const newCards = reject(propEq('id', card.id), packOnAlarm.cards)
+          const index = getIndexThingById(training, idAlarmPack)
+          const packsWithoutCardThatHit = update(index, assoc('cards', newCards, training[index]), training)
+          saveInLocal('packsInTraning', packsWithoutCardThatHit)
+        }
+
+        drawElementAsk(card.front, card.back, doSuccess, alarmName, periodInMinutes)
+      }
+
+    },
+    Nothing: () => console.log('Nothing was found')
+  })
 }
-getInLocal('packsInTraning').then(packs=> console.log('------> ', packs))
