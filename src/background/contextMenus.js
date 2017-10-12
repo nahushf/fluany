@@ -3,8 +3,10 @@ import { getInLocal, saveInLocal } from 'store/LocalStore'
 import { sendEventButton } from 'analytics/analytics'
 import * as translator from 'shared/constants/internacionalization'
 
-const PARENT_CONTEXT_ADD_PACKAGES = chrome.contextMenus.create({'title': translator.CONTEXT_ADD_PACKAGE, 'contexts': ['selection']})
-// const PARENT_CONTEXT_EDIT_PACKAGES = chrome.contextMenus.create({"title": translator.CONTEXT_EDIT_IN_PACKAGE});
+const PARENT_CONTEXT_ADD_PACKAGES = chrome.contextMenus.create({
+  'title': translator.CONTEXT_ADD_PACKAGE,
+  'contexts': ['selection']
+})
 
 const handleShowFluany = (info, tab) => {
   sendEventButton('background', 'Open Fluany')
@@ -20,10 +22,11 @@ const handleShowFluany = (info, tab) => {
 }
 
 const contextShowFluany = () => {
-  let id = chrome.contextMenus.create(
-    { 'title': translator.CONTEXT_OPEN_APP,
-		  'contexts': ['page'],
-		  'onclick': handleShowFluany })
+  let id = chrome.contextMenus.create({
+    'title': translator.CONTEXT_OPEN_APP,
+    'contexts': ['page'],
+		'onclick': handleShowFluany
+  })
 
   chrome.windows.onRemoved.addListener(() => {
     saveInLocal('openInPackage', null)
@@ -41,28 +44,24 @@ const handleContextsToGetText = (info, tab) => {
 const contextsToGetText = async () => {
   const packs = await getInLocal('packState')
   packs.forEach((pack) => {
-    chrome.contextMenus.create(
-      { 'title': pack.title,
-        'id': pack.id,
-        'parentId': PARENT_CONTEXT_ADD_PACKAGES,
-        'contexts': ['selection'],
-        'onclick': handleContextsToGetText })
+    chrome.contextMenus.create({
+      'title': pack.title,
+      'id': pack.id,
+      'parentId': PARENT_CONTEXT_ADD_PACKAGES,
+      'contexts': ['selection'],
+      'onclick': handleContextsToGetText
+    })
   })
 }
 
 export const updateContextToPacks = (pack) => {
-  chrome.contextMenus.create(
-    { 'title': pack.title,
-      'id': pack.id,
-      'parentId': PARENT_CONTEXT_ADD_PACKAGES,
-      'contexts': ['selection'],
-      'onclick': handleContextsToGetText })
-
-  // chrome.contextMenus.create(
-  //   { "title": pack.title,
-  //     "id": pack.id,
-  //     "parentId": PARENT_CONTEXT_EDIT_PACKAGES,
-  //     "onclick": handleClickPackEdit });
+  chrome.contextMenus.create({
+    'title': pack.title,
+    'id': pack.id,
+    'parentId': PARENT_CONTEXT_ADD_PACKAGES,
+    'contexts': ['selection'],
+    'onclick': handleContextsToGetText
+  })
 }
 
 const handleClickPackEdit = (info, tab) => {
@@ -81,16 +80,15 @@ const contextEditPacks = async () => {
   try {
     const packs = await getInLocal('packState')
     packs.forEach((pack) => {
-      chrome.contextMenus.create(
-        { 'title': pack.title,
-          'id': pack.id,
-          'parentId': PARENT_CONTEXT_EDIT_PACKAGES,
-          'onclick': handleClickPackEdit })
+      chrome.contextMenus.create({
+        'title': pack.title,
+        'id': pack.id,
+        'parentId': PARENT_CONTEXT_EDIT_PACKAGES,
+        'onclick': handleClickPackEdit
+      })
     })
-  } catch (e) {
-  }
+  } catch (e) {}
 }
 
 contextShowFluany()
 contextsToGetText()
-// contextEditPacks();
