@@ -1,3 +1,5 @@
+import { task, rejected } from 'folktale/concurrency/task'
+
 /**
  * @fileOverview The helpers functions to manage with localstorage
  * @name LocalStore.js
@@ -42,3 +44,18 @@ export const cleanLocalStorage = () => {
     }
   })
 }
+
+/**
+ * A task to get data in localstorage
+ */
+
+export const getLocal = (name) => task( _ => {
+    chrome.storage.local.get(name, obj => {
+      if (obj[name]) {
+        _.resolve(obj[name])
+      }else{
+        _.reject(`${name} was not found`)
+      }
+    })
+  }
+)
