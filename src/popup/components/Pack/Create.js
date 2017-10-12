@@ -24,7 +24,8 @@ let Create = ({
 
   const handleInputNewPackage = (e) => onNewPackage({ title: e.target.value })
 
-  const handleClickCreate = () => {
+  const handleClickCreate = (e) => {
+    e.preventDefault()
     sendEventButton('home', 'Create Package')
     const newPackageId = uuid()
     if (titleEdited === '') {
@@ -48,16 +49,17 @@ let Create = ({
     }
   }
 
-
   const Creating = () => (
     <div className='pack-item--creating'>
       <p className='pack-item--title'>{ translator.PACK_CRETE_TITLE }</p>
-      <input className='pack-item--input'
-        name='newpack'
-        type='text'
-        tabIndex='1'
-        onChange={handleInputNewPackage}
-        placeholder={translator.PACK_CREATE_PLACEHOLDER} />
+      <form onSubmit={handleClickCreate}>
+        <input className='pack-item--input'
+          name='newpack'
+          type='text'
+          tabIndex='1'
+          onChange={handleInputNewPackage}
+          placeholder={translator.PACK_CREATE_PLACEHOLDER} />
+      </form>
 
       <div className='new-pack--buttons'>
         <button className='btn btn-create'
