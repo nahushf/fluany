@@ -5,6 +5,7 @@
  * @license MIT
  */
 import React from 'react'
+import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { changeMessage } from 'actions/flags'
 
@@ -40,7 +41,7 @@ function mapDispatchToProps(dispatch) {
 
 const {
   func, object
-} = React.PropTypes
+} = PropTypes
 
 /**
  * PropTypes

@@ -16,7 +16,7 @@ import Message from 'components/Message'
 
 const Header = () => (
   <div>
-    <LoadPack/>
+    <LoadPack />
     <Logo />
     <Message />
     <Fish3 />

@@ -5,11 +5,11 @@
  * @license MIT
  */
 import React from 'react'
+import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import * as translator from 'shared/constants/internacionalization'
 import isNil from 'ramda/src/isNil'
 import TitlePack from 'components/Pack/TitlePack'
-import DescriptionPack from 'components/Pack/DescriptionPack'
 import Cards from 'components/Card/Cards'
 import Time from './Time'
 import Either from 'components/Either'
@@ -39,12 +39,6 @@ let PackEdit = ({
   }
 
   const indexOfPack = getIndexThingById(packs, isEdit.packageid)
-
-  const refToComponentTitle = (input) => { inRefToTitle = input }
-
-  const handleFocusTitle = () => {
-    inRefToTitle.style.cursor = 'auto'
-  }
 
   const titleProps = {
     onChange: handlePackTitle,
@@ -97,7 +91,7 @@ function mapDispatchToProps(dispatch) {
 
 const {
     func, bool, object, array
-} = React.PropTypes
+} = PropTypes
 
 /**
  * PropTypes

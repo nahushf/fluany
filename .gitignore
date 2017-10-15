@@ -4,3 +4,6 @@ release/
 npm-debug.log
 .nyc_output/
 coverage/
+
+# For intelliJ IDE users
+.idea

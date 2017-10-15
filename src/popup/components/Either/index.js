@@ -5,12 +5,13 @@
  * @license MIT
  */
 import React from 'react'
+import PropTypes from 'prop-types'
 
 const Either = props => props.when ? props.right : props.left;
 
 const {
   element, bool
-} = React.PropTypes
+} = PropTypes
 
 /**
  * PropTypes

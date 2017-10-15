@@ -6,6 +6,7 @@
  */
 
 import React from 'react'
+import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import {
   changeFilterPackage,
@@ -65,7 +66,7 @@ function mapDispatchToProps(dispatch) {
 
 const {
   func, bool, string
-} = React.PropTypes
+} = PropTypes
 
 Search.propTypes = {
   onChangeFilterPackage: func.isRequired,

@@ -26,6 +26,7 @@
   },
   "dependencies": {
     "folktale": "^2.0.1",
+    "prop-types": "^15.6.0",
     "ramda": "^0.23.0",
     "rc-progress": "^2.0.1",
     "react": "^15.3.2",

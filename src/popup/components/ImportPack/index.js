@@ -5,8 +5,7 @@
  * @license MIT
  */
 import React from 'react'
-import uuid from 'uuid/v4'
-import * as translator from 'shared/constants/internacionalization'
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux'
 import { importPackage } from 'actions/pack'
 import { settingNewPack } from 'shared/helpers.js'
@@ -47,7 +46,7 @@ function mapDispatchToProps(dispatch) {
 
 const {
   func
-} = React.PropTypes
+} = PropTypes
 
 /**
  * PropTypes

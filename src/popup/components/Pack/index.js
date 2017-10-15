@@ -5,8 +5,8 @@
  */
 
 import React from 'react'
+import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import DescriptionPack from './DescriptionPack'
 import Delete from './Delete'
 import TitlePack from './TitlePack'
 import Progress from './Progress'
@@ -114,7 +114,7 @@ function mapDispatchToProps(dispatch) {
 
 const {
     func, number, bool, string, array
-} = React.PropTypes
+} = PropTypes
 
 /**
  * PropTypes

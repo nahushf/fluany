@@ -5,6 +5,7 @@
  * @license MIT
  */
 import React from 'react'
+import PropTypes from 'prop-types'
 import * as translator from 'shared/constants/internacionalization'
 
 /**
@@ -57,8 +58,8 @@ const TitlePack = ({
 }
 
 const {
-  func, string, bool
-} = React.PropTypes
+  func, string
+} = PropTypes
 
 /**
  * PropTypes

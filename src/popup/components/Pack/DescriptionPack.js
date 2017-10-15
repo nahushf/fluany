@@ -6,6 +6,7 @@
  */
 
 import React from 'react'
+import PropTypes from 'prop-types'
 import * as translator from 'shared/constants/internacionalization'
 
 const DescriptionPack = ({
@@ -32,7 +33,7 @@ const DescriptionPack = ({
 
 const {
   func, string
-} = React.PropTypes
+} = PropTypes
 
 /**
  * PropTypes

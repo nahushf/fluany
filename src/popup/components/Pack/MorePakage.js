@@ -6,6 +6,7 @@
  */
 
 import React from 'react'
+import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { changePagination } from 'actions/flags'
 import * as translator from 'shared/constants/internacionalization'
@@ -44,7 +45,7 @@ function mapDispatchToProps(dispatch) {
 
 const {
   func, string, number, array
-} = React.PropTypes
+} = PropTypes
 
 /**
  * PropTypes
