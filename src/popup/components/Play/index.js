@@ -37,8 +37,7 @@ let Play = ({
   const alarm = Remember({
     name: `ALARM_${packageid}`,
     delayInMinutes: 1,
-    periodInMinutes: interval,
-    log: true
+    periodInMinutes: interval
   })
 
   const handleClickPlay = (e) => {
