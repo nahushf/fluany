@@ -6,6 +6,7 @@
  */
 
 import React from 'react'
+import PropTypes from 'prop-types'
 import * as translator from 'shared/constants/internacionalization'
 import isNil from 'ramda/src/isNil'
 import { isEditingCard } from 'actions/pack'
@@ -59,7 +60,7 @@ const CardEdit = ({
 
 const {
   func, number, array, object
-} = React.PropTypes
+} = PropTypes
 
 /**
  * PropTypes

@@ -6,6 +6,7 @@
  */
 
 import React from 'react'
+import PropTypes from 'prop-types'
 import propEq from 'ramda/src/propEq'
 import find from 'ramda/src/find'
 import { connect } from 'react-redux'
@@ -75,7 +76,7 @@ function mapDispatchToProps(dispatch) {
 
 const {
     func, number, string, array
-} = React.PropTypes
+} = PropTypes
 
 /**
  * PropTypes

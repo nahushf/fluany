@@ -6,6 +6,7 @@
  */
 
 import React from 'react'
+import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import {
   changeColorID,
@@ -70,8 +71,8 @@ function mapDispatchToProps(dispatch) {
 }
 
 const {
-    func, number, bool, string
-} = React.PropTypes
+    func, number, bool
+} = PropTypes
 
 /**
  * PropTypes

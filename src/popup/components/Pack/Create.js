@@ -6,6 +6,7 @@
  */
 
 import React from 'react'
+import PropTypes from 'prop-types'
 import uuid from 'uuid/v4'
 import { connect } from 'react-redux'
 import { addPackage } from 'actions/pack'
@@ -93,7 +94,7 @@ function mapDispatchToProps(dispatch) {
 
 const {
     func, string
-} = React.PropTypes
+} = PropTypes
 
 /**
  * PropTypes

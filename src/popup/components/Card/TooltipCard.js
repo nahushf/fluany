@@ -5,6 +5,7 @@
  * @license MIT
  */
 import React from 'react'
+import PropTypes from 'prop-types'
 import * as translator from 'shared/constants/internacionalization'
 
 const TooltipCard = ({
@@ -24,7 +25,7 @@ const TooltipCard = ({
 
 const {
   func, number, string
-} = React.PropTypes
+} = PropTypes
 
 /**
  * PropTypes

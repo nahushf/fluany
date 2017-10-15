@@ -7,6 +7,7 @@
  */
 
 import React from 'react'
+import PropTypes from 'prop-types'
 import filter from 'ramda/src/filter'
 import toLower from 'ramda/src/toLower'
 import take from 'ramda/src/take'
@@ -88,7 +89,7 @@ const mapStateToProps = (
 
 const {
   array, string
-} = React.PropTypes
+} = PropTypes
 
 /**
  * PropTypes

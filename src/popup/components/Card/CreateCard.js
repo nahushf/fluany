@@ -6,6 +6,7 @@
  */
 
 import React from 'react'
+import PropTypes from 'prop-types'
 import uuid from 'uuid/v4'
 import * as translator from 'shared/constants/internacionalization'
 import { connect } from 'react-redux'
@@ -55,7 +56,7 @@ function mapDispatchToProps(dispatch) {
 
 const {
   func, number, array
-} = React.PropTypes
+} = PropTypes
 
 /**
  * PropTypes

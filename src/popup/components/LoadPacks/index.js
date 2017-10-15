@@ -6,6 +6,7 @@
  */
 
 import React from 'react'
+import PropTypes from 'prop-types'
 import uuid from 'uuid/v4'
 import 'babel-polyfill'
 import { connect } from 'react-redux'
@@ -59,7 +60,7 @@ function mapDispatchToProps(dispatch) {
 
 const {
     func
-} = React.PropTypes
+} = PropTypes
 
 /**
  * PropTypes

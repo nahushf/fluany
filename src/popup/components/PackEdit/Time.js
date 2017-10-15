@@ -6,6 +6,7 @@
  */
 
 import React from 'react'
+import PropTypes from 'prop-types'
 import InputRange from 'react-input-range'
 import { connect } from 'react-redux'
 import { changeTimePackage } from 'actions/pack'
@@ -19,7 +20,7 @@ let Time = ({
 }) => {
 
   const handleTimeChange = (component, value) => {
-		onChangeTimePackage(value, packageid)
+    onChangeTimePackage(value, packageid)
   }
 
   return (
@@ -46,7 +47,7 @@ function mapDispatchToProps(dispatch) {
 
 const {
   func, array, string
-} = React.PropTypes
+} = PropTypes
 
 /**
  * PropTypes

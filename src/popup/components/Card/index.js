@@ -5,6 +5,7 @@
  * @license MIT
  */
 import React from 'react'
+import PropTypes from 'prop-types'
 import * as translator from 'shared/constants/internacionalization'
 import CardEdit from './CardEdit'
 import TooltipCard from './TooltipCard'
@@ -124,8 +125,8 @@ function mapDispatchToProps(dispatch) {
 }
 
 const {
-  func, number, array, object, string
-} = React.PropTypes
+  func, number, array, object
+} = PropTypes
 
 /**
  * PropTypes

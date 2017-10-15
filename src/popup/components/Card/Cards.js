@@ -6,6 +6,7 @@
  */
 
 import React from 'react'
+import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { getIndexThingById } from 'reducers/stateManipulate.js'
 import Card from 'components/Card'
@@ -30,7 +31,7 @@ export const Cards = ({
 
 const {
   number, array, string
-} = React.PropTypes
+} = PropTypes
 
 /**
  * PropTypes

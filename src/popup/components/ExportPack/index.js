@@ -6,6 +6,7 @@
  */
 
 import React from 'react'
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux'
 import { getIndexThingById } from 'reducers/stateManipulate'
 import { sendEventButton } from 'analytics/analytics'
@@ -50,7 +51,7 @@ const mapStateToProps = (
 
 const {
     string, array
-} = React.PropTypes
+} = PropTypes
 
 ExportPack.propTypes = {
   packs: array.isRequired,
