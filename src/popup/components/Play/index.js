@@ -7,6 +7,7 @@
 
 import React from 'react'
 import PropTypes from 'prop-types'
+import Remember from 'remember.chrome'
 import { connect } from 'react-redux'
 import update from 'ramda/src/update'
 import assoc from 'ramda/src/assoc'
@@ -32,7 +33,13 @@ let Play = ({
   percentage,
   interval
 }) => {
-  const alarm = new Alarm('ALARM_' + packageid, interval)
+
+  const alarm = Remember({
+    name: `ALARM_${packageid}`,
+    delayInMinutes: 1,
+    periodInMinutes: interval,
+    log: true
+  })
 
   const handleClickPlay = (e) => {
     e.stopPropagation()
@@ -52,7 +59,7 @@ let Play = ({
         alarm.create()
       } else {
         sendEventButton('home', 'Cancel Package')
-        alarm.cancel()
+        alarm.stop()
       }
 
       if (percentage === 100 && !playing) {

@@ -34,6 +34,7 @@
     "react-input-range": "^0.9.2",
     "react-redux": "^5.0.3",
     "redux": "^3.6.0",
+    "remember.chrome": "^1.0.2",
     "uuid": "^3.1.0"
   },
   "devDependencies": {
