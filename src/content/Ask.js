@@ -55,7 +55,6 @@ export const ask = async (idAlarmPack, alarmName, periodInMinutes) => {
   const packs = await loadPacks(idAlarmPack)
   packs.matchWith({
     Just: ({ value }) => {
-
       const { packOnAlarm, training } = value
       if (!isEmpty(packOnAlarm.cards)) {
         const card = getRandomCard(packOnAlarm.cards)

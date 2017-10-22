@@ -42,21 +42,12 @@ const drawElementAsk = (front, back, doSuccess, alarmName, periodInMinutes) => {
   addClass(buttons, 'fluany-buttons')
   contentFlu.appendChild(buttons)
 
-  const emoji = document.createElement('div')
-  addClass(emoji, 'emoji')
-  addClass(emoji, 'neutral')
-  emoji.innerHTML =
-			` <span class="eyes"></span>
-				<span class="mouth"></span>
-			`
-  contentFlu.appendChild(emoji)
-
-  const dontKnowButton = document.createElement('a')
+  const dontKnowButton = document.createElement('button')
   addClass(dontKnowButton, 'fluany-dontknow-btn')
   dontKnowButton.textContent = translator.CONTENT_I_DONT_KNOW_BUTTON
   buttons.appendChild(dontKnowButton)
 
-  const answerButton = document.createElement('a')
+  const answerButton = document.createElement('button')
   addClass(answerButton, 'fluany-answer-btn')
   answerButton.textContent = translator.CONTENT_ANSWER_BUTTON
   buttons.appendChild(answerButton)
