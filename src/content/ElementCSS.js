@@ -19,8 +19,20 @@ export const initCSS = (wrapper) => {
     transition: background .3s !important;
     animation: fadeIn 1 !importants;
 	}
+  .fluany-success-image{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    max-width: 420px;
+    opacity: 0;
+    visibility: hidden;
+  }
   .fluany-wrapper.invalid{
     background: #fd8a78;
+  }
+  .fluany-wrapper.success .fluany-success-image{
+    opacity: 1;
+    visibility: visible;
   }
   .fluany-wrapper.invalid .fluany-header,
   .fluany-wrapper.success .fluany-header{

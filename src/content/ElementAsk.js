@@ -1,4 +1,5 @@
 import * as translator from 'shared/constants/internacionalization'
+import SuccessIMG from '../assets/response_success.png'
 import { sendMessageBackground } from 'shared/helpers'
 import { sendEventButton } from 'analytics/analytics'
 import { initCSS } from './ElementCSS.js'
@@ -8,6 +9,12 @@ const drawElementAsk = (front, back, doSuccess, alarmName, periodInMinutes) => {
   const wrapper = document.createElement('div')
   addClass(wrapper, 'fluany-wrapper')
   initCSS(wrapper)
+
+  const successIMG = document.createElement('img')
+  successIMG.src = SuccessIMG
+  addClass(successIMG, 'fluany-success-image')
+  initCSS(wrapper)
+  wrapper.appendChild(successIMG)
 
   const header = document.createElement('div')
   addClass(header, 'fluany-header')
