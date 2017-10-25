@@ -5,7 +5,7 @@ import 'babel-polyfill'
 import 'analytics/analytics.js'
 
 console.log('injected..')
-// ask('18d3b1a0-9eea-4b22-bde6-136581f175c3', 'name', 1)
+// ask('eb732fe3-03b5-480f-ad6d-fa5afbc0d890', 'name', 1)
 
 chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
   if (msg.name && (msg.trigger == 'LOAD_PACK')) {

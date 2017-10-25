@@ -17,7 +17,7 @@ export const initCSS = (wrapper) => {
     z-index: 2147483647 !important;
     background: #ffffff;
     transition: background .3s !important;
-    animation: fadeIn 1 !importants;
+    animation: showQuestion .5s ease-in !important;
 	}
   .fluany-success-image{
     position: absolute;
@@ -62,37 +62,8 @@ export const initCSS = (wrapper) => {
   .fluany-header {
       text-align: left;
   }
-  .fluany-header .logo-title{
-    text-transform: uppercase !important;
-    letter-spacing: 4px !important;
-    font-size: 22px !important;
-    float: left !important;
-    margin-bottom: 10px;
-  }
-  .fluany-header .logo-title .flu{
-      color: #8c57a7 !important;
-      font-weight: 200 !important;
-  }
-  .fluany-header .logo-title .flu:after{
-      content: "" !important;
-      width: 20px !important;
-      height: 2px !important;
-      background: #8c57a7 !important;
-      position: absolute !important;
-      margin-left: -18px !important;
-      margin-top: 7px !important;
-  }
-  .fluany-header .logo-title .flu:before{
-      content: "" !important;
-      width: 10px !important;
-      height: 2px !important;
-      background: #8c57a7 !important;
-      position: absolute !important;
-      margin-left: 27px !important;
-      margin-top: 13px !important;
-  }
-  .fluany-header .logo-title .any{
-      color: #3ca87c !important;
+  .fluany-logo{
+    width: 30px !important;
   }
   .fluany-header .fluany-close{
       width: 40px !important;
@@ -130,8 +101,7 @@ export const initCSS = (wrapper) => {
 	}
 	.fluany-front-title{
     font-size: 25px !important;
-    margin-top: 13px !important;
-    margin-bottom: 0;
+    margin: 0 !important;
     text-align: left !important;
     max-width: 100% !important;
     color: #8c57a7 !important;
@@ -142,10 +112,10 @@ export const initCSS = (wrapper) => {
     width: 100% !important;
     border: none !important;
     font-size: 14px !important;
-    background: transparent !important;
-    border-bottom: 1px solid #c2c2c2 !important;
+    background: #f3f3f3 !important;
+    border-radius: 4px !important;
     outline: none !important;
-    padding-top: 0;
+    padding-left: 10px !important;
     color: #7c7c7c !important;
     transition: opacity .2s !important;
 	}
@@ -162,22 +132,26 @@ export const initCSS = (wrapper) => {
 	}
 	.fluany-buttons button{
     width: 49% !important;
-    height: 30px !important;
+    height: 40px !important;
     color: #FFF !important;
     background: #76c0a3 !important;
     border-radius: 4px !important;
     border: none !important;
 	}
   .fluany-buttons .fluany-dontknow-btn{
-    background: #f97a66 !important;
+    background: #ffffff !important;
+    border: 1px solid #f97a66 !important;
+    color: #f97a66 !important;
   }
-  @keyframes fadeIn {
+  @keyframes showQuestion {
     from {
       opacity: 0;
+      transform: translateX(500px)
     }
 
     to {
       opacity: 1;
+      transform: translateX(0)
     }
   }
   @keyframes fadeOut {

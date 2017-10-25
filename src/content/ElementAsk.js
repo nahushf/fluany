@@ -1,5 +1,6 @@
 import * as translator from 'shared/constants/internacionalization'
 import SuccessIMG from '../assets/response_success.png'
+import Logo from '../assets/fluflu.svg'
 import { sendMessageBackground } from 'shared/helpers'
 import { sendEventButton } from 'analytics/analytics'
 import { initCSS } from './ElementCSS.js'
@@ -20,10 +21,9 @@ const drawElementAsk = (front, back, doSuccess, alarmName, periodInMinutes) => {
   addClass(header, 'fluany-header')
   wrapper.appendChild(header)
 
-  const logo = document.createElement('h1')
-  addClass(logo, 'logo-title')
-  logo.innerHTML =
-      `<span class="flu">Flu</span><span class="any">any</span>`
+  const logo = document.createElement('img')
+  logo.src = Logo
+  addClass(logo, 'fluany-logo')
   header.appendChild(logo)
 
   const close = document.createElement('a')
