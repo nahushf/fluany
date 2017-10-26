@@ -48,3 +48,5 @@ export const CONTENT_BACK_INPUT_PLACEHOLDER = chrome.i18n.getMessage('contentBac
 export const CONTENT_I_DONT_KNOW_BUTTON = chrome.i18n.getMessage('contentDontKnowButton')
 export const CONTENT_ANSWER_BUTTON = chrome.i18n.getMessage('contentAnswerButton')
 export const CONTENT_FEEDBACK_SUCCESS = chrome.i18n.getMessage('contentFeedbackSuccess')
+export const CONTENT_NEXT_QUESTION = chrome.i18n.getMessage('contentNextQuestion')
+

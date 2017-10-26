@@ -124,6 +124,11 @@
     "description": "Label to feedback to success answer"
   },
 
+  "contentNextQuestion": {
+    "message": "Próxima pergunta",
+    "description": "Label to show in button when question is accepted"
+  },
+
   "backgroundAddPackage": {
     "message": "Adicionar para o Fluany",
     "description": "Label to add in package"

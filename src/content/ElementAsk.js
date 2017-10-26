@@ -39,6 +39,11 @@ const drawElementAsk = (front, back, doSuccess, alarmName, periodInMinutes) => {
   frontTitle.textContent = front
   contentFlu.appendChild(frontTitle)
 
+  const buttonToNewQuestion = document.createElement('button')
+  buttonToNewQuestion.textContent = translator.CONTENT_NEXT_QUESTION
+  addClass(buttonToNewQuestion, 'fluany-nextquestion-btn')
+  wrapper.appendChild(buttonToNewQuestion)
+
   const inputAnswer = document.createElement('input')
   addClass(inputAnswer, 'fluany-back-input')
   inputAnswer.setAttribute('placeholder', translator.CONTENT_BACK_INPUT_PLACEHOLDER)
