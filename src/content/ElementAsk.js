@@ -1,11 +1,11 @@
 import * as translator from 'shared/constants/internacionalization'
 import SuccessIMG from '../assets/response_success.png'
 import Logo from '../assets/fluflu.svg'
-import { sendMessageBackground } from 'shared/helpers'
+import { sendMessageBackground, stopAlarm } from 'shared/helpers'
 import { sendEventButton } from 'analytics/analytics'
 import { initCSS } from './ElementCSS.js'
 
-const drawElementAsk = (front, back, doSuccess, alarmName, periodInMinutes) => {
+const drawElementAsk = (front, back, doSuccess, alarmName, periodInMinutes, nextQuestion) => {
   let elementIsShowing = true
   const wrapper = document.createElement('div')
   addClass(wrapper, 'fluany-wrapper')
@@ -39,10 +39,10 @@ const drawElementAsk = (front, back, doSuccess, alarmName, periodInMinutes) => {
   frontTitle.textContent = front
   contentFlu.appendChild(frontTitle)
 
-  const buttonToNewQuestion = document.createElement('button')
-  buttonToNewQuestion.textContent = translator.CONTENT_NEXT_QUESTION
-  addClass(buttonToNewQuestion, 'fluany-nextquestion-btn')
-  wrapper.appendChild(buttonToNewQuestion)
+  const buttonNextQuestion = document.createElement('button')
+  buttonNextQuestion.textContent = translator.CONTENT_NEXT_QUESTION
+  addClass(buttonNextQuestion, 'fluany-nextquestion-btn')
+  wrapper.appendChild(buttonNextQuestion)
 
   const inputAnswer = document.createElement('input')
   addClass(inputAnswer, 'fluany-back-input')
@@ -95,6 +95,12 @@ const drawElementAsk = (front, back, doSuccess, alarmName, periodInMinutes) => {
     e.preventDefault()
     addClass(wrapper, 'fadeOut')
     sendMessageBackground(MESSAGE_TO_PLAY)
+  })
+
+  buttonNextQuestion.addEventListener('click', () =>{
+    console.log('clicked..')
+    stopAlarm(alarmName)
+    nextQuestion()
   })
 
   answerButton.addEventListener('click', () => {
