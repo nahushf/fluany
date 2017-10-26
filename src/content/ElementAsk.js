@@ -88,6 +88,7 @@ const drawElementAsk = (front, back, doSuccess, alarmName, periodInMinutes, next
     e.preventDefault()
     addClass(wrapper, 'fadeOut')
     sendMessageBackground(MESSAGE_TO_PLAY)
+    sendEventButton('content', 'Enter I do not question')
   })
 
   close.addEventListener('click', (e) => {
@@ -95,15 +96,17 @@ const drawElementAsk = (front, back, doSuccess, alarmName, periodInMinutes, next
     e.preventDefault()
     addClass(wrapper, 'fadeOut')
     sendMessageBackground(MESSAGE_TO_PLAY)
+    sendEventButton('content', 'Close question')
   })
 
   buttonNextQuestion.addEventListener('click', () =>{
-    console.log('clicked..')
     stopAlarm(alarmName)
     nextQuestion()
+    sendEventButton('content', 'Next question')
   })
 
   answerButton.addEventListener('click', () => {
+    sendEventButton('content', 'Answering question')
     elementIsShowing = false
     if (inputAnswer.value.toLowerCase() === back.toLowerCase()) {
       addClass(wrapper, 'success')
