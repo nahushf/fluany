@@ -1,10 +1,18 @@
 import { stopAlarm } from 'shared/helpers'
-import { getInLocal, saveInLocal } from 'store/LocalStore'
+import { getLocal } from 'store/LocalStore'
 import { ask, loadPacks } from './Ask.js'
+import { of } from 'folktale/concurrency/task'
 import 'babel-polyfill'
 import 'analytics/analytics.js'
 
 // ask('8f460d41-655e-4bfd-a096-1e2fdad1b722', 'name', 1)
+
+getLocal('questionRunning')
+  .map(data => {
+    ask(data.idAlarmPack, data.alarmName, data.periodInMinutes, data.card)
+    return data
+  })
+  .run()
 
 chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
   if (msg.name && (msg.trigger == 'LOAD_PACK')) {

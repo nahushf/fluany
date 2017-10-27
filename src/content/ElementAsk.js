@@ -1,4 +1,5 @@
 import * as translator from 'shared/constants/internacionalization'
+import { saveInLocal } from 'store/LocalStore'
 import SuccessIMG from '../assets/response_success.png'
 import Logo from '../assets/fluflu.svg'
 import { sendMessageBackground, stopAlarm } from 'shared/helpers'
@@ -79,6 +80,7 @@ const drawElementAsk = (front, back, doSuccess, alarmName, periodInMinutes, next
         sendEventButton('content', 'Esc answer')
 		    sendMessageBackground(MESSAGE_TO_PLAY)
         wrapper.outerHTML = ''
+        saveInLocal('questionRunning', false)
       }
     }
   })
@@ -89,6 +91,7 @@ const drawElementAsk = (front, back, doSuccess, alarmName, periodInMinutes, next
     addClass(wrapper, 'fadeOut')
     sendMessageBackground(MESSAGE_TO_PLAY)
     sendEventButton('content', 'Enter I do not question')
+    saveInLocal('questionRunning', false)
   })
 
   close.addEventListener('click', (e) => {
@@ -97,12 +100,14 @@ const drawElementAsk = (front, back, doSuccess, alarmName, periodInMinutes, next
     addClass(wrapper, 'fadeOut')
     sendMessageBackground(MESSAGE_TO_PLAY)
     sendEventButton('content', 'Close question')
+    saveInLocal('questionRunning', false)
   })
 
-  buttonNextQuestion.addEventListener('click', () =>{
+  buttonNextQuestion.addEventListener('click', () => {
     stopAlarm(alarmName)
     nextQuestion()
     sendEventButton('content', 'Next question')
+    saveInLocal('questionRunning', false)
   })
 
   answerButton.addEventListener('click', () => {
@@ -127,6 +132,7 @@ const drawElementAsk = (front, back, doSuccess, alarmName, periodInMinutes, next
     setTimeout(() => {
       wrapper.outerHTML = ''
     }, 5000)
+    saveInLocal('questionRunning', false)
   })
 }
 

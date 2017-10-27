@@ -51,13 +51,13 @@ export const getRandomCard = (cards) => {
   return cards[indexCardBeingUsed]
 }
 
-export const ask = async (idAlarmPack, alarmName, periodInMinutes) => {
+export const ask = async (idAlarmPack, alarmName, periodInMinutes, specificCard) => {
   const packs = await loadPacks(idAlarmPack)
   packs.matchWith({
     Just: ({ value }) => {
       const { packOnAlarm, training } = value
       if (!isEmpty(packOnAlarm.cards)) {
-        const card = getRandomCard(packOnAlarm.cards)
+        const card = specificCard || getRandomCard(packOnAlarm.cards)
         const doSuccess = () => {
           const newCards = reject(propEq('id', card.id), packOnAlarm.cards)
           const index = getIndexThingById(training, idAlarmPack)
@@ -66,7 +66,7 @@ export const ask = async (idAlarmPack, alarmName, periodInMinutes) => {
         }
 
         const nextQuestion = () => ask(idAlarmPack, alarmName, periodInMinutes)
-
+        saveInLocal('questionRunning', { idAlarmPack, alarmName, periodInMinutes, card })
         drawElementAsk(card.front, card.back, doSuccess, alarmName, periodInMinutes, nextQuestion)
       }
 
