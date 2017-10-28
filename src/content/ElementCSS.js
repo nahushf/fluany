@@ -8,7 +8,7 @@ export const initCSS = (wrapper) => {
     font-family: sans-serif;
     position: fixed !important;
     border-radius: 4px;
-    width: 420px !important;
+    width: 440px !important;
     padding: 15px 15px 22px 15px !important;
     font-size: 1.6rem !important;
     box-shadow: 1px 5px 13px rgba(153, 153, 153, 0.3) !important;
@@ -24,7 +24,7 @@ export const initCSS = (wrapper) => {
     position: absolute !important;
     bottom: 0 !important;
     left: 0 !important;
-    max-width: 340px !important;
+    max-width: 360px !important;
     min-height: 140px !important;
     display: none !important;
     transition: all .4s !important;
@@ -60,12 +60,13 @@ export const initCSS = (wrapper) => {
   }
   .fluany-wrapper.invalid .fluany-front-title,
   .fluany-wrapper.fluany-wrapper-success .fluany-front-title{
+    font-size: 22px !important;
     color: #8c57a7 !important;
   }
-  .fluany-wrapper.fluany-wrapper-success, .fluany-wrapper.invalid{
-    width: 340px !important;
+  .fluany-wrapper.fluany-wrapper-success,
+  .fluany-wrapper.invalid{
+    width: 360px !important;
   }
-
   .fluany-wrapper.invalid{
     background: #fee5e4 !important;
     height: 160px !important;

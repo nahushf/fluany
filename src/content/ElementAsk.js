@@ -136,11 +136,8 @@ const drawElementAsk = (front, back, doSuccess, alarmName, periodInMinutes, next
     addClass(contentFlu, 'feedback-message')
     sendMessageBackground(MESSAGE_TO_PLAY)
     setTimeout(() => {
-      wrapper.style.animation = 'fadeOut 2s'
-    }, 3000)
-    setTimeout(() => {
       sendMessageBackground({name: 'hideContentFluany'})
-    }, 5000)
+    }, 4000)
     saveInLocal('questionRunning', false)
   })
 }
