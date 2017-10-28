@@ -66,6 +66,7 @@ export const initCSS = (wrapper) => {
   .fluany-wrapper.fluany-wrapper-success,
   .fluany-wrapper.invalid{
     width: 360px !important;
+    box-sizing: border-box !important;
   }
   .fluany-wrapper.invalid{
     background: #fee5e4 !important;

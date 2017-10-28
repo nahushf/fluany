@@ -119,7 +119,6 @@ const drawElementAsk = (front, back, doSuccess, alarmName, periodInMinutes, next
     stopAlarm(alarmName)
     nextQuestion()
     sendEventButton('content', 'Next question')
-    saveInLocal('questionRunning', false)
   })
 
   answerButton.addEventListener('click', () => {

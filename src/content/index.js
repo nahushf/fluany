@@ -16,7 +16,7 @@ chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
   if (msg.name && (msg.trigger == 'LOAD_PACK')) {
     const idPackInTraning = msg.name.split('_')[1]
     stopAlarm(msg.name)
-    ask(idPackInTraning, msg.name, msg.periodInMinutes)
+    ask(idPackInTraning, msg.name, msg.periodInMinutes, false)
   }
   return true
 })

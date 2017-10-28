@@ -65,7 +65,7 @@ export const ask = async (idAlarmPack, alarmName, periodInMinutes, specificCard)
           saveInLocal('packsInTraning', packsWithoutCardThatHit)
         }
 
-        const nextQuestion = () => ask(idAlarmPack, alarmName, periodInMinutes)
+        const nextQuestion = () => ask(idAlarmPack, alarmName, periodInMinutes, false)
         saveInLocal('questionRunning', { idAlarmPack, alarmName, periodInMinutes, card })
         drawElementAsk(card.front, card.back, doSuccess, alarmName, periodInMinutes, nextQuestion)
       }

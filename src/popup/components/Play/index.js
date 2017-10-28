@@ -58,6 +58,7 @@ let Play = ({
         alarm.create()
       } else {
         sendEventButton('home', 'Cancel Package')
+        saveInLocal('questionRunning', false)
         alarm.stop()
       }
 
