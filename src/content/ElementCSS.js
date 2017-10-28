@@ -5,13 +5,13 @@ export const initCSS = (wrapper) => {
     visibility: hidden;
   }
 	.fluany-wrapper {
-    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif !important;
+    font-family: sans-serif;
     position: fixed !important;
     border-radius: 4px;
     width: 420px !important;
-    padding: 15px 15px 22px 15px;
+    padding: 15px 15px 22px 15px !important;
     font-size: 1.6rem !important;
-    box-shadow: 1px 5px 13px rgba(153, 153, 153, 0.3);
+    box-shadow: 1px 5px 13px rgba(153, 153, 153, 0.3) !important;
     right: 20px !important;
     top: 70px !important;
     z-index: 2147483647 !important;
@@ -19,20 +19,24 @@ export const initCSS = (wrapper) => {
     transition: background .3s !important;
     animation: showQuestion .5s ease-in !important;
 	}
-  .fluany-success-image, .fluany-error-image{
+  .fluany-success-image,
+  .fluany-error-image{
     position: absolute !important;
     bottom: 0 !important;
     left: 0 !important;
-    max-width: 370px !important;
-    display: none;
+    max-width: 340px !important;
+    min-height: 140px !important;
+    display: none !important;
     transition: all .4s !important;
+    box-sizing: border-box !important;
   }
   .fluany-wrapper .fluany-error-title{
-    display: none;
-    text-align: left;
-    color: #8c58a7;
-    font-weight: 600;
-    font-size: 17px;
+    display: none !important;
+    margin: 0 !important;
+    text-align: left !important;
+    color: #8c58a7 !important;
+    font-weight: 600 !important;
+    font-size: 17px !important;
   }
   .fluany-wrapper.fluany-wrapper-success .fluany-nextquestion-btn,
   .fluany-wrapper.fluany-wrapper-success .fluany-success-image{
@@ -40,25 +44,33 @@ export const initCSS = (wrapper) => {
   }
   .fluany-wrapper.invalid .fluany-error-image,
   .fluany-wrapper.invalid .fluany-error-title{
-    display: block;
+    display: block !important;
   }
-  .fluany-wrapper.invalid .fluany-content, .fluany-wrapper.fluany-wrapper-success .fluany-content{
-    padding-left: 30px;
+  .fluany-wrapper.invalid .fluany-content,
+  .fluany-wrapper.fluany-wrapper-success .fluany-content{
+    padding-left: 20px !important;
   }
   .fluany-wrapper.invalid .fluany-header .fluany-logo,
-  .fluany-wrapper.fluany-wrapper-success .fluany-header .fluany-logo{
+  .fluany-wrapper.invalid .fluany-back-input,
+  .fluany-wrapper.invalid .fluany-buttons,
+  .fluany-wrapper.fluany-wrapper-success .fluany-header .fluany-logo,
+  .fluany-wrapper.fluany-wrapper-success .fluany-back-input,
+  .fluany-wrapper.fluany-wrapper-success .fluany-buttons{
     display: none !important;
   }
   .fluany-wrapper.invalid .fluany-front-title,
   .fluany-wrapper.fluany-wrapper-success .fluany-front-title{
     color: #8c57a7 !important;
   }
-  .fluany-wrapper.invalid{
-    background: #fee5e4 !important;
-  }
   .fluany-wrapper.fluany-wrapper-success, .fluany-wrapper.invalid{
     width: 340px !important;
-    min-height: 140px;
+  }
+
+  .fluany-wrapper.invalid{
+    background: #fee5e4 !important;
+    height: 160px !important;
+    animation: fadeIn .3s ease-in !important;
+
   }
   .fluany-wrapper.fluany-wrapper-success{
     height: 160px !important;
@@ -70,7 +82,7 @@ export const initCSS = (wrapper) => {
     top: 0 !important;
   }
   .fluany-header {
-      text-align: left;
+      text-align: left !important;
   }
   .fluany-logo{
     width: 30px !important;
@@ -81,8 +93,8 @@ export const initCSS = (wrapper) => {
       float: right !important;
       position: relative !important;
       cursor: pointer !important;
-      margin-top: -13px;
-      margin-right: -16px;
+      margin-top: -13px !important;
+      margin-right: -16px !important;
   }
   .fluany-header .fluany-close:before, .fluany-header .fluany-close:after{
     content: "" !important;
@@ -103,10 +115,10 @@ export const initCSS = (wrapper) => {
     color: #FFF !important;
     width: 100% !important;
     text-align: left !important;
-    display: block;
+    display: block !important;
     transition: transform .3s !important;
     text-align: right !important;
-    clear: both;
+    clear: both !important;
 	}
 	.fluany-front-title{
     font-size: 25px !important;
@@ -114,10 +126,10 @@ export const initCSS = (wrapper) => {
     text-align: left !important;
     max-width: 100% !important;
     color: #8c57a7 !important;
-    display: block;
+    display: block !important;
 	}
   .fluany-back-input{
-    margin: 0 !important !important;
+    margin: 10px 0 0 0 !important;
     height: 35px !important;
     width: 100% !important;
     border: none !important;
@@ -134,8 +146,8 @@ export const initCSS = (wrapper) => {
 	}
 	.fluany-buttons{
     margin-top: 17px !important;
-    display: flex;
-    justify-content: space-between;
+    display: flex !important;
+    justify-content: space-between !important;
 	}
 	.fluany-wrapper button{
     height: 40px !important;
@@ -144,7 +156,7 @@ export const initCSS = (wrapper) => {
     font-weight: 500 !important;
     font-size: 16px !important;
     transition: all .3s !important;
-    background: #FFF;
+    background: #FFF !important;
     border-radius: 4px !important;
     border: none !important;
   }
@@ -170,7 +182,7 @@ export const initCSS = (wrapper) => {
     box-shadow: none !important;
     display: none !important;
     position: absolute !important;
-    left: 50px !important;
+    left: 40px !important;
     font-size: 15px !important;
     bottom: 30px !important;
     padding: 10px 20px !important;

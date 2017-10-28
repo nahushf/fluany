@@ -98,3 +98,33 @@ export let settingNewPack = (packs) => {
   const mergePack = pack => merge(pack, bootstrapPack())
   return compose(mergeCard, mergePack)(packs)
 }
+
+export const runCodeAllTabs = (code) => {
+  chrome.windows.getAll({
+    populate: true
+  }, function (windows) {
+    var i = 0, w = windows.length, currentWindow;
+    for( ; i < w; i++ ) {
+      currentWindow = windows[i];
+      var j = 0, t = currentWindow.tabs.length, currentTab;
+      for( ; j < t; j++ ) {
+        currentTab = currentWindow.tabs[j];
+        // Skip chrome://
+        if( ! currentTab.url.match(/(chrome):\/\//gi) ) {
+          chrome.tabs.executeScript(currentTab.id, {
+            code
+          });
+        }
+      }
+    }
+  });
+}
+
+export const hideContentFluanyAllTabs = () => {
+  runCodeAllTabs(
+    ` document.querySelectorAll('.fluany-wrapper').forEach(function(wrapper){
+        wrapper.outerHTML =  ''
+      })
+    `
+  )
+}

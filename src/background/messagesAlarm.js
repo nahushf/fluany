@@ -1,4 +1,5 @@
 import Alarm from 'shared/Alarms'
+import { hideContentFluanyAllTabs } from 'shared/helpers'
 import { updateContextToPacks } from './contextMenus'
 
 chrome.alarms.onAlarm.addListener((alarm) => {
@@ -22,5 +23,7 @@ chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
     alarm.cancel() // waiting for response
   } else if (msg.name === 'updateContextAddPackages') {
     updateContextToPacks(msg.trigger) // update context menu with packages...
+  } else if(msg.name === 'hideContentFluany'){
+    hideContentFluanyAllTabs()
   }
 })

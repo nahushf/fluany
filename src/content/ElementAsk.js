@@ -99,8 +99,8 @@ const drawElementAsk = (front, back, doSuccess, alarmName, periodInMinutes, next
   dontKnowButton.addEventListener('click', (e) => {
 	  elementIsShowing = false
     e.preventDefault()
-    addClass(wrapper, 'fadeOut')
     sendMessageBackground(MESSAGE_TO_PLAY)
+    answerButton.click()
     sendEventButton('content', 'Enter I do not question')
     saveInLocal('questionRunning', false)
   })
@@ -134,14 +134,12 @@ const drawElementAsk = (front, back, doSuccess, alarmName, periodInMinutes, next
     }
 
     addClass(contentFlu, 'feedback-message')
-    buttons.style.display = 'none'
-    inputAnswer.style.display = 'none'
     sendMessageBackground(MESSAGE_TO_PLAY)
     setTimeout(() => {
       wrapper.style.animation = 'fadeOut 2s'
     }, 3000)
     setTimeout(() => {
-      wrapper.outerHTML = ''
+      sendMessageBackground({name: 'hideContentFluany'})
     }, 5000)
     saveInLocal('questionRunning', false)
   })
