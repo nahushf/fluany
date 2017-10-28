@@ -57,7 +57,7 @@ export const ask = async (idAlarmPack, alarmName, periodInMinutes, specificCard)
     Just: ({ value }) => {
       const { packOnAlarm, training } = value
       if (!isEmpty(packOnAlarm.cards)) {
-        const card = getRandomCard(packOnAlarm.cards)
+        const card = specificCard || getRandomCard(packOnAlarm.cards)
         const doSuccess = () => {
           const newCards = reject(propEq('id', card.id), packOnAlarm.cards)
           const index = getIndexThingById(training, idAlarmPack)

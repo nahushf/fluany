@@ -54,7 +54,8 @@ const drawElementAsk = (front, back, doSuccess, alarmName, periodInMinutes, next
   const buttonNextQuestion = document.createElement('button')
   buttonNextQuestion.textContent = translator.CONTENT_NEXT_QUESTION
   addClass(buttonNextQuestion, 'fluany-nextquestion-btn')
-  wrapper.appendChild(buttonNextQuestion)
+  if(nextQuestion)
+    wrapper.appendChild(buttonNextQuestion)
 
   const inputAnswer = document.createElement('input')
   addClass(inputAnswer, 'fluany-back-input')

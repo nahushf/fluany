@@ -5,8 +5,6 @@ import { of } from 'folktale/concurrency/task'
 import 'babel-polyfill'
 import 'analytics/analytics.js'
 
-// ask('8f460d41-655e-4bfd-a096-1e2fdad1b722', 'name', 1)
-
 getLocal('questionRunning')
   .map(data => {
     ask(data.idAlarmPack, data.alarmName, data.periodInMinutes, data.card)
