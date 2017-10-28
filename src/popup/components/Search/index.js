@@ -8,6 +8,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
+import * as translator from 'shared/constants/internacionalization'
 import {
   changeFilterPackage,
   toggleActiveSearch
@@ -40,7 +41,7 @@ let Search = ({
       <input
           type='search'
           className='search-input'
-          placeholder='Pesquisar'
+          placeholder={translator.SEARCH_LABEL}
           onChange={handleChangeFilter}
           ref={(input) => { refToSearch = input }}
           value={filterPackage} />

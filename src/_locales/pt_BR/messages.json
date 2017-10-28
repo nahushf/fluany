@@ -54,6 +54,11 @@
     "description": "New question label"
   },
 
+  "searchLabel": {
+    "message": "Pesquisar",
+    "description": "search label"
+  },
+
   "packCreateTitle": {
     "message": "Criar uma nova lista de estudos",
     "description": "Title to create a new study list"
