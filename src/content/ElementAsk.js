@@ -138,10 +138,10 @@ const drawElementAsk = (front, back, doSuccess, alarmName, periodInMinutes, next
     inputAnswer.style.display = 'none'
     sendMessageBackground(MESSAGE_TO_PLAY)
     setTimeout(() => {
-      // wrapper.style.animation = 'fadeOut 2s'
+      wrapper.style.animation = 'fadeOut 2s'
     }, 3000)
     setTimeout(() => {
-      // wrapper.outerHTML = ''
+      wrapper.outerHTML = ''
     }, 5000)
     saveInLocal('questionRunning', false)
   })
