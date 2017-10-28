@@ -12,7 +12,10 @@ const Logo = () => (
     <svg className='octopus-logo' >
       <use xlinkHref='#octopus' />
     </svg>
-    <h1 className='logo-title'><span className='flu'>Flu</span><span className='any'>any</span></h1>
+    <h1 className='logo-title'>
+      <span className='flu'>flu</span>
+      <span className='any'>any</span>
+    </h1>
   </div>
 )
 
