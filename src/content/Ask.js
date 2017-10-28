@@ -52,25 +52,25 @@ export const getRandomCard = (cards) => {
 }
 
 export const ask = async (idAlarmPack, alarmName, periodInMinutes, specificCard) => {
-  // const packs = await loadPacks(idAlarmPack)
-  // packs.matchWith({
-  //   Just: ({ value }) => {
-  //     const { packOnAlarm, training } = value
-  //     if (!isEmpty(packOnAlarm.cards)) {
-  //       const card = specificCard || getRandomCard(packOnAlarm.cards)
-  //       const doSuccess = () => {
-  //         const newCards = reject(propEq('id', card.id), packOnAlarm.cards)
-  //         const index = getIndexThingById(training, idAlarmPack)
-  //         const packsWithoutCardThatHit = update(index, assoc('cards', newCards, training[index]), training)
-  //         saveInLocal('packsInTraning', packsWithoutCardThatHit)
-  //       }
+  const packs = await loadPacks(idAlarmPack)
+  packs.matchWith({
+    Just: ({ value }) => {
+      const { packOnAlarm, training } = value
+      if (!isEmpty(packOnAlarm.cards)) {
+        const card = getRandomCard(packOnAlarm.cards)
+        const doSuccess = () => {
+          const newCards = reject(propEq('id', card.id), packOnAlarm.cards)
+          const index = getIndexThingById(training, idAlarmPack)
+          const packsWithoutCardThatHit = update(index, assoc('cards', newCards, training[index]), training)
+          saveInLocal('packsInTraning', packsWithoutCardThatHit)
+        }
 
-  //       const nextQuestion = () => ask(idAlarmPack, alarmName, periodInMinutes)
-  //       saveInLocal('questionRunning', { idAlarmPack, alarmName, periodInMinutes, card })
-  drawElementAsk('What is your name?', 'a', ()=>{}, 'ldsadl', '1', 'What')
-  //     }
+        const nextQuestion = () => ask(idAlarmPack, alarmName, periodInMinutes)
+        saveInLocal('questionRunning', { idAlarmPack, alarmName, periodInMinutes, card })
+        drawElementAsk(card.front, card.back, doSuccess, alarmName, periodInMinutes, nextQuestion)
+      }
 
-  //   },
-  //   Nothing: () => console.log('Nothing was found')
-  // })
+    },
+    Nothing: () => console.log('Nothing was found')
+  })
 }
