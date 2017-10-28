@@ -114,6 +114,11 @@
     "description": "Button to I dont know this question"
   },
 
+  "contentTheAnswerIs": {
+    "message": "The correct answer is: ",
+    "description": "Label to show the correct answer"
+  },
+
   "contentAnswerButton": {
     "message": "Answer",
     "description": "Button to Answer this question"

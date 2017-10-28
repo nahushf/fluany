@@ -1,6 +1,7 @@
 import * as translator from 'shared/constants/internacionalization'
 import { saveInLocal } from 'store/LocalStore'
 import SuccessIMG from '../assets/response_success.png'
+import ErrorIMG from '../assets/response_error.png'
 import Logo from '../assets/fluflu.svg'
 import { sendMessageBackground, stopAlarm } from 'shared/helpers'
 import { sendEventButton } from 'analytics/analytics'
@@ -12,10 +13,14 @@ const drawElementAsk = (front, back, doSuccess, alarmName, periodInMinutes, next
   addClass(wrapper, 'fluany-wrapper')
   initCSS(wrapper)
 
+  const errorIMG = document.createElement('img')
+  errorIMG.src = ErrorIMG
+  addClass(errorIMG, 'fluany-error-image')
+  wrapper.appendChild(errorIMG)
+
   const successIMG = document.createElement('img')
   successIMG.src = SuccessIMG
   addClass(successIMG, 'fluany-success-image')
-  initCSS(wrapper)
   wrapper.appendChild(successIMG)
 
   const header = document.createElement('div')
@@ -28,12 +33,18 @@ const drawElementAsk = (front, back, doSuccess, alarmName, periodInMinutes, next
   header.appendChild(logo)
 
   const close = document.createElement('a')
+  close.href = '#'
   addClass(close, 'fluany-close')
   header.appendChild(close)
 
   const contentFlu = document.createElement('div')
   addClass(contentFlu, 'fluany-content')
   wrapper.appendChild(contentFlu)
+
+  const errorTitle = document.createElement('p')
+  addClass(errorTitle, 'fluany-error-title')
+  errorTitle.textContent = translator.CONTENT_THE_CORRECT_ANSWER_LABEL
+  contentFlu.appendChild(errorTitle)
 
   const frontTitle = document.createElement('h2')
   addClass(frontTitle, 'fluany-front-title')
@@ -114,7 +125,7 @@ const drawElementAsk = (front, back, doSuccess, alarmName, periodInMinutes, next
     sendEventButton('content', 'Answering question')
     elementIsShowing = false
     if (inputAnswer.value.toLowerCase() === back.toLowerCase()) {
-      addClass(wrapper, 'success')
+      addClass(wrapper, 'fluany-wrapper-success')
       frontTitle.textContent = translator.CONTENT_FEEDBACK_SUCCESS
       doSuccess()
     } else {
@@ -123,14 +134,14 @@ const drawElementAsk = (front, back, doSuccess, alarmName, periodInMinutes, next
     }
 
     addClass(contentFlu, 'feedback-message')
-    addClass(buttons, 'fadeOut')
-    addClass(inputAnswer, 'fadeOut')
+    buttons.style.display = 'none'
+    inputAnswer.style.display = 'none'
     sendMessageBackground(MESSAGE_TO_PLAY)
     setTimeout(() => {
-      wrapper.style.animation = 'fadeOut 2s'
+      // wrapper.style.animation = 'fadeOut 2s'
     }, 3000)
     setTimeout(() => {
-      wrapper.outerHTML = ''
+      // wrapper.outerHTML = ''
     }, 5000)
     saveInLocal('questionRunning', false)
   })

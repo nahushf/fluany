@@ -19,48 +19,50 @@ export const initCSS = (wrapper) => {
     transition: background .3s !important;
     animation: showQuestion .5s ease-in !important;
 	}
-  .fluany-success-image{
+  .fluany-success-image, .fluany-error-image{
     position: absolute !important;
     bottom: 0 !important;
     left: 0 !important;
-    max-width: 420px !important;
-    opacity: 0 !important;
-    visibility: hidden !important;
+    max-width: 370px !important;
+    display: none;
     transition: all .4s !important;
   }
-  .fluany-wrapper.invalid{
-    background: #fd8a78 !important;
+  .fluany-wrapper .fluany-error-title{
+    display: none;
+    text-align: left;
+    color: #8c58a7;
+    font-weight: 600;
+    font-size: 17px;
   }
-  .fluany-wrapper.success .fluany-success-image{
-    opacity: 1 !important;
-    visibility: visible !important;
-  }
-  .fluany-wrapper.success .fluany-nextquestion-btn{
+  .fluany-wrapper.fluany-wrapper-success .fluany-nextquestion-btn,
+  .fluany-wrapper.fluany-wrapper-success .fluany-success-image{
     display: block !important;
   }
-  .fluany-wrapper.invalid .fluany-header,
-  .fluany-wrapper.success .fluany-header{
+  .fluany-wrapper.invalid .fluany-error-image,
+  .fluany-wrapper.invalid .fluany-error-title{
+    display: block;
+  }
+  .fluany-wrapper.invalid .fluany-content, .fluany-wrapper.fluany-wrapper-success .fluany-content{
+    padding-left: 30px;
+  }
+  .fluany-wrapper.invalid .fluany-header .fluany-logo,
+  .fluany-wrapper.fluany-wrapper-success .fluany-header .fluany-logo{
     display: none !important;
   }
   .fluany-wrapper.invalid .fluany-front-title,
-  .fluany-wrapper.success .fluany-front-title{
-    position: absolute !important;
-    left: 70px !important;
-    top: 27px !important;
-    color: rgba(137, 101, 155, 0.47) !important;
+  .fluany-wrapper.fluany-wrapper-success .fluany-front-title{
+    color: #8c57a7 !important;
   }
-  .fluany-wrapper.invalid .fluany-front-title:before{
-    content: "A resposta é:" !important;
-    font-size: 15px !important;
-    color: #ffffff !important;
-    display: block;
-    margin-bottom: 10px;
-    font-weight: 400;
-	}
-
-  .fluany-wrapper.success{
-    background: rgb(226, 245, 238) !important;
+  .fluany-wrapper.invalid{
+    background: #fee5e4 !important;
+  }
+  .fluany-wrapper.fluany-wrapper-success, .fluany-wrapper.invalid{
+    width: 340px !important;
+    min-height: 140px;
+  }
+  .fluany-wrapper.fluany-wrapper-success{
     height: 160px !important;
+    background: #e3f2ec !important;
   }
 	.fluany-wrapper-show {
     opacity: 1 !important;
@@ -97,10 +99,9 @@ export const initCSS = (wrapper) => {
     transform: rotate(-45deg) !important;
   }
 	.fluany-content{
+    position: relative;
     color: #FFF !important;
     width: 100% !important;
-    max-width: 960px !important;
-    margin: 0 auto !important;
     text-align: left !important;
     display: block;
     transition: transform .3s !important;
@@ -116,6 +117,7 @@ export const initCSS = (wrapper) => {
     display: block;
 	}
   .fluany-back-input{
+    margin: 0 !important !important;
     height: 35px !important;
     width: 100% !important;
     border: none !important;
@@ -147,6 +149,7 @@ export const initCSS = (wrapper) => {
     border: none !important;
   }
 	.fluany-buttons button{
+    box-shadow: none !important;
     width: 49% !important;
     background: #76c0a3 !important;
 	}
@@ -155,10 +158,20 @@ export const initCSS = (wrapper) => {
     border: 1px solid #f97a66 !important;
     color: #f97a66 !important;
   }
+  .fluany-buttons .fluany-dontknow-btn:hover, .fluany-dontknow-btn:focus{
+    background: #f97a66 !important;
+    color: #FFF !important;
+  }
+  .fluany-buttons .fluany-answer-btn:hover, .fluany-answer-btn:focus{
+    background: #5aad8d !important;
+    color: #FFF !important;
+  }
   .fluany-wrapper .fluany-nextquestion-btn{
+    box-shadow: none !important;
     display: none !important;
     position: absolute !important;
-    left: 80px !important;
+    left: 50px !important;
+    font-size: 15px !important;
     bottom: 30px !important;
     padding: 10px 20px !important;
     color: #8c57a7 !important;
@@ -195,8 +208,8 @@ export const initCSS = (wrapper) => {
   }
  `,
 
-    head = document.head || document.getElementsByTagName('head')[0],
-    style = document.createElement('style')
+  head = document.head || document.getElementsByTagName('head')[0],
+  style = document.createElement('style')
 
   style.type = 'text/css'
 
