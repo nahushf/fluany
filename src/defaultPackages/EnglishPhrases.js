@@ -1,5 +1,5 @@
 export default {
-  title: 'Useful English Expression | English - Português',
+  title: 'English Expression | English - Português',
   description: 'English expressions available for free to beginners up to advanced users.',
   cards: [
     {

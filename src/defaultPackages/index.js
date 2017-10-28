@@ -1,5 +1,6 @@
 export default [
-  require('./BrazilStates'),
   require('./EnglishPhrases'),
+  require('./FrenchSetences'),
+  require('./GermanSetences'),
   require('./SpanishWords')
 ]

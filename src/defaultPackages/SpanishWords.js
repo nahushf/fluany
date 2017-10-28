@@ -1,6 +1,6 @@
 export default {
-  title: 'Useful Spanish Words | Español - Português',
-  description: 'Spanish words available for free to beginners up to advanced users.',
+  title: 'Spanish Words | Español - Português',
+  description: 'Spanish words available for free to beginners.',
   cards: [
     {
       front: 'donde',
