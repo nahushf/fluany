@@ -6,7 +6,7 @@
 
 <div align="center">
   
-  [![Build Status](https://travis-ci.org/victorvoid/fluany.svg?branch=master)](https://travis-ci.org/victorvoid/fluany)
+  [![Build Status](https://travis-ci.org/victorvoid/fluany.svg?branch=master)](https://travis-ci.org/fluany/fluany)
   
   <strong>Fluany is a chrome extension to memorize and study anything, fast and easy while you're surfing the Internet.</strong>
 </div>
@@ -15,6 +15,10 @@
   <h3>
     <a href="https://chrome.google.com/webstore/detail/fluany/gijlnmefafhloacckomgabbndcepdnce?hl=en">
       Download
+    </a>
+    <span> | </span>
+    <a href="https://www.youtube.com/channel/UCoBSTY_DcJA4tUpqQpRsSIw/videos">
+      Videos
     </a>
     <span> | </span>
     <a href="https://www.fluany.com">
