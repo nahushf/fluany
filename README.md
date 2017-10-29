@@ -4,10 +4,8 @@
 
 <h1 align="center">Fluany</h1>
 
-<div align="center">
-  
-  [![Build Status](https://travis-ci.org/victorvoid/fluany.svg?branch=master)](https://travis-ci.org/fluany/fluany)
-  
+<div align="center">  
+  [![Build Status](https://travis-ci.org/fluany/fluany.svg?branch=master)](https://travis-ci.org/fluany/fluany)
   <strong>Fluany is a chrome extension to memorize and study anything, fast and easy while you're surfing the Internet.</strong>
 </div>
 
