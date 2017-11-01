@@ -49,4 +49,4 @@
 
 ## Articles
 
-[Productivity in Learning with fluany](https://medium.com/@victorvoid/productivity-in-learning-with-fluany-fd808e1b6edc)
+- [Productivity in Learning with fluany](https://medium.com/@victorvoid/productivity-in-learning-with-fluany-fd808e1b6edc)
