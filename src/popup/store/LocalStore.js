@@ -1,11 +1,10 @@
-import { task, rejected } from 'folktale/concurrency/task'
-
 /**
  * @fileOverview The helpers functions to manage with localstorage
  * @name LocalStore.js
- * @author <a href="https://github.com/victorvoid">Victor Igor</a>
- * @license MIT
+ * @license GNU General Public License v3.0
  */
+
+import { task, rejected } from 'folktale/concurrency/task'
 
 /**
  * Save value in localstorage of extension

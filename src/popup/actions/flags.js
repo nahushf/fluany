@@ -1,8 +1,7 @@
 /**
  * @fileOverview All the flags actions
  * @name flags.js<actions>
- * @author <a href="https://github.com/victorvoid">Victor Igor</a>
- * @license MIT
+ * @license GNU General Public License v3.0
  */
 import {
   CHANGE_FILTER_PACKAGE,

@@ -1,7 +1,7 @@
 /**
  * @fileOverview A component to show a package
- * @name index.js<Pack> * @author <a href="https://github.com/victorvoid">Victor Igor</a>
- * @license MIT
+ * @name index.js<Pack>
+ * @license GNU General Public License v3.0
  */
 
 import React from 'react'

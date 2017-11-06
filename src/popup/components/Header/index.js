@@ -1,8 +1,7 @@
 /**
  * @fileOverview The component to show others component in popup header
  * @name index.js<Header>
- * @author <a href="https://github.com/victorvoid">Victor Igor</a>
- * @license MIT
+ * @license GNU General Public License v3.0
  */
 
 import React from 'react'

@@ -1,9 +1,7 @@
 /**
-/**
  * @fileOverview  A component to list store's packs
  * @name PackList.js
- * @author <a href="https://github.com/victorvoid">Victor Igor</a>
- * @license MIT
+ * @license GNU General Public License v3.0
  */
 
 import React from 'react'

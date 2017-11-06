@@ -1,8 +1,7 @@
 /**
  * @fileOverview The store settings to the development environment
  * @name configureStore.dev.js
- * @author <a href="https://github.com/victorvoid">Victor Igor</a>
- * @license MIT
+ * @license GNU General Public License v3.0
  */
 
 import { createStore, applyMiddleware } from 'redux'

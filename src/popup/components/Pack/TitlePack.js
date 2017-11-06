@@ -1,9 +1,9 @@
 /**
  * @fileOverview A component to show and change a Package title
  * @name TitlePack.js
- * @author <a href="https://github.com/victorvoid">Victor Igor</a>
- * @license MIT
+ * @license GNU General Public License v3.0
  */
+
 import React from 'react'
 import PropTypes from 'prop-types'
 import * as translator from 'shared/constants/internacionalization'

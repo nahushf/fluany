@@ -1,8 +1,7 @@
 /**
  * @fileOverview A component to create a new Pack
  * @name Create.js
- * @author <a href="https://github.com/victorvoid">Victor Igor</a>
- * @license MIT
+ * @license GNU General Public License v3.0
  */
 
 import React from 'react'

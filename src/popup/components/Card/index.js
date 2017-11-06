@@ -1,9 +1,9 @@
 /**
  * @fileOverview The card component to show and edit card(Front & Back)
  * @name index.js<Card>
- * @author <a href="https://github.com/victorvoid">Victor Igor</a>
- * @license MIT
+ * @license GNU General Public License v3.0
  */
+
 import React from 'react'
 import PropTypes from 'prop-types'
 import * as translator from 'shared/constants/internacionalization'
