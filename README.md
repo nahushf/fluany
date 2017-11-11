@@ -1,5 +1,5 @@
 <div align="center">
-  <img alt="logo" src="https://github.com/fluany/fluany/blob/master/src/assets/avatar.png" width="160">
+  <img alt="logo" src="https://github.com/fluany/fluany/blob/master/src/assets/avatar.png" width="128">
   </div>
 
 <h1 align="center">Fluany</h1>
