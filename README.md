@@ -6,8 +6,12 @@
 
 <div align="center">  
   
-  [![Build Status](https://travis-ci.org/fluany/fluany.svg?branch=master)](https://travis-ci.org/fluany/fluany)
-  [![Chrome Web Store](https://img.shields.io/chrome-web-store/v/nimelepbpejjlbmoobocpfnjhihnpked.svg)](https://chrome.google.com/webstore/detail/fluany/gijlnmefafhloacckomgabbndcepdnce)
+[![Build Status](https://travis-ci.org/fluany/fluany.svg?branch=master)](https://travis-ci.org/fluany/fluany)
+[![Chrome Web Store](https://img.shields.io/chrome-web-store/d/gijlnmefafhloacckomgabbndcepdnce.svg)](https://chrome.google.com/webstore/detail/fluany/gijlnmefafhloacckomgabbndcepdnce)
+[![Chrome Web Store](https://img.shields.io/chrome-web-store/rating/gijlnmefafhloacckomgabbndcepdnce.svg)](https://chrome.google.com/webstore/detail/fluany/gijlnmefafhloacckomgabbndcepdnce)
+[![GitHub release](https://img.shields.io/github/release/fluany/fluany.svg)](https://github.com/fluany/fluany/releases)
+[![Gitter](https://img.shields.io/gitter/fluany/Lobby.svg)](https://gitter.im/fluany/Lobby)
+
   
 <strong>Fluany is a chrome extension to memorize and study anything, fast and easy while you're surfing the Internet.</strong>
 </div>
