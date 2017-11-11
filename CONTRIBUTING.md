@@ -220,9 +220,13 @@ The labels are loosely grouped by their purpose, but it's not required that ever
 
 Please open an issue on `fluany` if you have suggestions for new labels, and if you notice some labels are missing on some repositories, then please open an issue on that repository.
 
+
 ## How to run development environment
 
 You should do this before editing any code to see how it works.
+
+### [Fluany - Chrome Extension](https://github.com/fluany/fluany)
+
 
 1. run `gulp` which will start webpack-dev-server
 2. in Chrome open `chrome://extensions/`
@@ -237,3 +241,16 @@ You should do this before editing any code to see how it works.
 9. You can edit your codebase with almost 100% hot/full reload support.
 10. You can to use [remote-redux-devtools](https://github.com/zalmoxisus/remote-redux-devtools).
 
+### [Fluany - API](https://github.com/fluany/fluany-api)
+
+|NPM scripts| Description
+|---|---|
+| `yarn dev` | Stops running containers without removing them, compile and run containers
+| `yarn compile` | Compile the project
+| `yarn lint` | Run the eslint
+| `yarn test` | Run all tests with jest
+
+### [Fluany - Website](https://github.com/fluany/fluany.github.io)
+
+1. run `yarn install`
+2. run `gulp` which will start the server
