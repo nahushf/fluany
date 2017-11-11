@@ -50,7 +50,7 @@
 
 | Question | Answer |
 |--------|-------|
-| "I have a question" | [Join the chat](https://gitter.im/fluany/)<br />Or<br />[Create a StackOverflow question](http://stackoverflow.com/questions/tagged/fluany)<br />Or<br />[Open an issue](https://github.com/victorvoid/fluany/issues/new)<br />
+| "I have a question" | [Join the chat](https://gitter.im/fluany/)<br />Or<br />[Open an issue](https://github.com/victorvoid/fluany/issues/new)<br />
 | "I found a bug" | [Open an issue](https://github.com/victorvoid/fluany/issues/new) |
 | "I want to help build Fluany" | [Contributing to Fluany](CONTRIBUTING.md)<br />Then<br />[Choose an issue marked "help wanted"](https://github.com/victorvoid/fluany/issues?q=is%3Aissue+is%3Aopen+label%3A%22help+wanted%22) |
 
