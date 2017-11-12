@@ -7,7 +7,7 @@
 import React from 'react'
 
 const Logo = () => (
-  <div>
+  <div className="logo-content">
     <svg className='octopus-logo' >
       <use xlinkHref='#octopus' />
     </svg>
