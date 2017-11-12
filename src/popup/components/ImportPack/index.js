@@ -30,12 +30,14 @@ let ImportPack = ({
 }) => (<section className='importPack'>
           <a href='#'>
             <label htmlFor='input-import'>
-              <img src={Icon} />
+              <svg className='import-icon'>
+                <use xlinkHref='#icon-import' />
+              </svg>
             </label>
           </a>
             <input type='file'
-                    id='input-import'
-                    onChange={(e) => handleOnChange(e, onImportPackage)} />
+                   id='input-import'
+                   onChange={(e) => handleOnChange(e, onImportPackage)} />
         </section>)
 
 function mapDispatchToProps(dispatch) {
