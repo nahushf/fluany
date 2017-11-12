@@ -10,7 +10,6 @@ import { connect } from 'react-redux'
 import { importPackage } from 'actions/pack'
 import { settingNewPack } from 'shared/helpers.js'
 import { sendEventButton } from 'analytics/analytics'
-import Icon from './import-icon.png'
 
 function onReaderLoad(event, onImportPackage) {
   const packLoaded = JSON.parse(event.target.result)
