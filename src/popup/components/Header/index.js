@@ -11,6 +11,7 @@ import Search from 'components/Search'
 import LoadPack from 'components/LoadPacks'
 import ImportPack from 'components/ImportPack'
 import ExportPack from 'components/ExportPack'
+import Help from 'components/Help'
 import Message from 'components/Message'
 
 const Header = () => (
@@ -19,6 +20,7 @@ const Header = () => (
     <Logo />
     <Message />
     <Fish3 />
+    <Help />
     <ExportPack icon='all' />
     <ImportPack />
     <Search />
