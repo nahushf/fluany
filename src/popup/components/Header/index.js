@@ -13,6 +13,7 @@ import ImportPack from 'components/ImportPack'
 import ExportPack from 'components/ExportPack'
 import Help from 'components/Help'
 import Message from 'components/Message'
+import Profile from 'components/Profile'
 
 const Header = () => (
   <div>
@@ -20,6 +21,7 @@ const Header = () => (
     <Logo />
     <Message />
     <Fish3 />
+    <Profile />
     <Help />
     <ExportPack icon='all' />
     <ImportPack />
