@@ -10,7 +10,7 @@ import {
   LOADING_EDIT_PACKAGES,
   CHANGE_CARD,
   CHANGE_MESSAGE,
-  MENU_TOGGLE,
+  PROFILE_TOGGLE,
   IS_EDIT_PACKAGE,
   NEW_PACKAGE
 } from 'constants/ActionTypes.js'
@@ -96,14 +96,14 @@ export function changeCard (value) {
   }
 }
 
-/** Returns a action to change the menuToggle field in flags store
+/** Returns a action to change the toggleActiveProfile field in flags store
  * @param {String} value
  * @return {Action}
  *         The action to dispatch
  */
-export function menuToggle (value) {
+export function toggleActiveProfile (value) {
   return {
-    type: MENU_TOGGLE,
+    type: PROFILE_TOGGLE,
     value
   }
 }

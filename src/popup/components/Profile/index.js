@@ -1,9 +1,50 @@
 import React from 'react'
+import { connect } from 'react-redux'
+import { toggleActiveProfile } from 'actions/flags'
 
-const Profile = () => (
-  <div className="profile">
+const ProfileContainer = () => (
+    <div className="profile-menu">
+        <div className="profile-menu__hello">
+            <h4>Hello, Fulano</h4>
+            <p>What do you want to do?</p>
+        </div>
+        <a href="#" className="profile-menu__item">
+            <svg className="bug-icon" >
+                <use xlinkHref="#icon-bug"/>
+            </svg>
+            Report a bug
+        </a>
+        <a href="#" className="profile-menu__item">
+            <svg className="logout-icon" >
+                <use xlinkHref="#icon-logout"/>
+            </svg>
+            Logout
+        </a>
+    </div>
+)
+
+const Profile = ({
+  onToggleActiveProfile,
+  profileToggle
+}) => (
+  <div className="profile" onClick={onToggleActiveProfile}>
     <img className="profile-image" src="http://via.placeholder.com/50x50"></img>
+    { profileToggle && <ProfileContainer /> }
   </div>
 )
 
-export default Profile
+const mapStateToProps = (
+    state
+) => {
+  return {
+    profileToggle: state.flags.profileToggle,
+  }
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    onToggleActiveProfile: (...props) => dispatch(toggleActiveProfile(...props))
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Profile)
