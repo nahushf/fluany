@@ -5,7 +5,7 @@ import {
   LOADING_EDIT_PACKAGES,
   CHANGE_CARD,
   CHANGE_MESSAGE,
-  MENU_TOGGLE,
+  PROFILE_TOGGLE,
   IS_EDIT_PACKAGE,
   NEW_PACKAGE
 } from 'constants/ActionTypes.js'
@@ -16,7 +16,7 @@ import {
   changePagination,
   isEditPackage,
   changeCard,
-  menuToggle,
+  toggleActiveProfile,
   changeMessage,
   editPackageLoading
 } from 'actions/flags'
@@ -89,10 +89,10 @@ describe('Flag Actions', () => {
     it('should return the correct type and the passed value', () => {
       const value = true
       const expectedResult = {
-        type: MENU_TOGGLE,
+        type: PROFILE_TOGGLE,
         value
       }
-      expect(menuToggle(value)).toEqual(expectedResult);
+      expect(toggleActiveProfile(value)).toEqual(expectedResult);
     });
   });
 
