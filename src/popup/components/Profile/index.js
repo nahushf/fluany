@@ -23,11 +23,18 @@ const ProfileContainer = () => (
     </div>
 )
 
+const handleClick = () => {
+    console.log('clicked')
+ chrome.tabs.create({'url': chrome.extension.getURL('../../../login/index.html')}, function(tab) {
+     console.log('hahaah')
+  });
+}
+
 const Profile = ({
   onToggleActiveProfile,
   profileToggle
 }) => (
-  <div className="profile" onClick={onToggleActiveProfile}>
+  <div className="profile" onClick={handleClick}>
     <img className="profile-image" src="http://via.placeholder.com/50x50"></img>
     { profileToggle && <ProfileContainer /> }
   </div>

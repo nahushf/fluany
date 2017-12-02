@@ -25,6 +25,7 @@
     ]
   },
   "dependencies": {
+    "axios": "^0.17.1",
     "folktale": "^2.0.1",
     "prop-types": "^15.6.0",
     "ramda": "^0.23.0",
@@ -66,6 +67,7 @@
     "gulp": "^3.9.1",
     "gulp-bg": "0.0.5",
     "gulp-eslint": "^0.15.0",
+    "gulp-stylus": "^2.6.0",
     "gulp-util": "^3.0.6",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^21.2.1",

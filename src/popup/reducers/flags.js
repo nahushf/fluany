@@ -31,7 +31,7 @@ let defaultState = {
   isEditPackage: {newPackage: false, packageid: null},
   newPackage: {title: '', description: ''},
   cardEditing: {front: null, back: null},
-  profileToggle: true
+  profileToggle: false
 }
 
 const flags = (state = defaultState, action) => {

@@ -19,6 +19,7 @@ import webpackDevServer from './dev-env/webpack.server'
 import Manifest from './dev-env/manifest'
 import overrideHotUpdater from './dev-env/lib/override_hot_updater'
 import * as paths from './dev-env/paths'
+import stylus from 'gulp-stylus'
 
 // Program
 
@@ -26,10 +27,35 @@ const args = yargs
   .alias('p', 'production')
   .argv
 
+//stylus login
+gulp.task('login:stylus', function() {
+  gulp.src('src/login/styl/main.styl')
+    .pipe(stylus({
+      compress: true
+    }))
+    .pipe(gulp.dest('build/login/css/'));
+});
+
+gulp.task('login:stylus:build', function() {
+  gulp.src('src/login/styl/main.styl')
+    .pipe(stylus({
+      compress: true
+    }))
+    .pipe(gulp.dest('release/login/css/'));
+});
+
 // _locales for build
 
 gulp.task('locales', () => {
   return gulp.src('./src/_locales/**/*.*').pipe(gulp.dest('build/_locales'))
+})
+
+gulp.task('login', () => {
+  return gulp.src('./src/login/**/*.*').pipe(gulp.dest('build/login'))
+})
+
+gulp.task('login:build', () => {
+  return gulp.src('./src/login/**/*.*').pipe(gulp.dest('release/login'))
 })
 
 gulp.task('locales:build', () => {
@@ -69,7 +95,7 @@ gulp.task('webpack-local', (done) => {
 })
 
 gulp.task('development', (done) => {
-  runSequence('override_webpack', 'manifest', 'webpack-hot', 'locales', done)
+  runSequence('override_webpack', 'manifest', 'webpack-hot', 'locales', 'login', 'login:stylus', done)
 })
 
 gulp.task('extension', (done) => {
@@ -102,7 +128,7 @@ gulp.task('prepare-release-dir', (done) => {
 })
 
 gulp.task('production', (done) => {
-  runSequence('prepare-release-dir', 'manifest', 'webpack-production', 'locales:build', done)
+  runSequence('prepare-release-dir', 'manifest', 'webpack-production', 'locales:build', 'login:build', 'login:stylus:build', done)
 })
 
 gulp.task('run', (done) => {
