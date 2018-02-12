@@ -139,6 +139,11 @@
     "description": "Label to show in button when question is accepted"
   },
 
+  "contentHelp": {
+    "message": "Help",
+    "description": "Label to show in help button when hovered"
+  },
+
   "backgroundAddPackage": {
     "message": "Add to Fluany",
     "description": "Label to add in package"
