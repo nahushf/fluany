@@ -10,6 +10,12 @@ export const CONTEXT_OPEN_APP = chrome.i18n.getMessage('backgroundOpenApp')
 
 //LABELS
 export const SEARCH_LABEL = chrome.i18n.getMessage('searchLabel')
+export const HELP_LABEL = chrome.i18n.getMessage('helpLabel')
+export const EXPORT_LABEL = chrome.i18n.getMessage('exportLabel')
+export const ALL_EXPORT_LABEL = chrome.i18n.getMessage('allExportLabel')
+export const IMPORT_LABEL = chrome.i18n.getMessage('importLabel')
+export const CHANGE_COLOR_LABEL = chrome.i18n.getMessage('changeColorLabel')
+export const DELETE_LABEL = chrome.i18n.getMessage('deleteLabel')
 
 
 // CARDS
@@ -54,7 +60,3 @@ export const CONTENT_ANSWER_BUTTON = chrome.i18n.getMessage('contentAnswerButton
 export const CONTENT_FEEDBACK_SUCCESS = chrome.i18n.getMessage('contentFeedbackSuccess')
 export const CONTENT_NEXT_QUESTION = chrome.i18n.getMessage('contentNextQuestion')
 export const CONTENT_THE_CORRECT_ANSWER_LABEL = chrome.i18n.getMessage('contentTheAnswerIs')
-export const CONTENT_HELP = chrome.i18n.getMessage('contentHelp')
-export const CONTENT_EXPORT = chrome.i18n.getMessage('contentExport')
-export const CONTENT_ALL_EXPORT = chrome.i18n.getMessage('contentAllExport')
-export const CONTENT_IMPORT = chrome.i18n.getMessage('contentImport')

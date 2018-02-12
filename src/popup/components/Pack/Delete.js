@@ -9,6 +9,7 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { removePackage } from 'actions/pack'
 import { changeMessage } from 'actions/flags'
+import Tooltip from 'components/Tooltip'
 import * as translator from 'shared/constants/internacionalization'
 
 export const Delete = ({
@@ -35,6 +36,7 @@ export const Delete = ({
       <svg className='trash-icon' >
         <use xlinkHref='#icon-trash' />
       </svg>
+      <Tooltip name={translator.DELETE_LABEL} />
     </div>
   )
 }

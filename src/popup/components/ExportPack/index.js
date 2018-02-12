@@ -38,7 +38,7 @@ export const ExportPack = ({
           <use xlinkHref={`#icon-export-${icon}`} />
         </svg>
       </a>
-      <Tooltip name={icon === 'pack' ? translator.CONTENT_EXPORT : translator.CONTENT_ALL_EXPORT} />
+      <Tooltip name={icon === 'pack' ? translator.EXPORT_LABEL : translator.ALL_EXPORT_LABEL} />
     </section>
   )
 }

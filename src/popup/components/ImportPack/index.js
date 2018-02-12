@@ -40,7 +40,7 @@ let ImportPack = ({
                   id='input-import'
                   onChange={(e) =>
                             handleOnChange(e, onImportPackage)} />
-          <Tooltip name={translator.CONTENT_IMPORT} />
+          <Tooltip name={translator.IMPORT_LABEL} />
         </section>)
 
 function mapDispatchToProps(dispatch) {

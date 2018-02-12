@@ -74,6 +74,41 @@
     "description": "Button's label to create list"
   },
 
+  "packDeleteLabel": {
+    "message": "Deletar lista",
+    "description": "Label to delete list"
+  },
+
+  "changeColorLabel": {
+    "message": "Trocar cor",
+    "description": "Label to show in change color button when hovered"
+  },
+
+  "deleteLabel": {
+    "message": "Apagar",
+    "description": "Label to show in delete button when hovered"
+  },
+
+  "helpLabel": {
+    "message": "Dúvidas",
+    "description": "Label to show in help button when hovered"
+  },
+
+  "exportLabel": {
+    "message": "Exportar",
+    "description": "Label to show in export button when hovered"
+  },
+
+  "allExportLabel": {
+    "message": "Exportar todos os pacotes",
+    "description": "Label to show in export button when hovered"
+  },
+
+  "importLabel": {
+    "message": "Importar pacotes",
+    "description": "Label to show in import button when hovered"
+  },
+
   "packTitlePlaceholder": {
     "message": "Clique aqui para mudar o título",
     "description": "Placeholder to change the título"
@@ -137,26 +172,6 @@
   "contentNextQuestion": {
     "message": "Próxima pergunta",
     "description": "Label to show in button when question is accepted"
-  },
-
-  "contentHelp": {
-    "message": "Dúvidas",
-    "description": "Label to show in help button when hovered"
-  },
-
-  "contentExport": {
-    "message": "Exportar",
-    "description": "Label to show in export button when hovered"
-  },
-
-  "contentAllExport": {
-    "message": "Exportar todos os pacotes",
-    "description": "Label to show in export button when hovered"
-  },
-
-  "contentImport": {
-    "message": "Importar pacotes",
-    "description": "Label to show in import button when hovered"
   },
 
   "backgroundAddPackage": {

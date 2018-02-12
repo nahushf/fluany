@@ -9,7 +9,7 @@ const handleClick = () => {
 const Help = () => (
   <section className="help-content">
     <a href="#" onClick={handleClick}>?</a>
-    <Tooltip name={translator.CONTENT_HELP} />
+    <Tooltip name={translator.HELP_LABEL} />
   </section>
 )
 

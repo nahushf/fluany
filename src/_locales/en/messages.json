@@ -74,6 +74,36 @@
     "description": "Label to delete list"
   },
 
+  "changeColorLabel": {
+    "message": "Change color",
+    "description": "Label to show in change color button when hovered"
+  },
+
+  "deleteLabel": {
+    "message": "Delete",
+    "description": "Label to show in delete button when hovered"
+  },
+
+  "helpLabel": {
+    "message": "Help",
+    "description": "Label to show in help button when hovered"
+  },
+
+  "exportLabel": {
+    "message": "Export",
+    "description": "Label to show in export button when hovered"
+  },
+
+  "allExportLabel": {
+    "message": "Export all packs",
+    "description": "Label to show in export button when hovered"
+  },
+
+  "importLabel": {
+    "message": "Import packs",
+    "description": "Label to show in import button when hovered"
+  },
+
   "packTitlePlaceholder": {
     "message": "Click here to change the title",
     "description": "Placeholder to change the título"
@@ -137,26 +167,6 @@
   "contentNextQuestion": {
     "message": "Next question",
     "description": "Label to show in button when question is accepted"
-  },
-
-  "contentHelp": {
-    "message": "Help",
-    "description": "Label to show in help button when hovered"
-  },
-
-  "contentExport": {
-    "message": "Export",
-    "description": "Label to show in export button when hovered"
-  },
-
-  "contentAllExport": {
-    "message": "Export all packs",
-    "description": "Label to show in export button when hovered"
-  },
-
-  "contentImport": {
-    "message": "Import packs",
-    "description": "Label to show in import button when hovered"
   },
 
   "backgroundAddPackage": {

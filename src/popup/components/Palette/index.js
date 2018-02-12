@@ -7,6 +7,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
+import Tooltip from 'components/Tooltip'
+import * as translator from 'shared/constants/internacionalization'
 import {
   changeColorID,
   changePackageColor
@@ -58,6 +60,7 @@ let Palette = ({
       <svg className='brush-icon' onClick={handleClickOnPalette}>
         <use xlinkHref='#icon-brush' />
       </svg>
+      <Tooltip name={translator.CHANGE_COLOR_LABEL} />
     </section>
   )
 }
