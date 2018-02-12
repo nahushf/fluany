@@ -56,4 +56,5 @@ export const CONTENT_NEXT_QUESTION = chrome.i18n.getMessage('contentNextQuestion
 export const CONTENT_THE_CORRECT_ANSWER_LABEL = chrome.i18n.getMessage('contentTheAnswerIs')
 export const CONTENT_HELP = chrome.i18n.getMessage('contentHelp')
 export const CONTENT_EXPORT = chrome.i18n.getMessage('contentExport')
+export const CONTENT_ALL_EXPORT = chrome.i18n.getMessage('contentAllExport')
 export const CONTENT_IMPORT = chrome.i18n.getMessage('contentImport')

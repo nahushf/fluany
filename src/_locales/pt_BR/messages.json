@@ -145,6 +145,11 @@
   },
 
   "contentExport": {
+    "message": "Exportar",
+    "description": "Label to show in export button when hovered"
+  },
+
+  "contentAllExport": {
     "message": "Exportar todos os pacotes",
     "description": "Label to show in export button when hovered"
   },

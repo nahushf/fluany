@@ -32,13 +32,13 @@ export const ExportPack = ({
   }
 
   return (
-    <section className='exportPack' onClick={handleClick}>
+    <section className={`exportPack ${icon}`} onClick={handleClick}>
       <a ref={a => { linkA = a }}>
         <svg className='export-icon'>
           <use xlinkHref={`#icon-export-${icon}`} />
         </svg>
       </a>
-      <Tooltip name={translator.CONTENT_EXPORT} />
+      <Tooltip name={icon === 'pack' ? translator.CONTENT_EXPORT : translator.CONTENT_ALL_EXPORT} />
     </section>
   )
 }
