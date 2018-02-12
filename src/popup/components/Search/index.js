@@ -7,6 +7,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
+import Tooltip from 'components/Tooltip'
 import * as translator from 'shared/constants/internacionalization'
 import {
   changeFilterPackage,
@@ -44,6 +45,7 @@ let Search = ({
           onChange={handleChangeFilter}
           ref={(input) => { refToSearch = input }}
           value={filterPackage} />
+      <Tooltip name={translator.SEARCH_LABEL} />
     </section>
   )
 }

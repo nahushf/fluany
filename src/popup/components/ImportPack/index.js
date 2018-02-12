@@ -10,6 +10,8 @@ import { connect } from 'react-redux'
 import { importPackage } from 'actions/pack'
 import { settingNewPack } from 'shared/helpers.js'
 import { sendEventButton } from 'analytics/analytics'
+import Tooltip from 'components/Tooltip'
+import * as translator from 'shared/constants/internacionalization'
 
 function onReaderLoad(event, onImportPackage) {
   const packLoaded = JSON.parse(event.target.result)
@@ -34,9 +36,11 @@ let ImportPack = ({
               </svg>
             </label>
           </a>
-            <input type='file'
-                   id='input-import'
-                   onChange={(e) => handleOnChange(e, onImportPackage)} />
+          <input type='file'
+                  id='input-import'
+                  onChange={(e) =>
+                            handleOnChange(e, onImportPackage)} />
+          <Tooltip name={translator.CONTENT_IMPORT} />
         </section>)
 
 function mapDispatchToProps(dispatch) {

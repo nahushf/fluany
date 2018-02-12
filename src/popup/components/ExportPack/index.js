@@ -9,6 +9,8 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux'
 import { getIndexThingById } from 'reducers/stateManipulate'
 import { sendEventButton } from 'analytics/analytics'
+import Tooltip from 'components/Tooltip'
+import * as translator from 'shared/constants/internacionalization'
 
 export const ExportPack = ({
   packs,
@@ -36,6 +38,7 @@ export const ExportPack = ({
           <use xlinkHref={`#icon-export-${icon}`} />
         </svg>
       </a>
+      <Tooltip name={translator.CONTENT_EXPORT} />
     </section>
   )
 }
