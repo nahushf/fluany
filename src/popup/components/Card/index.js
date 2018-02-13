@@ -87,22 +87,25 @@ export const Card = ({
   }
 
   return (
-      <li className={`card-item ${card.isEditing ? 'isEditing' : 'no-editing'}`} ref={(e) => { listItem = e }}>
-      <CardEdit {...cardEditProps} />
-      <div className={`card-item-block color-${card.colorID}`} onClick={handleClickCard}>
-        <button className='btn-delete' onClick={handleCancelCard}>
-          <span>{translator.CARD_CANCEL}</span>
-        </button>
-        <button className='btn-save' onClick={handleSaveCard}>
-          <svg className='save-icon'>
-            <use xlinkHref='#icon-correct' />
-          </svg>
-          <span>{translator.CARD_SAVE}</span>
-        </button>
-        <TooltipCard handleOnDelete={handleRemoveCard} color={card.colorID} back={card.back} />
-        <p className='card-item--flash card-item--count'>{translator.CARD_FRONT_LABEL}</p>
-        <p className='card-item--count'>{ card.front }</p>
-      </div>
+    <li className={`card-item ${card.isEditing ? 'isEditing' : 'no-editing'}`}
+        ref={(e) => { listItem = e }}>
+      <a href="#" onClick={handleClickCard}>
+        <CardEdit {...cardEditProps} />
+        <div className={`card-item-block color-${card.colorID}`}>
+          <button className='btn-delete' onClick={handleCancelCard}>
+            <span>{translator.CARD_CANCEL}</span>
+          </button>
+          <button className='btn-save' onClick={handleSaveCard}>
+            <svg className='save-icon'>
+              <use xlinkHref='#icon-correct' />
+            </svg>
+            <span>{translator.CARD_SAVE}</span>
+          </button>
+          <TooltipCard handleOnDelete={handleRemoveCard} color={card.colorID} back={card.back} />
+          <p className='card-item--flash card-item--count'>{translator.CARD_FRONT_LABEL}</p>
+          <p className='card-item--count'>{ card.front }</p>
+        </div>
+      </a>
     </li>
   )
 }
