@@ -33,10 +33,11 @@ let Search = ({
 
   return (
     <section className={`search-content ${isActiveSearch ? 'search-active' : ''}`}>
-      <a>
-        <svg className='search-icon' onClick={handleClickSearch}>
+      <a href="#" onClick={handleClickSearch}>
+        <svg className='search-icon'>
            <use xlinkHref='#icon-search' />
         </svg>
+        <Tooltip name={translator.SEARCH_LABEL} />
       </a>
       <input
           type='search'
@@ -45,7 +46,6 @@ let Search = ({
           onChange={handleChangeFilter}
           ref={(input) => { refToSearch = input }}
           value={filterPackage} />
-      <Tooltip name={translator.SEARCH_LABEL} />
     </section>
   )
 }
