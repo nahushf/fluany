@@ -13,6 +13,8 @@ import { sendEventButton } from 'analytics/analytics'
 import Tooltip from 'components/Tooltip'
 import * as translator from 'shared/constants/internacionalization'
 
+let fileInput
+
 function onReaderLoad(event, onImportPackage) {
   const packLoaded = JSON.parse(event.target.result)
   const packages = packLoaded.map(settingNewPack)
@@ -26,10 +28,14 @@ function handleOnChange(e, onImportPackage) {
   reader.readAsText(e.target.files[0])
 }
 
+function handleOnClick(){
+  fileInput.click()
+}
+
 let ImportPack = ({
   onImportPackage
 }) => (<section className='importPack'>
-          <a href='#'>
+       <a href='#' onClick={handleOnClick}>
             <label htmlFor='input-import'>
               <svg className='import-icon'>
                 <use xlinkHref='#icon-import' />
@@ -38,6 +44,7 @@ let ImportPack = ({
           </a>
           <input type='file'
                   id='input-import'
+                  ref={(input) => {fileInput = input}}
                   onChange={(e) =>
                             handleOnChange(e, onImportPackage)} />
           <Tooltip name={translator.IMPORT_LABEL} />
