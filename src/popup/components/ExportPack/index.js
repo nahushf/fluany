@@ -32,8 +32,8 @@ export const ExportPack = ({
   }
 
   return (
-    <section className={`exportPack ${icon}`} onClick={handleClick}>
-      <a ref={a => { linkA = a }}>
+    <section className={`exportPack ${icon}`}>
+      <a href="#" onClick={handleClick} ref={a => { linkA = a }}>
         <svg className='export-icon'>
           <use xlinkHref={`#icon-export-${icon}`} />
         </svg>
