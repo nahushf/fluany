@@ -29,6 +29,7 @@ let defaultState = {
   isActiveSearch: false,
   paginationPackage: 3,
   isEditPackage: {newPackage: false, packageid: null},
+  isWelcome: true,
   newPackage: {title: '', description: ''},
   cardEditing: {front: null, back: null},
   profileToggle: false

@@ -212,5 +212,20 @@
   "messageAfterPlay": {
     "message": "Ótimo, agora você pode me fechar e continuar navegando!",
     "description": "Label to show after play"
+  },
+
+  "welcomeTitle": {
+    "message": "Todas que você precisa para forçar sua mente a aprender",
+    "description": "Label to show in welcome message"
+  },
+
+  "welcomeFirstFeature": {
+    "message": "Estude enquanto navega pela internet",
+    "description": "Label to show in welcome message"
+  },
+
+  "welcomeSecondFeature": {
+    "message": "Crie usa própia lista de estudos",
+    "description": "Label to show in welcome message"
   }
 }

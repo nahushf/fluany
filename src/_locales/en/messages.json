@@ -207,5 +207,20 @@
   "messageAfterPlay": {
     "message": "Great, now you can close me and continue surfing!",
     "description": "Label to show after play"
+  },
+
+  "welcomeTitle": {
+    "message": "Everything you need to force your mind to learn",
+    "description": "Label to show in welcome message"
+  },
+
+  "welcomeFirstFeature": {
+    "message": "Study while surfing the internet",
+    "description": "Label to show in welcome message"
+  },
+
+  "welcomeSecondFeature": {
+    "message": "Make your own study list",
+    "description": "Label to show in welcome message"
   }
 }

@@ -10,7 +10,7 @@ import { saveInLocal, getLocal } from 'store/LocalStore'
 import { getRandomInt, getElementByIdM } from 'shared/helpers'
 import { getIndexThingById } from 'reducers/stateManipulate'
 import { drawElementAsk } from './ElementAsk.js'
-import { Just } from 'folktale/maybe'
+import { Just, fromNullable } from 'folktale/maybe'
 import { of } from 'folktale/concurrency/task'
 
 export const loadPacks = async (idAlarmPack) => {
@@ -74,3 +74,9 @@ export const ask = async (idAlarmPack, alarmName, periodInMinutes, specificCard)
     Nothing: () => console.log('Nothing was found')
   })
 }
+
+/*
+  fromNullable(specificCard)
+  .map(card => reject(propEq('id', card.id), packOnAlarm.cards))
+  .map(newcards => update(index, assoc('cards', newCards, training[index]), training))
+  .map(packsWithoutCardThatHit => saveInLocal('packsInTraning', packsWithoutCardThatHit)) */

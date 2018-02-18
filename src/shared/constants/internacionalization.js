@@ -60,3 +60,7 @@ export const CONTENT_ANSWER_BUTTON = chrome.i18n.getMessage('contentAnswerButton
 export const CONTENT_FEEDBACK_SUCCESS = chrome.i18n.getMessage('contentFeedbackSuccess')
 export const CONTENT_NEXT_QUESTION = chrome.i18n.getMessage('contentNextQuestion')
 export const CONTENT_THE_CORRECT_ANSWER_LABEL = chrome.i18n.getMessage('contentTheAnswerIs')
+
+//WELCOME
+export const WELCOME_TITLE = chrome.i18n.getMessage('welcomeTitle')
+
