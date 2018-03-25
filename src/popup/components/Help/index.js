@@ -1,6 +1,6 @@
 import React from 'react'
 import Tooltip from 'components/Tooltip'
-import * as translator from 'shared/constants/internacionalization'
+import * as translator from 'shared/constants/i18n'
 
 const handleClick = () => {
   chrome.tabs.create({url: 'https://fluany.com/help'});

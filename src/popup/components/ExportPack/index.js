@@ -10,7 +10,7 @@ import { connect } from 'react-redux'
 import { getIndexThingById } from 'reducers/stateManipulate'
 import { sendEventButton } from 'analytics/analytics'
 import Tooltip from 'components/Tooltip'
-import * as translator from 'shared/constants/internacionalization'
+import * as translator from 'shared/constants/i18n'
 
 export const ExportPack = ({
   packs,

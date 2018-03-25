@@ -8,7 +8,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import Tooltip from 'components/Tooltip'
-import * as translator from 'shared/constants/internacionalization'
+import * as translator from 'shared/constants/i18n'
 import {
   changeColorID,
   changePackageColor

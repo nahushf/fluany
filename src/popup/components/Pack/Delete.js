@@ -10,7 +10,7 @@ import { connect } from 'react-redux'
 import { removePackage } from 'actions/pack'
 import { changeMessage } from 'actions/flags'
 import Tooltip from 'components/Tooltip'
-import * as translator from 'shared/constants/internacionalization'
+import * as translator from 'shared/constants/i18n'
 
 export const Delete = ({
   onRemovePackage,

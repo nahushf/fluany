@@ -6,7 +6,7 @@
 
 import React from 'react'
 import PropTypes from 'prop-types'
-import * as translator from 'shared/constants/internacionalization'
+import * as translator from 'shared/constants/i18n'
 import CardEdit from './CardEdit'
 import TooltipCard from './TooltipCard'
 import isEmpty from 'ramda/src/isEmpty'

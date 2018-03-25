@@ -8,7 +8,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { changePagination } from 'actions/flags'
-import * as translator from 'shared/constants/internacionalization'
+import * as translator from 'shared/constants/i18n'
 
 export const MorePackage = ({
   packs,

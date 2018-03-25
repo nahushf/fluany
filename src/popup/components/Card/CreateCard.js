@@ -7,7 +7,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import uuid from 'uuid/v4'
-import * as translator from 'shared/constants/internacionalization'
+import * as translator from 'shared/constants/i18n'
 import { connect } from 'react-redux'
 import { createCard, isEditingCard } from 'actions/pack'
 import { getIndexThingById } from 'reducers/stateManipulate'

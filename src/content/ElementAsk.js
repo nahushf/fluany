@@ -1,4 +1,4 @@
-import * as translator from 'shared/constants/internacionalization'
+import * as translator from 'shared/constants/i18n'
 import { saveInLocal } from 'store/LocalStore'
 import SuccessIMG from '../assets/response_success.png'
 import ErrorIMG from '../assets/response_error.png'

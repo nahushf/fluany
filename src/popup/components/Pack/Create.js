@@ -12,7 +12,7 @@ import { addPackage } from 'actions/pack'
 import { newPackage, isEditPackage, changeMessage } from 'actions/flags'
 import { sendMessageBackground } from 'shared/helpers.js'
 import { sendEventButton } from 'analytics/analytics'
-import * as translator from 'shared/constants/internacionalization'
+import * as translator from 'shared/constants/i18n'
 
 let Create = ({
     onChangeMessage,

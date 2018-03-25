@@ -11,7 +11,7 @@ import { importPackage } from 'actions/pack'
 import { settingNewPack } from 'shared/helpers.js'
 import { sendEventButton } from 'analytics/analytics'
 import Tooltip from 'components/Tooltip'
-import * as translator from 'shared/constants/internacionalization'
+import * as translator from 'shared/constants/i18n'
 
 let fileInput
 

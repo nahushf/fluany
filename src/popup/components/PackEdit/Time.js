@@ -10,7 +10,7 @@ import InputRange from 'react-input-range'
 import { connect } from 'react-redux'
 import { changeTimePackage } from 'actions/pack'
 import { getIndexThingById } from 'reducers/stateManipulate'
-import * as translator from 'shared/constants/internacionalization'
+import * as translator from 'shared/constants/i18n'
 
 let Time = ({
   onChangeTimePackage,

@@ -7,7 +7,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import * as translator from 'shared/constants/internacionalization'
+import * as translator from 'shared/constants/i18n'
 import isNil from 'ramda/src/isNil'
 import TitlePack from 'components/Pack/TitlePack'
 import Cards from 'components/Card/Cards'

@@ -13,7 +13,7 @@ import Progress from './Progress'
 import Play from 'components/Play'
 import Palette from 'components/Palette'
 import ExportPack from 'components/ExportPack'
-import * as translator from 'shared/constants/internacionalization'
+import * as translator from 'shared/constants/i18n'
 import { isEditPackage } from 'actions/flags'
 import {
   changePackageTitle,

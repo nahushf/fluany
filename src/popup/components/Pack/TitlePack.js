@@ -6,7 +6,7 @@
 
 import React from 'react'
 import PropTypes from 'prop-types'
-import * as translator from 'shared/constants/internacionalization'
+import * as translator from 'shared/constants/i18n'
 
 /**
  * A component to see/edit package's title

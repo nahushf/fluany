@@ -1,7 +1,7 @@
 import 'babel-polyfill'
 import { getInLocal, saveInLocal } from 'store/LocalStore'
 import { sendEventButton } from 'analytics/analytics'
-import * as translator from 'shared/constants/internacionalization'
+import * as translator from 'shared/constants/i18n'
 
 const PARENT_CONTEXT_ADD_PACKAGES = chrome.contextMenus.create({
   'title': translator.CONTEXT_ADD_PACKAGE,

@@ -6,7 +6,7 @@
 
 import React from 'react'
 import PropTypes from 'prop-types'
-import * as translator from 'shared/constants/internacionalization'
+import * as translator from 'shared/constants/i18n'
 import isNil from 'ramda/src/isNil'
 import { isEditingCard } from 'actions/pack'
 import { getIndexThingById } from 'reducers/stateManipulate'

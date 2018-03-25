@@ -6,7 +6,7 @@ import {
   WELCOME_TITLE,
   WELCOME_FIRST_FEATURE,
   WELCOME_SECOND_FEATURE
-} from 'shared/constants/internacionalization'
+} from 'shared/constants/i18n'
 
 const handleLogin = () => {
   chrome.tabs.create({'url': chrome.extension.getURL('../../../login/index.html')}, (tab) => {
