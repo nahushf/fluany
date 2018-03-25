@@ -6,7 +6,7 @@ if (chrome.browserAction) {
 
 	// When we defined page_action
 } else if (chrome.pageAction) {
-  const showPageAction = function (tabId) {
+  const showPageAction = (tabId) => {
     chrome.pageAction.show(tabId)
 
     chrome.pageAction.setIcon({
@@ -16,7 +16,7 @@ if (chrome.browserAction) {
   }
 
   // Show page action on each page update
-  chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
+  chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
     showPageAction(tabId)
   })
 }

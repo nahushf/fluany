@@ -1,5 +1,15 @@
-import { saveInLocal } from 'store/LocalStore'
-import { settingNewPack } from 'shared/helpers'
 import defaultPackages from '../defaultPackages'
+
+import {
+  settingNewPack
+} from 'shared/helpers'
+
+import {
+  saveInLocal,
+  getInLocal
+} from 'store/LocalStore'
+
 const packages = defaultPackages.map(settingNewPack)
-saveInLocal('packState', packages)
+
+getInLocal('packState')
+  .catch(() => saveInLocal('packState', packages))

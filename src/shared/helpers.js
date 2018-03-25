@@ -31,7 +31,9 @@ export let getChromeStorage = name => {
     chrome.storage.sync.get(name, obj => {
       if (obj[name]) {
         resolve(obj[name])
-      } else				{ reject(`${name} was not found`) }
+      } else {
+        reject(`${name} was not found`)
+      }
     })
   })
 }
