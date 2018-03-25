@@ -8,6 +8,11 @@ import {
   WELCOME_SECOND_FEATURE
 } from 'shared/constants/internacionalization'
 
+const handleLogin = () => {
+  chrome.tabs.create({'url': chrome.extension.getURL('../../../login/index.html')}, (tab) => {
+  });
+}
+
 const Welcome = () => (
   <div className="welcome">
     <Logo />
@@ -27,8 +32,8 @@ const Welcome = () => (
       </li>
     </ul>
     <div className="actions">
-      <Button bgStyle="secondary">Login</Button>
-      <Button>Signup</Button>
+      <Button onClick={ handleLogin } bgStyle="secondary">Login</Button>
+      <Button onClick={ handleLogin }>Signup</Button>
     </div>
   </div>
 )

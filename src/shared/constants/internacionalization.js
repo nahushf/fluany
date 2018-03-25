@@ -63,4 +63,5 @@ export const CONTENT_THE_CORRECT_ANSWER_LABEL = chrome.i18n.getMessage('contentT
 
 //WELCOME
 export const WELCOME_TITLE = chrome.i18n.getMessage('welcomeTitle')
-
+export const WELCOME_FIRST_FEATURE = chrome.i18n.getMessage('welcomeFirstFeature')
+export const WELCOME_SECOND_FEATURE = chrome.i18n.getMessage('welcomeSecondFeature')

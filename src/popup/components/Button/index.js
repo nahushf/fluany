@@ -6,8 +6,8 @@
 
 import React from 'react'
 
-const Button = ({ children, bgStyle }) => (
-  <button className={`bgbtn ${bgStyle}`}>
+const Button = ({ children, bgStyle, onClick }) => (
+  <button onClick={ onClick } className={`bgbtn ${bgStyle}`}>
     { children }
   </button>
 )

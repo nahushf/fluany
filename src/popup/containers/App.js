@@ -20,7 +20,7 @@ const AppContainer = ({ isEdit }) => (
 
 const App = ({ isWelcome, isEdit }) => (
   <Either
-    when={ isWelcome}
+    when={ isWelcome }
     left={ <AppContainer isEdit={isEdit}/> }
     right={ <Welcome /> } />
 )
